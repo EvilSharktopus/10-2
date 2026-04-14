@@ -1,0 +1,459 @@
+.usm-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.usm-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: usmDropIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes usmDropIn {
+  from { opacity: 0; transform: translateY(-20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Header ── */
+.usm-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.usm-header-left {
+  display: flex;
+  gap: 16px;
+}
+
+.usm-icon {
+  font-size: 24px;
+  background: var(--accent-dim);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(var(--accent-rgb, 99, 102, 241), 0.2);
+}
+
+.usm-title {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.usm-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.usm-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.usm-close:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+/* ── Steps ── */
+.usm-steps {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--surface-hover);
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+
+.usm-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.usm-step.active {
+  color: var(--accent);
+}
+
+.usm-step.done {
+  color: var(--text-primary);
+}
+
+.usm-step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.usm-step.active .usm-step-num {
+  background: var(--accent);
+  color: #fff;
+}
+
+.usm-step.done .usm-step-num {
+  background: var(--success);
+  color: #fff;
+}
+
+.usm-step-divider {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin: 0 12px;
+}
+
+/* ── Body Layout ── */
+.usm-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── General Elements ── */
+.usm-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.usm-clear {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.usm-clear:hover {
+  text-decoration: underline;
+}
+
+/* ── Step 1: Sessions ── */
+.usm-selection-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(var(--accent-rgb, 99, 102, 241), 0.2);
+  border-radius: 8px;
+  color: var(--accent-light);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.usm-checkpoint {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.usm-checkpoint-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--surface-hover);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.usm-checkpoint-title {
+  font-weight: 700;
+  flex: 1;
+}
+
+.usm-checkpoint-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--border);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.usm-sessions {
+  display: flex;
+  flex-direction: column;
+}
+
+.usm-session-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.usm-session-row:last-child {
+  border-bottom: none;
+}
+
+.usm-session-row:hover {
+  background: var(--surface-hover);
+}
+
+.usm-session-row.selected {
+  background: rgba(var(--accent-rgb, 99, 102, 241), 0.05);
+}
+
+.usm-session-row.already-unlocked {
+  opacity: 0.7;
+}
+
+.usm-session-title {
+  flex: 1;
+  font-size: 14px;
+}
+
+.usm-session-badges {
+  display: flex;
+  gap: 6px;
+}
+
+.usm-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.usm-badge-special {
+  background: var(--amber-dim);
+  color: var(--amber);
+}
+
+.usm-badge-unlocked {
+  background: var(--success-dim);
+  color: var(--success);
+}
+
+/* ── Step 2: Students ── */
+.usm-scope-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.usm-scope-card {
+  flex: 1;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  gap: 12px;
+  transition: all 0.2s;
+  align-items: flex-start;
+}
+
+.usm-scope-card input {
+  margin-top: 4px;
+  accent-color: var(--accent);
+}
+
+.usm-scope-card.selected {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.usm-scope-card-content strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.usm-scope-card-content p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.usm-scope-icon {
+  font-size: 24px;
+}
+
+.usm-student-list {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.usm-student-list-header {
+  padding: 12px 16px;
+  background: var(--surface-hover);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.usm-student-row {
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.usm-student-row:last-child {
+  border-bottom: none;
+}
+
+.usm-student-row:hover {
+  background: var(--surface-hover);
+}
+
+.usm-student-row.selected {
+  background: rgba(var(--accent-rgb, 99, 102, 241), 0.05);
+}
+
+.usm-summary {
+  padding: 16px;
+  background: var(--surface-hover);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.usm-summary-icon {
+  font-size: 20px;
+}
+
+/* ── Footer ── */
+.usm-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.usm-btn-ghost {
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.usm-btn-ghost:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.usm-btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.usm-btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.usm-btn-primary:disabled {
+  background: var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* ── Done State ── */
+.usm-done {
+  padding: 60px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.usm-done-icon {
+  font-size: 64px;
+  margin-bottom: 8px;
+  animation: usmPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes usmPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.usm-done h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+}
+
+.usm-done p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.usm-done-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px !important;
+}

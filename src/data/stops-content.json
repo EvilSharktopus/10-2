@@ -1,0 +1,3645 @@
+{
+  "course": {
+    "id": "ss102_globalization",
+    "title": "Social Studies 10-2: Globalization",
+    "teacher": "Mr. McRae",
+    "related_issues": [
+      "RI3",
+      "RI4"
+    ]
+  },
+  "stops": [
+    {
+      "id": "stop_1",
+      "title": "What Even Is Globalization?",
+      "outcomes": [
+        "3.3",
+        "3.4"
+      ],
+      "related_issue": "RI3",
+      "checkpoint_after": false,
+      "sessions": [
+        {
+          "id": "s1_1",
+          "title": "Session 1",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s1_1_hook",
+              "content": "Your Nike shoes were designed in America, made in Vietnam, shipped through China, and sold to you in Alberta. Who actually made the money?"
+            },
+            {
+              "type": "glossary",
+              "id": "s1_1_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_globalization",
+                  "term": "Globalization"
+                },
+                {
+                  "id": "g_economy",
+                  "term": "Economy"
+                },
+                {
+                  "id": "g_trade",
+                  "term": "Trade"
+                },
+                {
+                  "id": "g_multinational",
+                  "term": "Multinational Corporation"
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s1_1_video",
+              "title": "Crash Course #41: Globalization I — The Upside",
+              "youtube_id": "5SnR-e0S6Ic",
+              "chunks": [
+                {
+                  "id": "s1_1_v1_c1",
+                  "title": "What is globalization and why did trade grow?",
+                  "start_seconds": 0,
+                  "end_seconds": 120,
+                  "questions": [
+                    {
+                      "id": "q_s1_1_1",
+                      "question_type": "true_false",
+                      "text": "Trade between countries is something that only started in the last 50 years.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_2",
+                      "question_type": "true_false",
+                      "text": "Multinational corporations only operate in one country.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_3",
+                      "question_type": "fill_blank",
+                      "text": "Three things that made global trade grow were cheaper ___, bigger ___ corporations, and lower ___ on imported goods.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "shipping",
+                            "transport",
+                            "transportation",
+                            "shpping",
+                            "transprt",
+                            "travel"
+                          ]
+                        },
+                        {
+                          "position": 2,
+                          "accepted_answers": [
+                            "multinational",
+                            "multi-national",
+                            "multinatonal",
+                            "transnational",
+                            "international"
+                          ]
+                        },
+                        {
+                          "position": 3,
+                          "accepted_answers": [
+                            "tariffs",
+                            "taxes",
+                            "tarrifs",
+                            "tarifs",
+                            "barriers",
+                            "trade barriers",
+                            "regulations"
+                          ]
+                        }
+                      ],
+                      "points": 3,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_4",
+                      "question_type": "short_answer",
+                      "text": "In your own words — what does globalization actually mean? Write 1-2 sentences like you're texting a friend.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_1_5",
+                      "question_type": "short_answer",
+                      "text": "The video says trade has dramatically increased. Name one reason why you think that happened.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_1_6",
+                      "question_type": "short_answer",
+                      "text": "Do you think it matters where a product is made, as long as it works? Why or why not?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s1_1_v1_c2",
+                  "title": "The journey of a t-shirt",
+                  "start_seconds": 120,
+                  "end_seconds": 300,
+                  "questions": [
+                    {
+                      "id": "q_s1_1_7",
+                      "question_type": "true_false",
+                      "text": "The cotton in most t-shirts is grown in the same country where the shirt is sold.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_8",
+                      "question_type": "true_false",
+                      "text": "Developing countries are forced to raise their tariffs to attract foreign investment.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_9",
+                      "question_type": "fill_blank",
+                      "text": "The video follows a t-shirt made with cotton from ___, spun in ___, and sold in ___.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "america",
+                            "the united states",
+                            "usa",
+                            "us",
+                            "united states",
+                            "the us"
+                          ]
+                        },
+                        {
+                          "position": 2,
+                          "accepted_answers": [
+                            "china",
+                            "china or another country",
+                            "bangladesh",
+                            "india",
+                            "another country"
+                          ]
+                        },
+                        {
+                          "position": 3,
+                          "accepted_answers": [
+                            "europe",
+                            "the united states",
+                            "america",
+                            "usa",
+                            "western countries",
+                            "wealthy countries"
+                          ]
+                        }
+                      ],
+                      "points": 3,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_10",
+                      "question_type": "short_answer",
+                      "text": "List 3 countries involved in making a single piece of clothing.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_1_11",
+                      "question_type": "short_answer",
+                      "text": "Why do companies make their products in faraway countries instead of at home? What's the main advantage?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_1_12",
+                      "question_type": "short_answer",
+                      "text": "Do you think the workers making your clothes are treated fairly? What makes you think that?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s1_1_v1_c3",
+                  "title": "Winners and losers",
+                  "start_seconds": 300,
+                  "end_seconds": 450,
+                  "questions": [
+                    {
+                      "id": "q_s1_1_13",
+                      "question_type": "true_false",
+                      "text": "Globalization has helped reduce poverty in some parts of the world.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_14",
+                      "question_type": "true_false",
+                      "text": "Moving jobs to lower-wage countries is always bad for everyone.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_15",
+                      "question_type": "fill_blank",
+                      "text": "According to the video, about ___ million people have come out of poverty in the last 30 years.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "600",
+                            "six hundred",
+                            "600 million",
+                            "around 600"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_1_16",
+                      "question_type": "short_answer",
+                      "text": "The video says globalization has side effects. Name one positive and one negative side effect mentioned.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_1_17",
+                      "question_type": "short_answer",
+                      "text": "Who do you think benefits MORE from globalization — people in rich countries or people in poor countries? Explain your thinking.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_1_18",
+                      "question_type": "short_answer",
+                      "text": "Go back to the Nike hook at the top of this page. Based on what you just watched — who do you think actually made the money? Has your answer changed?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s1_1_task1",
+              "title": "Globalization Word Sort",
+              "instruction": "Sort each word into the correct column: HELPS globalization grow OR SLOWS globalization down.",
+              "task_type": "sort",
+              "items": [
+                {
+                  "id": "ws_1",
+                  "text": "tariffs",
+                  "correct_column": "slows"
+                },
+                {
+                  "id": "ws_2",
+                  "text": "internet",
+                  "correct_column": "helps"
+                },
+                {
+                  "id": "ws_3",
+                  "text": "cheap shipping",
+                  "correct_column": "helps"
+                },
+                {
+                  "id": "ws_4",
+                  "text": "trade barriers",
+                  "correct_column": "slows"
+                },
+                {
+                  "id": "ws_5",
+                  "text": "smartphones",
+                  "correct_column": "helps"
+                },
+                {
+                  "id": "ws_6",
+                  "text": "import taxes",
+                  "correct_column": "slows"
+                },
+                {
+                  "id": "ws_7",
+                  "text": "multinational corporations",
+                  "correct_column": "helps"
+                },
+                {
+                  "id": "ws_8",
+                  "text": "government restrictions",
+                  "correct_column": "slows"
+                },
+                {
+                  "id": "ws_9",
+                  "text": "free trade agreements",
+                  "correct_column": "helps"
+                },
+                {
+                  "id": "ws_10",
+                  "text": "slow communication",
+                  "correct_column": "slows"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "helps",
+                  "label": "HELPS Globalization Grow"
+                },
+                {
+                  "id": "slows",
+                  "label": "SLOWS Globalization Down"
+                }
+              ],
+              "points": 10,
+              "scored_by": "auto"
+            },
+            {
+              "type": "reflection",
+              "id": "s1_1_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s1_1_1",
+                  "text": "Before today, I thought globalization was...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_1_2",
+                  "text": "One thing that actually surprised me was...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_1_3",
+                  "text": "Something I'm still confused about is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_1_4",
+                  "text": "If I had to explain globalization to my little sibling right now, I would say...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s1_2",
+          "title": "Session 2",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s1_2_hook",
+              "content": "Globalization has made your life cheaper, easier, and more connected. It has also made someone else's life harder. Both things are true at the same time."
+            },
+            {
+              "type": "glossary",
+              "id": "s1_2_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_tariff",
+                  "term": "Tariff"
+                },
+                {
+                  "id": "g_free_trade",
+                  "term": "Free Trade"
+                },
+                {
+                  "id": "g_exchange_rate",
+                  "term": "Exchange Rate"
+                },
+                {
+                  "id": "g_developing_country",
+                  "term": "Developing Country"
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s1_2_video",
+              "title": "Crash Course #42: Globalization II — Good or Bad?",
+              "youtube_id": "s_iwrt7D5OA",
+              "chunks": [
+                {
+                  "id": "s1_2_v1_c1",
+                  "title": "The downsides",
+                  "start_seconds": 0,
+                  "end_seconds": 270,
+                  "questions": [
+                    {
+                      "id": "q_s1_2_1",
+                      "question_type": "true_false",
+                      "text": "Globalization has only had positive effects on people's lives.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_2_2",
+                      "question_type": "true_false",
+                      "text": "The rise of globalization has led people to think more about their community than themselves.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_2_3",
+                      "question_type": "fill_blank",
+                      "text": "The video says that in the West, most people now work in the ___ sector rather than farming or manufacturing.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "service",
+                            "services",
+                            "service sector",
+                            "servis"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_2_4",
+                      "question_type": "fill_blank",
+                      "text": "One environmental consequence of globalization mentioned in the video is the cutting down of ___.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "rainforests",
+                            "rain forests",
+                            "trees",
+                            "forests",
+                            "the rainforest",
+                            "rainforrests"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_2_5",
+                      "question_type": "short_answer",
+                      "text": "The video mentions that globalization has changed people's psychology. What does that mean in plain language?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_2_6",
+                      "question_type": "short_answer",
+                      "text": "Name TWO negative effects of globalization mentioned in this chunk.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_2_7",
+                      "question_type": "short_answer",
+                      "text": "Do you think technology has made people more connected or more isolated? Use an example from your own life.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_2_8",
+                      "question_type": "short_answer",
+                      "text": "The video says globalization has created a service economy. What kinds of jobs do you think that includes? Do any of those jobs exist in your life or your family's life?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s1_2_v1_c2",
+                  "title": "Environment, disease, democracy",
+                  "start_seconds": 270,
+                  "end_seconds": 540,
+                  "questions": [
+                    {
+                      "id": "q_s1_2_9",
+                      "question_type": "true_false",
+                      "text": "Democracy has been spreading around the world since the 1980s.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_2_10",
+                      "question_type": "true_false",
+                      "text": "Being a democracy always means a country will be economically successful.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_2_11",
+                      "question_type": "fill_blank",
+                      "text": "The video says that ___ and political freedom have been on the rise globally since the 1980s.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "democracy",
+                            "democracies",
+                            "democratic government",
+                            "demcracy"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s1_2_12",
+                      "question_type": "short_answer",
+                      "text": "Name one way globalization has negatively affected the environment.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_2_13",
+                      "question_type": "short_answer",
+                      "text": "Is globalization good or bad? Write your answer right now in 2-3 sentences. There is no wrong answer here.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s1_2_14",
+                      "question_type": "short_answer",
+                      "text": "Think about your own life. Name one thing you own or do that only exists because of globalization. Explain the connection.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "source_analysis",
+              "id": "s1_2_source",
+              "title": "First Source Analysis — Describe Only",
+              "instruction": "Look at the supply chain image your teacher provides.",
+              "context": "This is the first time we are doing source analysis in this course. Right now, all you need to do is describe what you see. No opinions yet — just your eyes.",
+              "steps": [
+                {
+                  "step": 1,
+                  "label": "Describe",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s1_2_1",
+                      "question_type": "short_answer",
+                      "text": "List at least 6 things you can see in this image.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s1_2_2",
+                      "question_type": "short_answer",
+                      "text": "What countries or places are shown or labeled?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s1_2_3",
+                      "question_type": "short_answer",
+                      "text": "What product is being tracked? How do you know?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s1_2_4",
+                      "question_type": "short_answer",
+                      "text": "Is there any text in the image? What does it say?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s1_2_5",
+                      "question_type": "short_answer",
+                      "text": "What is the first question that comes to your mind when you look at this?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 2,
+                  "label": "Analyze by Type",
+                  "active": false
+                },
+                {
+                  "step": 3,
+                  "label": "Interpret",
+                  "active": false
+                },
+                {
+                  "step": 4,
+                  "label": "Connect",
+                  "active": false
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s1_2_task1",
+              "title": "Pros and Cons T-Chart",
+              "instruction": "Fill in the chart using what you have learned from both videos. Try to find at least 4 for each side. Then star the strongest point on each side.",
+              "task_type": "tchart",
+              "columns": [
+                {
+                  "id": "pro",
+                  "label": "Globalization is GOOD because..."
+                },
+                {
+                  "id": "con",
+                  "label": "Globalization is BAD because..."
+                }
+              ],
+              "min_per_column": 4,
+              "points": 8,
+              "scored_by": "teacher",
+              "notify_teacher": true
+            },
+            {
+              "type": "reflection",
+              "id": "s1_2_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s1_2_1",
+                  "text": "The opening statement said globalization helps some people and hurts others at the same time. Do you agree? Give one example of each.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_2_2",
+                  "text": "One thing from today's video that connects to something in my real life is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_2_3",
+                  "text": "My opinion on globalization right now — on a scale of 1 to 10, where 1 is totally against it and 10 is totally for it — is a ___. Here's why...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_2_4",
+                  "text": "One question I would ask John Green if I could is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s1_3",
+          "title": "Session 3",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s1_3_hook",
+              "content": "Everything you own has a story. Most of those stories start somewhere you have never been."
+            },
+            {
+              "type": "glossary",
+              "id": "s1_3_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_supply_chain",
+                  "term": "Supply Chain"
+                },
+                {
+                  "id": "g_consumer",
+                  "term": "Consumer"
+                },
+                {
+                  "id": "g_labour",
+                  "term": "Labour"
+                },
+                {
+                  "id": "g_outsourcing",
+                  "term": "Outsourcing"
+                }
+              ]
+            },
+            {
+              "type": "activity",
+              "id": "s1_3_activity",
+              "title": "Where Is Your Stuff From?",
+              "instruction": "Pick 4 items you own or use every day — shoes, phone, jacket, backpack, headphones, hat, game controller, anything. For each one, find the label or look it up to find where it was made. Then ask Mr. McRae for a world map and mark each country with a dot and the product name.",
+              "physical_component": true,
+              "teacher_note": "Provide one physical world map per student.",
+              "fields": [
+                {
+                  "id": "stuff_table",
+                  "type": "table",
+                  "columns": [
+                    "Item",
+                    "Brand",
+                    "Where was it made?",
+                    "How did you find out?"
+                  ],
+                  "rows": 4
+                }
+              ],
+              "questions": [
+                {
+                  "id": "q_s1_3_act_1",
+                  "question_type": "short_answer",
+                  "text": "Were you surprised by any of the countries? Which one and why?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s1_3_act_2",
+                  "question_type": "short_answer",
+                  "text": "Are your items spread out around the world or mostly from one region? What does that tell you?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s1_3_act_3",
+                  "question_type": "short_answer",
+                  "text": "Look at your lines on the map — roughly how far did your stuff travel to get to you?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s1_3_act_4",
+                  "question_type": "short_answer",
+                  "text": "If you found out the person who made one of your items earned $2 a day, would you still buy that product? Be honest. Why or why not?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s1_3_act_5",
+                  "question_type": "short_answer",
+                  "text": "Based on your map — is YOUR life globalized? Explain using at least 2 specific examples from your map.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s1_3_task1",
+              "title": "Globalization True or False Review",
+              "instruction": "Go back through Sessions 1 and 2. Find the answers to these and mark T or F — no guessing.",
+              "task_type": "true_false_list",
+              "items": [
+                {
+                  "id": "tf_review_1",
+                  "text": "Globalization is a new idea that started after the year 2000.",
+                  "correct_answer": false,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_2",
+                  "text": "Multinational corporations operate in more than one country.",
+                  "correct_answer": true,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_3",
+                  "text": "Free trade means there are zero restrictions between countries.",
+                  "correct_answer": false,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_4",
+                  "text": "Globalization has helped reduce poverty in some parts of the world.",
+                  "correct_answer": true,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_5",
+                  "text": "Democracy and economic success always go hand in hand.",
+                  "correct_answer": false,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_6",
+                  "text": "The service economy mostly involves farming and manufacturing.",
+                  "correct_answer": false,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_7",
+                  "text": "Technology has been a major driver of globalization.",
+                  "correct_answer": true,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_8",
+                  "text": "Globalization only affects rich countries.",
+                  "correct_answer": false,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_9",
+                  "text": "Moving manufacturing to lower-wage countries always hurts workers there.",
+                  "correct_answer": false,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "tf_review_10",
+                  "text": "Supply chains can involve many countries for a single product.",
+                  "correct_answer": true,
+                  "points": 1,
+                  "scored_by": "auto"
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s1_3_task2",
+              "title": "Globalization in the News",
+              "instruction": "Find ONE current news headline from today or this week that connects to globalization. You can use your phone.",
+              "task_type": "free_response",
+              "ai_proof_note": "This one is AI-proof — the headline has to be real and current. Be ready to show Mr. McRae the article.",
+              "fields": [
+                {
+                  "id": "news_headline",
+                  "label": "Headline",
+                  "type": "text_input"
+                },
+                {
+                  "id": "news_source",
+                  "label": "Source (where did you find it?)",
+                  "type": "text_input"
+                },
+                {
+                  "id": "news_connection",
+                  "label": "How does this connect to globalization? Write 2-3 sentences.",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "reflection",
+              "id": "s1_3_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s1_3_1",
+                  "text": "Looking at my map, I was most surprised that...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_3_2",
+                  "text": "Globalization affects my daily life because...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_3_3",
+                  "text": "One thing I still do not fully understand is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s1_3_4",
+                  "text": "Going back to the Nike question from Day 1 — my answer now is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "checkpoint_prep",
+              "id": "s1_3_checkpoint",
+              "checkpoint_id": "cp_1",
+              "title": "Get Ready to Talk to Mr. McRae",
+              "instruction": "Before Stop 2 unlocks, you will have a quick conversation. Be ready to talk about:",
+              "talking_points": [
+                "What globalization actually is — in your own words, no notes",
+                "One way it has helped people somewhere in the world",
+                "One way it has hurt people somewhere in the world",
+                "Something from your personal map that surprised you",
+                "Your current opinion — are you for or against globalization, and why?"
+              ],
+              "locks_next_stop": true,
+              "lock_message": "Stop 2 is locked until your checkpoint conversation is complete. Flag Mr. McRae when you are ready."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stop_2",
+      "title": "How Did Globalization Grow?",
+      "outcomes": [
+        "3.5"
+      ],
+      "related_issue": "RI3",
+      "checkpoint_after": true,
+      "checkpoint_id": "cp_quick_1",
+      "sessions": [
+        {
+          "id": "s2_1",
+          "title": "Session 1",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s2_1_hook",
+              "content": "One tweet from Donald Trump can raise the price of your next car by $5,000. How is that even possible?"
+            },
+            {
+              "type": "glossary",
+              "id": "s2_1_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_tariff_s2",
+                  "term": "Tariff"
+                },
+                {
+                  "id": "g_trade_agreement",
+                  "term": "Trade Agreement"
+                },
+                {
+                  "id": "g_wto",
+                  "term": "WTO (World Trade Organization)"
+                },
+                {
+                  "id": "g_usmca",
+                  "term": "USMCA"
+                },
+                {
+                  "id": "g_trade_war",
+                  "term": "Trade War"
+                },
+                {
+                  "id": "g_protectionism",
+                  "term": "Protectionism"
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s2_1_video",
+              "title": "PBS NewsHour: How Tariffs Work",
+              "youtube_id": "trump-tariffs-package-1738618557",
+              "source_url": "https://www.pbs.org/video/trump-tariffs-package-1738618557/",
+              "note": "PBS NewsHour February 2025 — use embed or direct link",
+              "chunks": [
+                {
+                  "id": "s2_1_v1_c1",
+                  "title": "What is a tariff and where did they come from?",
+                  "start_seconds": 0,
+                  "end_seconds": 120,
+                  "questions": [
+                    {
+                      "id": "q_s2_1_1",
+                      "question_type": "true_false",
+                      "text": "Tariffs are a brand new idea invented by Donald Trump.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_2",
+                      "question_type": "true_false",
+                      "text": "Before income taxes existed, tariffs were the main way governments made money.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_3",
+                      "question_type": "fill_blank",
+                      "text": "A tariff is basically a ___ on imported goods.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "tax",
+                            "fee",
+                            "charge",
+                            "levy",
+                            "tarrif",
+                            "taks"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_4",
+                      "question_type": "fill_blank",
+                      "text": "Right up until the Civil War, tariffs raised about ___ per cent of the US government's revenue.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "90",
+                            "ninety",
+                            "90%",
+                            "ninety percent",
+                            "about 90"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_5",
+                      "question_type": "short_answer",
+                      "text": "In your own words — why would a government put a tariff on something coming from another country?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_1_6",
+                      "question_type": "short_answer",
+                      "text": "Can you think of something Canada imports that might have a tariff on it? What is it and why might Canada want to protect it?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s2_1_v1_c2",
+                  "title": "Why do countries use tariffs today?",
+                  "start_seconds": 120,
+                  "end_seconds": 270,
+                  "questions": [
+                    {
+                      "id": "q_s2_1_7",
+                      "question_type": "true_false",
+                      "text": "Tariffs always create more jobs in every industry they touch.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_8",
+                      "question_type": "true_false",
+                      "text": "When one country puts a tariff on another country's goods, the other country often retaliates.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_9",
+                      "question_type": "fill_blank",
+                      "text": "Trump says tariffs will ___ manufacturing in the US.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "revitalize",
+                            "bring back",
+                            "reshore",
+                            "restore",
+                            "revitalise",
+                            "rebuild",
+                            "supercharge"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_10",
+                      "question_type": "short_answer",
+                      "text": "According to the economist in the video, tariffs are a double-edged sword. What does that mean in plain language?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_1_11",
+                      "question_type": "short_answer",
+                      "text": "Name TWO reasons a government might use tariffs.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_1_12",
+                      "question_type": "short_answer",
+                      "text": "If Canada put a 25% tariff on American cars, what do you think would happen to car prices in Canada? Who pays?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s2_1_v1_c3",
+                  "title": "The bigger picture",
+                  "start_seconds": 270,
+                  "end_seconds": 420,
+                  "questions": [
+                    {
+                      "id": "q_s2_1_13",
+                      "question_type": "true_false",
+                      "text": "Most economists agree that tariffs are always good for consumers.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_14",
+                      "question_type": "fill_blank",
+                      "text": "Today, tariffs only make up about ___ per cent of US federal revenue.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "2",
+                            "two",
+                            "2%",
+                            "two percent",
+                            "about 2"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_1_15",
+                      "question_type": "short_answer",
+                      "text": "The video says tariffs helped some industries but hurt others. Give one example of an industry that might be HELPED by tariffs and one that might be HURT.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_1_16",
+                      "question_type": "short_answer",
+                      "text": "The video says tariffs were important in the 1800s but the world has changed a lot since then. What has changed that makes tariffs more complicated today? Use what you learned in Stop 1 to help answer this.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "context",
+              "id": "s2_1_context",
+              "title": "NAFTA is Gone — Meet USMCA",
+              "content": "You might hear the word NAFTA — the North American Free Trade Agreement between Canada, the US, and Mexico from 1994. Here is what you need to know: NAFTA does not exist anymore. In 2020, it was replaced by the USMCA (United States-Mexico-Canada Agreement) — an updated version. Then in 2025, Trump started threatening tariffs on Canada and Mexico anyway, even though USMCA was supposed to prevent that. This is why trade agreements are complicated — they only work if countries actually follow them.",
+              "questions": [
+                {
+                  "id": "q_s2_1_ctx_1",
+                  "question_type": "short_answer",
+                  "text": "Why do you think Trump would threaten tariffs on Canada even though there is already a trade agreement saying he should not?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s2_1_ctx_2",
+                  "question_type": "short_answer",
+                  "text": "Canada is one of America's biggest trading partners. If the US puts tariffs on Canadian goods, what do you think Canada should do? Why?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s2_1_ctx_3",
+                  "question_type": "short_answer",
+                  "text": "Does it surprise you that a country can just ignore a trade agreement? What does that tell you about how global trade actually works?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s2_1_task1",
+              "title": "Tariff Matching",
+              "instruction": "Match each term to its correct definition.",
+              "task_type": "matching",
+              "items": [
+                {
+                  "id": "m1",
+                  "term": "Tariff",
+                  "definition": "A tax on imported goods or services",
+                  "points": 1
+                },
+                {
+                  "id": "m2",
+                  "term": "Trade War",
+                  "definition": "When two or more countries keep raising tariffs against each other",
+                  "points": 1
+                },
+                {
+                  "id": "m3",
+                  "term": "Protectionism",
+                  "definition": "The policy of protecting your own industries from foreign competition",
+                  "points": 1
+                },
+                {
+                  "id": "m4",
+                  "term": "USMCA",
+                  "definition": "The updated trade deal between Canada, the US and Mexico",
+                  "points": 1
+                },
+                {
+                  "id": "m5",
+                  "term": "WTO",
+                  "definition": "The international organization that sets rules for global trade",
+                  "points": 1
+                },
+                {
+                  "id": "m6",
+                  "term": "Retaliation",
+                  "definition": "When one country responds to tariffs with their own tariffs",
+                  "points": 1
+                },
+                {
+                  "id": "m7",
+                  "term": "Free Trade",
+                  "definition": "Trade between countries with few or no restrictions",
+                  "points": 1
+                },
+                {
+                  "id": "m8",
+                  "term": "Trade Deficit",
+                  "definition": "When a country buys more than it sells to other countries",
+                  "points": 1
+                }
+              ],
+              "scored_by": "auto"
+            },
+            {
+              "type": "tasks",
+              "id": "s2_1_task2",
+              "title": "Where Do YOU Stand?",
+              "instruction": "Rate each statement from 1 (strongly disagree) to 5 (strongly agree). Then pick the ONE statement you feel most strongly about and write 2-3 sentences explaining why.",
+              "task_type": "rating_scale",
+              "items": [
+                {
+                  "id": "rs1",
+                  "text": "Countries should be able to make their own rules about trade."
+                },
+                {
+                  "id": "rs2",
+                  "text": "If another country raises tariffs on us, we should raise them back."
+                },
+                {
+                  "id": "rs3",
+                  "text": "Cheaper prices are more important than protecting local jobs."
+                },
+                {
+                  "id": "rs4",
+                  "text": "Canada should stand up to the US even if it hurts our economy."
+                },
+                {
+                  "id": "rs5",
+                  "text": "Globalization has made my life better."
+                }
+              ],
+              "follow_up": {
+                "id": "rs_followup",
+                "text": "Pick the ONE statement you feel most strongly about and write 2-3 sentences explaining why.",
+                "points": 4,
+                "scored_by": "teacher",
+                "notify_teacher": true
+              }
+            },
+            {
+              "type": "reflection",
+              "id": "s2_1_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s2_1_1",
+                  "text": "At the start of class the hook asked how a tweet could raise your car price by $5,000. Can you answer that now? Explain it in your own words.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_1_2",
+                  "text": "Before today I thought tariffs were...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_1_3",
+                  "text": "One thing that actually surprised me about how trade agreements work is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_1_4",
+                  "text": "If I were the Prime Minister of Canada right now, I would...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s2_2",
+          "title": "Session 2",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s2_2_hook",
+              "content": "Before 1956, a t-shirt made in China could never have been sold cheaply in Canada. One invention changed everything — and it was not the internet."
+            },
+            {
+              "type": "glossary",
+              "id": "s2_2_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_containerization",
+                  "term": "Containerization"
+                },
+                {
+                  "id": "g_tnc",
+                  "term": "Transnational Corporation (TNC)"
+                },
+                {
+                  "id": "g_supply_chain_s2",
+                  "term": "Supply Chain"
+                },
+                {
+                  "id": "g_outsourcing_s2",
+                  "term": "Outsourcing"
+                },
+                {
+                  "id": "g_gdp_capita",
+                  "term": "GDP per Capita"
+                },
+                {
+                  "id": "g_subsidiary",
+                  "term": "Subsidiary"
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s2_2_video",
+              "title": "TED-Ed: How Containerization Shaped the Modern World",
+              "youtube_id": "F-ZskaqBshs",
+              "chunks": [
+                {
+                  "id": "s2_2_v1_c1",
+                  "title": "The problem with shipping before containers",
+                  "start_seconds": 0,
+                  "end_seconds": 150,
+                  "questions": [
+                    {
+                      "id": "q_s2_2_1",
+                      "question_type": "true_false",
+                      "text": "Before containers, loading a single ship could take days or even weeks.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_2_2",
+                      "question_type": "true_false",
+                      "text": "Goods were perfectly safe from theft when shipped loose on boats.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_2_3",
+                      "question_type": "fill_blank",
+                      "text": "Before containerization, goods were loaded onto ships ___ by ___, which was slow and expensive.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "piece",
+                            "item",
+                            "hand",
+                            "manually",
+                            "one piece"
+                          ]
+                        },
+                        {
+                          "position": 2,
+                          "accepted_answers": [
+                            "piece",
+                            "item",
+                            "hand",
+                            "manually",
+                            "one piece"
+                          ]
+                        }
+                      ],
+                      "points": 2,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_2_4",
+                      "question_type": "fill_blank",
+                      "text": "The man credited with inventing the modern shipping container was ___.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "malcolm mclean",
+                            "malcolm maclean",
+                            "mclean",
+                            "maclean",
+                            "malcolm",
+                            "malcom mclean"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_2_5",
+                      "question_type": "short_answer",
+                      "text": "In your own words — what was the main problem with shipping before containers existed?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_2_6",
+                      "question_type": "short_answer",
+                      "text": "Why do you think theft was such a big problem with loose cargo? How did containers fix that?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s2_2_v1_c2",
+                  "title": "How containers changed everything",
+                  "start_seconds": 150,
+                  "end_seconds": 300,
+                  "questions": [
+                    {
+                      "id": "q_s2_2_7",
+                      "question_type": "true_false",
+                      "text": "Shipping containers are all different sizes depending on what is inside.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_2_8",
+                      "question_type": "true_false",
+                      "text": "A container can be moved from a ship to a truck to a train without unpacking it.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_2_9",
+                      "question_type": "short_answer",
+                      "text": "Name TWO ways containerization made global trade cheaper or faster.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_2_10",
+                      "question_type": "short_answer",
+                      "text": "The video says containers made the world smaller. What does that mean — the world did not actually shrink. Explain what they mean in plain language.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_2_11",
+                      "question_type": "short_answer",
+                      "text": "If shipping suddenly became 10 times more expensive tomorrow, what would happen to the prices of things you buy? Give two specific examples from your own life.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s2_2_v1_c3",
+                  "title": "Containers and globalization today",
+                  "start_seconds": 300,
+                  "end_seconds": 450,
+                  "questions": [
+                    {
+                      "id": "q_s2_2_12",
+                      "question_type": "true_false",
+                      "text": "Over 90% of the world's goods are now transported in containers.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_2_13",
+                      "question_type": "short_answer",
+                      "text": "How did containerization help companies like Nike and Apple build global supply chains? Connect it to what you learned in Stop 1.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_2_14",
+                      "question_type": "short_answer",
+                      "text": "The opening statement said one invention changed everything — and it was not the internet. Do you agree that the shipping container was more important than the internet for globalization? Make your case in 3-4 sentences.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "source_analysis",
+              "id": "s2_2_source",
+              "title": "Source Analysis — Step Up",
+              "instruction": "Look at the graph your teacher provides showing the growth of world trade from 1950 to today.",
+              "steps": [
+                {
+                  "step": 1,
+                  "label": "Describe",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s2_2_1",
+                      "question_type": "short_answer",
+                      "text": "What does this graph show?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s2_2_2",
+                      "question_type": "short_answer",
+                      "text": "What years are covered?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s2_2_3",
+                      "question_type": "short_answer",
+                      "text": "What are the highest and lowest points?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 2,
+                  "label": "Analyze by Type",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s2_2_4",
+                      "question_type": "short_answer",
+                      "text": "What is the overall trend — is trade going up, down, or staying the same?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s2_2_5",
+                      "question_type": "short_answer",
+                      "text": "Is the growth steady or does it speed up at certain points? When?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s2_2_6",
+                      "question_type": "short_answer",
+                      "text": "What type of source is this — graph, cartoon, or written? What does that tell us about how to read it?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s2_2_7",
+                      "question_type": "short_answer",
+                      "text": "What do you think caused the biggest jumps in trade? Use what you have learned so far to make a guess.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 3,
+                  "label": "Interpret",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s2_2_8",
+                      "question_type": "short_answer",
+                      "text": "What do you think this graph is saying about globalization — is it making the case FOR it, AGAINST it, or just showing facts? How do you know?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 4,
+                  "label": "Connect",
+                  "active": false
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s2_2_task1",
+              "title": "Technology Timeline",
+              "instruction": "Put these inventions in the correct order from oldest to newest. Write numbers 1-8. Then circle the TWO you think had the biggest impact on globalization and write one sentence for each explaining why.",
+              "task_type": "ranking",
+              "items": [
+                {
+                  "id": "tech_1",
+                  "text": "Smartphone",
+                  "correct_rank": 8
+                },
+                {
+                  "id": "tech_2",
+                  "text": "Shipping container",
+                  "correct_rank": 3
+                },
+                {
+                  "id": "tech_3",
+                  "text": "Internet",
+                  "correct_rank": 6
+                },
+                {
+                  "id": "tech_4",
+                  "text": "Telephone",
+                  "correct_rank": 2
+                },
+                {
+                  "id": "tech_5",
+                  "text": "Commercial airplane",
+                  "correct_rank": 4
+                },
+                {
+                  "id": "tech_6",
+                  "text": "Satellite communication",
+                  "correct_rank": 5
+                },
+                {
+                  "id": "tech_7",
+                  "text": "Social media",
+                  "correct_rank": 7
+                },
+                {
+                  "id": "tech_8",
+                  "text": "GPS tracking",
+                  "correct_rank": 9
+                }
+              ],
+              "points": 8,
+              "scored_by": "auto",
+              "follow_up": {
+                "id": "tech_followup",
+                "text": "Write one sentence for each of your two circled inventions explaining why it had the biggest impact on globalization.",
+                "points": 4,
+                "scored_by": "teacher",
+                "notify_teacher": true
+              }
+            },
+            {
+              "type": "tasks",
+              "id": "s2_2_task2",
+              "title": "TNCs Around You",
+              "instruction": "Look around — your desk, clothes, phone. Find 6 products made by transnational corporations. Then answer: Are any of these TNCs headquartered in Canada? What does that tell you about where economic power is concentrated?",
+              "task_type": "table",
+              "columns": [
+                "Product",
+                "TNC Name",
+                "Where is it headquartered?",
+                "Where was it made?"
+              ],
+              "rows": 6,
+              "follow_up": {
+                "id": "tnc_followup",
+                "text": "Are any of these TNCs headquartered in Canada? What does that tell you about where economic power is concentrated?",
+                "points": 4,
+                "scored_by": "teacher",
+                "notify_teacher": true
+              }
+            },
+            {
+              "type": "reflection",
+              "id": "s2_2_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s2_2_1",
+                  "text": "The most surprising thing I learned today was...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_2_2",
+                  "text": "I never thought about how ___ connected to globalization before today.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_2_3",
+                  "text": "If shipping containers had never been invented, my life would be different because...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_2_4",
+                  "text": "One question I still have about how trade works is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s2_3",
+          "title": "Session 3",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s2_3_hook",
+              "content": "In 2025, car prices in the US went up an average of 10.4% because of tariffs. That is thousands of dollars. And the cars were still built the same way, in the same places. So who actually won?"
+            },
+            {
+              "type": "glossary",
+              "id": "s2_3_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_reshoring",
+                  "term": "Reshoring"
+                },
+                {
+                  "id": "g_trade_deficit_s2",
+                  "term": "Trade Deficit"
+                },
+                {
+                  "id": "g_supply_chain_disruption",
+                  "term": "Supply Chain Disruption"
+                },
+                {
+                  "id": "g_liberation_day",
+                  "term": "Liberation Day"
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s2_3_video_1",
+              "title": "The Case FOR Tariffs — GZERO World: Trade Wars: The Art of the Tariff",
+              "youtube_id": "hdsl3q",
+              "source_url": "https://www.pbs.org/video/trade-wars-the-art-of-the-tariff-hdsl3q/",
+              "note": "PBS GZERO World — use embed or direct link",
+              "chunks": [
+                {
+                  "id": "s2_3_v1_c1",
+                  "title": "Why some people think tariffs make sense",
+                  "start_seconds": 0,
+                  "end_seconds": 300,
+                  "questions": [
+                    {
+                      "id": "q_s2_3_1",
+                      "question_type": "true_false",
+                      "text": "The economist in this video thinks tariffs are always a disaster.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_3_2",
+                      "question_type": "true_false",
+                      "text": "Some argue that integrating with China created a bad deal for American workers.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_3_3",
+                      "question_type": "fill_blank",
+                      "text": "The argument FOR tariffs is that they protect ___ jobs and encourage ___ production.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "american",
+                            "domestic",
+                            "local",
+                            "american workers",
+                            "workers"
+                          ]
+                        },
+                        {
+                          "position": 2,
+                          "accepted_answers": [
+                            "domestic",
+                            "american",
+                            "local",
+                            "homegrown",
+                            "national"
+                          ]
+                        }
+                      ],
+                      "points": 2,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_3_4",
+                      "question_type": "short_answer",
+                      "text": "In your own words — what is the strongest argument this video makes FOR tariffs?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_3_5",
+                      "question_type": "short_answer",
+                      "text": "Do you find this argument convincing? Why or why not? Be honest.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s2_3_video_2",
+              "title": "The Case AGAINST — PBS NewsHour: Liberation Day Tariffs",
+              "youtube_id": "trade-wars-insana-1743712085",
+              "source_url": "https://www.pbs.org/video/trade-wars-insana-1743712085/",
+              "note": "PBS NewsHour April 3 2025 — use embed or direct link",
+              "chunks": [
+                {
+                  "id": "s2_3_v2_c1",
+                  "title": "What Trump announced and immediate reactions",
+                  "start_seconds": 0,
+                  "end_seconds": 240,
+                  "questions": [
+                    {
+                      "id": "q_s2_3_6",
+                      "question_type": "true_false",
+                      "text": "Trump called his tariff announcement Liberation Day.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_3_7",
+                      "question_type": "true_false",
+                      "text": "Every Republican senator supported the tariffs immediately.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_3_8",
+                      "question_type": "fill_blank",
+                      "text": "Trump announced a ___ per cent baseline tariff on imports from most countries.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "10",
+                            "ten",
+                            "10%",
+                            "ten percent"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_3_9",
+                      "question_type": "short_answer",
+                      "text": "Name TWO countries or regions that reacted negatively to the tariffs.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_3_10",
+                      "question_type": "short_answer",
+                      "text": "Senator Hawley said he supports tariffs because he wants more jobs in our state. Senator Welch called it a disaster. Who do you agree with more and why?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s2_3_v2_c2",
+                  "title": "Real world impacts",
+                  "start_seconds": 240,
+                  "end_seconds": 480,
+                  "questions": [
+                    {
+                      "id": "q_s2_3_11",
+                      "question_type": "true_false",
+                      "text": "It is easy to move a factory back to America within a few months.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_3_12",
+                      "question_type": "fill_blank",
+                      "text": "According to experts, rebuilding a supply chain and reshoring factories takes between ___ and ___ years.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "3",
+                            "three",
+                            "5",
+                            "five"
+                          ]
+                        },
+                        {
+                          "position": 2,
+                          "accepted_answers": [
+                            "10",
+                            "ten",
+                            "7",
+                            "seven"
+                          ]
+                        }
+                      ],
+                      "points": 2,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s2_3_13",
+                      "question_type": "short_answer",
+                      "text": "Car prices in the US went up an average of 10.4% in 2025 because of tariffs. If a car costs $40,000 — how much more would you pay? Show your math.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s2_3_14",
+                      "question_type": "short_answer",
+                      "text": "You have now heard both sides. Tariffs — good idea or bad idea? Write your actual opinion in 4-5 sentences. Use specific evidence from both videos to back it up. This is not a right or wrong question — your reasoning is what matters.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "activity",
+              "id": "s2_3_activity",
+              "title": "The Tariff Ripple Effect",
+              "instruction": "Ask Mr. McRae for the Tariff Ripple Effect sheet. Trace what happens when the US puts a 25% tariff on Canadian steel — step by step — through the entire economy.",
+              "physical_component": true,
+              "teacher_note": "Distribute the Tariff Ripple Effect handout.",
+              "checkpoint_artifact": true
+            },
+            {
+              "type": "tasks",
+              "id": "s2_3_task1",
+              "title": "Globalization Crossword",
+              "instruction": "Ask Mr. McRae for the crossword sheet using key terms from Stops 1 and 2.",
+              "physical_component": true,
+              "teacher_note": "Distribute the Globalization Crossword handout."
+            },
+            {
+              "type": "tasks",
+              "id": "s2_3_task2",
+              "title": "My Globalization Opinion Tracker",
+              "instruction": "You have now been learning about globalization for two stops. Fill this out honestly.",
+              "task_type": "opinion_tracker",
+              "items": [
+                {
+                  "id": "ot_1",
+                  "question": "Overall, is globalization good or bad?",
+                  "type": "choice",
+                  "options": [
+                    "GOOD",
+                    "BAD",
+                    "COMPLICATED"
+                  ],
+                  "scored_by": "none"
+                },
+                {
+                  "id": "ot_2",
+                  "question": "The strongest argument FOR globalization I have heard is...",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "ot_3",
+                  "question": "The strongest argument AGAINST globalization I have heard is...",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "ot_4",
+                  "question": "One thing that would change my mind is...",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "ot_5",
+                  "question": "My opinion has changed since Stop 1:",
+                  "type": "choice",
+                  "options": [
+                    "YES",
+                    "NO",
+                    "A LITTLE"
+                  ],
+                  "scored_by": "none"
+                },
+                {
+                  "id": "ot_6",
+                  "question": "If yes or a little — what changed?",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "reflection",
+              "id": "s2_3_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s2_3_1",
+                  "text": "Before today, I thought trade wars were...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_3_2",
+                  "text": "The argument that surprised me most — for OR against tariffs — was...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_3_3",
+                  "text": "Thinking about the car price question from the hook — who do you think actually won from those tariffs? The US government? American workers? Car companies? Consumers? Explain.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s2_3_4",
+                  "text": "One connection between Stop 1 and Stop 2 that I can now see is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "checkpoint_prep",
+              "id": "s2_3_checkpoint",
+              "checkpoint_id": "cp_quick_1",
+              "title": "Checkpoint 1 — Get Ready to Talk to Mr. McRae",
+              "instruction": "This is your Quick Checkpoint. Be ready to talk about:",
+              "talking_points": [
+                "What a tariff is and how it works — no notes, in your own words",
+                "One reason someone might SUPPORT tariffs",
+                "One reason someone might OPPOSE tariffs",
+                "What USMCA is and why it matters to Canada",
+                "How containerization changed global trade",
+                "Your personal opinion on whether tariffs are good or bad — and WHY"
+              ],
+              "locks_next_stop": true,
+              "lock_message": "Stop 3 is locked until your checkpoint conversation is complete. Flag Mr. McRae when you are ready."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stop_3",
+      "title": "People, Land and Globalization",
+      "outcomes": [
+        "3.7",
+        "3.8",
+        "3.9"
+      ],
+      "related_issue": "RI3",
+      "checkpoint_after": true,
+      "checkpoint_id": "cp_big_2",
+      "special_unlock": {
+        "sessions": [
+          "s3_2",
+          "s3_3"
+        ],
+        "note": "Blood Diamond sessions — teacher must unlock for ALL students simultaneously regardless of individual progress",
+        "unlock_type": "teacher_global_override"
+      },
+      "sessions": [
+        {
+          "id": "s3_1",
+          "title": "Session 1",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s3_1_hook",
+              "content": "Alberta sits on one of the largest oil deposits on Earth. That oil has made billions of dollars. The Lubicon Cree, whose land it sits on, have never signed a treaty giving it away. So who does it actually belong to?"
+            },
+            {
+              "type": "glossary",
+              "id": "s3_1_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_stewardship",
+                  "term": "Stewardship"
+                },
+                {
+                  "id": "g_sustainability",
+                  "term": "Sustainability"
+                },
+                {
+                  "id": "g_resource_dev",
+                  "term": "Resource Development"
+                },
+                {
+                  "id": "g_indigenous_land",
+                  "term": "Indigenous Land Rights"
+                },
+                {
+                  "id": "g_treaty",
+                  "term": "Treaty"
+                },
+                {
+                  "id": "g_spirituality_land",
+                  "term": "Spirituality (relationship to land)"
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s3_1_video_1",
+              "title": "Oil on Lubicon Land — Melina Laboucan-Massimo",
+              "youtube_id": "search_lubicon_greenpeace",
+              "note": "Search: 'Melina Laboucan-Massimo Oil on Lubicon Land Greenpeace' — verify current YouTube availability before class",
+              "chunks": [
+                {
+                  "id": "s3_1_v1_c1",
+                  "title": "Who the Lubicon Cree are and what happened",
+                  "start_seconds": 0,
+                  "end_seconds": 240,
+                  "questions": [
+                    {
+                      "id": "q_s3_1_1",
+                      "question_type": "true_false",
+                      "text": "The Lubicon Cree signed Treaty 8 giving up their land rights.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_2",
+                      "question_type": "true_false",
+                      "text": "The oil spill Melina describes only affected the environment, not people.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_3",
+                      "question_type": "fill_blank",
+                      "text": "In 1971, Alberta began building a ___ into Lubicon territory without Lubicon consent.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "road",
+                            "all-weather road",
+                            "highway",
+                            "all weather road"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_4",
+                      "question_type": "short_answer",
+                      "text": "In your own words — what does Melina mean when she talks about her relationship to the land? How is it different from how most Canadians think about land?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s3_1_5",
+                      "question_type": "short_answer",
+                      "text": "The oil spill happened on land the Lubicon have never given up. How do you think that would feel if it was your family's land?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s3_1_v1_c2",
+                  "title": "The impact and what it means",
+                  "start_seconds": 240,
+                  "end_seconds": 480,
+                  "questions": [
+                    {
+                      "id": "q_s3_1_6",
+                      "question_type": "true_false",
+                      "text": "The Lubicon community has benefited economically from oil development on their territory.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_7",
+                      "question_type": "true_false",
+                      "text": "The UN has ruled that Canada has violated the Lubicon's human rights.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_8",
+                      "question_type": "short_answer",
+                      "text": "Name TWO specific ways the oil development changed life for the Lubicon Cree.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s3_1_9",
+                      "question_type": "short_answer",
+                      "text": "Melina is both a community member AND a climate activist. Why do you think she chose to speak publicly about this? What does she want people to understand?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s3_1_10",
+                      "question_type": "short_answer",
+                      "text": "The Alberta government says oil development creates jobs and revenue. The Lubicon say it destroys their way of life. Both are true. How do you hold both of those things at once?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s3_1_video_2",
+              "title": "ILI: Indigenous Cultural Burning",
+              "youtube_id": "search_ili_cultural_burning",
+              "note": "Search: 'Indigenous Leadership Initiative cultural burning stewardship' — verify current YouTube availability before class",
+              "chunks": [
+                {
+                  "id": "s3_1_v2_c1",
+                  "title": "What Indigenous stewardship looks like",
+                  "start_seconds": 0,
+                  "end_seconds": 240,
+                  "questions": [
+                    {
+                      "id": "q_s3_1_11",
+                      "question_type": "true_false",
+                      "text": "Cultural burning is a destructive practice.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_12",
+                      "question_type": "fill_blank",
+                      "text": "Indigenous fire stewardship is rooted in ___ for the land.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "respect",
+                            "care",
+                            "love",
+                            "responsibility",
+                            "reverence",
+                            "relationship"
+                          ]
+                        }
+                      ],
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_13",
+                      "question_type": "short_answer",
+                      "text": "How is the relationship to land shown in this video different from the relationship shown in the Lubicon oil story? Write 2-3 sentences.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "source_analysis",
+              "id": "s3_1_source",
+              "title": "Source Analysis — Full Framework",
+              "instruction": "Look at the image your teacher provides — a map or photograph of Lubicon Cree territory showing oil development.",
+              "steps": [
+                {
+                  "step": 1,
+                  "label": "Describe",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s3_1_1",
+                      "question_type": "short_answer",
+                      "text": "What do you see? List at least 5 things.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s3_1_2",
+                      "question_type": "short_answer",
+                      "text": "What places or regions are shown?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 2,
+                  "label": "Analyze by Type",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s3_1_3",
+                      "question_type": "short_answer",
+                      "text": "What type of source is this?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s3_1_4",
+                      "question_type": "short_answer",
+                      "text": "What is the trend or main story this source is showing?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s3_1_5",
+                      "question_type": "short_answer",
+                      "text": "What is NOT shown in this source that might be important?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 3,
+                  "label": "Interpret",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s3_1_6",
+                      "question_type": "short_answer",
+                      "text": "What is this source saying about globalization and its relationship to people and land?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s3_1_7",
+                      "question_type": "short_answer",
+                      "text": "Who do you think made this source and why? Does that affect how you read it?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 4,
+                  "label": "Connect",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s3_1_8",
+                      "question_type": "short_answer",
+                      "text": "How does what you see in this source connect to what you learned in Stops 1 and 2 about globalization and who benefits?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s3_1_task1",
+              "title": "Perspectives Sorting",
+              "instruction": "Read each statement. Write PRO (supports oil development) or CON (opposes oil development) beside each one. Then circle the TWO statements you agree with most — one from each side. Write 3-4 sentences explaining why.",
+              "task_type": "label_and_select",
+              "items": [
+                {
+                  "id": "ps_1",
+                  "text": "Oil development creates thousands of jobs for Albertans.",
+                  "correct_label": "PRO",
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "ps_2",
+                  "text": "The Lubicon never signed a treaty — this land was never given away.",
+                  "correct_label": "CON",
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "ps_3",
+                  "text": "Global demand for oil drives economic growth that benefits everyone.",
+                  "correct_label": "PRO",
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "ps_4",
+                  "text": "Once peatland is destroyed, it takes thousands of years to regenerate.",
+                  "correct_label": "CON",
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "ps_5",
+                  "text": "Resource development brings roads, services and infrastructure to remote areas.",
+                  "correct_label": "PRO",
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "ps_6",
+                  "text": "Children in Little Buffalo now cannot drink water from their own land.",
+                  "correct_label": "CON",
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "ps_7",
+                  "text": "Alberta's oil revenues fund schools, hospitals and public services.",
+                  "correct_label": "PRO",
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "ps_8",
+                  "text": "The UN has repeatedly ruled that Canada is violating the Lubicon's human rights.",
+                  "correct_label": "CON",
+                  "points": 1,
+                  "scored_by": "auto"
+                }
+              ],
+              "follow_up": {
+                "id": "ps_followup",
+                "text": "Explain why the two statements you circled matter most to you.",
+                "points": 4,
+                "scored_by": "teacher",
+                "notify_teacher": true
+              }
+            },
+            {
+              "type": "reflection",
+              "id": "s3_1_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s3_1_1",
+                  "text": "Before today, when I thought about the oil sands I thought...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_1_2",
+                  "text": "The Lubicon Cree story made me feel... because...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_1_3",
+                  "text": "Stewardship means treating land like ___. Globalization sometimes treats land like ___.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_1_4",
+                  "text": "One question I want to bring to my checkpoint conversation is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s3_2",
+          "title": "Session 2 — Blood Diamond Part 1",
+          "special_unlock": true,
+          "unlock_note": "Teacher unlocks this session for all students simultaneously",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s3_2_hook",
+              "content": "Blood diamonds funded a civil war that killed over 50,000 people in Sierra Leone. The diamonds ended up in jewelry stores around the world. The people who bought them had no idea."
+            },
+            {
+              "type": "glossary",
+              "id": "s3_2_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_conflict_resource",
+                  "term": "Conflict Resource"
+                },
+                {
+                  "id": "g_civil_war",
+                  "term": "Civil War"
+                },
+                {
+                  "id": "g_child_soldier",
+                  "term": "Child Soldier"
+                },
+                {
+                  "id": "g_corporate_responsibility",
+                  "term": "Corporate Responsibility"
+                },
+                {
+                  "id": "g_ethical_consumerism",
+                  "term": "Ethical Consumerism"
+                },
+                {
+                  "id": "g_exploitation",
+                  "term": "Exploitation"
+                }
+              ]
+            },
+            {
+              "type": "context",
+              "id": "s3_2_context",
+              "title": "Pre-Film Context — Read This First",
+              "content": "Where: Sierra Leone, West Africa. When: 1991-2002. What happened: A brutal civil war funded largely by the illegal diamond trade. Rebel groups forced people — including children — to mine diamonds at gunpoint. Those diamonds were sold internationally, financing weapons and violence. The globalization connection: The global demand for diamonds — especially in wealthy countries like Canada, the US, and the UK — created the market that made conflict diamonds profitable. Without buyers, there would be no incentive. This is what economists call demand-driven exploitation.",
+              "questions": [
+                {
+                  "id": "q_s3_2_pre_1",
+                  "question_type": "short_answer",
+                  "text": "Before today, did you know where diamonds come from or how they are mined?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s3_2_pre_2",
+                  "question_type": "short_answer",
+                  "text": "Have you or anyone you know ever bought or received a diamond? Does knowing this history change how you feel about that?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s3_2_pre_3",
+                  "question_type": "true_false",
+                  "text": "Consumers in wealthy countries bear some responsibility for conditions in countries that supply them goods.",
+                  "correct_answer": true,
+                  "points": 1,
+                  "scored_by": "auto"
+                },
+                {
+                  "id": "q_s3_2_pre_4",
+                  "question_type": "short_answer",
+                  "text": "Do you agree with your answer to the previous question? Explain in 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "film",
+              "id": "s3_2_film",
+              "title": "Blood Diamond — Part 1",
+              "note": "Watch the first half of the film — approximately 1 hour 15 minutes. Rating: 14A (Alberta).",
+              "part": 1,
+              "post_watch_questions": [
+                {
+                  "id": "q_s3_2_film_1",
+                  "question_type": "short_answer",
+                  "text": "The film shows people in London and New York buying diamonds without knowing where they came from. Based on what you watched — are they responsible for what happened in Sierra Leone? Make your argument in 3-4 sentences. There is no right answer — your reasoning is what matters.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s3_2_film_2",
+                  "question_type": "short_answer",
+                  "text": "Pick ONE specific moment from Part 1 that you think best shows the connection between global markets and local suffering. Describe what happened and explain the connection in 3-4 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s3_2_task1",
+              "title": "Conflict Minerals Then and Now",
+              "instruction": "Use your phone or the app to find ONE current news story about conflict minerals — could be diamonds, cobalt (used in phone batteries), coltan, or gold.",
+              "task_type": "news_research",
+              "ai_proof_note": "Must be a real current story — be ready to show Mr. McRae.",
+              "fields": [
+                {
+                  "id": "cm_headline",
+                  "label": "Headline",
+                  "type": "text_input"
+                },
+                {
+                  "id": "cm_country",
+                  "label": "Country involved",
+                  "type": "text_input"
+                },
+                {
+                  "id": "cm_resource",
+                  "label": "What resource",
+                  "type": "text_input"
+                },
+                {
+                  "id": "cm_affected",
+                  "label": "Who is affected",
+                  "type": "text_input"
+                },
+                {
+                  "id": "cm_connection",
+                  "label": "How does this connect to what you just watched? Has the problem changed since Blood Diamond was made in 2006?",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "reflection",
+              "id": "s3_2_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s3_2_1",
+                  "text": "The moment in Part 1 that hit me hardest was... because...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_2_2",
+                  "text": "One connection between this film and what we have learned about globalization is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_2_3",
+                  "text": "Globalization creates demand. Demand drives extraction. Extraction causes harm. Do you agree with that chain? Where does it break down?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_2_4",
+                  "text": "Tomorrow we finish the film. One thing I am thinking about going into Part 2 is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s3_3",
+          "title": "Session 3 — Blood Diamond Part 2",
+          "special_unlock": true,
+          "unlock_note": "Teacher unlocks this session for all students simultaneously",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s3_3_hook",
+              "content": "By the end of this film, you will know exactly where your jewelry comes from. The question is — what are you going to do about it?"
+            },
+            {
+              "type": "film",
+              "id": "s3_3_film",
+              "title": "Blood Diamond — Part 2",
+              "note": "Watch the second half of the film — approximately 1 hour 15 minutes.",
+              "part": 2,
+              "post_watch_questions": [
+                {
+                  "id": "q_s3_3_film_1",
+                  "question_type": "short_answer",
+                  "text": "Blood Diamond is a Hollywood film with a white African mercenary as its main character, telling a story about Sierra Leone. Does the fact that it is a fictional story told from a Western perspective affect how you receive its message? Does it matter who is telling this story and how? Write your honest opinion in 4-5 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "source_analysis",
+              "id": "s3_3_source",
+              "title": "Source Analysis — Written Source",
+              "instruction": "Read this short excerpt.",
+              "source_text": "The global diamond industry generates approximately $80 billion in revenue annually. An estimated 65 million people worldwide depend on the diamond industry for their livelihoods. At the same time, human rights organizations estimate that conflict diamonds still make up between 1-4% of the global diamond trade despite the Kimberley Process.",
+              "steps": [
+                {
+                  "step": 1,
+                  "label": "Describe",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s3_3_1",
+                      "question_type": "short_answer",
+                      "text": "What is this source saying in plain language?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s3_3_2",
+                      "question_type": "short_answer",
+                      "text": "What type of source is this?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 2,
+                  "label": "Analyze by Type",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s3_3_3",
+                      "question_type": "short_answer",
+                      "text": "Are there key terms you should define? What are they?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "sa_s3_3_4",
+                      "question_type": "short_answer",
+                      "text": "Where might this quote come from? Does the source matter?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 3,
+                  "label": "Interpret",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s3_3_5",
+                      "question_type": "short_answer",
+                      "text": "What is this source saying about globalization — does it support it, critique it, or just present facts?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "step": 4,
+                  "label": "Connect",
+                  "active": true,
+                  "questions": [
+                    {
+                      "id": "sa_s3_3_6",
+                      "question_type": "short_answer",
+                      "text": "How does this connect to what we have learned about who benefits from globalization and who does not?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s3_3_task1",
+              "title": "Blood Diamond and Lubicon Cree — What Do They Share?",
+              "instruction": "Fill in the comparison chart. What do these two stories have in common? What is different? Then write one sentence capturing the single most important thing they share.",
+              "task_type": "comparison_chart",
+              "columns": [
+                {
+                  "id": "col_a",
+                  "label": "Blood Diamond (Sierra Leone)"
+                },
+                {
+                  "id": "col_b",
+                  "label": "BOTH"
+                },
+                {
+                  "id": "col_c",
+                  "label": "Lubicon Cree (Alberta)"
+                }
+              ],
+              "rows": 3,
+              "follow_up": {
+                "id": "compare_followup",
+                "text": "Write one sentence that captures the single most important thing these two stories share.",
+                "points": 4,
+                "scored_by": "teacher",
+                "notify_teacher": true
+              }
+            },
+            {
+              "type": "reflection",
+              "id": "s3_3_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s3_3_1",
+                  "text": "Before this film, I thought about diamonds and jewelry as...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_3_2",
+                  "text": "After watching, I think...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_3_3",
+                  "text": "Globalization connects wealthy consumers to resource extraction in poor regions. Does knowing that change how you shop? Be honest.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_3_4",
+                  "text": "One thing this film and the Lubicon Cree story have in common is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s3_4",
+          "title": "Session 4",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s3_4_hook",
+              "content": "Alberta produces more greenhouse gas emissions per person than almost anywhere on Earth. We also have one of the highest standards of living in the world. Are those two facts connected? Should we care?"
+            },
+            {
+              "type": "glossary",
+              "id": "s3_4_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_greenhouse_gas",
+                  "term": "Greenhouse Gas"
+                },
+                {
+                  "id": "g_ecological_footprint",
+                  "term": "Ecological Footprint"
+                },
+                {
+                  "id": "g_clear_cutting",
+                  "term": "Clear-cutting"
+                },
+                {
+                  "id": "g_sustainable_dev",
+                  "term": "Sustainable Development"
+                },
+                {
+                  "id": "g_env_legislation",
+                  "term": "Environmental Legislation"
+                },
+                {
+                  "id": "g_reclamation",
+                  "term": "Reclamation"
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s3_4_video",
+              "title": "To the Last Drop — Oil Sands, Cree Treaty Rights and the Environment",
+              "youtube_id": "search_to_the_last_drop_documentary",
+              "note": "Search: 'To the Last Drop documentary oil sands Alberta Cree' — verify availability and select best current clip (~10 min)",
+              "chunks": [
+                {
+                  "id": "s3_4_v1_c1",
+                  "title": "The scale of oil sands development",
+                  "start_seconds": 0,
+                  "end_seconds": 300,
+                  "questions": [
+                    {
+                      "id": "q_s3_4_1",
+                      "question_type": "true_false",
+                      "text": "The oil sands are a small-scale operation with limited environmental impact.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_4_2",
+                      "question_type": "true_false",
+                      "text": "Under Canadian and British Imperial law, the Cree people own the part of Alberta where oil sands development is happening.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_4_3",
+                      "question_type": "short_answer",
+                      "text": "The video says the scale of development means treaty rights can no longer be meaningfully exercised. What does that mean in plain language?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s3_4_4",
+                      "question_type": "short_answer",
+                      "text": "Who do you think should make decisions about oil sands development — the government, oil companies, or Indigenous communities? Explain your thinking.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                },
+                {
+                  "id": "s3_4_v1_c2",
+                  "title": "Environmental consequences",
+                  "start_seconds": 300,
+                  "end_seconds": 600,
+                  "questions": [
+                    {
+                      "id": "q_s3_4_5",
+                      "question_type": "true_false",
+                      "text": "Land mined for oil sands can be easily and quickly reclaimed.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_4_6",
+                      "question_type": "short_answer",
+                      "text": "What are peatlands and why does their destruction matter? Write 2-3 sentences in your own words.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s3_4_7",
+                      "question_type": "short_answer",
+                      "text": "Name TWO environmental consequences of oil sands development shown in the video.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s3_4_8",
+                      "question_type": "short_answer",
+                      "text": "Alberta's oil is sold globally — mostly to the US. Does the US share responsibility for the environmental damage caused by producing it? Why or why not?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "activity",
+              "id": "s3_4_activity",
+              "title": "Environmental Impact Spectrum",
+              "instruction": "Ask Mr. McRae for the Environmental Impact Spectrum sheet. Place each resource development industry on the spectrum from most to least environmentally damaging. Justify each placement with evidence.",
+              "physical_component": true,
+              "teacher_note": "Distribute the Environmental Impact Spectrum handout."
+            },
+            {
+              "type": "tasks",
+              "id": "s3_4_task1",
+              "title": "Alberta Oil Sands: Two Perspectives",
+              "instruction": "Fill in the chart using what you have learned today. Circle the most important point on each side. Then complete the sentence at the bottom.",
+              "task_type": "tchart",
+              "columns": [
+                {
+                  "id": "benefits",
+                  "label": "Economic Benefits"
+                },
+                {
+                  "id": "costs",
+                  "label": "Environmental and Human Costs"
+                }
+              ],
+              "min_per_column": 4,
+              "follow_up": {
+                "id": "oilsands_opinion",
+                "text": "Overall, I think the oil sands are ___ because ___.",
+                "points": 4,
+                "scored_by": "teacher",
+                "notify_teacher": true
+              }
+            },
+            {
+              "type": "tasks",
+              "id": "s3_4_task2",
+              "title": "Ecological Footprint Calculator",
+              "instruction": "Use your phone or the app to find an ecological footprint calculator online. Complete it honestly and record your results.",
+              "task_type": "calculator_response",
+              "fields": [
+                {
+                  "id": "ef_footprint",
+                  "label": "Your ecological footprint (global hectares)",
+                  "type": "text_input"
+                },
+                {
+                  "id": "ef_earths",
+                  "label": "If everyone lived like you, we would need ___ Earths",
+                  "type": "text_input"
+                },
+                {
+                  "id": "ef_biggest",
+                  "label": "Your biggest impact area is",
+                  "type": "text_input"
+                },
+                {
+                  "id": "ef_reflection",
+                  "label": "Are you surprised by your results? What would you have to change to cut your footprint in half? Would you be willing to do it?",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "reflection",
+              "id": "s3_4_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s3_4_1",
+                  "text": "The environmental impact that surprised me most today was...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_4_2",
+                  "text": "I think Canada's record on environmental protection is... because...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_4_3",
+                  "text": "As a consumer, I contribute to environmental damage through globalization when I...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_4_4",
+                  "text": "One thing I could actually do differently is... (be realistic)",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "s3_5",
+          "title": "Session 5",
+          "elements": [
+            {
+              "type": "hook",
+              "id": "s3_5_hook",
+              "content": "Sustainable development means meeting the needs of today without destroying the ability of future generations to meet their own needs. By that definition — is Canada sustainable right now?"
+            },
+            {
+              "type": "glossary",
+              "id": "s3_5_glossary",
+              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "terms": [
+                {
+                  "id": "g_sustainable_prosperity",
+                  "term": "Sustainable Prosperity"
+                },
+                {
+                  "id": "g_env_legislation_s5",
+                  "term": "Environmental Legislation"
+                },
+                {
+                  "id": "g_consumerism",
+                  "term": "Consumerism"
+                },
+                {
+                  "id": "g_resource_dev_agreement",
+                  "term": "Resource Development Agreement"
+                },
+                {
+                  "id": "g_eez",
+                  "term": "Exclusive Economic Zone (EEZ)"
+                }
+              ]
+            },
+            {
+              "type": "video",
+              "id": "s3_5_video",
+              "title": "Sustainable Development and Globalization Explainer",
+              "youtube_id": "search_sustainable_development_explainer",
+              "note": "Search: 'sustainable development globalization explained short' — select a current video under 8 minutes",
+              "chunks": [
+                {
+                  "id": "s3_5_v1_c1",
+                  "title": "What sustainable development actually means",
+                  "start_seconds": 0,
+                  "end_seconds": 480,
+                  "questions": [
+                    {
+                      "id": "q_s3_5_1",
+                      "question_type": "true_false",
+                      "text": "Sustainable development means stopping all economic growth.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_5_2",
+                      "question_type": "true_false",
+                      "text": "Wealthy countries tend to have larger ecological footprints than poor countries.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_5_3",
+                      "question_type": "fill_blank",
+                      "text": "Sustainable development means meeting the needs of ___ without compromising the ability of ___ to meet their own needs.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "today",
+                            "the present",
+                            "current generations",
+                            "people today",
+                            "us today"
+                          ]
+                        },
+                        {
+                          "position": 2,
+                          "accepted_answers": [
+                            "future generations",
+                            "the future",
+                            "our children",
+                            "future people",
+                            "those who come after"
+                          ]
+                        }
+                      ],
+                      "points": 2,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_5_4",
+                      "question_type": "short_answer",
+                      "text": "Name TWO examples of sustainable practices mentioned in the video.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s3_5_5",
+                      "question_type": "short_answer",
+                      "text": "Do you think it is possible for globalization and sustainability to coexist? Write 3-4 sentences. Use evidence from this stop.",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    },
+                    {
+                      "id": "q_s3_5_6",
+                      "question_type": "short_answer",
+                      "text": "Rich countries got rich largely through unsustainable resource extraction. Is it fair for those same countries to now tell developing nations to be more sustainable? Who gets to decide?",
+                      "points": 4,
+                      "scored_by": "teacher",
+                      "notify_teacher": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "activity",
+              "id": "s3_5_activity",
+              "title": "Written Assignment Planning",
+              "instruction": "Your written assignment asks: Does globalization contribute to sustainable prosperity for all people? Today you plan your response — you do not write it yet.",
+              "assignment_intro": {
+                "question": "Does globalization contribute to sustainable prosperity for all people?",
+                "requirements": [
+                  "Take a clear position — yes, no, or it is complicated — but argue ONE direction",
+                  "Use at least THREE specific examples from this course (Stops 1, 2, and 3)",
+                  "Include at least ONE source analysis you have done in this workbook",
+                  "Write approximately 3-4 paragraphs",
+                  "Solo work only"
+                ]
+              },
+              "planning_fields": [
+                {
+                  "id": "wa_position",
+                  "label": "What is your position?",
+                  "type": "choice",
+                  "options": [
+                    "YES",
+                    "NO",
+                    "IT IS COMPLICATED BUT MOSTLY YES",
+                    "IT IS COMPLICATED BUT MOSTLY NO"
+                  ]
+                },
+                {
+                  "id": "wa_strongest",
+                  "label": "What is your strongest piece of evidence FOR your position?",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "wa_counter",
+                  "label": "What is the strongest argument AGAINST your position? You need to acknowledge it.",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "wa_example1",
+                  "label": "Example 1 from the course",
+                  "type": "text_input"
+                },
+                {
+                  "id": "wa_example2",
+                  "label": "Example 2 from the course",
+                  "type": "text_input"
+                },
+                {
+                  "id": "wa_example3",
+                  "label": "Example 3 from the course",
+                  "type": "text_input"
+                },
+                {
+                  "id": "wa_source",
+                  "label": "Which source analysis from your workbook will you reference?",
+                  "type": "text_input"
+                },
+                {
+                  "id": "wa_opening",
+                  "label": "Write your opening sentence here — it should state your position clearly.",
+                  "type": "text_area",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s3_5_task1",
+              "title": "Stop 3 Vocabulary Review",
+              "instruction": "Go back through all 5 sessions. Find any term you are still unsure about and write your best definition.",
+              "task_type": "vocab_review",
+              "rows": 3,
+              "columns": [
+                "Term I am still fuzzy on",
+                "My best attempt at defining it"
+              ]
+            },
+            {
+              "type": "tasks",
+              "id": "s3_5_task2",
+              "title": "Connecting the Stops",
+              "instruction": "Complete the middle and right columns by writing what connects to each idea across Stops 1, 2, and 3.",
+              "task_type": "connection_chart",
+              "rows": [
+                {
+                  "id": "cc_1",
+                  "col_a": "Nike supply chain",
+                  "col_b_placeholder": "Connect to Stop 2...",
+                  "col_c_placeholder": "Connect to Stop 3..."
+                },
+                {
+                  "id": "cc_2",
+                  "col_a": "Crash Course t-shirt",
+                  "col_b_placeholder": "Connect to Stop 2...",
+                  "col_c_placeholder": "Connect to Stop 3..."
+                },
+                {
+                  "id": "cc_3",
+                  "col_a": "Winners and losers",
+                  "col_b_placeholder": "Connect to Stop 2...",
+                  "col_c_placeholder": "Connect to Stop 3..."
+                }
+              ],
+              "points": 4,
+              "scored_by": "teacher",
+              "notify_teacher": true
+            },
+            {
+              "type": "reflection",
+              "id": "s3_5_reflection",
+              "instruction": "Type your answers. No copy-paste.",
+              "prompts": [
+                {
+                  "id": "r_s3_5_1",
+                  "text": "The most important thing I learned across all of Stop 3 was...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_5_2",
+                  "text": "My answer to does globalization contribute to sustainable prosperity for all people right now is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_5_3",
+                  "text": "The hardest part of writing my argument will be...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "r_s3_5_4",
+                  "text": "One thing I want to make sure I include in my written assignment is...",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "checkpoint_prep",
+              "id": "s3_5_checkpoint",
+              "checkpoint_id": "cp_big_2",
+              "title": "Big Checkpoint 2 — Get Ready",
+              "instruction": "This is your biggest checkpoint so far. Bring your written assignment planning sheet. Be ready to talk about:",
+              "talking_points": [
+                "What stewardship means and how it differs from resource extraction",
+                "The Lubicon Cree situation — what happened and why it matters",
+                "How Blood Diamond connects to globalization",
+                "At least TWO environmental impacts of globalization you can speak to in detail",
+                "Your position on: does globalization contribute to sustainable prosperity for all people?",
+                "Your written assignment plan — what argument are you making and why?"
+              ],
+              "artifact_required": true,
+              "artifact_description": "Written assignment planning sheet",
+              "locks_next_stop": true,
+              "lock_message": "Stop 4 is locked until Big Checkpoint 2 is complete. Flag Mr. McRae when you are ready."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cp_1",
+      "title": "Quick Checkpoint 1",
+      "type": "quick",
+      "after_stop": "stop_1",
+      "artifact_required": false,
+      "talking_points": [
+        "What globalization actually is in their own words",
+        "One way globalization has helped people",
+        "One way globalization has hurt people",
+        "Something from their personal map that surprised them",
+        "Current opinion on globalization with reasoning"
+      ]
+    },
+    {
+      "id": "cp_quick_1",
+      "title": "Quick Checkpoint — Stop 2",
+      "type": "quick",
+      "after_stop": "stop_2",
+      "artifact_required": false,
+      "talking_points": [
+        "What a tariff is and how it works in their own words",
+        "One reason someone might support tariffs",
+        "One reason someone might oppose tariffs",
+        "What USMCA is and why it matters to Canada",
+        "How containerization changed global trade",
+        "Personal opinion on tariffs with reasoning"
+      ]
+    },
+    {
+      "id": "cp_big_2",
+      "title": "Big Checkpoint 2",
+      "type": "major",
+      "after_stop": "stop_3",
+      "artifact_required": true,
+      "artifact_description": "Written assignment planning sheet",
+      "talking_points": [
+        "What stewardship means and how it differs from resource extraction",
+        "The Lubicon Cree situation — what happened and why it matters",
+        "How Blood Diamond connects to globalization",
+        "At least two environmental impacts of globalization in detail",
+        "Position on: does globalization contribute to sustainable prosperity for all people?",
+        "Written assignment plan — argument and evidence"
+      ]
+    }
+  ],
+  "teacher_prep": {
+    "materials": [
+      {
+        "stop": "stop_1",
+        "session": "s1_2",
+        "item": "World map — physical, one per student"
+      },
+      {
+        "stop": "stop_1",
+        "session": "s1_2",
+        "item": "Supply chain image for source analysis — teacher sources this"
+      },
+      {
+        "stop": "stop_2",
+        "session": "s2_3",
+        "item": "Tariff Ripple Effect handout — built, ready to print"
+      },
+      {
+        "stop": "stop_2",
+        "session": "s2_3",
+        "item": "Globalization Crossword handout — built, ready to print"
+      },
+      {
+        "stop": "stop_2",
+        "session": "s2_2",
+        "item": "World trade growth graph for source analysis — teacher sources this"
+      },
+      {
+        "stop": "stop_3",
+        "session": "s3_1",
+        "item": "Lubicon Cree territory map or oil development photograph — teacher sources this"
+      },
+      {
+        "stop": "stop_3",
+        "session": "s3_4",
+        "item": "Environmental Impact Spectrum handout — built, ready to print"
+      },
+      {
+        "stop": "stop_3",
+        "session": "s3_2",
+        "item": "Blood Diamond film — confirm screening setup (projector, sound). Rating: 14A Alberta."
+      }
+    ],
+    "film_unlock_note": "Blood Diamond sessions (s3_2 and s3_3) must be unlocked for ALL students simultaneously using teacher global override, regardless of individual student progress."
+  }
+}
