@@ -153,7 +153,137 @@ export interface FreeResponseTask {
   fields: FreeResponseField[];
 }
 
-export type TaskElement = SortTask | TChartTask | TrueFalseListTask | FreeResponseTask;
+export interface MatchingItem {
+  id: string;
+  term: string;
+  definition: string;
+  points?: number;
+}
+export interface MatchingTask {
+  type: 'tasks';
+  id: string;
+  title: string;
+  instruction: string;
+  task_type: 'matching';
+  items: MatchingItem[];
+  scored_by?: 'auto' | 'teacher';
+}
+
+export interface RatingScaleItem {
+  id: string;
+  text: string;
+}
+export interface RatingScaleFollowUp {
+  id: string;
+  text: string;
+  points?: number;
+  scored_by?: 'auto' | 'teacher';
+  notify_teacher?: boolean;
+}
+export interface RatingScaleTask {
+  type: 'tasks';
+  id: string;
+  title: string;
+  instruction: string;
+  task_type: 'rating_scale';
+  items: RatingScaleItem[];
+  follow_up?: RatingScaleFollowUp;
+}
+
+export interface RankingItem {
+  id: string;
+  text: string;
+  correct_rank?: number;
+}
+export interface RankingTask {
+  type: 'tasks';
+  id: string;
+  title: string;
+  instruction: string;
+  task_type: 'ranking';
+  items: RankingItem[];
+  points?: number;
+  scored_by?: 'auto' | 'teacher';
+  follow_up?: RatingScaleFollowUp;
+}
+
+export interface TableTask {
+  type: 'tasks';
+  id: string;
+  title: string;
+  instruction: string;
+  task_type: 'table';
+  columns: string[];
+  rows: number;
+  row_labels?: string[];
+  dropdowns?: Record<number, string[]>;
+  follow_up?: RatingScaleFollowUp;
+}
+
+export interface OpinionTrackerItem {
+  id: string;
+  question: string;
+  type: 'choice' | 'text_area';
+  options?: string[];
+  points?: number;
+  scored_by?: 'auto' | 'teacher' | 'none';
+  notify_teacher?: boolean;
+}
+export interface OpinionTrackerTask {
+  type: 'tasks';
+  id: string;
+  title: string;
+  instruction: string;
+  task_type: 'opinion_tracker';
+  items: OpinionTrackerItem[];
+}
+
+export interface PhysicalHandoutTask {
+  type: 'tasks';
+  id: string;
+  title: string;
+  instruction: string;
+  task_type?: undefined;
+  physical_component?: boolean;
+  teacher_note?: string;
+}
+
+export interface LabelAndSelectItem {
+  id: string;
+  text: string;
+  correct_label: string;
+  points?: number;
+  scored_by?: 'auto' | 'teacher';
+}
+export interface LabelAndSelectTask {
+  type: 'tasks';
+  id: string;
+  title: string;
+  instruction: string;
+  task_type: 'label_and_select';
+  items: LabelAndSelectItem[];
+  follow_up?: RatingScaleFollowUp;
+}
+
+export type TaskElement = SortTask | TChartTask | TrueFalseListTask | FreeResponseTask | MatchingTask | RatingScaleTask | RankingTask | TableTask | OpinionTrackerTask | PhysicalHandoutTask | LabelAndSelectTask
+  | NewsResearchTask | ComparisonChartTask | CalculatorResponseTask | VocabReviewTask | ConnectionChartTask | RatingTableTask;
+
+// ─── Extended task types ───────────────────────────────────────────────────────
+// These share the FreeResponseField structure
+export interface NewsResearchField { id: string; label: string; type: 'text_input' | 'text_area'; points?: number; scored_by?: string; notify_teacher?: boolean; }
+export interface NewsResearchTask { type: 'tasks'; id: string; title: string; instruction: string; task_type: 'news_research'; ai_proof_note?: string; fields: NewsResearchField[]; }
+export interface CalculatorResponseTask { type: 'tasks'; id: string; title: string; instruction: string; task_type: 'calculator_response'; fields: NewsResearchField[]; }
+
+export interface ComparisonChartColumn { id: string; label: string; }
+export interface ComparisonChartTask { type: 'tasks'; id: string; title: string; instruction: string; task_type: 'comparison_chart'; columns: ComparisonChartColumn[]; rows: number; follow_up?: RatingScaleFollowUp; }
+
+export interface VocabReviewTask { type: 'tasks'; id: string; title: string; instruction: string; task_type: 'vocab_review'; rows: number; columns: string[]; source?: 'glossary'; source_filter?: string; }
+
+export interface ConnectionChartRow { id: string; col_a: string; col_b_placeholder?: string; col_c_placeholder?: string; col_b_type?: 'glossary_dropdown'; col_b_filter?: string; col_b_explain?: boolean; col_c_type?: 'glossary_dropdown'; col_c_filter?: string; col_c_explain?: boolean; }
+export interface ConnectionChartTask { type: 'tasks'; id: string; title: string; instruction: string; task_type: 'connection_chart'; source?: 'glossary'; rows: ConnectionChartRow[]; points?: number; scored_by?: string; notify_teacher?: boolean; }
+
+export interface RatingTableScale { min: number; max: number; min_label: string; max_label: string; }
+export interface RatingTableTask { type: 'tasks'; id: string; title: string; instruction: string; task_type: 'rating_table'; items: string[]; scale: RatingTableScale; follow_up?: RatingScaleFollowUp; }
 
 export interface ReflectionPrompt {
   id: string;
@@ -166,21 +296,25 @@ export interface ReflectionElement {
   id: string;
   instruction: string;
   prompts: ReflectionPrompt[];
+  choose_one?: boolean;
 }
 
-export interface SourceAnalysisStep {
-  step: number;
-  label: string;
-  active: boolean;
-  questions?: VideoQuestion[];
-}
 export interface SourceAnalysisElement {
   type: 'source_analysis';
   id: string;
   title: string;
   instruction: string;
+  assignment_question?: string;
+  source_type?: 'written' | 'cartoon';
+  source_text?: string;
+  image_path?: string;
   context?: string;
-  steps: SourceAnalysisStep[];
+  image?: string;
+  iframe_path?: string;
+  iframe_height?: number;
+  questions?: VideoQuestion[];
+  choose_count?: number;
+  enable_tags?: boolean;
 }
 
 export interface ActivityField {
@@ -211,6 +345,14 @@ export interface CheckpointPrepElement {
   lock_message: string;
 }
 
+export interface ContextElement {
+  type: 'context';
+  id: string;
+  title: string;
+  content: string;
+  questions?: VideoQuestion[];
+}
+
 export type StopElement =
   | HookElement
   | GlossaryElement
@@ -219,6 +361,7 @@ export type StopElement =
   | ReflectionElement
   | SourceAnalysisElement
   | ActivityElement
+  | ContextElement
   | CheckpointPrepElement;
 
 // ─── Stop / Session ──────────────────────────────────────────────────────────

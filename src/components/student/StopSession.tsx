@@ -173,25 +173,25 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
       />
 
       {/* Single navigation bar */}
-      {!isAlreadyComplete && (
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginTop: 24,
-          paddingTop: 20,
-          borderTop: '1px solid var(--border)',
-        }}>
-          <button
-            className="btn btn-ghost btn-sm"
-            onClick={goPrev}
-            disabled={!canGoBack}
-            style={{ opacity: canGoBack ? 1 : 0, pointerEvents: canGoBack ? 'auto' : 'none' }}
-          >
-            ← {backLabel ?? 'Back'}
-          </button>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 24,
+        paddingTop: 20,
+        borderTop: '1px solid var(--border)',
+      }}>
+        <button
+          className="btn btn-ghost btn-sm"
+          onClick={goPrev}
+          disabled={!canGoBack}
+          style={{ opacity: canGoBack ? 1 : 0, pointerEvents: canGoBack ? 'auto' : 'none' }}
+        >
+          ← {backLabel ?? 'Back'}
+        </button>
 
-          {showComplete ? (
+        {!isAlreadyComplete ? (
+          showComplete ? (
             <button className="btn btn-primary" onClick={handleComplete}>
               {isLastSessionOfStop ? '✅ Complete Checkpoint' : '✅ Complete Session'}
             </button>
@@ -199,15 +199,19 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
             <button className="btn btn-primary" onClick={goNext}>
               Next: {nextLabel} →
             </button>
-          )}
-        </div>
-      )}
-
-      {isAlreadyComplete && (
-        <div className="badge badge-success mt-4" style={{ fontSize: '0.85rem', padding: '6px 14px' }}>
-          ✓ Session completed
-        </div>
-      )}
+          )
+        ) : (
+          !showComplete ? (
+            <button className="btn btn-outline btn-sm" onClick={goNext}>
+              Next: {nextLabel} →
+            </button>
+          ) : (
+            <div className="badge badge-success" style={{ fontSize: '0.85rem', padding: '6px 14px' }}>
+              ✓ Session completed
+            </div>
+          )
+        )}
+      </div>
     </div>
   );
 }

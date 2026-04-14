@@ -617,68 +617,46 @@
               "id": "s1_2_source",
               "title": "First Source Analysis — Describe Only",
               "instruction": "Look at the supply chain image your teacher provides.",
-              "steps": [
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s1_2_1",
-                      "question_type": "short_answer",
-                      "text": "List at least 6 things you can see in this image.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s1_2_2",
-                      "question_type": "short_answer",
-                      "text": "What countries or places are shown or labeled?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s1_2_3",
-                      "question_type": "short_answer",
-                      "text": "What product is being tracked? How do you know?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s1_2_4",
-                      "question_type": "short_answer",
-                      "text": "Is there any text in the image? What does it say?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s1_2_5",
-                      "question_type": "short_answer",
-                      "text": "What is the first question that comes to your mind when you look at this?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_s1_2_1",
+                  "question_type": "short_answer",
+                  "text": "List at least 6 things you can see in this image.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": false
+                  "id": "sa_s1_2_2",
+                  "question_type": "short_answer",
+                  "text": "What countries or places are shown or labeled?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": false
+                  "id": "sa_s1_2_3",
+                  "question_type": "short_answer",
+                  "text": "What product is being tracked? How do you know?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": false
+                  "id": "sa_s1_2_4",
+                  "question_type": "short_answer",
+                  "text": "Is there any text in the image? What does it say?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_s1_2_5",
+                  "question_type": "short_answer",
+                  "text": "What is the first question that comes to your mind when you look at this?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 }
               ]
             },
@@ -1640,97 +1618,72 @@
               "type": "source_analysis",
               "id": "s2_2_source",
               "title": "Source Analysis — Step Up",
-              "instruction": "Look at the graph your teacher provides showing the growth of world trade from 1950 to today.",
-              "steps": [
+              "instruction": "Study the graph below showing the growth of world trade from 1950 to today.",
+              "image": "/images/trade_value_e.png",
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s2_2_1",
-                      "question_type": "short_answer",
-                      "text": "What does this graph show?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s2_2_2",
-                      "question_type": "short_answer",
-                      "text": "What years are covered?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s2_2_3",
-                      "question_type": "short_answer",
-                      "text": "What are the highest and lowest points?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_s2_2_1",
+                  "question_type": "short_answer",
+                  "text": "What does this graph show?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s2_2_4",
-                      "question_type": "short_answer",
-                      "text": "What is the overall trend — is trade going up, down, or staying the same?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s2_2_5",
-                      "question_type": "short_answer",
-                      "text": "Is the growth steady or does it speed up at certain points? When?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s2_2_6",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this — graph, cartoon, or written? What does that tell us about how to read it?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s2_2_7",
-                      "question_type": "short_answer",
-                      "text": "What do you think caused the biggest jumps in trade? Use what you have learned so far to make a guess.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_s2_2_2",
+                  "question_type": "short_answer",
+                  "text": "What years are covered?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s2_2_8",
-                      "question_type": "short_answer",
-                      "text": "What do you think this graph is saying about globalization — is it making the case FOR it, AGAINST it, or just showing facts? How do you know?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_s2_2_3",
+                  "question_type": "short_answer",
+                  "text": "What are the highest and lowest points?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": false
+                  "id": "sa_s2_2_4",
+                  "question_type": "short_answer",
+                  "text": "What is the overall trend — is trade going up, down, or staying the same?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_s2_2_5",
+                  "question_type": "short_answer",
+                  "text": "Is the growth steady or does it speed up at certain points? When?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_s2_2_6",
+                  "question_type": "short_answer",
+                  "text": "What type of source is this — graph, cartoon, or written? What does that tell us about how to read it?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_s2_2_7",
+                  "question_type": "short_answer",
+                  "text": "What do you think caused the biggest jumps in trade? Use what you have learned so far to make a guess.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_s2_2_8",
+                  "question_type": "short_answer",
+                  "text": "What do you think this graph is saying about globalization — is it making the case FOR it, AGAINST it, or just showing facts? How do you know?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 }
               ]
             },
@@ -2452,97 +2405,85 @@
               ]
             },
             {
-              "type": "source_analysis",
-              "id": "s3_1_source",
-              "title": "Source Analysis — Full Framework",
-              "instruction": "Look at the image your teacher provides — a map or photograph of Lubicon Cree territory showing oil development.",
-              "steps": [
+              "type": "video",
+              "id": "s3_1_video_3",
+              "title": "Lubicon Cree Settlement Announcement (2018)",
+              "youtube_id": "WjBpfd3Fjec",
+              "chunks": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
+                  "id": "s3_1_v3_c1",
+                  "title": "The settlement announcement",
+                  "start_seconds": 0,
+                  "end_seconds": 600,
                   "questions": [
                     {
-                      "id": "sa_s3_1_1",
+                      "id": "q_s3_1_14",
+                      "question_type": "true_false",
+                      "text": "The settlement gives the Lubicon Lake Band land in the vicinity of Little Buffalo.",
+                      "correct_answer": true,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_15",
+                      "question_type": "true_false",
+                      "text": "This settlement happened quickly after the Lubicon first raised their land rights concerns.",
+                      "correct_answer": false,
+                      "points": 1,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_16",
+                      "question_type": "fill_blank",
+                      "text": "The settlement includes approximately ___ square miles of land and $___ million in compensation.",
+                      "blanks": [
+                        {
+                          "position": 1,
+                          "accepted_answers": [
+                            "95",
+                            "ninety-five",
+                            "ninety five"
+                          ]
+                        },
+                        {
+                          "position": 2,
+                          "accepted_answers": [
+                            "18",
+                            "eighteen"
+                          ]
+                        }
+                      ],
+                      "points": 2,
+                      "scored_by": "auto"
+                    },
+                    {
+                      "id": "q_s3_1_17",
                       "question_type": "short_answer",
-                      "text": "What do you see? List at least 5 things.",
+                      "text": "The chief mentions specific things the settlement will bring to the community. Name THREE of them.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
                     },
                     {
-                      "id": "sa_s3_1_2",
+                      "id": "q_s3_1_18",
                       "question_type": "short_answer",
-                      "text": "What places or regions are shown?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s3_1_3",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this?",
+                      "text": "The chief says \"we're smack dab in resource-rich Alberta and we haven't benefited a whole lot.\" After watching Melina's video — why do you think that is? Write 2-3 sentences.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
                     },
                     {
-                      "id": "sa_s3_1_4",
+                      "id": "q_s3_1_19",
                       "question_type": "short_answer",
-                      "text": "What is the trend or main story this source is showing?",
+                      "text": "The settlement happened in 2018 — 119 years after Treaty 8 was signed in 1899, and years after the oil spill Melina described. Does 119 years change how you feel about this announcement? Is this justice, or just a very late fix?",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
                     },
                     {
-                      "id": "sa_s3_1_5",
+                      "id": "q_s3_1_20",
                       "question_type": "short_answer",
-                      "text": "What is NOT shown in this source that might be important?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s3_1_6",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about globalization and its relationship to people and land?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s3_1_7",
-                      "question_type": "short_answer",
-                      "text": "Who do you think made this source and why? Does that affect how you read it?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s3_1_8",
-                      "question_type": "short_answer",
-                      "text": "How does what you see in this source connect to what you learned in Stops 1 and 2 about globalization and who benefits?",
+                      "text": "The government calls this \"full and final settlement.\" The Lubicon get land and money. Does that feel like enough to you? What can't be given back?",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -2555,7 +2496,7 @@
               "type": "tasks",
               "id": "s3_1_task1",
               "title": "Perspectives Sorting",
-              "instruction": "Read each statement. Write PRO (supports oil development) or CON (opposes oil development) beside each one. Then circle the TWO statements you agree with most — one from each side. Write 3-4 sentences explaining why.",
+              "instruction": "Read each statement. Label each one PRO (supports oil development) or CON (opposes oil development). Then pick ONE from each side that you agree with most and explain why in 3-4 sentences.",
               "task_type": "label_and_select",
               "items": [
                 {
@@ -2595,7 +2536,7 @@
                 },
                 {
                   "id": "ps_6",
-                  "text": "Children in Little Buffalo now cannot drink water from their own land.",
+                  "text": "Children in Little Buffalo could not drink water from their own land after the spill.",
                   "correct_label": "CON",
                   "points": 1,
                   "scored_by": "auto"
@@ -2617,7 +2558,7 @@
               ],
               "follow_up": {
                 "id": "ps_followup",
-                "text": "Explain why the two statements you circled matter most to you.",
+                "text": "Pick ONE statement from the PRO side and ONE from the CON side that you agree with most. Write 3-4 sentences explaining why you chose those two — and what it feels like to agree with both at the same time.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -2808,7 +2749,8 @@
             {
               "type": "reflection",
               "id": "s3_2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answer. No copy-paste.",
+              "choose_one": true,
               "prompts": [
                 {
                   "id": "r_s3_2_1",
@@ -2854,140 +2796,9 @@
               "content": "By the end of this film, you will know exactly where your jewelry comes from. The question is — what are you going to do about it?"
             },
             {
-              "type": "film",
-              "id": "s3_3_film",
-              "title": "Blood Diamond — Part 2",
-              "note": "Watch the second half of the film — approximately 1 hour 15 minutes.",
-              "part": 2,
-              "post_watch_questions": [
-                {
-                  "id": "q_s3_3_film_1",
-                  "question_type": "short_answer",
-                  "text": "Blood Diamond is a Hollywood film with a white African mercenary as its main character, telling a story about Sierra Leone. Does the fact that it is a fictional story told from a Western perspective affect how you receive its message? Does it matter who is telling this story and how? Write your honest opinion in 4-5 sentences.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "source_analysis",
-              "id": "s3_3_source",
-              "title": "Source Analysis — Written Source",
-              "instruction": "Read this short excerpt.",
-              "source_text": "The global diamond industry generates approximately $80 billion in revenue annually. An estimated 65 million people worldwide depend on the diamond industry for their livelihoods. At the same time, human rights organizations estimate that conflict diamonds still make up between 1-4% of the global diamond trade despite the Kimberley Process.",
-              "steps": [
-                {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s3_3_1",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying in plain language?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s3_3_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s3_3_3",
-                      "question_type": "short_answer",
-                      "text": "Are there key terms you should define? What are they?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_s3_3_4",
-                      "question_type": "short_answer",
-                      "text": "Where might this quote come from? Does the source matter?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s3_3_5",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about globalization — does it support it, critique it, or just present facts?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_s3_3_6",
-                      "question_type": "short_answer",
-                      "text": "How does this connect to what we have learned about who benefits from globalization and who does not?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "s3_3_task1",
-              "title": "Blood Diamond and Lubicon Cree — What Do They Share?",
-              "instruction": "Fill in the comparison chart. What do these two stories have in common? What is different? Then write one sentence capturing the single most important thing they share.",
-              "task_type": "comparison_chart",
-              "columns": [
-                {
-                  "id": "col_a",
-                  "label": "Blood Diamond (Sierra Leone)"
-                },
-                {
-                  "id": "col_b",
-                  "label": "BOTH"
-                },
-                {
-                  "id": "col_c",
-                  "label": "Lubicon Cree (Alberta)"
-                }
-              ],
-              "rows": 3,
-              "follow_up": {
-                "id": "compare_followup",
-                "text": "Write one sentence that captures the single most important thing these two stories share.",
-                "points": 4,
-                "scored_by": "teacher",
-                "notify_teacher": true
-              }
-            },
-            {
               "type": "reflection",
               "id": "s3_3_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Answer all four. Type your answers. No copy-paste.",
               "prompts": [
                 {
                   "id": "r_s3_3_1",
@@ -3147,34 +2958,88 @@
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
-                    },
-                    {
-                      "id": "q_s3_4_7",
-                      "question_type": "short_answer",
-                      "text": "The video says \"First Nation support is considered crucial but so far very few in BC are on side.\" Why do you think First Nations support matters so much to this project? Write 2-3 sentences.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "q_s3_4_8",
-                      "question_type": "short_answer",
-                      "text": "The government says the pipeline is worth billions for Canada's economy. Opponents say the environmental and Indigenous rights risks are too great. Who do you think makes the stronger argument? Use specific details from the video.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
                     }
                   ]
                 }
               ]
             },
             {
+              "type": "context",
+              "id": "s3_4_pipeline_update",
+              "title": "What Happened Next",
+              "content": "This video was made in 2012. The Northern Gateway pipeline was ultimately rejected by the federal government in 2016, partly due to Indigenous opposition. However, the Trans Mountain pipeline expansion — a different route — was approved and completed in 2024 after years of legal battles and protests. First Nations along the routes were divided — some opposed on environmental and rights grounds, some negotiated equity stakes worth hundreds of millions of dollars. The debate about who owns the land, who bears the risk, and who benefits from Alberta's oil is still very much alive."
+            },
+            {
               "type": "activity",
+              "id": "s3_4_followup_qs",
+              "title": "Pipeline Reflection Questions",
+              "instruction": "Based on the video and the context above, answer both questions.",
+              "questions": [
+                {
+                  "id": "q_s3_4_7",
+                  "question_type": "short_answer",
+                  "text": "The video says First Nations support is \"crucial\" but very few in BC are on side. Now that you know the Northern Gateway pipeline was eventually rejected — partly because of that opposition — what does that tell you about the power First Nations communities had in this process? Write 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "q_s3_4_8",
+                  "question_type": "short_answer",
+                  "text": "The video was made in 2012. The Trans Mountain pipeline — a different route — was completed in 2024 after years of fighting. Based on everything in this video and the context above: has anything actually changed for Indigenous communities and the environment, or did the same battle just move to a different pipeline? Write 4-5 honest sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                }
+              ]
+            },
+            {
+              "type": "tasks",
               "id": "s3_4_activity",
               "title": "Environmental Impact Spectrum",
-              "instruction": "Ask Mr. McRae for the Environmental Impact Spectrum sheet. Place each resource development industry on the spectrum from most to least environmentally damaging. Justify each placement with evidence.",
-              "physical_component": true,
-              "teacher_note": "Distribute the Environmental Impact Spectrum handout."
+              "instruction": "Rank these industries from 1 (most environmentally damaging) to 8 (least environmentally damaging). Then justify your top 3 and bottom 1 in the follow-up.",
+              "task_type": "ranking",
+              "items": [
+                {
+                  "id": "ei_1",
+                  "text": "Oil sands mining (surface mining)"
+                },
+                {
+                  "id": "ei_2",
+                  "text": "In-situ oil extraction (drilling underground)"
+                },
+                {
+                  "id": "ei_3",
+                  "text": "Natural gas fracking"
+                },
+                {
+                  "id": "ei_4",
+                  "text": "Coal mining"
+                },
+                {
+                  "id": "ei_5",
+                  "text": "Conventional oil drilling"
+                },
+                {
+                  "id": "ei_6",
+                  "text": "Hydroelectric dams"
+                },
+                {
+                  "id": "ei_7",
+                  "text": "Wind and solar farms"
+                },
+                {
+                  "id": "ei_8",
+                  "text": "Forestry / clear-cutting"
+                }
+              ],
+              "follow_up": {
+                "id": "ei_followup",
+                "text": "Explain your #1 (most damaging), #2, #3, and your #8 (least damaging). What made you rank them that way? Use specific evidence from the videos you have watched in this checkpoint.",
+                "points": 4,
+                "scored_by": "teacher",
+                "notify_teacher": true
+              }
             },
             {
               "type": "tasks",
@@ -3205,7 +3070,7 @@
               "type": "tasks",
               "id": "s3_4_task2",
               "title": "Ecological Footprint Calculator",
-              "instruction": "Use your phone or the app to find an ecological footprint calculator online. Complete it honestly and record your results.",
+              "instruction": "Go to footprintcalculator.org and complete the calculator honestly. It takes about 3 minutes. Record your results below.",
               "task_type": "calculator_response",
               "fields": [
                 {
@@ -3468,9 +3333,11 @@
             {
               "type": "tasks",
               "id": "s3_5_task1",
-              "title": "Stop 3 Vocabulary Review",
-              "instruction": "Go back through all 5 sessions. Find any term you are still unsure about and write your best definition.",
+              "title": "Checkpoint 3 Vocabulary Review",
+              "instruction": "Pick up to 3 terms from Checkpoint 3 that you are still fuzzy on. For each one, write your best definition in your own words — no copying from your earlier answer.",
               "task_type": "vocab_review",
+              "source": "glossary",
+              "source_filter": "checkpoint_3",
               "rows": 3,
               "columns": [
                 "Term I am still fuzzy on",
@@ -3480,27 +3347,40 @@
             {
               "type": "tasks",
               "id": "s3_5_task2",
-              "title": "Connecting the Stops",
-              "instruction": "Complete the middle and right columns by writing what connects to each idea across Stops 1, 2, and 3.",
+              "title": "Connecting the Checkpoints",
+              "instruction": "For each idea below, pick a glossary term from Checkpoint 2 and one from Checkpoint 3 that connects to it. Then write one sentence explaining each connection.",
               "task_type": "connection_chart",
+              "source": "glossary",
               "rows": [
                 {
                   "id": "cc_1",
                   "col_a": "Nike supply chain",
-                  "col_b_placeholder": "Connect to Stop 2...",
-                  "col_c_placeholder": "Connect to Stop 3..."
+                  "col_b_type": "glossary_dropdown",
+                  "col_b_filter": "checkpoint_2",
+                  "col_b_explain": true,
+                  "col_c_type": "glossary_dropdown",
+                  "col_c_filter": "checkpoint_3",
+                  "col_c_explain": true
                 },
                 {
                   "id": "cc_2",
                   "col_a": "Crash Course t-shirt",
-                  "col_b_placeholder": "Connect to Stop 2...",
-                  "col_c_placeholder": "Connect to Stop 3..."
+                  "col_b_type": "glossary_dropdown",
+                  "col_b_filter": "checkpoint_2",
+                  "col_b_explain": true,
+                  "col_c_type": "glossary_dropdown",
+                  "col_c_filter": "checkpoint_3",
+                  "col_c_explain": true
                 },
                 {
                   "id": "cc_3",
                   "col_a": "Winners and losers",
-                  "col_b_placeholder": "Connect to Stop 2...",
-                  "col_c_placeholder": "Connect to Stop 3..."
+                  "col_b_type": "glossary_dropdown",
+                  "col_b_filter": "checkpoint_2",
+                  "col_b_explain": true,
+                  "col_c_type": "glossary_dropdown",
+                  "col_c_filter": "checkpoint_3",
+                  "col_c_explain": true
                 }
               ],
               "points": 4,
@@ -3514,7 +3394,7 @@
               "prompts": [
                 {
                   "id": "r_s3_5_1",
-                  "text": "The most important thing I learned across all of Stop 3 was...",
+                  "text": "The most important thing I learned across all of Checkpoint 3 was...",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -3553,8 +3433,7 @@
                 "The Lubicon Cree situation — what happened and why it matters",
                 "How Blood Diamond connects to globalization",
                 "At least TWO environmental impacts of globalization you can speak to in detail",
-                "Your position on: does globalization contribute to sustainable prosperity for all people?",
-                "Your written assignment plan — what argument are you making and why?"
+                "Your position on: does globalization contribute to sustainable prosperity for all people?"
               ],
               "artifact_required": true,
               "artifact_description": "Written assignment planning sheet",
@@ -3864,94 +3743,68 @@
               "type": "source_analysis",
               "id": "cp4_s1_source",
               "title": "Source Analysis — Trade Liberalization",
-              "instruction": "Your teacher will provide one of the following: a political cartoon, a graph, or a written excerpt related to trade liberalization.",
-              "teacher_note": "Select and provide one source on trade liberalization — cartoon, graph, or written. Teacher-sourced.",
-              "steps": [
+              "instruction": "Look carefully at the cartoon below. Then choose 3 of the 7 questions below to answer.",
+              "source_type": "cartoon",
+              "image_path": "/public/images/tradeliberalcartoon.jpeg",
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp4_s1_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp4_s1_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is it — cartoon, graph, or written?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp4_s1_1",
+                  "question_type": "short_answer",
+                  "text": "What do you see in this cartoon? Describe everything — the characters, objects, text, and setting.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp4_s1_3",
-                      "question_type": "short_answer",
-                      "text": "If cartoon: What are the key images and what do they symbolize? If graph: What is the trend? If written: What are the key terms and where is this from?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp4_s1_4",
-                      "question_type": "short_answer",
-                      "text": "What point of view does the source seem to take on globalization?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp4_s1_2",
+                  "question_type": "short_answer",
+                  "text": "The wall is made of bricks labelled Tariffs, Discriminatory Subsidies, and Export Controls. What are each of these? Define them in your own words.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp4_s1_5",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about globalization — does it support it, critique it, or both?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp4_s1_6",
-                      "question_type": "short_answer",
-                      "text": "What does it suggest about the role of governments vs. individuals?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp4_s1_3",
+                  "question_type": "short_answer",
+                  "text": "Who is the figure standing on top of the wall? How do you know? Why did the cartoonist choose this character?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp4_s1_7",
-                      "question_type": "short_answer",
-                      "text": "How does this source connect to what you've learned across Checkpoints 1 through 4?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp4_s1_4",
+                  "question_type": "short_answer",
+                  "text": "The figure is shouting 'Oppose Trade Barriers!' while standing behind a wall of trade barriers. What is the cartoonist saying about the United States and free trade? Write 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp4_s1_5",
+                  "question_type": "short_answer",
+                  "text": "This cartoon was published by Global Times, a Chinese newspaper. Does knowing that change how you read it? Why or why not?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp4_s1_6",
+                  "question_type": "short_answer",
+                  "text": "How does this cartoon connect to what you learned about tariffs in Checkpoint 2? Be specific.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp4_s1_7",
+                  "question_type": "short_answer",
+                  "text": "Canada is the truck trying to get through. Does that framing match what you learned about Canada-US trade? Write 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 }
-              ]
+              ],
+              "choose_count": 3
             },
             {
               "type": "tasks",
@@ -3964,7 +3817,11 @@
                 "Helps / Hurts / Both",
                 "Why?"
               ],
-              "rows": [
+              "rows": 6,
+              "points": 6,
+              "scored_by": "teacher",
+              "notify_teacher": true,
+              "row_labels": [
                 "Factory workers in Bangladesh",
                 "Consumers in Canada",
                 "Auto workers in Ontario",
@@ -3972,9 +3829,13 @@
                 "A small local business in Alberta",
                 "A child in a developing country"
               ],
-              "points": 6,
-              "scored_by": "teacher",
-              "notify_teacher": true
+              "dropdowns": {
+                "1": [
+                  "Helps",
+                  "Hurts",
+                  "Both"
+                ]
+              }
             },
             {
               "type": "reflection",
@@ -4211,62 +4072,28 @@
               ]
             },
             {
-              "type": "video",
-              "id": "cp4_s2_video2",
-              "title": "CNN: AI is Upending Entry-Level Jobs",
-              "youtube_id": "3xpyN8SUVQU",
-              "note": "YouTube confirmed: https://www.youtube.com/watch?v=3xpyN8SUVQU",
-              "chunks": [
-                {
-                  "id": "cp4_s2_v2_c1",
-                  "title": "Three teens on their futures in an AI job market",
-                  "start_seconds": 0,
-                  "end_seconds": 300,
-                  "questions": [
-                    {
-                      "id": "q_cp4_s2_10",
-                      "question_type": "true_false",
-                      "text": "All three teens in the video feel confident about their job prospects.",
-                      "correct_answer": false,
-                      "points": 1,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp4_s2_11",
-                      "question_type": "short_answer",
-                      "text": "What strategies do the teens in the video use to think about their futures in an AI-affected job market?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "q_cp4_s2_12",
-                      "question_type": "short_answer",
-                      "text": "Do you relate to any of the teens in the video? Which one and why?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "q_cp4_s2_13",
-                      "question_type": "short_answer",
-                      "text": "One response to AI replacing jobs is to say 'just learn to use AI.' Is that a satisfying answer? Who does that advice help and who does it leave behind?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "activity",
+              "type": "tasks",
               "id": "cp4_s2_activity",
-              "title": "The Outsourcing Timeline",
-              "instruction": "Ask Mr. McRae for the Outsourcing Timeline sheet. You'll map the three waves of outsourcing — where jobs went, who lost, who gained, and what happened next.",
-              "physical_component": true,
-              "teacher_note": "Distribute Outsourcing Timeline handout — built and ready to print.",
-              "checkpoint_artifact": true
+              "title": "The Three Waves of Outsourcing",
+              "instruction": "Fill in each row using what you learned from the context and videos. Use your own words.",
+              "task_type": "table",
+              "columns": [
+                "Wave",
+                "Era",
+                "Where did jobs go?",
+                "Who lost?",
+                "Who gained?",
+                "What happened next?"
+              ],
+              "rows": 3,
+              "row_labels": [
+                "Wave 1 — Manufacturing",
+                "Wave 2 — Knowledge Jobs",
+                "Wave 3 — AI"
+              ],
+              "points": 4,
+              "scored_by": "teacher",
+              "notify_teacher": true
             },
             {
               "type": "tasks",
@@ -4343,41 +4170,6 @@
                   "id": "fw_5",
                   "label": "If AI took your chosen career, what would you do instead?",
                   "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp4_s2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp4_s2_1",
-                  "text": "The wave of outsourcing that bothers me most is... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp4_s2_2",
-                  "text": "Before today, I thought AI and jobs was... After today I think...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp4_s2_3",
-                  "text": "One thing that genuinely worries me about entering the workforce is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp4_s2_4",
-                  "text": "One thing I could actually do to prepare for an AI-affected job market is...",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -4526,225 +4318,35 @@
               ]
             },
             {
-              "type": "source_analysis",
-              "id": "cp4_s3_source",
-              "title": "Source Analysis — Two Sources on Sweatshops",
-              "instruction": "Your teacher will provide two sources on sweatshops or child labour — one defending it as economically necessary, one condemning it as exploitation.",
-              "teacher_note": "Provide two sources: one pro-economic necessity perspective, one condemning exploitation. Both should be current (post-2020 preferred).",
-              "two_source_analysis": true,
-              "steps": [
-                {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp4_s3_1a",
-                      "question_type": "short_answer",
-                      "text": "Source 1 — What is this source saying in plain language?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp4_s3_1b",
-                      "question_type": "short_answer",
-                      "text": "Source 2 — What is this source saying in plain language?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp4_s3_2a",
-                      "question_type": "short_answer",
-                      "text": "For each source — where does it come from? Does that matter?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp4_s3_3a",
-                      "question_type": "short_answer",
-                      "text": "What position does each source take on globalization?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp4_s3_3b",
-                      "question_type": "short_answer",
-                      "text": "What does each source suggest about the role of governments vs. individuals?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                },
-                {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp4_s3_4a",
-                      "question_type": "short_answer",
-                      "text": "How do these two sources together show why globalization is so contested?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp4_s3_4b",
-                      "question_type": "short_answer",
-                      "text": "Which source do you find more convincing, and why? Be specific — point to something in the source itself.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "context",
-              "id": "cp4_s3_assignment_preview",
-              "title": "Your Written Assignment — Coming Soon",
-              "content": "You will write a structured response to a question your teacher will share with you soon. Here is what you know so far: it will ask you to take a position on a big question related to globalization. You will analyze three sources your teacher provides, writing 3-4 sentences of your own opinion after each one. It is solo work only.",
-              "questions": [
-                {
-                  "id": "q_cp4_s3_assign_1",
-                  "question_type": "short_answer",
-                  "text": "What are the three strongest examples from Checkpoints 1-4 you might use in your assignment? Write one or two words for each.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "q_cp4_s3_assign_2",
-                  "question_type": "short_answer",
-                  "text": "What source analysis from your workbook felt most interesting or meaningful to you?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp4_s3_task1",
-              "title": "Fast Fashion Math",
-              "instruction": "These are estimation questions — no exact answers required. They're designed to make you think.",
-              "task_type": "free_response",
-              "fields": [
-                {
-                  "id": "ffm_1",
-                  "label": "If a garment worker makes $3 a day and works 6 days a week, how much do they make in a month?",
-                  "type": "text_input",
-                  "points": 1,
-                  "scored_by": "auto",
-                  "correct_answer": "72"
-                },
-                {
-                  "id": "ffm_2",
-                  "label": "A shirt costs $40 at H&M. If the worker earns $3 for a full day making shirts, what percentage of the shirt's price goes to the worker? (Show your thinking)",
-                  "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "ffm_3",
-                  "label": "The same shirt costs $5 to produce in total. H&M sells it for $40. Where does the other $35 go? List at least 3 places.",
-                  "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "ffm_4",
-                  "label": "If H&M paid its garment workers 3 times as much and passed the full cost to consumers — how much would the shirt cost? Would you still buy it?",
-                  "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp4_s3_task2",
-              "title": "Checkpoint 4 Connections",
-              "instruction": "Connect each idea from Checkpoint 4 to something from an earlier checkpoint. Write one sentence of connection for each.",
-              "task_type": "connection_chart",
-              "rows": [
-                {
-                  "id": "cc_cp4_1",
-                  "col_a": "Sweatshops and outsourcing",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                },
-                {
-                  "id": "cc_cp4_2",
-                  "col_a": "AI replacing outsourced jobs",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                },
-                {
-                  "id": "cc_cp4_3",
-                  "col_a": "Fast fashion and the environment",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                },
-                {
-                  "id": "cc_cp4_4",
-                  "col_a": "Trade liberalization and deregulation",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                }
-              ],
-              "points": 4,
-              "scored_by": "teacher",
-              "notify_teacher": true
-            },
-            {
               "type": "reflection",
-              "id": "cp4_s3_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "id": "cp4_s3_reflection_new",
+              "title": "True Cost Reflection",
+              "instruction": "Type your answers below based on the film.",
               "prompts": [
                 {
-                  "id": "r_cp4_s3_1",
-                  "text": "The hook described a garment worker who wakes up at 5am to make a shirt you'll wear. Did that image stay with you during this session? Why or why not?",
+                  "id": "cp4_s3_ref_1",
+                  "text": "The film follows real garment workers, not just statistics. Which person's story stayed with you the most and why? What did their life tell you about who actually pays the cost of cheap clothing?",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
                 },
                 {
-                  "id": "r_cp4_s3_2",
-                  "text": "Of everything we've covered in Checkpoints 1-4, the thing that has changed my thinking the most is...",
+                  "id": "cp4_s3_ref_2",
+                  "text": "The film argues that the fashion industry's problems aren't accidents — they're built into the system on purpose. Do you agree? Who would have to change for things to actually get better — consumers, companies, or governments?",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
                 },
                 {
-                  "id": "r_cp4_s3_3",
-                  "text": "Globalization creates winners and losers. Right now, in my life, I am mostly a ___ because...",
+                  "id": "cp4_s3_ref_3",
+                  "text": "Before watching, you probably owned fast fashion. After watching, has anything actually changed about how you feel about buying it? Be completely honest — it's okay if the answer is no.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
                 },
                 {
-                  "id": "r_cp4_s3_4",
-                  "text": "When I think about writing my assignment, I think my position will be... because...",
+                  "id": "cp4_s3_ref_4",
+                  "text": "The True Cost was made in 2015. Based on everything you've learned in this course about globalization, trade, and corporate responsibility — do you think things have gotten better or worse for garment workers since then? What makes you think that?",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -4772,34 +4374,6 @@
           "title": "Session 1 — Written Assignment: Source 1",
           "elements": [
             {
-              "type": "hook",
-              "id": "cp5_s1_hook",
-              "content": "You've spent four checkpoints learning about globalization. You've watched Blood Diamond, traced your stuff on a world map, argued about tariffs, and looked at what's happening in your own backyard in Alberta. Now it's time to say something. What do YOU actually think?"
-            },
-            {
-              "type": "glossary",
-              "id": "cp5_s1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
-              "terms": [
-                {
-                  "id": "g_perspective",
-                  "term": "Perspective"
-                },
-                {
-                  "id": "g_evidence",
-                  "term": "Evidence"
-                },
-                {
-                  "id": "g_argument",
-                  "term": "Argument"
-                },
-                {
-                  "id": "g_position",
-                  "term": "Position"
-                }
-              ]
-            },
-            {
               "type": "context",
               "id": "cp5_s1_assignment_intro",
               "title": "Written Assignment — How It Works",
@@ -4809,113 +4383,77 @@
             {
               "type": "source_analysis",
               "id": "cp5_s1_source",
-              "title": "Written Assignment — Source 1",
-              "instruction": "Mr. McRae will give you Source 1. Complete the full four-step source analysis.",
-              "teacher_note": "Distribute Source 1 to students now.",
-              "steps": [
+              "title": "Source I",
+              "assignment_question": "What does the source presented communicate about the role of the individual in society? Considering the source, what do you think should be the role of the individual in society?",
+              "source_type": "written",
+              "source_text": "Shutting down production in developing countries harms consumers, who want low prices, and workers, who need a job. Instead, consumers need to work with corporations to encourage better business practices.",
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s1_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp5_s1_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this — cartoon, graph, or written?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s1_1",
+                  "question_type": "short_answer",
+                  "text": "What is this quote saying? Write it in your own words — no copying.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s1_3",
-                      "question_type": "short_answer",
-                      "text": "If cartoon: What are the key images and what do they symbolize? If graph: What is the trend? If written: What are the key terms and where is this from?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp5_s1_4",
-                      "question_type": "short_answer",
-                      "text": "What point of view does the source seem to take?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s1_2",
+                  "question_type": "short_answer",
+                  "text": "Where do you think this quote might come from — who would say something like this?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s1_5",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about globalization?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp5_s1_6",
-                      "question_type": "short_answer",
-                      "text": "What does it suggest about the role of governments vs. individuals?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s1_3",
+                  "question_type": "short_answer",
+                  "text": "What is this source saying about the role of the individual in society? Write 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s1_7",
-                      "question_type": "short_answer",
-                      "text": "How does this source connect to something specific you learned in Checkpoints 1-4? Name the checkpoint and explain in 2-3 sentences.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp5_s1_opinion",
-              "title": "Your Opinion — Source 1",
-              "instruction": "Type 3-4 sentences. No copy-paste. This must be YOUR voice. Reference something specific from Source 1 and connect to at least one thing you personally learned in this workbook. Mr. McRae will ask you about it.",
-              "task_type": "free_response",
-              "ai_proof_note": "Your opinion paragraph needs to connect to YOUR experience in this course — something from your map activity, your ecological footprint, the Lubicon Cree discussion, Blood Diamond, or another specific moment. An AI cannot fake that.",
-              "fields": [
+                  "id": "sa_cp5_s1_4",
+                  "question_type": "short_answer",
+                  "text": "What aspect of globalization is reflected in this source? How do you know?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
                 {
-                  "id": "op_cp5_s1",
-                  "label": "Write your 3-4 sentence opinion response to Source 1 here.",
-                  "type": "text_area",
+                  "id": "sa_cp5_s1_5",
+                  "question_type": "short_answer",
+                  "text": "What case study, event, or person from this course connects to the ideas in this source? Explain the connection in 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s1_6",
+                  "question_type": "short_answer",
+                  "text": "Do you agree with what this source is saying about the role of the individual? Be clear and direct.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s1_7",
+                  "question_type": "short_answer",
+                  "text": "Why is the role of the individual described in this source good or bad for society?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s1_8",
+                  "question_type": "short_answer",
+                  "text": "Expand your reasoning. Give at least TWO specific examples from this course to support your position.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
                 }
-              ]
+              ],
+              "enable_tags": true
             },
             {
               "type": "tasks",
@@ -4929,41 +4467,6 @@
               ],
               "rows": 3,
               "scored_by": "none"
-            },
-            {
-              "type": "reflection",
-              "id": "cp5_s1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp5_s1_1",
-                  "text": "The main argument Source 1 is making about globalization is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s1_2",
-                  "text": "I agree / disagree with Source 1 because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s1_3",
-                  "text": "The hardest part of the analysis for me today was...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s1_4",
-                  "text": "One thing I want to make sure I say in my final assignment is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         },
@@ -4972,119 +4475,79 @@
           "title": "Session 2 — Written Assignment: Source 2",
           "elements": [
             {
-              "type": "hook",
-              "id": "cp5_s2_hook",
-              "content": "Yesterday's source gave you one perspective. Today's gives you another. Good arguments don't ignore the other side — they deal with it."
-            },
-            {
               "type": "source_analysis",
               "id": "cp5_s2_source",
-              "title": "Written Assignment — Source 2",
-              "instruction": "Mr. McRae will give you Source 2. Complete the full four-step source analysis.",
-              "teacher_note": "Distribute Source 2 to students now.",
-              "steps": [
+              "title": "Source II",
+              "assignment_question": "What does the source presented communicate about the role of the individual in society? Considering the source, what do you think should be the role of the individual in society?",
+              "source_type": "written",
+              "source_text": "Free trade opens up a world of choices for consumers, allowing them to access a wider variety of goods at lower prices. By breaking down trade barriers, workers and consumers benefit from increased competition, leading to a better quality of life.",
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s2_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp5_s2_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s2_1",
+                  "question_type": "short_answer",
+                  "text": "What is this quote saying? Write it in your own words — no copying.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s2_3",
-                      "question_type": "short_answer",
-                      "text": "Apply the relevant analysis questions for this source type.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s2_2",
+                  "question_type": "short_answer",
+                  "text": "Where do you think this quote might come from — who would say something like this?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s2_4",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about globalization?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp5_s2_5",
-                      "question_type": "short_answer",
-                      "text": "What does it suggest about the role of governments vs. individuals?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s2_3",
+                  "question_type": "short_answer",
+                  "text": "What is this source saying about the role of the individual in society? Write 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s2_6",
-                      "question_type": "short_answer",
-                      "text": "How does Source 2 connect to Source 1? Do they agree, disagree, or talk about different things? Explain in 2-3 sentences.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp5_s2_7",
-                      "question_type": "short_answer",
-                      "text": "How does Source 2 connect to something specific you learned in Checkpoints 1-4?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp5_s2_opinion",
-              "title": "Your Opinion — Source 2",
-              "instruction": "Type 3-4 sentences. No copy-paste. Reference something specific from Source 2 and show whether it changed, confirmed, or challenged your thinking from Source 1.",
-              "task_type": "free_response",
-              "fields": [
+                  "id": "sa_cp5_s2_4",
+                  "question_type": "short_answer",
+                  "text": "What aspect of globalization is reflected in this source? How do you know?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
                 {
-                  "id": "op_cp5_s2",
-                  "label": "Write your 3-4 sentence opinion response to Source 2 here.",
-                  "type": "text_area",
+                  "id": "sa_cp5_s2_5",
+                  "question_type": "short_answer",
+                  "text": "What case study, event, or person from this course connects to the ideas in this source? Explain the connection in 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s2_6",
+                  "question_type": "short_answer",
+                  "text": "Do you agree with what this source is saying about the role of the individual? Be clear and direct.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s2_7",
+                  "question_type": "short_answer",
+                  "text": "Why is the role of the individual described in this source good or bad for society?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s2_8",
+                  "question_type": "short_answer",
+                  "text": "Expand your reasoning. Give at least TWO specific examples from this course to support your position.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
                 }
-              ]
+              ],
+              "enable_tags": true
             },
             {
               "type": "tasks",
@@ -5107,41 +4570,6 @@
               "points": 4,
               "scored_by": "teacher",
               "notify_teacher": true
-            },
-            {
-              "type": "reflection",
-              "id": "cp5_s2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp5_s2_1",
-                  "text": "Source 2 is similar to / different from Source 1 because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s2_2",
-                  "text": "My opinion on globalization after two sources is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s2_3",
-                  "text": "The strongest argument I've encountered across both sources is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s2_4",
-                  "text": "Going into Source 3, one thing I want to look for is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         },
@@ -5150,111 +4578,79 @@
           "title": "Session 3 — Written Assignment: Source 3 + Complete",
           "elements": [
             {
-              "type": "hook",
-              "id": "cp5_s3_hook",
-              "content": "Three sources. Three perspectives. One question. Now it's time to put it all together and say what YOU actually think — not what the sources say, not what you think I want to hear. What do you genuinely believe about globalization after everything you've learned?"
-            },
-            {
               "type": "source_analysis",
               "id": "cp5_s3_source",
-              "title": "Written Assignment — Source 3",
-              "instruction": "Mr. McRae will give you Source 3. Complete the full four-step source analysis.",
-              "teacher_note": "Distribute Source 3 to students now.",
-              "steps": [
+              "title": "Source III",
+              "assignment_question": "What does the source presented communicate about the role of the individual in society? Considering the source, what do you think should be the role of the individual in society?",
+              "source_type": "cartoon",
+              "image_path": "/public/images/source3.jpg",
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s3_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp5_s3_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s3_1",
+                  "question_type": "short_answer",
+                  "text": "What do you see in this cartoon? Describe it in detail — people, objects, text, setting.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s3_3",
-                      "question_type": "short_answer",
-                      "text": "Apply the relevant analysis questions for this source type.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s3_2",
+                  "question_type": "short_answer",
+                  "text": "What are the key images in this cartoon and what do they mean? Why do you think the cartoonist made those specific choices?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s3_4",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about globalization?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp5_s3_5",
-                      "question_type": "short_answer",
-                      "text": "What does it suggest about the role of governments vs. individuals?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp5_s3_3",
+                  "question_type": "short_answer",
+                  "text": "What is this cartoon saying about the role of the individual in society? Write 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp5_s3_6",
-                      "question_type": "short_answer",
-                      "text": "How does Source 3 fit with Sources 1 and 2? Does it complete a picture, add something new, or directly challenge one of the others?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp5_s3_opinion",
-              "title": "Your Opinion — Source 3",
-              "instruction": "Type 3-4 sentences. No copy-paste. Reference something specific from Source 3 and begin to pull together your overall argument.",
-              "task_type": "free_response",
-              "fields": [
+                  "id": "sa_cp5_s3_4",
+                  "question_type": "short_answer",
+                  "text": "What aspect of globalization is reflected in this cartoon? How do you know?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
                 {
-                  "id": "op_cp5_s3",
-                  "label": "Write your 3-4 sentence opinion response to Source 3 here.",
-                  "type": "text_area",
+                  "id": "sa_cp5_s3_5",
+                  "question_type": "short_answer",
+                  "text": "What case study, event, or person from this course connects to the ideas in this cartoon? Explain the connection in 2-3 sentences.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s3_6",
+                  "question_type": "short_answer",
+                  "text": "Do you agree with what this cartoon is saying about the role of the individual? Be clear and direct.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s3_7",
+                  "question_type": "short_answer",
+                  "text": "Why is the role of the individual described in this cartoon good or bad for society?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp5_s3_8",
+                  "question_type": "short_answer",
+                  "text": "Expand your reasoning. Give at least TWO specific examples from this course to support your position.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
                 }
-              ]
+              ],
+              "enable_tags": true
             },
             {
               "type": "tasks",
@@ -5299,82 +4695,6 @@
                   "id": "syn_5",
                   "label": "What course experience best supports your argument? Explain in 2-3 sentences.",
                   "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp5_s3_checklist",
-              "title": "Final Checklist",
-              "instruction": "Before you submit, check each box.",
-              "task_type": "checklist",
-              "items": [
-                {
-                  "id": "cl_1",
-                  "text": "I have completed a full source analysis for Source 1"
-                },
-                {
-                  "id": "cl_2",
-                  "text": "I have written 3-4 sentences of my own opinion after Source 1"
-                },
-                {
-                  "id": "cl_3",
-                  "text": "I have completed a full source analysis for Source 2"
-                },
-                {
-                  "id": "cl_4",
-                  "text": "I have written 3-4 sentences of my own opinion after Source 2"
-                },
-                {
-                  "id": "cl_5",
-                  "text": "I have completed a full source analysis for Source 3"
-                },
-                {
-                  "id": "cl_6",
-                  "text": "I have written 3-4 sentences of my own opinion after Source 3"
-                },
-                {
-                  "id": "cl_7",
-                  "text": "My opinion paragraphs connect to specific course experiences"
-                },
-                {
-                  "id": "cl_8",
-                  "text": "I have not just summarized the sources — I have responded to them"
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp5_s3_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp5_s3_1",
-                  "text": "After three sources and three opinion paragraphs, my overall position on globalization is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s3_2",
-                  "text": "The source that changed my thinking the most was... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s3_3",
-                  "text": "The hardest part of this assignment was...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s3_4",
-                  "text": "If I could add a fourth source to strengthen my argument, it would be about...",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -5681,41 +5001,6 @@
                   "notify_teacher": true
                 }
               ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp5_s4_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp5_s4_1",
-                  "text": "Moving from RI3 to RI4 feels... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s4_2",
-                  "text": "The question 'should I respond to globalization?' is different from 'does globalization help people?' because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s4_3",
-                  "text": "My quality of life right now is mostly shaped by... and globalization plays a role because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp5_s4_4",
-                  "text": "One thing I'm curious about going into RI4 is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         }
@@ -5916,70 +5201,44 @@
               "type": "source_analysis",
               "id": "cp6_s1_source",
               "title": "Source Analysis — Quality of Life and Globalization",
-              "instruction": "Your teacher will provide a source related to quality of life and globalization — could be the HDI rankings, a graph showing Canada's happiness decline, or a written piece.",
+              "instruction": "",
               "teacher_note": "Select one source: HDI country rankings graph, Canada youth happiness decline graph, or written piece on QoL and globalization.",
-              "steps": [
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp6_s1_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp6_s1_1",
+                  "question_type": "short_answer",
+                  "text": "What do you see or read? Describe the source in your own words.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp6_s1_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this and what does that tell you about how to read it?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp6_s1_2",
+                  "question_type": "short_answer",
+                  "text": "What type of source is this and what does that tell you about how to read it?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp6_s1_3",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about the relationship between globalization and quality of life?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp6_s1_3",
+                  "question_type": "short_answer",
+                  "text": "What is this source saying about the relationship between globalization and quality of life?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp6_s1_4",
-                      "question_type": "short_answer",
-                      "text": "How does this connect to what you've already learned in Checkpoints 1-5?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp6_s1_4",
+                  "question_type": "short_answer",
+                  "text": "How does this connect to what you've already learned in Checkpoints 1-5?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 }
-              ]
+              ],
+              "iframe_path": "/html/c6s1_quality_of_life.html",
+              "iframe_height": 800
             },
             {
               "type": "tasks",
@@ -6533,74 +5792,46 @@
               "title": "Source Analysis — Women and Globalization",
               "instruction": "Your teacher will provide a source on women and globalization — could be a graph on the global gender wage gap, a written piece on women entrepreneurs, or a news article on garment worker conditions.",
               "teacher_note": "Select one source: global gender wage gap graph, garment worker conditions article, or women entrepreneur profile. For Step 4, prompt students to connect to the garment industry (Checkpoint 4) AND resource extraction (Checkpoint 3).",
-              "steps": [
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp6_s3_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp6_s3_1",
+                  "question_type": "short_answer",
+                  "text": "What do you see or read? Describe the source in your own words.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp6_s3_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this and what does that tell you about how to read it?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp6_s3_2",
+                  "question_type": "short_answer",
+                  "text": "What type of source is this and what does that tell you about how to read it?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp6_s3_3",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about globalization and women?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "sa_cp6_s3_4",
-                      "question_type": "short_answer",
-                      "text": "What does it suggest about the role of governments vs. individuals in addressing gender inequality?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp6_s3_3",
+                  "question_type": "short_answer",
+                  "text": "What is this source saying about globalization and women?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp6_s3_5",
-                      "question_type": "short_answer",
-                      "text": "How does this connect to what you know about the garment industry (Checkpoint 4) AND the resource extraction stories (Checkpoint 3)?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp6_s3_4",
+                  "question_type": "short_answer",
+                  "text": "What does it suggest about the role of governments vs. individuals in addressing gender inequality?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
+                },
+                {
+                  "id": "sa_cp6_s3_5",
+                  "question_type": "short_answer",
+                  "text": "How does this connect to what you know about the garment industry (Checkpoint 4) AND the resource extraction stories (Checkpoint 3)?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 }
               ]
             },
@@ -7378,66 +6609,38 @@
               "title": "Source Analysis — Global Food Security",
               "instruction": "Your teacher will provide a source related to global food security or agricultural globalization.",
               "teacher_note": "Select one source: global hunger trends graph, written piece on GMOs, or political cartoon on agribusiness.",
-              "steps": [
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp7_s2_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp7_s2_1",
+                  "question_type": "short_answer",
+                  "text": "What do you see or read? Describe the source in your own words.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp7_s2_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this and what does that tell you about how to read it?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp7_s2_2",
+                  "question_type": "short_answer",
+                  "text": "What type of source is this and what does that tell you about how to read it?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp7_s2_3",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about food and globalization?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp7_s2_3",
+                  "question_type": "short_answer",
+                  "text": "What is this source saying about food and globalization?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp7_s2_4",
-                      "question_type": "short_answer",
-                      "text": "How does this connect to what you've learned in earlier checkpoints? Be specific.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp7_s2_4",
+                  "question_type": "short_answer",
+                  "text": "How does this connect to what you've learned in earlier checkpoints? Be specific.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 }
               ]
             },
@@ -8327,66 +7530,38 @@
               "title": "Source Analysis — Civic Action and Globalization",
               "instruction": "Your teacher will provide a source on civic action and globalization.",
               "teacher_note": "Select one source: news article on a boycott campaign, fair trade growth graph, or NGO effectiveness written piece.",
-              "steps": [
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp8_s2_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp8_s2_1",
+                  "question_type": "short_answer",
+                  "text": "What do you see or read? Describe the source in your own words.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp8_s2_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this and what does that tell you about how to read it?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp8_s2_2",
+                  "question_type": "short_answer",
+                  "text": "What type of source is this and what does that tell you about how to read it?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp8_s2_3",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about civic action and globalization?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp8_s2_3",
+                  "question_type": "short_answer",
+                  "text": "What is this source saying about civic action and globalization?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp8_s2_4",
-                      "question_type": "short_answer",
-                      "text": "How does this connect to something from an earlier checkpoint? Be specific.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp8_s2_4",
+                  "question_type": "short_answer",
+                  "text": "How does this connect to something from an earlier checkpoint? Be specific.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 }
               ]
             },
@@ -8606,66 +7781,38 @@
               "title": "Source Analysis — Canada's International Role",
               "instruction": "Your teacher will provide a source on Canada's international role.",
               "teacher_note": "Select one source: Canadian foreign aid graph, written piece on a Canadian mining company's operations abroad, or political cartoon on Canada's global reputation.",
-              "steps": [
+              "questions": [
                 {
-                  "step": 1,
-                  "label": "Describe",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp8_s3_1",
-                      "question_type": "short_answer",
-                      "text": "What do you see or read? Describe the source in your own words.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp8_s3_1",
+                  "question_type": "short_answer",
+                  "text": "What do you see or read? Describe the source in your own words.",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 2,
-                  "label": "Analyze by Type",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp8_s3_2",
-                      "question_type": "short_answer",
-                      "text": "What type of source is this and what does that tell you?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp8_s3_2",
+                  "question_type": "short_answer",
+                  "text": "What type of source is this and what does that tell you?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 3,
-                  "label": "Interpret",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp8_s3_3",
-                      "question_type": "short_answer",
-                      "text": "What is this source saying about Canada's global responsibilities?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp8_s3_3",
+                  "question_type": "short_answer",
+                  "text": "What is this source saying about Canada's global responsibilities?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 },
                 {
-                  "step": 4,
-                  "label": "Connect",
-                  "active": true,
-                  "questions": [
-                    {
-                      "id": "sa_cp8_s3_4",
-                      "question_type": "short_answer",
-                      "text": "How does this connect to what you learned about who benefits and who is harmed by globalization across this course?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "sa_cp8_s3_4",
+                  "question_type": "short_answer",
+                  "text": "How does this connect to what you learned about who benefits and who is harmed by globalization across this course?",
+                  "points": 4,
+                  "scored_by": "teacher",
+                  "notify_teacher": true
                 }
               ]
             },

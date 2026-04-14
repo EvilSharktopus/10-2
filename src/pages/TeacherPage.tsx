@@ -37,6 +37,18 @@ export function TeacherPage() {
 
   const flaggedCount = students.filter((s) => s.flaggedForCheckpoint).length;
 
+  // Count disputes across all students — only flag if the dispute hasn't been overridden yet
+  const disputedStudents = students.filter((s) => {
+    const resp = s.responses ?? {};
+    return Object.keys(resp).some((k) => {
+      if (!k.endsWith('_dispute') || resp[k] !== 'pending') return false;
+      // The override key is the same prefix with _override instead of _dispute
+      const overrideKey = k.replace(/_dispute$/, '_override');
+      const override = resp[overrideKey];
+      return override === undefined || override === '';
+    });
+  });
+
   const filtered = students.filter(
     (s) =>
       s.displayName.toLowerCase().includes(search.toLowerCase()) ||
@@ -56,6 +68,11 @@ export function TeacherPage() {
               {flaggedCount > 0 && (
                 <span className="badge badge-amber" style={{ marginLeft: 8 }}>
                   🚩 {flaggedCount} checkpoint{flaggedCount > 1 ? 's' : ''} waiting
+                </span>
+              )}
+              {disputedStudents.length > 0 && (
+                <span className="badge" style={{ marginLeft: 8, background: 'var(--accent-dim)', color: 'var(--accent-light)', border: '1px solid var(--accent)' }}>
+                  ✋ {disputedStudents.length} dispute{disputedStudents.length > 1 ? 's' : ''}
                 </span>
               )}
             </div>
@@ -121,6 +138,34 @@ export function TeacherPage() {
               </div>
             )}
 
+
+            {/* Disputes banner */}
+            {disputedStudents.length > 0 && (
+              <div
+                style={{
+                  background: 'var(--accent-dim)',
+                  border: '1.5px solid var(--accent)',
+                  borderRadius: 'var(--radius)',
+                  padding: '12px 18px',
+                  marginBottom: 20,
+                  maxWidth: 1200,
+                  margin: '0 auto 20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                }}
+              >
+                <span style={{ fontSize: '1.3rem' }}>✋</span>
+                <div>
+                  <strong style={{ color: 'var(--accent-light)' }}>
+                    {disputedStudents.length} student{disputedStudents.length > 1 ? 's' : ''} disputing an auto-graded answer
+                  </strong>
+                  <div className="text-xs text-muted mt-1">
+                    {disputedStudents.map((s) => s.shortName).join(', ')} — open their Responses tab to review and override.
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Search */}
             <div style={{ maxWidth: 1200, margin: '0 auto 20px' }}>

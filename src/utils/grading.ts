@@ -14,6 +14,9 @@ export interface GradeItem {
   correct?: boolean;    // auto only (reflects override if present)
   elementType: string;
   overrideKey?: string; // key to look up teacher override in responses
+  disputeStatus?: 'pending' | 'accepted' | 'dismissed';
+  disputeNote?: string;
+  feedback?: string;
 }
 
 export interface SessionGrade {
@@ -38,6 +41,7 @@ export interface StudentGrade {
   autoAttemptedPossible: number;  // possible points on questions the student actually attempted
   autoPercent: number;
   teacherPending: number;
+  disputeCount: number;
   totalResponses: number;
   byStop: StopGrade[];
   byOutcome: Record<string, { earned: number; possible: number; pending: number }>;
@@ -105,16 +109,20 @@ function extractFromElement(
           const override = responses[overrideKey];
           const grade = gradeAutoQ(q, val);
           const earned = (override !== undefined && override !== '') ? Number(override) : grade.earned;
+          const disputeStatus = responses[q.id + '_dispute'] as any;
+          const disputeNote = str(responses[q.id + '_dispute_note']);
           items.push({
             id: q.id, gradedBy: 'auto', prompt: q.text, response: val,
             hasResponse: !!val, elementType: 'video',
             earned, possible: grade.possible, correct: earned >= grade.possible,
-            overrideKey,
+            overrideKey, disputeStatus, disputeNote,
           });
         } else {
+          const feedback = str(responses[q.id + '_feedback']);
           items.push({
             id: q.id, gradedBy: 'teacher', prompt: q.text, response: val,
             hasResponse: hasVal(responses[q.id]), earned: 0, possible: q.points, elementType: 'video',
+            feedback,
           });
         }
       }
@@ -129,10 +137,12 @@ function extractFromElement(
       const isCorrect = val ? (val === 'True') === item.correct_answer : false;
       const autoEarned = isCorrect ? item.points : 0;
       const earned = (override !== undefined && override !== '') ? Number(override) : autoEarned;
+      const disputeStatus = responses[item.id + '_dispute'] as any;
+      const disputeNote = str(responses[item.id + '_dispute_note']);
       items.push({
         id: item.id, gradedBy: 'auto', prompt: item.text, response: val,
         hasResponse: !!val, earned, possible: item.points,
-        correct: earned >= item.points, elementType: 'true_false_list', overrideKey,
+        correct: earned >= item.points, elementType: 'true_false_list', overrideKey, disputeStatus, disputeNote,
       });
     }
   }
@@ -166,9 +176,11 @@ function extractFromElement(
   if (el.type === 'glossary') {
     for (const term of el.terms) {
       const val = str(responses[term.id]);
+      const feedback = str(responses[term.id + '_feedback']);
       items.push({
         id: term.id, gradedBy: 'teacher', prompt: `Define: ${term.term}`,
         response: val, hasResponse: !!val.trim(), earned: 0, possible: 4, elementType: 'glossary',
+        feedback,
       });
     }
   }
@@ -176,20 +188,27 @@ function extractFromElement(
   if (el.type === 'reflection') {
     for (const p of el.prompts) {
       const val = str(responses[p.id]);
+      const feedback = str(responses[p.id + '_feedback']);
       items.push({
         id: p.id, gradedBy: 'teacher', prompt: p.text, response: val,
         hasResponse: !!val.trim(), earned: 0, possible: p.points, elementType: 'reflection',
+        feedback,
       });
     }
   }
 
   if (el.type === 'source_analysis') {
-    const active = el.steps.find((s) => s.active);
-    for (const q of active?.questions ?? []) {
+    let questionsToGrade = el.questions ?? [];
+    if (el.choose_count) {
+      questionsToGrade = questionsToGrade.filter(q => responses[`${el.id}_pick_${q.id}`] === '1');
+    }
+    for (const q of questionsToGrade) {
       const val = str(responses[q.id]);
+      const feedback = str(responses[q.id + '_feedback']);
       items.push({
         id: q.id, gradedBy: 'teacher', prompt: q.text, response: val,
         hasResponse: !!val.trim(), earned: 0, possible: q.points, elementType: 'source_analysis',
+        feedback,
       });
     }
   }
@@ -239,6 +258,7 @@ export function gradeStudent(
   let autoPossible = 0;
   let autoAttemptedPossible = 0;
   let teacherPending = 0;
+  let disputeCount = 0;
   let totalResponses = 0;
 
   const byStop: StopGrade[] = [];
@@ -262,6 +282,7 @@ export function gradeStudent(
           stopAutoEarned += item.earned;
           stopAutoPossible += item.possible;
           if (item.hasResponse) autoAttemptedPossible += item.possible;
+          if (item.disputeStatus === 'pending' && !item.correct) disputeCount++;
         } else if (item.hasResponse) {
           stopTeacherPending++;
         }
@@ -302,6 +323,7 @@ export function gradeStudent(
     autoAttemptedPossible,
     autoPercent: autoAttemptedPossible > 0 ? Math.round((autoEarned / autoAttemptedPossible) * 100) : 0,
     teacherPending,
+    disputeCount,
     totalResponses,
     byStop,
     byOutcome,

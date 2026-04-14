@@ -83,7 +83,7 @@ export function Sidebar({
                   </div>
                   <div className="stop-label">
                     Checkpoint {stop.id}
-                    <small>{stop.title.split('—')[1]?.trim() ?? stop.title}</small>
+                    <small>{(stop.title ?? '').split('—')[1]?.trim() ?? stop.title}</small>
                   </div>
                 </div>
 
@@ -117,7 +117,7 @@ export function Sidebar({
                             {sessionLocked ? '🔒' : sessionDone ? '✓' : si + 1}
                           </div>
                           <span style={{ color: isActiveSession ? 'var(--text-primary)' : 'var(--text-muted)' }}>
-                            {session.title.split('—')[1]?.trim() ?? session.title}
+                            {(session.title ?? '').split('—')[1]?.trim() ?? session.title}
                           </span>
                         </div>
                       );

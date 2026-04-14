@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality of Life Source Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5f0e8;
+    color: #1a1a2e;
+    padding: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #1a1a2e;
+  }
+
+  .page-header .course-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .page-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+  }
+
+  .page-header p {
+    font-size: 13px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+
+  .chart-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  .chart-card .chart-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+  }
+
+  .chart-card .chart-subtitle {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── HDI Bar Chart ── */
+  .hdi-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+
+  .hdi-rank {
+    font-size: 11px;
+    font-weight: 700;
+    color: #aaa;
+    width: 22px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .hdi-country {
+    font-size: 13px;
+    font-weight: 600;
+    width: 90px;
+    flex-shrink: 0;
+  }
+
+  .hdi-country.highlight {
+    color: #c0392b;
+  }
+
+  .hdi-bar-wrap {
+    flex: 1;
+    background: #f0ede8;
+    border-radius: 4px;
+    height: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hdi-bar {
+    height: 100%;
+    border-radius: 4px;
+    background: #1a1a2e;
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 6px;
+  }
+
+  .hdi-bar.highlight-bar {
+    background: #c0392b;
+  }
+
+  .hdi-bar-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .hdi-bar-val.outside {
+    color: #555;
+    padding-left: 6px;
+  }
+
+  /* ── Happiness Line Chart ── */
+  .happiness-chart {
+    position: relative;
+  }
+
+  svg.line-chart {
+    width: 100%;
+    height: 220px;
+    overflow: visible;
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Source note ── */
+  .source-note {
+    font-size: 11px;
+    color: #999;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* ── Key facts strip ── */
+  .key-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .fact-card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-top: 4px solid #1a1a2e;
+  }
+
+  .fact-card.red { border-top-color: #c0392b; }
+  .fact-card.blue { border-top-color: #2980b9; }
+  .fact-card.green { border-top-color: #27ae60; }
+  .fact-card.orange { border-top-color: #e67e22; }
+
+  .fact-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: #1a1a2e;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .fact-label {
+    font-size: 11px;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+  }
+
+  /* ── Footer label ── */
+  .footer-label {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  @media print {
+    body { background: white; padding: 20px; }
+    .chart-card { box-shadow: none; border: 1px solid #ddd; }
+    .fact-card { box-shadow: none; border: 1px solid #ddd; border-top: 4px solid #1a1a2e; }
+    .fact-card.red { border-top-color: #c0392b; }
+    .fact-card.blue { border-top-color: #2980b9; }
+    .fact-card.green { border-top-color: #27ae60; }
+    .fact-card.orange { border-top-color: #e67e22; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="course-label">Social Studies 10-2 · Checkpoint 6, Session 1 · Source Analysis</div>
+  <h1>How Do We Measure a Good Life?</h1>
+  <p>Two ways researchers try to measure quality of life across countries — and what they reveal about Canada's place in the world.</p>
+</div>
+
+<!-- Key facts strip -->
+<div class="key-facts">
+  <div class="fact-card red">
+    <div class="fact-number">25th</div>
+    <div class="fact-label">Canada's World Happiness Rank (2026)</div>
+  </div>
+  <div class="fact-card blue">
+    <div class="fact-number">5th</div>
+    <div class="fact-label">Canada's Happiness Rank in 2015</div>
+  </div>
+  <div class="fact-card green">
+    <div class="fact-number">15th</div>
+    <div class="fact-label">Canada's HDI Rank (2025)</div>
+  </div>
+  <div class="fact-card orange">
+    <div class="fact-number">9×</div>
+    <div class="fact-label">Years Finland ranked #1 for Happiness</div>
+  </div>
+</div>
+
+<!-- Two charts -->
+<div class="charts-grid">
+
+  <!-- Chart 1: HDI -->
+  <div class="chart-card">
+    <div class="chart-title">Human Development Index (HDI)</div>
+    <div class="chart-subtitle">Top 15 countries · 2025 Report (2023 data) · Scale: 0–1</div>
+
+    <div id="hdi-chart"></div>
+    <p class="source-note">Source: UNDP Human Development Report 2025. HDI measures life expectancy, education, and income per capita.</p>
+  </div>
+
+  <!-- Chart 2: Canada Happiness Decline -->
+  <div class="chart-card">
+    <div class="chart-title">Canada's Happiness Score Over Time</div>
+    <div class="chart-subtitle">World Happiness Report · Cantril Ladder scale 0–10</div>
+
+    <div class="happiness-chart">
+      <svg class="line-chart" viewBox="0 0 420 220" id="happiness-svg">
+        <!-- Grid lines -->
+        <line x1="50" y1="10" x2="50" y2="185" stroke="#e5e0d8" stroke-width="1"/>
+        <line x1="50" y1="185" x2="410" y2="185" stroke="#e5e0d8" stroke-width="1"/>
+
+        <!-- Y axis labels -->
+        <text x="44" y="14" text-anchor="end" font-size="10" fill="#999">7.5</text>
+        <text x="44" y="51" text-anchor="end" font-size="10" fill="#999">7.3</text>
+        <text x="44" y="88" text-anchor="end" font-size="10" fill="#999">7.1</text>
+        <text x="44" y="125" text-anchor="end" font-size="10" fill="#999">6.9</text>
+        <text x="44" y="162" text-anchor="end" font-size="10" fill="#999">6.7</text>
+
+        <!-- Horizontal grid -->
+        <line x1="50" y1="14" x2="410" y2="14" stroke="#f0ede8" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="50" y1="51" x2="410" y2="51" stroke="#f0ede8" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="50" y1="88" x2="410" y2="88" stroke="#f0ede8" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="50" y1="125" x2="410" y2="125" stroke="#f0ede8" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="50" y1="162" x2="410" y2="162" stroke="#f0ede8" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- Finland line (stays high) -->
+        <!-- Data: 2013:7.65, 2015:7.41, 2017:7.79, 2019:7.77, 2021:7.84, 2023:7.74, 2024:7.74, 2026:7.74 -->
+        <!-- Y = 185 - ((val - 6.7) / 0.8) * 171 -->
+        <polyline
+          points="60,42 105,90 150,10 195,14 240,5 285,18 330,18 375,18"
+          fill="none" stroke="#27ae60" stroke-width="2.5" stroke-linejoin="round"/>
+
+        <!-- Canada line (declining) -->
+        <!-- Data: 2013:7.48, 2015:7.41, 2017:7.32, 2019:7.28, 2021:7.10, 2023:6.90, 2024:6.90, 2026:6.73 -->
+        <polyline
+          points="60,52 105,67 150,83 195,91 240,117 285,154 330,154 375,172"
+          fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linejoin="round"/>
+
+        <!-- Canada dots -->
+        <circle cx="60" cy="52" r="4" fill="#c0392b"/>
+        <circle cx="105" cy="67" r="4" fill="#c0392b"/>
+        <circle cx="150" cy="83" r="4" fill="#c0392b"/>
+        <circle cx="195" cy="91" r="4" fill="#c0392b"/>
+        <circle cx="240" cy="117" r="4" fill="#c0392b"/>
+        <circle cx="285" cy="154" r="4" fill="#c0392b"/>
+        <circle cx="330" cy="154" r="4" fill="#c0392b"/>
+        <circle cx="375" cy="172" r="5" fill="#c0392b" stroke="white" stroke-width="2"/>
+
+        <!-- Finland dots -->
+        <circle cx="60" cy="42" r="4" fill="#27ae60"/>
+        <circle cx="375" cy="18" r="5" fill="#27ae60" stroke="white" stroke-width="2"/>
+
+        <!-- X axis labels -->
+        <text x="60" y="200" text-anchor="middle" font-size="10" fill="#999">2013</text>
+        <text x="105" y="200" text-anchor="middle" font-size="10" fill="#999">2015</text>
+        <text x="150" y="200" text-anchor="middle" font-size="10" fill="#999">2017</text>
+        <text x="195" y="200" text-anchor="middle" font-size="10" fill="#999">2019</text>
+        <text x="240" y="200" text-anchor="middle" font-size="10" fill="#999">2021</text>
+        <text x="285" y="200" text-anchor="middle" font-size="10" fill="#999">2023</text>
+        <text x="330" y="200" text-anchor="middle" font-size="10" fill="#999">2025</text>
+        <text x="375" y="200" text-anchor="middle" font-size="10" fill="#999">2026</text>
+
+        <!-- End labels -->
+        <text x="382" y="176" font-size="11" font-weight="700" fill="#c0392b">6.73</text>
+        <text x="382" y="22" font-size="11" font-weight="700" fill="#27ae60">7.74</text>
+
+        <!-- Canada rank annotations -->
+        <text x="60" y="46" text-anchor="middle" font-size="9" fill="#c0392b" font-weight="600">#6</text>
+        <text x="105" y="61" text-anchor="middle" font-size="9" fill="#c0392b" font-weight="600">#5</text>
+        <text x="375" y="166" text-anchor="middle" font-size="9" fill="#c0392b" font-weight="600">#25</text>
+      </svg>
+
+      <div class="chart-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#c0392b"></div>
+          Canada
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#27ae60"></div>
+          Finland (#1)
+        </div>
+      </div>
+    </div>
+    <p class="source-note">Source: World Happiness Report 2013–2026. Gallup World Poll, Cantril Ladder self-evaluation (0–10 scale).</p>
+  </div>
+
+</div>
+
+<!-- HDI bars rendered by JS -->
+<script>
+const hdiData = [
+  { rank: 1,  country: "Iceland",     score: 0.972, highlight: false },
+  { rank: 2,  country: "Norway",      score: 0.970, highlight: false },
+  { rank: 2,  country: "Switzerland", score: 0.970, highlight: false },
+  { rank: 4,  country: "Denmark",     score: 0.962, highlight: false },
+  { rank: 5,  country: "Germany",     score: 0.959, highlight: false },
+  { rank: 5,  country: "Sweden",      score: 0.959, highlight: false },
+  { rank: 7,  country: "Australia",   score: 0.958, highlight: false },
+  { rank: 8,  country: "Netherlands", score: 0.955, highlight: false },
+  { rank: 9,  country: "Belgium",     score: 0.951, highlight: false },
+  { rank: 10, country: "Ireland",     score: 0.949, highlight: false },
+  { rank: 11, country: "Finland",     score: 0.948, highlight: false },
+  { rank: 12, country: "UK",          score: 0.946, highlight: false },
+  { rank: 13, country: "New Zealand", score: 0.937, highlight: false },
+  { rank: 14, country: "USA",         score: 0.927, highlight: false },
+  { rank: 15, country: "Canada",      score: 0.936, highlight: true  },
+];
+
+const container = document.getElementById('hdi-chart');
+const maxScore = 0.972;
+const minScale = 0.90;
+
+hdiData.forEach(d => {
+  const pct = ((d.score - minScale) / (maxScore - minScale)) * 100;
+  const row = document.createElement('div');
+  row.className = 'hdi-row';
+
+  const showInside = pct > 20;
+
+  row.innerHTML = `
+    <span class="hdi-rank">${d.rank}</span>
+    <span class="hdi-country${d.highlight ? ' highlight' : ''}">${d.country}</span>
+    <div class="hdi-bar-wrap">
+      <div class="hdi-bar${d.highlight ? ' highlight-bar' : ''}" style="width:${pct}%">
+        ${showInside ? `<span class="hdi-bar-val">${d.score}</span>` : ''}
+      </div>
+      ${!showInside ? `<span class="hdi-bar-val outside">${d.score}</span>` : ''}
+    </div>
+  `;
+  container.appendChild(row);
+});
+</script>
+
+<div class="footer-label">Social Studies 10-2 · Mr. McRae · Source Analysis — Quality of Life and Globalization</div>
+
+</body>
+</html>
