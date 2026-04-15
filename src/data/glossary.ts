@@ -1,22 +1,705 @@
 import type { GlossaryTerm } from '../types';
 
-// Glossary terms are revealed progressively as students complete stops.
-// Add terms here as you build each stop's content.
+// ─── Authoritative Glossary ───────────────────────────────────────────────────
+// Terms are keyed to their glossary element ID (same as what's saved in student.responses).
+// unlockedAfterStop maps to the checkpoint number (1-indexed from stops.ts).
+// Definitions are written for a Grade 10-2 audience — plain, direct, relatable.
+
 export const GLOSSARY_TERMS: GlossaryTerm[] = [
-  // Stop 1
+
+  // ── Checkpoint 1 ─────────────────────────────────────────────────────────────
   {
-    id: 'globalization',
+    id: 'g_globalization',
     term: 'Globalization',
-    definition:
-      'The process by which the world\'s economies, cultures, and populations have become increasingly integrated through cross-border trade, investment, and information flow.',
+    definition: 'The way countries, economies, and cultures have become more connected over time — through trade, travel, technology, and business across borders.',
     unlockedAfterStop: 1,
   },
   {
-    id: 'sovereignty',
-    term: 'Sovereignty',
-    definition:
-      'The full right and power of a governing body to govern itself without outside interference.',
+    id: 'g_economy',
+    term: 'Economy',
+    definition: 'The system a country uses to produce, buy, and sell goods and services — basically how money moves around in a society.',
     unlockedAfterStop: 1,
   },
-  // Add more terms here as stops are built
+  {
+    id: 'g_trade',
+    term: 'Trade',
+    definition: 'When countries buy and sell goods or services with each other. Canada trades oil and lumber; we import electronics and clothing.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_multinational',
+    term: 'Multinational Corporation',
+    definition: 'A company that operates in more than one country. Think Nike — designed in the US, made in Vietnam, sold worldwide.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_tariff',
+    term: 'Tariff',
+    definition: 'A tax that a government charges on imported goods. It makes foreign products more expensive so people are more likely to buy local.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_free_trade',
+    term: 'Free Trade',
+    definition: 'When countries agree to trade without tariffs or restrictions. The idea is that everyone benefits when goods can flow freely across borders.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_exchange_rate',
+    term: 'Exchange Rate',
+    definition: 'How much one country\'s money is worth compared to another\'s. If the Canadian dollar is weak, it costs us more to buy American products.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_developing_country',
+    term: 'Developing Country',
+    definition: 'A country with lower income levels, less infrastructure, and fewer services compared to wealthier nations. Many are still building their economies.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_supply_chain',
+    term: 'Supply Chain',
+    definition: 'The full journey a product takes from raw materials to your hands — mining, manufacturing, packaging, shipping, and selling.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_consumer',
+    term: 'Consumer',
+    definition: 'Anyone who buys and uses goods or services. You\'re a consumer every time you buy clothes, food, or a game.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_labour',
+    term: 'Labour',
+    definition: 'The work people do to produce goods and services. In globalization, "cheap labour" often means workers in poorer countries being paid very low wages.',
+    unlockedAfterStop: 1,
+  },
+  {
+    id: 'g_outsourcing',
+    term: 'Outsourcing',
+    definition: 'When a company hires workers or other businesses outside of their own country to do part of the work — usually to save money.',
+    unlockedAfterStop: 1,
+  },
+
+  // ── Checkpoint 2 ─────────────────────────────────────────────────────────────
+  {
+    id: 'g_trade_agreement',
+    term: 'Trade Agreement',
+    definition: 'A deal between two or more countries that sets the rules for how they will trade — often reducing tariffs and barriers.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_wto',
+    term: 'WTO (World Trade Organization)',
+    definition: 'The global organization that makes the rules for international trade and settles disputes between countries when they disagree.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_usmca',
+    term: 'USMCA',
+    definition: 'The trade agreement between Canada, the USA, and Mexico. It replaced NAFTA and sets rules on things like cars, dairy, and digital trade.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_trade_war',
+    term: 'Trade War',
+    definition: 'When two countries keep slapping higher tariffs on each other\'s goods as a way of fighting back economically. It usually makes prices rise for regular people.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_protectionism',
+    term: 'Protectionism',
+    definition: 'When a government uses tariffs or rules to shield its own industries from foreign competition. Like putting a wall up around your economy.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_containerization',
+    term: 'Containerization',
+    definition: 'Using standardized metal shipping containers to transport goods by ship, train, or truck. It massively sped up global trade starting in the 1950s.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_tnc',
+    term: 'Transnational Corporation (TNC)',
+    definition: 'A huge company that operates across many countries, often with more economic power than some small nations. Similar to a multinational corporation.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_gdp_capita',
+    term: 'GDP per Capita',
+    definition: 'A country\'s total economic output divided by its population — a rough measure of how wealthy the average person is.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_subsidiary',
+    term: 'Subsidiary',
+    definition: 'A company that is owned or controlled by a larger parent company. For example, Instagram is a subsidiary of Meta.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_reshoring',
+    term: 'Reshoring',
+    definition: 'When a company brings jobs or manufacturing back to their home country after previously outsourcing it overseas.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_trade_deficit_s2',
+    term: 'Trade Deficit',
+    definition: 'When a country imports more than it exports — it\'s spending more on foreign goods than it\'s earning from selling its own.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_supply_chain_disruption',
+    term: 'Supply Chain Disruption',
+    definition: 'When something breaks down in the chain that gets products to you — like a pandemic, a war, or a blocked shipping route.',
+    unlockedAfterStop: 2,
+  },
+  {
+    id: 'g_liberation_day',
+    term: 'Liberation Day',
+    definition: 'The name given to the April 2025 announcement by the US of sweeping new tariffs on imports from most countries, causing major global market instability.',
+    unlockedAfterStop: 2,
+  },
+
+  // ── Checkpoint 3 ─────────────────────────────────────────────────────────────
+  {
+    id: 'g_stewardship',
+    term: 'Stewardship',
+    definition: 'Taking care of something on behalf of others or future generations — like protecting the land or environment responsibly.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_sustainability',
+    term: 'Sustainability',
+    definition: 'Using resources in a way that doesn\'t permanently damage the environment — meeting today\'s needs without ruining things for future generations.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_resource_dev',
+    term: 'Resource Development',
+    definition: 'The process of extracting and using natural resources like oil, timber, or minerals for economic gain.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_indigenous_land',
+    term: 'Indigenous Land Rights',
+    definition: 'The legal and cultural rights of Indigenous peoples to use, manage, and protect the land their ancestors lived on.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_treaty',
+    term: 'Treaty',
+    definition: 'A formal agreement between two groups — in Canada, often between the Crown (government) and Indigenous nations about land and rights.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_spirituality_land',
+    term: 'Spirituality (relationship to land)',
+    definition: 'For many Indigenous peoples, the land is not just property — it is sacred, connected to identity, ancestors, and spiritual life.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_conflict_resource',
+    term: 'Conflict Resource',
+    definition: 'A natural resource (like diamonds or coltan) that is mined in war zones and sold to fund armed conflict.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_civil_war',
+    term: 'Civil War',
+    definition: 'A war fought between groups within the same country — often over power, resources, or political control.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_child_soldier',
+    term: 'Child Soldier',
+    definition: 'A person under 18 who is forced or recruited to fight in an armed conflict. It\'s considered a serious human rights violation.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_corporate_responsibility',
+    term: 'Corporate Responsibility',
+    definition: 'The idea that businesses have an obligation to act ethically and consider the social and environmental impact of what they do — not just focus on profit.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_ethical_consumerism',
+    term: 'Ethical Consumerism',
+    definition: 'Choosing to buy products based on how they were made — considering whether workers were treated fairly and whether the environment was protected.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_exploitation',
+    term: 'Exploitation',
+    definition: 'Treating people unfairly to benefit yourself — like paying workers almost nothing so the company can make bigger profits.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_greenhouse_gas',
+    term: 'Greenhouse Gas',
+    definition: 'Gases like CO₂ and methane that trap heat in the atmosphere, contributing to climate change. Burning fossil fuels releases a lot of them.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_ecological_footprint',
+    term: 'Ecological Footprint',
+    definition: 'A measure of how much land and resources it takes to support your lifestyle. Canadians have one of the largest footprints in the world.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_clear_cutting',
+    term: 'Clear-cutting',
+    definition: 'Cutting down every tree in a large area of forest all at once. It\'s efficient for logging companies but devastating for ecosystems.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_sustainable_dev',
+    term: 'Sustainable Development',
+    definition: 'Economic growth that tries to protect the environment and meet social needs at the same time — progress without destroying the planet.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_env_legislation',
+    term: 'Environmental Legislation',
+    definition: 'Laws that governments create to protect the environment — like rules on pollution, emissions, or how companies can use natural land.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_reclamation',
+    term: 'Reclamation',
+    definition: 'Restoring land that was damaged by resource extraction back to a natural or usable state after operations have ended.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_sustainable_prosperity',
+    term: 'Sustainable Prosperity',
+    definition: 'Growing an economy in a way that lasts — without burning through resources so fast that future generations can\'t thrive.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_consumerism',
+    term: 'Consumerism',
+    definition: 'A culture built around buying more and more stuff — the idea that shopping and owning things is a major part of life and identity.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_resource_dev_agreement',
+    term: 'Resource Development Agreement',
+    definition: 'A deal between a government and a company (or community) about how a natural resource can be developed and who benefits.',
+    unlockedAfterStop: 3,
+  },
+  {
+    id: 'g_eez',
+    term: 'Exclusive Economic Zone (EEZ)',
+    definition: 'The ocean zone extending 200 nautical miles from a country\'s coast where that country has the right to explore and use the resources.',
+    unlockedAfterStop: 3,
+  },
+
+  // ── Checkpoint 4 ─────────────────────────────────────────────────────────────
+  {
+    id: 'g_trade_lib',
+    term: 'Trade Liberalization',
+    definition: 'Removing barriers to trade — like lowering tariffs and relaxing regulations — so goods and services can flow more freely between countries.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_deregulation',
+    term: 'Deregulation',
+    definition: 'When a government reduces rules and regulations on businesses — the idea being that less government interference leads to more economic growth.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_privatization',
+    term: 'Privatization',
+    definition: 'When a government sells or transfers publicly owned services (like utilities or healthcare) to private companies to run for profit.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_foreign_investment',
+    term: 'Foreign Investment',
+    definition: 'When businesses or individuals from one country invest money into businesses or projects in another country.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_knowledge_economy',
+    term: 'Knowledge Economy',
+    definition: 'An economy that relies on brain power — skills, ideas, technology, and innovation — rather than physical manufacturing or resources.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_free_market',
+    term: 'Free Market',
+    definition: 'An economic system where prices and production are driven by supply and demand, not controlled by the government.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_automation',
+    term: 'Automation',
+    definition: 'Using machines or software to do tasks that humans used to do. Great for efficiency, but it can eliminate jobs.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_entry_level',
+    term: 'Entry-Level Job',
+    definition: 'A job that requires little or no previous experience — typically the starting point for someone entering the workforce.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_ai_displacement',
+    term: 'AI Displacement',
+    definition: 'When artificial intelligence or automation replaces human workers in jobs that used to require people.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_econ_nationalism',
+    term: 'Economic Nationalism',
+    definition: 'Prioritizing your own country\'s economy over global trade — like "buy local," protecting jobs, or imposing tariffs on foreign goods.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_offshoring',
+    term: 'Offshoring',
+    definition: 'Moving a business\'s operations to another country — usually to save money on labour or taxes.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_sweatshop_s3',
+    term: 'Sweatshop',
+    definition: 'A factory where workers are paid very little, work long hours, and often face unsafe or harmful conditions to produce cheap goods.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_child_labour_s3',
+    term: 'Child Labour',
+    definition: 'When children are forced to work — often in dangerous conditions and for little or no pay — instead of going to school.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_living_wage',
+    term: 'Living Wage',
+    definition: 'The minimum amount of money a person needs to earn to cover basic needs — food, housing, clothing — with some dignity. Often higher than minimum wage.',
+    unlockedAfterStop: 4,
+  },
+  {
+    id: 'g_fast_fashion',
+    term: 'Fast Fashion',
+    definition: 'Cheap, trendy clothing made quickly in large amounts. It\'s affordable for consumers but relies on low-paid workers and creates a lot of waste.',
+    unlockedAfterStop: 4,
+  },
+
+  // ── Checkpoint 5b ─────────────────────────────────────────────────────────────
+  {
+    id: 'g_qol_s4',
+    term: 'Quality of Life',
+    definition: 'How good someone\'s life actually feels day-to-day — considering health, safety, relationships, and access to opportunities, not just money.',
+    unlockedAfterStop: 5,
+  },
+  {
+    id: 'g_std_living',
+    term: 'Standard of Living',
+    definition: 'The level of material comfort a person or group has — measured by things like income, housing, food, and access to healthcare.',
+    unlockedAfterStop: 5,
+  },
+  {
+    id: 'g_human_rights_s4',
+    term: 'Human Rights',
+    definition: 'The basic rights and freedoms that every person is entitled to simply because they\'re human — like the right to life, education, and fair treatment.',
+    unlockedAfterStop: 5,
+  },
+  {
+    id: 'g_global_citizen',
+    term: 'Global Citizenship',
+    definition: 'The idea that you have responsibilities beyond your own country — caring about global issues like poverty, climate change, and human rights.',
+    unlockedAfterStop: 5,
+  },
+  {
+    id: 'g_igo',
+    term: 'IGO (Intergovernmental Organization)',
+    definition: 'An organization made up of multiple national governments working together — like the UN, WHO, or WTO.',
+    unlockedAfterStop: 5,
+  },
+
+  // ── Checkpoint 6 ─────────────────────────────────────────────────────────────
+  {
+    id: 'g_hdi',
+    term: 'Human Development Index (HDI)',
+    definition: 'A UN measure that combines life expectancy, education levels, and income to rank how well countries are providing for their people.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_subjective_wb',
+    term: 'Subjective Wellbeing',
+    definition: 'How happy or satisfied people feel about their own lives — based on their personal experiences, not just income or statistics.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_social_capital',
+    term: 'Social Capital',
+    definition: 'The value created by social connections and trust in a community — like networks of people who help each other out.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_digital_divide',
+    term: 'Digital Divide',
+    definition: 'The gap between people who have reliable internet and technology access and those who don\'t — which affects education, jobs, and opportunity.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_unicef',
+    term: 'UNICEF',
+    definition: 'The United Nations Children\'s Fund — a global organization that works to protect children\'s rights and provide aid in areas like health, education, and clean water.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_refugee',
+    term: 'Refugee',
+    definition: 'A person who is forced to leave their home country because of war, persecution, or disaster, and who cannot safely return.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_idp',
+    term: 'Internally Displaced Person (IDP)',
+    definition: 'Someone forced to flee their home due to conflict or disaster, but who is still within their own country\'s borders — unlike a refugee.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_gender_gap',
+    term: 'Gender Gap',
+    definition: 'The differences in opportunity, pay, and power between men and women in society — particularly in areas like work, education, and politics.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_microfinance',
+    term: 'Microfinance',
+    definition: 'Providing small financial services — like loans or savings accounts — to people in poverty who are excluded from traditional banking.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_microloan',
+    term: 'Microloan',
+    definition: 'A very small loan given to low-income individuals — often to help them start or grow a small business when banks won\'t help.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_gender_wage_gap',
+    term: 'Gender Wage Gap',
+    definition: 'The difference in average earnings between men and women who do the same or similar work. In most countries, women still earn less.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_entrepreneur_cp6',
+    term: 'Entrepreneur',
+    definition: 'A person who starts and runs their own business, taking on the risks and rewards. Entrepreneurs often drive innovation and job creation.',
+    unlockedAfterStop: 6,
+  },
+  {
+    id: 'g_grassroots_cp6',
+    term: 'Grassroots Organization',
+    definition: 'A community-driven group that works from the bottom up — regular people organizing to create change without big government or corporate funding.',
+    unlockedAfterStop: 6,
+  },
+
+  // ── Checkpoint 7 ─────────────────────────────────────────────────────────────
+  {
+    id: 'g_migration',
+    term: 'Migration',
+    definition: 'The movement of people from one place to another — across cities, regions, or countries — often in search of better opportunities or safety.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_transnational',
+    term: 'Transnational Community',
+    definition: 'A group of people who maintain strong cultural, economic, or social ties across national borders — like immigrants who stay connected to their home country.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_remittances',
+    term: 'Remittances',
+    definition: 'Money that migrants send back home to their families in their country of origin. For many countries, this is a major source of income.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_diaspora',
+    term: 'Diaspora',
+    definition: 'A large group of people who have spread out from their original homeland but maintain a shared cultural identity — like the Jewish or Filipino diaspora.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_brain_drain',
+    term: 'Brain Drain',
+    definition: 'When highly educated or skilled workers leave their home country for better opportunities elsewhere, leaving behind a shortage of talent.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_food_security',
+    term: 'Food Security',
+    definition: 'When people have reliable access to enough safe, nutritious food to live healthy lives. Food insecurity means that access is uncertain or missing.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_gmo',
+    term: 'Genetically Modified Organism (GMO)',
+    definition: 'A plant, animal, or other organism whose DNA has been altered in a lab — often to resist pests, grow faster, or survive harsh conditions.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_agribusiness',
+    term: 'Agribusiness',
+    definition: 'Large-scale, industrialized farming run by corporations. It\'s efficient and productive, but critics argue it harms small farmers and the environment.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_food_sovereignty',
+    term: 'Food Sovereignty',
+    definition: 'The right of people and communities to control their own food systems — deciding what they grow, how they grow it, and who gets it.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_green_rev',
+    term: 'Green Revolution',
+    definition: 'A period in the 1960s–70s when new farming technology dramatically increased crop production in developing countries — but also increased dependence on chemicals.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_monoculture',
+    term: 'Monoculture',
+    definition: 'Growing only one type of crop over a large area. It\'s efficient but makes farms vulnerable to disease, pests, and soil depletion.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_pandemic',
+    term: 'Pandemic',
+    definition: 'A disease outbreak that spreads across multiple countries or the entire world — like COVID-19 did in 2020.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_who',
+    term: 'WHO (World Health Organization)',
+    definition: 'The United Nations agency responsible for monitoring global health, coordinating responses to disease outbreaks, and setting health standards.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_health_security',
+    term: 'Global Health Security',
+    definition: 'The ability of countries to prevent, detect, and respond to infectious disease threats before they become international emergencies.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_vaccine_nationalism',
+    term: 'Vaccine Nationalism',
+    definition: 'When a country prioritizes getting vaccines for its own citizens before sharing with poorer countries — seen widely during the COVID-19 pandemic.',
+    unlockedAfterStop: 7,
+  },
+  {
+    id: 'g_tech_transfer',
+    term: 'Technology Transfer',
+    definition: 'Sharing knowledge, skills, or technology from wealthier to developing countries — so those countries can use it to improve their economies or healthcare.',
+    unlockedAfterStop: 7,
+  },
+
+  // ── Checkpoint 8 ─────────────────────────────────────────────────────────────
+  {
+    id: 'g_boycott',
+    term: 'Boycott',
+    definition: 'Refusing to buy from or use a company or product as a form of protest — to pressure them into changing their behaviour.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_buycott',
+    term: 'Buycott',
+    definition: 'The opposite of a boycott — deliberately buying from a company or product to support its values or practices.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_consumer_activism',
+    term: 'Consumer Activism',
+    definition: 'Using your purchasing choices as a form of political action — supporting ethical brands and avoiding harmful ones to push for change.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_fair_trade',
+    term: 'Fair Trade',
+    definition: 'A certification and movement aimed at ensuring that producers (like farmers in developing countries) receive a fair price and decent working conditions.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_petition',
+    term: 'Petition',
+    definition: 'A formal request signed by many people calling on a government or organization to take a specific action.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_advocacy',
+    term: 'Advocacy',
+    definition: 'Publicly supporting or promoting a cause — speaking up to influence decisions, policies, or public opinion on an issue.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_foreign_aid',
+    term: 'Foreign Aid',
+    definition: 'Money, goods, or services that wealthier countries send to poorer nations to support development, disaster relief, or humanitarian crises.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_peacekeeping',
+    term: 'Peacekeeping',
+    definition: 'Sending military or civilian personnel to conflict zones to maintain ceasefires and protect civilians — often under a UN mandate. Canada has a strong peacekeeping history.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_multilateralism',
+    term: 'Multilateralism',
+    definition: 'Countries working together as a group — through organizations like the UN — to solve global problems instead of acting alone.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_soft_power',
+    term: 'Soft Power',
+    definition: 'A country\'s ability to influence others through culture, values, and diplomacy — rather than military force. Think Canadian peacekeeping or American pop culture.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_hr_violation',
+    term: 'Human Rights Violation',
+    definition: 'An action that denies or abuses the basic rights people are entitled to — like torture, forced labour, or restricting freedom of speech.',
+    unlockedAfterStop: 8,
+  },
+  {
+    id: 'g_cida',
+    term: 'CIDA (Canadian International Development Agency)',
+    definition: 'Canada\'s former government agency for managing foreign aid and development projects in poorer countries — now merged into Global Affairs Canada.',
+    unlockedAfterStop: 8,
+  },
+
+  // ── Checkpoint 9 ─────────────────────────────────────────────────────────────
+  {
+    id: 'g_responsible_citizen',
+    term: 'Responsible Citizen',
+    definition: 'Someone who is aware of their impact on others and the world, and who takes action to contribute positively to their community and society.',
+    unlockedAfterStop: 9,
+  },
+  {
+    id: 'g_ethical_cp9',
+    term: 'Ethical',
+    definition: 'Acting in a way that is morally right, fair, and honest — considering the impact of your decisions on others.',
+    unlockedAfterStop: 9,
+  },
+  {
+    id: 'g_transparency',
+    term: 'Transparency',
+    definition: 'Being open and honest about how decisions are made, who benefits, and what the consequences are — especially in business and government.',
+    unlockedAfterStop: 9,
+  },
+  {
+    id: 'g_accountability',
+    term: 'Accountability',
+    definition: 'Being responsible for your actions and accepting consequences when things go wrong — expecting the same from governments, companies, and organizations.',
+    unlockedAfterStop: 9,
+  },
+  {
+    id: 'g_impact',
+    term: 'Impact',
+    definition: 'The effect that an action, decision, or policy has on people, communities, or the environment — it can be positive or negative.',
+    unlockedAfterStop: 9,
+  },
 ];

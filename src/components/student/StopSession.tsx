@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import type { Stop, Session, VideoElement } from '../../types';
+import type { Stop, Session, VideoElement, GlossaryElement } from '../../types';
 import { useAppStore } from '../../store/useAppStore';
 import { ElementRenderer } from './ElementRenderer';
 
@@ -16,6 +16,7 @@ interface Props {
 export function StopSession({ stop, session, studentId, existingResponses, onComplete, isLastSessionOfStop, isLastStop }: Props) {
   const saveResponse = useAppStore((s) => s.saveResponse);
   const markSessionComplete = useAppStore((s) => s.markSessionComplete);
+  const unlockGlossaryTerms = useAppStore((s) => s.unlockGlossaryTerms);
   const currentStudent = useAppStore((s) => s.currentStudent);
 
   const isAlreadyComplete = currentStudent?.completedSessions.includes(session.id) ?? false;
@@ -59,8 +60,15 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
     (window as unknown as Record<string, ReturnType<typeof setTimeout>>)['__saveTimer'] = setTimeout(async () => {
       await saveResponse(studentId, key, value);
       setSaving(false);
+      // If this save is for a glossary term, immediately unlock it in the glossary
+      const isGlossaryKey = elements.some(
+        el => el.type === 'glossary' && (el as unknown as GlossaryElement).terms.some(t => t.id === key)
+      );
+      if (isGlossaryKey && typeof value === 'string' && value.trim().length > 0) {
+        unlockGlossaryTerms(studentId, [key]);
+      }
     }, 800);
-  }, [studentId, saveResponse]);
+  }, [studentId, saveResponse, elements, unlockGlossaryTerms]);
 
   const handleComplete = async () => {
     setSaving(true);

@@ -11,17 +11,18 @@ interface Props {
 export function GlossaryDrawer({ open, onClose, student }: Props) {
   const [search, setSearch] = useState('');
 
-  // Only show terms from completed stops
-  const maxStop = Math.max(0, ...student.unlockedStops);
-  const available = GLOSSARY_TERMS.filter(
-    (t) => t.unlockedAfterStop <= maxStop && student.completedSessions.length > 0
-  );
+  // Only show terms the student has personally submitted a definition for
+  const unlocked = student.glossaryUnlocked ?? [];
+  const available = GLOSSARY_TERMS.filter((t) => unlocked.includes(t.id));
 
   const filtered = available.filter(
     (t) =>
       t.term.toLowerCase().includes(search.toLowerCase()) ||
       t.definition.toLowerCase().includes(search.toLowerCase())
   );
+
+  // Group by checkpoint number for the tag
+  const checkpointLabel = (stop: number) => `Checkpoint ${stop}`;
 
   return (
     <>
@@ -55,7 +56,8 @@ export function GlossaryDrawer({ open, onClose, student }: Props) {
           {available.length === 0 && (
             <div className="glossary-empty">
               <div style={{ fontSize: '2rem', marginBottom: 8 }}>📚</div>
-              <p>Complete your first stop to unlock glossary terms.</p>
+              <p>Your glossary is empty for now.</p>
+              <p style={{ fontSize: '0.8rem' }}>Terms will appear here as you complete vocabulary activities.</p>
             </div>
           )}
           {available.length > 0 && filtered.length === 0 && (
@@ -65,7 +67,7 @@ export function GlossaryDrawer({ open, onClose, student }: Props) {
             <div key={term.id} className="glossary-item fade-in">
               <div className="glossary-term">{term.term}</div>
               <div className="glossary-def">{term.definition}</div>
-              <div className="glossary-stop-tag">Unlocked at Checkpoint {term.unlockedAfterStop}</div>
+              <div className="glossary-stop-tag">{checkpointLabel(term.unlockedAfterStop)}</div>
             </div>
           ))}
         </div>

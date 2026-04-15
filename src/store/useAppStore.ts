@@ -53,6 +53,7 @@ interface AppState {
   unlockStop: (studentId: string, stopNumber: number) => Promise<void>;
   clearFlag: (studentId: string) => Promise<void>;
   updatePassword: (studentId: string, password: string) => Promise<void>;
+  unlockGlossaryTerms: (studentId: string, termIds: string[]) => Promise<void>;
 
   // ── UI Preferences ──────────────────────────────────────────────────────
   themeColor: ThemeColorName;
@@ -213,6 +214,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       currentStop: 1,
       currentSession: 0,
       flaggedForCheckpoint: false,
+      glossaryUnlocked: [],
     });
   },
 
@@ -235,6 +237,16 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   updatePassword: async (studentId, password) => {
     await updateStudent(studentId, { password });
+  },
+
+  unlockGlossaryTerms: async (studentId, termIds) => {
+    const student = get().allStudents.find((s) => s.id === studentId)
+      ?? get().currentStudent;
+    if (!student) return;
+    const current = student.glossaryUnlocked ?? [];
+    const toAdd = termIds.filter(id => !current.includes(id));
+    if (toAdd.length === 0) return;
+    await updateStudent(studentId, { glossaryUnlocked: [...current, ...toAdd] });
   },
 
   // ── UI Preferences ──────────────────────────────────────────────────────
