@@ -150,7 +150,9 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
 
   eraseSessionProgress: async (studentId, stopId, sessionIndex) => {
-    const student = get().allStudents.find((s) => s.id === studentId);
+    // Student could be in allStudents (teacher view) or currentStudent (student view)
+    const student = get().allStudents.find((s) => s.id === studentId)
+      ?? get().currentStudent;
     if (!student) return;
 
     // 1. Find all element IDs inside the erased session
@@ -173,34 +175,32 @@ export const useAppStore = create<AppState>((set, get) => ({
     // 2. Filter responses
     const newResponses = { ...student.responses };
     Object.keys(newResponses).forEach((key) => {
-      // Delete if key exact matches, or starts with id_ (for synthetic keys like table cells)
       const matches = Array.from(idsToDelete).some(id => key === id || key.startsWith(id + '_') || key.startsWith(id + '-'));
       if (matches) {
         delete newResponses[key];
       }
     });
 
-    // 3. Remove from completedSessions
-    const sessionIdentifier = `${stopId}-${sessionIndex}`;
-    const newCompleted = student.completedSessions.filter(s => s !== sessionIdentifier);
+    // 3. Remove from completedSessions using the REAL session.id (e.g. "s1_1")
+    const realSessionId = sessionObj.id;
+    const newCompleted = student.completedSessions.filter(s => s !== realSessionId);
 
-    // 4. Optionally roll back current position if they are currently ahead of this session
-    // We'll calculate a logical "progress value" to compare
+    // 4. Roll back current position if they are ahead of this session
     const erasedVal = stopId * 1000 + sessionIndex;
     const currentVal = student.currentStop * 1000 + student.currentSession;
-    
+
     let newStop = student.currentStop;
     let newSession = student.currentSession;
     if (erasedVal <= currentVal) {
       newStop = stopId;
-      newSession = sessionIndex; // snap them back to the start of this session
+      newSession = sessionIndex; // snap back to start of this session
     }
 
     await updateStudent(studentId, {
       responses: newResponses,
       completedSessions: newCompleted,
       currentStop: newStop,
-      currentSession: newSession
+      currentSession: newSession,
     });
   },
 
