@@ -4,6 +4,7 @@ import { useAppStore } from './store/useAppStore';
 import { LoginPage } from './pages/LoginPage';
 import { StudentPage } from './pages/StudentPage';
 import { TeacherPage } from './pages/TeacherPage';
+import { LandingPage } from './pages/LandingPage';
 import { seedIfNeeded } from './utils/seed';
 
 const CLASS_CODE = import.meta.env.VITE_CLASS_CODE ?? 'socials102';
@@ -64,10 +65,10 @@ function CourseApp() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/workbooks/10-2" replace />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/workbooks/:courseId" element={<CourseApp />} />
-      {/* Catch-all: redirect unknown paths to default course */}
-      <Route path="*" element={<Navigate to="/workbooks/10-2" replace />} />
+      {/* Catch-all: redirect unknown paths to landing */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
