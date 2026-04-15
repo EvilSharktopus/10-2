@@ -26,7 +26,7 @@ const APPS: AppCard[] = [
     title: 'Nationalism Game',
     subtitle: 'Simulation',
     description: 'Multi-round classroom simulation exploring nationalism, factions, and conflict.',
-    href: 'https://nationalism.vercel.app',
+    href: 'https://nationalism.mcraesocial.com',
     external: true,
     color: '#e05c5c',
     glow: 'rgba(224,92,92,0.25)',
