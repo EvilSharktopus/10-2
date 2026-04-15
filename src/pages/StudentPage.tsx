@@ -5,6 +5,7 @@ import { Sidebar } from '../components/layout/Sidebar';
 import { TopBar } from '../components/layout/TopBar';
 import { GlossaryDrawer } from '../components/layout/GlossaryDrawer';
 import { StopSession } from '../components/student/StopSession';
+import { CheckpointFlag } from '../components/student/CheckpointFlag';
 import { isSessionUnlocked } from '../utils/unlocks';
 
 interface Props {
@@ -130,8 +131,11 @@ export function StudentPage({ studentId }: Props) {
           {(!student.unlockedStops.includes(activeStopId) && !isSessionUnlocked(unlocks, activeSession?.id, student.id)) ? (
             <div className="card fade-in" style={{ textAlign: 'center', padding: '48px 24px' }}>
               <div style={{ fontSize: '3rem', marginBottom: 12 }}>🔒</div>
-              <h2>This Session is locked</h2>
-              <p className="mt-2">Request a checkpoint or wait for your teacher to unlock this session.</p>
+              <h2>This Checkpoint is Locked</h2>
+              <p className="mt-2" style={{ color: 'var(--text-muted)', marginBottom: 24 }}>
+                Your teacher needs to approve your previous work before you can continue.
+              </p>
+              <CheckpointFlag studentId={studentId} />
             </div>
           ) : activeSession ? (
             <StopSession
