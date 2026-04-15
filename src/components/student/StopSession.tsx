@@ -60,17 +60,27 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
     (window as unknown as Record<string, ReturnType<typeof setTimeout>>)['__saveTimer'] = setTimeout(async () => {
       await saveResponse(studentId, key, value);
       setSaving(false);
-      // If this save is for a glossary term, immediately unlock it in the glossary
-      const isGlossaryKey = elements.some(
-        el => el.type === 'glossary' && (el as unknown as GlossaryElement).terms.some(t => t.id === key)
-      );
-      if (isGlossaryKey && typeof value === 'string' && value.trim().length > 0) {
-        unlockGlossaryTerms(studentId, [key]);
-      }
     }, 800);
-  }, [studentId, saveResponse, elements, unlockGlossaryTerms]);
+  }, [studentId, saveResponse]);
+
+  // Flush all filled glossary terms across the whole session — avoids race condition
+  // with debounce by sending all term IDs in one atomic write
+  const flushGlossaryUnlocks = (currentResponses: Record<string, string | string[]>) => {
+    const allGlossaryTermIds = elements
+      .filter(el => el.type === 'glossary')
+      .flatMap(el => (el as unknown as GlossaryElement).terms.map(t => t.id))
+      .filter(id => {
+        const val = currentResponses[id];
+        return typeof val === 'string' && val.trim().length > 0;
+      });
+    if (allGlossaryTermIds.length > 0) {
+      unlockGlossaryTerms(studentId, allGlossaryTermIds);
+    }
+  };
 
   const handleComplete = async () => {
+    // Flush any glossary term unlocks (in case the glossary is the terminal element)
+    flushGlossaryUnlocks(responses);
     setSaving(true);
     await markSessionComplete(studentId, session.id);
     setSaving(false);
@@ -82,13 +92,7 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
     // If leaving a glossary element, immediately flush any filled term unlocks
     // (don't rely on the 800ms debounce which may not have fired yet)
     if (currentElement?.type === 'glossary') {
-      const glossaryEl = currentElement as unknown as GlossaryElement;
-      const filledTermIds = glossaryEl.terms
-        .filter(t => typeof responses[t.id] === 'string' && (responses[t.id] as string).trim().length > 0)
-        .map(t => t.id);
-      if (filledTermIds.length > 0) {
-        unlockGlossaryTerms(studentId, filledTermIds);
-      }
+      flushGlossaryUnlocks(responses);
     }
 
     if (isVideo && !isLastChunk) {
