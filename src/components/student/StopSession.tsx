@@ -10,9 +10,10 @@ interface Props {
   existingResponses: Record<string, string | string[]>;
   onComplete: () => void;
   isLastSessionOfStop: boolean;
+  isLastStop: boolean;
 }
 
-export function StopSession({ stop, session, studentId, existingResponses, onComplete, isLastSessionOfStop }: Props) {
+export function StopSession({ stop, session, studentId, existingResponses, onComplete, isLastSessionOfStop, isLastStop }: Props) {
   const saveResponse = useAppStore((s) => s.saveResponse);
   const markSessionComplete = useAppStore((s) => s.markSessionComplete);
   const currentStudent = useAppStore((s) => s.currentStudent);
@@ -136,6 +137,7 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
               <div
                 key={i}
                 title={elementLabel(el.type)}
+                onClick={() => { setPartIndex(i); setChunkIndex(0); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                 style={{
                   width: i === partIndex ? 20 : 8,
                   height: 8,
@@ -146,7 +148,11 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
                     ? 'var(--accent)'
                     : 'var(--border)',
                   transition: 'all 0.25s',
+                  cursor: 'pointer',
+                  transform: 'scale(1)',
                 }}
+                onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.3)')}
+                onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
               />
             ))}
           </div>
@@ -193,7 +199,7 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
         {!isAlreadyComplete ? (
           showComplete ? (
             <button className="btn btn-primary" onClick={handleComplete}>
-              {isLastSessionOfStop ? '✅ Complete Checkpoint' : '✅ Complete Session'}
+              {isLastSessionOfStop ? (isLastStop ? '✅ Finish Course' : '✅ Complete Checkpoint') : '✅ Complete Session'}
             </button>
           ) : (
             <button className="btn btn-primary" onClick={goNext}>
@@ -206,9 +212,9 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
               Next: {nextLabel} →
             </button>
           ) : (
-            <div className="badge badge-success" style={{ fontSize: '0.85rem', padding: '6px 14px' }}>
-              ✓ Session completed
-            </div>
+            <button className="btn btn-outline btn-sm" onClick={onComplete}>
+              {isLastSessionOfStop ? (isLastStop ? 'Finish Course ✅' : 'Next Checkpoint →') : 'Continue →'}
+            </button>
           )
         )}
       </div>

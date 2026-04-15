@@ -657,6 +657,7 @@ function SourceAnalysis({ el, responses, onSave, disabled }: { el: SourceAnalysi
   const termOptions = getSubmittedGlossaryTerms(undefined, responses);
   const tagsKey = `${el.id}_tags`;
   const [tagInput, setTagInput] = useState('');
+  const [isExpanded, setIsExpanded] = useState(false);
   
   const savedTags = (responses[tagsKey] as string) || '';
   const currentTags = savedTags.split(',').filter(Boolean);
@@ -675,153 +676,192 @@ function SourceAnalysis({ el, responses, onSave, disabled }: { el: SourceAnalysi
      onSave(tagsKey, newTags.join(','));
   };
 
+  const hasMedia = !!(el.image || el.image_path || el.iframe_path || el.source_text);
+
   return (
-    <div className="card mb-3" style={{ position: 'relative' }}>
+    <div className="card mb-3" style={{ position: 'relative', overflow: 'visible' }}>
       <div style={{
-          position: 'sticky', top: 16, zIndex: 10, background: 'var(--card)', 
-          paddingBottom: 16, borderBottom: '1px solid var(--border)', marginBottom: 16,
-          margin: '-24px -24px 16px -24px', padding: '24px 24px 16px 24px',
+        display: 'grid',
+        gridTemplateColumns: isExpanded ? '1fr' : (hasMedia ? 'repeat(auto-fit, minmax(300px, 1fr))' : '1fr'),
+        gap: hasMedia ? '32px' : '0px',
+        alignItems: 'start'
       }}>
-        <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>🔍 {el.title}</div>
-        {el.context && <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 10, fontStyle: 'italic' }}>{el.context}</div>}
-        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 14 }}>{el.instruction}</div>
-
-        {/* Embedded text source */}
-        {el.source_text && (
-          <div style={{ padding: '16px', background: 'var(--surface-raised)', borderRadius: 'var(--radius-sm)', borderLeft: '4px solid var(--accent)', marginBottom: 20, fontSize: '0.9rem', color: 'var(--text-primary)', lineHeight: 1.6, fontStyle: 'italic' }}>
-            "{el.source_text}"
+        <div style={{
+            position: 'sticky', top: 16, zIndex: 10, background: 'var(--card)', 
+            paddingBottom: !hasMedia ? 16 : 0, 
+            borderBottom: !hasMedia ? '1px solid var(--border)' : 'none', 
+            marginBottom: !hasMedia ? 16 : 0,
+            margin: !hasMedia ? '-24px -24px 16px -24px' : 0, 
+            padding: !hasMedia ? '24px 24px 16px 24px' : 0,
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 4 }}>
+            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>🔍 {el.title}</div>
+            {hasMedia && (
+              <button 
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="btn btn-outline"
+                style={{ fontSize: '0.75rem', padding: '4px 10px', height: 'auto', minHeight: 'auto', flexShrink: 0, marginLeft: 16 }}
+              >
+                {isExpanded ? '↙ Shrink View' : '↗ Expand View'}
+              </button>
+            )}
           </div>
-        )}
+          {el.context && <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 10, fontStyle: 'italic' }}>{el.context}</div>}
+          <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 14 }}>{el.instruction}</div>
 
-        {/* Embedded image (e.g. graph or cartoon) */}
-        {(el.image || el.image_path) && (
-          <div style={{ marginBottom: 20, borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border)' }}>
-            <img
-              src={el.image || el.image_path}
-              alt={el.title}
-              style={{ width: '100%', display: 'block', objectFit: 'contain', maxHeight: 480, background: '#fff' }}
-            />
-          </div>
-        )}
+          {/* Embedded text source */}
+          {el.source_text && (
+            <div style={{ padding: '16px', background: 'var(--surface-raised)', borderRadius: 'var(--radius-sm)', borderLeft: '4px solid var(--accent)', marginBottom: 20, fontSize: '0.9rem', color: 'var(--text-primary)', lineHeight: 1.6, fontStyle: 'italic' }}>
+              "{el.source_text}"
+            </div>
+          )}
 
-        {/* Embedded iframe (e.g. custom HTML graphics) */}
-        {el.iframe_path && (
-          <div style={{ marginBottom: 20, borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border)' }}>
-            <iframe
-              src={el.iframe_path}
-              title={el.title}
-              style={{ width: '100%', height: el.iframe_height || 600, border: 'none', display: 'block' }}
-            />
-          </div>
-        )}
-
-        {/* Render tags */}
-        {el.enable_tags && currentTags.length > 0 && (
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            {currentTags.map(tag => (
-              <div key={tag} className="badge badge-primary" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 12px', fontSize: '0.85rem' }}>
-                {tag} 
-                {!disabled && <button onClick={() => removeTag(tag)} style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', padding: 0, fontWeight: 'bold' }}>×</button>}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {el.choose_count ? (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--accent-light)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-            Choose {el.choose_count} to answer:
-          </div>
-          {el.questions?.map((q, qi) => {
-            const pickKey = `${el.id}_pick_${q.id}`;
-            const isSelected = responses[pickKey] === '1';
-            const pickedCount = el.questions!.filter(question => responses[`${el.id}_pick_${question.id}`] === '1').length;
-            
-            return (
-              <div key={q.id} style={{
-                border: `1.5px solid ${isSelected ? 'var(--accent)' : 'var(--border)'}`,
-                borderRadius: 'var(--radius-sm)',
-                overflow: 'hidden',
-                transition: 'border-color 0.15s',
-              }}>
-                <button
-                  onClick={() => {
-                    if (disabled) return;
-                    if (isSelected) onSave(pickKey, '');
-                    else if (pickedCount < el.choose_count!) onSave(pickKey, '1');
-                  }}
-                  disabled={disabled}
-                  style={{
-                    width: '100%', display: 'flex', alignItems: 'flex-start', gap: 10,
-                    padding: '10px 14px', background: isSelected ? 'var(--accent-dim)' : 'var(--surface)',
-                    border: 'none', cursor: (disabled || (!isSelected && pickedCount >= el.choose_count!)) ? 'not-allowed' : 'pointer', textAlign: 'left',
-                    borderBottom: isSelected ? '1px solid var(--accent)' : 'none',
-                    opacity: (!isSelected && pickedCount >= el.choose_count!) ? 0.5 : 1
-                  }}
-                >
-                  <span style={{
-                    flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
-                    border: `2px solid ${isSelected ? 'var(--accent)' : 'var(--border)'}`,
-                    background: isSelected ? 'var(--accent)' : 'transparent',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '0.7rem', color: '#fff', fontWeight: 800, marginTop: 1,
-                  }}>
-                    {isSelected ? '✓' : qi + 1}
-                  </span>
-                  <span style={{ fontSize: '0.88rem', color: isSelected ? 'var(--text-primary)' : 'var(--text-secondary)', lineHeight: 1.5 }}>
-                    {q.text}
-                  </span>
-                </button>
-                {isSelected && (
-                  <div style={{ padding: '14px', background: 'var(--card)' }}>
-                    <QuestionBlock
-                      question={q}
-                      index={qi}
-                      value={responses[q.id] ?? ''}
-                      onChange={(v) => onSave(q.id, v)}
-                      allResponses={responses}
-                      onSaveFlag={saveFlag(onSave)}
-                      disabled={disabled}
-                      hidePrompt={true}
-                    />
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {el.questions?.map((q, qi) => (
-            <React.Fragment key={q.id}>
-              <QuestionBlock
-                question={q}
-                index={qi}
-                value={responses[q.id] ?? ''}
-                onChange={(v) => onSave(q.id, v)}
-                allResponses={responses}
-                onSaveFlag={saveFlag(onSave)}
-                disabled={disabled}
+          {/* Embedded image (e.g. graph or cartoon) */}
+          {(el.image || el.image_path) && (
+            <div style={{ marginBottom: 20, borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border)', cursor: 'pointer' }} onClick={() => setIsExpanded(!isExpanded)}>
+              <img
+                src={el.image || el.image_path}
+                alt={el.title}
+                style={{ width: '100%', display: 'block', objectFit: 'contain', maxHeight: isExpanded ? '85vh' : 480, background: '#fff', transition: 'max-height 0.2s ease-out' }}
               />
-              {el.enable_tags && qi === 0 && !disabled && (
-                <div style={{ background: 'var(--surface)', padding: 16, borderRadius: 'var(--radius)', border: '1px dashed var(--border)' }}>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 8 }}>Select key terms from your glossary to tag this source:</div>
-                  <div style={{ display: 'flex', gap: 8 }}>
-                    <select className="form-input" value={tagInput} onChange={(e) => setTagInput(e.target.value)} style={{ flex: 1 }}>
-                       <option value="" disabled hidden>Select a term...</option>
-                       {termOptions.filter(t => !currentTags.includes(t.term)).map(opt => (
-                         <option key={opt.id} value={opt.term}>{opt.term}</option>
-                       ))}
-                    </select>
-                    <button className="btn btn-primary btn-sm" onClick={() => addTag(tagInput)} disabled={!tagInput}>Add Tag</button>
-                  </div>
+            </div>
+          )}
+
+          {/* Embedded iframe (e.g. custom HTML graphics) */}
+          {el.iframe_path && (
+            <div style={{
+              marginBottom: 20,
+              borderRadius: 'var(--radius-sm)',
+              border: '1px solid var(--border)',
+              overflow: 'hidden',
+              height: isExpanded ? '85vh' : (el.iframe_height || 600),
+              transition: 'height 0.2s ease-out',
+            }}>
+              <iframe
+                src={el.iframe_path}
+                title={el.title}
+                scrolling="auto"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  display: 'block',
+                  overscrollBehavior: 'contain',
+                } as React.CSSProperties}
+              />
+            </div>
+          )}
+
+          {/* Render tags */}
+          {el.enable_tags && currentTags.length > 0 && (
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              {currentTags.map(tag => (
+                <div key={tag} className="badge badge-primary" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 12px', fontSize: '0.85rem' }}>
+                  {tag} 
+                  {!disabled && <button onClick={() => removeTag(tag)} style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', padding: 0, fontWeight: 'bold' }}>×</button>}
                 </div>
-              )}
-            </React.Fragment>
-          ))}
+              ))}
+            </div>
+          )}
         </div>
-      )}
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          {el.choose_count ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--accent-light)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                Choose {el.choose_count} to answer:
+              </div>
+              {el.questions?.map((q, qi) => {
+                const pickKey = `${el.id}_pick_${q.id}`;
+                const isSelected = responses[pickKey] === '1';
+                const pickedCount = el.questions!.filter(question => responses[`${el.id}_pick_${question.id}`] === '1').length;
+                
+                return (
+                  <div key={q.id} style={{
+                    border: `1.5px solid ${isSelected ? 'var(--accent)' : 'var(--border)'}`,
+                    borderRadius: 'var(--radius-sm)',
+                    overflow: 'hidden',
+                    transition: 'border-color 0.15s',
+                  }}>
+                    <button
+                      onClick={() => {
+                        if (disabled) return;
+                        if (isSelected) onSave(pickKey, '');
+                        else if (pickedCount < el.choose_count!) onSave(pickKey, '1');
+                      }}
+                      disabled={disabled}
+                      style={{
+                        width: '100%', display: 'flex', alignItems: 'flex-start', gap: 10,
+                        padding: '10px 14px', background: isSelected ? 'var(--accent-dim)' : 'var(--surface)',
+                        border: 'none', cursor: (disabled || (!isSelected && pickedCount >= el.choose_count!)) ? 'not-allowed' : 'pointer', textAlign: 'left',
+                        borderBottom: isSelected ? '1px solid var(--accent)' : 'none',
+                        opacity: (!isSelected && pickedCount >= el.choose_count!) ? 0.5 : 1
+                      }}
+                    >
+                      <span style={{
+                        flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
+                        border: `2px solid ${isSelected ? 'var(--accent)' : 'var(--border)'}`,
+                        background: isSelected ? 'var(--accent)' : 'transparent',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: '0.7rem', color: '#fff', fontWeight: 800, marginTop: 1,
+                      }}>
+                        {isSelected ? '✓' : qi + 1}
+                      </span>
+                      <span style={{ fontSize: '0.88rem', color: isSelected ? 'var(--text-primary)' : 'var(--text-secondary)', lineHeight: 1.5 }}>
+                        {q.text}
+                      </span>
+                    </button>
+                    {isSelected && (
+                      <div style={{ padding: '14px', background: 'var(--card)' }}>
+                        <QuestionBlock
+                          question={q}
+                          index={qi}
+                          value={responses[q.id] ?? ''}
+                          onChange={(v) => onSave(q.id, v)}
+                          allResponses={responses}
+                          onSaveFlag={saveFlag(onSave)}
+                          disabled={disabled}
+                          hidePrompt={true}
+                        />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {el.questions?.map((q, qi) => (
+                <React.Fragment key={q.id}>
+                  <QuestionBlock
+                    question={q}
+                    index={qi}
+                    value={responses[q.id] ?? ''}
+                    onChange={(v) => onSave(q.id, v)}
+                    allResponses={responses}
+                    onSaveFlag={saveFlag(onSave)}
+                    disabled={disabled}
+                  />
+                  {el.enable_tags && qi === 0 && !disabled && (
+                    <div style={{ background: 'var(--surface)', padding: 16, borderRadius: 'var(--radius)', border: '1px dashed var(--border)' }}>
+                      <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 8 }}>Select key terms from your glossary to tag this source:</div>
+                      <div style={{ display: 'flex', gap: 8 }}>
+                        <select className="form-input" value={tagInput} onChange={(e) => setTagInput(e.target.value)} style={{ flex: 1 }}>
+                           <option value="" disabled hidden>Select a term...</option>
+                           {termOptions.filter(t => !currentTags.includes(t.term)).map(opt => (
+                             <option key={opt.id} value={opt.term}>{opt.term}</option>
+                           ))}
+                        </select>
+                        <button className="btn btn-primary btn-sm" onClick={() => addTag(tagInput)} disabled={!tagInput}>Add Tag</button>
+                      </div>
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
@@ -929,9 +969,139 @@ function Activity({ el, responses, onSave, disabled }: { el: ActivityElement; re
         }
         return null;
       })}
+      {/* Budget allocation */}
+      {el.task_type === 'budget_allocation' && el.options && el.total && (() => {
+        const total = el.total;
+        const allocated = el.options.reduce((sum, opt) => {
+          const raw = responses[opt.id];
+          return sum + (raw ? parseInt(raw as string, 10) || 0 : 0);
+        }, 0);
+        const remaining = total - allocated;
+        const pct = Math.min(100, (allocated / total) * 100);
+        const isExact = allocated === total;
+        const isOver = allocated > total;
 
-      {/* Questions */}
+        return (
+          <div>
+            {/* Running total bar */}
+            <div style={{ marginBottom: 20 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
+                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-secondary)' }}>
+                  Allocated: ${allocated.toLocaleString()} / ${total.toLocaleString()}
+                </span>
+                <span style={{
+                  fontSize: '0.82rem', fontWeight: 700,
+                  color: isExact ? 'var(--success)' : isOver ? 'var(--danger)' : 'var(--amber)',
+                }}>
+                  {isExact ? '✓ Exactly $10M' : isOver ? `$${(allocated - total).toLocaleString()} over` : `$${remaining.toLocaleString()} remaining`}
+                </span>
+              </div>
+              <div style={{ background: 'var(--surface)', borderRadius: 6, height: 10, overflow: 'hidden' }}>
+                <div style={{
+                  height: '100%', borderRadius: 6, transition: 'width 0.2s, background 0.2s',
+                  width: `${pct}%`,
+                  background: isExact ? 'var(--success)' : isOver ? 'var(--danger)' : 'var(--accent)',
+                }} />
+              </div>
+            </div>
+
+            {/* Category inputs */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 20 }}>
+              {el.options.map((opt) => {
+                const val = (responses[opt.id] ?? '') as string;
+                return (
+                  <div key={opt.id} style={{
+                    display: 'flex', alignItems: 'center', gap: 12,
+                    background: 'var(--surface)', border: '1px solid var(--border)',
+                    borderRadius: 'var(--radius-sm)', padding: '10px 14px',
+                  }}>
+                    <span style={{ flex: 1, fontSize: '0.88rem', color: 'var(--text-primary)' }}>{opt.label}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+                      <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>$</span>
+                      <input
+                        type="number"
+                        min={0}
+                        max={total}
+                        step={100000}
+                        className="form-input"
+                        value={val}
+                        placeholder="0"
+                        onChange={(e) => onSave(opt.id, e.target.value)}
+                        disabled={disabled}
+                        style={{ width: 130, fontSize: '0.88rem', padding: '6px 10px', textAlign: 'right' }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* Inline table for table_with_followup activities (columns/rows directly on element) */}
+      {el.task_type === 'table_with_followup' && el.columns && el.rows && (() => {
+        const key = `${el.id}_table`;
+        const rawVal = responses[key];
+        const rows: string[][] = rawVal && typeof rawVal === 'string'
+          ? JSON.parse(rawVal)
+          : Array.from({ length: el.rows }, () => (el.columns as string[]).map(() => ''));
+
+        const updateCell = (ri: number, ci: number, v: string) => {
+          const next = rows.map((r, ri2) => ri2 === ri ? r.map((c, ci2) => ci2 === ci ? v : c) : r);
+          onSave(key, JSON.stringify(next));
+        };
+
+        return (
+          <div style={{ overflowX: 'auto', marginBottom: 20 }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+              <thead>
+                <tr>
+                  {el.columns.map((col) => (
+                    <th key={col} style={{ padding: '8px 12px', borderBottom: '2px solid var(--border)', textAlign: 'left', color: 'var(--text-muted)', fontWeight: 700, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{col}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row, ri) => (
+                  <tr key={ri}>
+                    {row.map((cell, ci) => (
+                      <td key={ci} style={{ padding: 6, borderBottom: '1px solid var(--border)' }}>
+                        <input
+                          type="text"
+                          className="form-input"
+                          value={cell}
+                          onChange={(e) => updateCell(ri, ci, e.target.value)}
+                          onPaste={noPaste}
+                          disabled={disabled}
+                          style={{ fontSize: '0.85rem', padding: '6px 10px' }}
+                        />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      })()}
+
+      {/* Questions (activity-level, e.g. ranking_simulation follow-ups) */}
       {el.questions?.map((q, qi) => (
+        <QuestionBlock
+          key={q.id}
+          question={q}
+          index={qi}
+          value={responses[q.id] ?? ''}
+          onChange={(v) => onSave(q.id, v)}
+          allResponses={responses}
+          onSaveFlag={saveFlag(onSave)}
+          disabled={disabled}
+        />
+      ))}
+
+      {/* Follow-up questions (table_with_followup) */}
+      {el.follow_up_questions?.map((q, qi) => (
         <QuestionBlock
           key={q.id}
           question={q}
@@ -1751,7 +1921,7 @@ function ConnectionChart({ el, responses, onSave, disabled }: { el: ConnectionCh
 
 // ─── Rating Table ─────────────────────────────────────────────────────────────
 function RatingTable({ el, responses, onSave, disabled }: { el: RatingTableTask; responses: Record<string, string | string[]>; onSave: Props['onSave']; disabled?: boolean }) {
-  const { min, max, min_label, max_label } = el.scale;
+  const { min = 1, max = 5, min_label = 'Very Low', max_label = 'Very High' } = el.scale ?? {};
   const scaleOptions = Array.from({ length: max - min + 1 }, (_, i) => min + i);
   return (
     <div className="card mb-3">

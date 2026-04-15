@@ -266,6 +266,75 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
     );
   }
 
+  // ── Multi Select ──────────────────────────────────────────────────────────
+  if (q.question_type === 'multi_select' && q.options) {
+    const selected: string[] = (() => {
+      try { return JSON.parse(strVal || '[]'); } catch { return []; }
+    })();
+
+    const toggle = (id: string) => {
+      if (disabled) return;
+      const next = selected.includes(id)
+        ? selected.filter(s => s !== id)
+        : [...selected, id];
+      onChange(JSON.stringify(next));
+    };
+
+    const followUpVal = (Array.isArray(value) ? '' : (allResponses?.[q.follow_up?.id ?? ''] ?? '')) as string;
+
+    return (
+      <div className="question-block">
+        <div className="question-prompt" style={{ marginBottom: 12 }}>{q.text}</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {q.options.map(opt => {
+            const isSelected = selected.includes(opt.id);
+            return (
+              <button
+                key={opt.id}
+                onClick={() => toggle(opt.id)}
+                disabled={disabled}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 12,
+                  padding: '10px 14px', borderRadius: 'var(--radius-sm)',
+                  background: isSelected ? 'var(--accent-dim)' : 'var(--surface)',
+                  border: `1.5px solid ${isSelected ? 'var(--accent)' : 'var(--border)'}`,
+                  color: isSelected ? 'var(--accent-light)' : 'var(--text-secondary)',
+                  textAlign: 'left', cursor: disabled ? 'not-allowed' : 'pointer',
+                  transition: 'all 0.15s', width: '100%',
+                }}
+              >
+                <span style={{
+                  width: 18, height: 18, borderRadius: 4, flexShrink: 0,
+                  border: `2px solid ${isSelected ? 'var(--accent)' : 'var(--border)'}`,
+                  background: isSelected ? 'var(--accent)' : 'transparent',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '0.7rem', color: '#fff', fontWeight: 700,
+                }}>
+                  {isSelected && '✓'}
+                </span>
+                <span style={{ fontSize: '0.88rem', fontWeight: isSelected ? 600 : 400 }}>{opt.text}</span>
+              </button>
+            );
+          })}
+        </div>
+        {q.follow_up && selected.length > 0 && (
+          <div className="question-block" style={{ marginTop: 14 }}>
+            <div className="question-prompt">{q.follow_up.text}</div>
+            <textarea
+              className="form-input form-textarea"
+              placeholder="Write your response here…"
+              value={followUpVal}
+              onChange={e => onSaveFlag?.(q.follow_up!.id, e.target.value)}
+              onPaste={noPaste}
+              disabled={disabled}
+              rows={3}
+            />
+          </div>
+        )}
+      </div>
+    );
+  }
+
   // ── Short Answer ──────────────────────────────────────────────────────────
   return (
     <div className="question-block">

@@ -52,11 +52,16 @@ export interface GlossaryElement {
   terms: GlossaryTerm2[];
 }
 
-export type VideoQuestionType = 'true_false' | 'fill_blank' | 'short_answer';
+export type VideoQuestionType = 'true_false' | 'fill_blank' | 'short_answer' | 'multi_select';
 
 export interface BlankAnswer {
   position: number;
   accepted_answers: string[];
+}
+
+export interface MultiSelectOption {
+  id: string;
+  text: string;
 }
 
 export interface VideoQuestion {
@@ -65,8 +70,10 @@ export interface VideoQuestion {
   text: string;
   correct_answer?: boolean;
   blanks?: BlankAnswer[];
+  options?: MultiSelectOption[];
+  follow_up?: VideoQuestion;
   points: number;
-  scored_by: 'auto' | 'teacher';
+  scored_by: 'auto' | 'teacher' | 'none';
   notify_teacher?: boolean;
 }
 
@@ -328,10 +335,18 @@ export interface ActivityElement {
   id: string;
   title: string;
   instruction: string;
+  task_type?: string;
   physical_component?: boolean;
   teacher_note?: string;
   fields?: ActivityField[];
   questions?: VideoQuestion[];
+  // table_with_followup support
+  columns?: string[];
+  rows?: number;
+  follow_up_questions?: VideoQuestion[];
+  // budget_allocation support
+  options?: { id: string; label: string }[];
+  total?: number;
 }
 
 export interface CheckpointPrepElement {

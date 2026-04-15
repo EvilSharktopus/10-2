@@ -1000,10 +1000,6 @@
               "instruction": "Type each definition in your own words. No copying and pasting.",
               "terms": [
                 {
-                  "id": "g_tariff_s2",
-                  "term": "Tariff"
-                },
-                {
                   "id": "g_trade_agreement",
                   "term": "Trade Agreement"
                 },
@@ -1418,14 +1414,6 @@
                 {
                   "id": "g_tnc",
                   "term": "Transnational Corporation (TNC)"
-                },
-                {
-                  "id": "g_supply_chain_s2",
-                  "term": "Supply Chain"
-                },
-                {
-                  "id": "g_outsourcing_s2",
-                  "term": "Outsourcing"
                 },
                 {
                   "id": "g_gdp_capita",
@@ -2142,13 +2130,6 @@
                 {
                   "id": "r_s2_3_3",
                   "text": "Thinking about the car price question from the hook — who do you think actually won from those tariffs? The US government? American workers? Car companies? Consumers? Explain.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s2_3_4",
-                  "text": "One connection between Stop 1 and Stop 2 that I can now see is...",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -3154,10 +3135,6 @@
                   "term": "Sustainable Prosperity"
                 },
                 {
-                  "id": "g_env_legislation_s5",
-                  "term": "Environmental Legislation"
-                },
-                {
                   "id": "g_consumerism",
                   "term": "Consumerism"
                 },
@@ -3893,10 +3870,6 @@
                   "term": "Automation"
                 },
                 {
-                  "id": "g_knowledge_econ_s2",
-                  "term": "Knowledge Economy"
-                },
-                {
                   "id": "g_entry_level",
                   "term": "Entry-Level Job"
                 },
@@ -4205,10 +4178,6 @@
                   "term": "Living Wage"
                 },
                 {
-                  "id": "g_ethical_consumer",
-                  "term": "Ethical Consumerism"
-                },
-                {
                   "id": "g_fast_fashion",
                   "term": "Fast Fashion"
                 }
@@ -4359,15 +4328,12 @@
     },
     {
       "id": "checkpoint_5",
-      "title": "The Written Assignment + Opening RI4",
+      "title": "The Written Assignment",
       "outcomes": [
-        "written_assignment",
-        "4.4",
-        "4.1"
+        "written_assignment"
       ],
-      "related_issue": "RI3_close_RI4_open",
-      "checkpoint_after": true,
-      "checkpoint_id": "cp_quick_3",
+      "related_issue": "RI3",
+      "checkpoint_after": false,
       "sessions": [
         {
           "id": "cp5_s1",
@@ -4702,20 +4668,33 @@
               ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "checkpoint_5b",
+      "title": "Checkpoint 5.5 — Quick Checkpoint 3 + Welcome to RI4",
+      "outcomes": [
+        "4.4",
+        "4.1"
+      ],
+      "related_issue": "RI4",
+      "checkpoint_after": true,
+      "checkpoint_id": "conv_quick_3",
+      "sessions": [
         {
-          "id": "cp5_s4",
-          "title": "Session 4 — Quick Checkpoint 3 + Welcome to RI4",
+          "id": "cp5b_s1",
+          "title": "Session 1 — Quick Checkpoint 3 + Welcome to RI4",
           "elements": [
             {
               "type": "hook",
-              "id": "cp5_s4_hook",
+              "id": "cp5b_s1_hook",
               "content": "You just spent three sessions arguing about whether globalization is good or bad for the world. Now here's the real question: Should YOU — specifically you, sitting in this classroom in Alberta — do anything about it?"
             },
             {
               "type": "checkpoint_prep",
-              "id": "cp5_s4_checkpoint",
-              "checkpoint_id": "cp_quick_3",
+              "id": "cp5b_s1_checkpoint",
+              "checkpoint_id": "conv_quick_3",
               "title": "Quick Checkpoint 3 — Bring Your Completed Written Assignment",
               "instruction": "Flag Mr. McRae before moving forward. Bring your completed written assignment.",
               "talking_points": [
@@ -4727,17 +4706,17 @@
               "artifact_required": true,
               "artifact_description": "Completed written assignment (all three source analyses + opinion paragraphs)",
               "locks_next_session": true,
-              "lock_message": "Session 4 continues after your checkpoint conversation with Mr. McRae."
+              "lock_message": "Session 1 continues after your checkpoint conversation with Mr. McRae."
             },
             {
               "type": "context",
-              "id": "cp5_s4_ri4_intro",
+              "id": "cp5b_s1_ri4_intro",
               "title": "A New Question — Welcome to RI4",
               "content": "You just finished Related Issue 3: Does globalization contribute to sustainable prosperity for all people?\n\nNow we move to Related Issue 4: Should I, as a citizen, respond to globalization?\n\nThis is a different kind of question. RI3 was about understanding globalization — what it does, who it helps, who it hurts. RI4 is personal. It's asking what YOUR responsibility is. As a Canadian. As a young person. As someone who buys things, votes eventually, and lives in a globalized world.\n\nThe first thing we need to figure out is: what does a good life actually look like? And does globalization help or hurt that?"
             },
             {
               "type": "glossary",
-              "id": "cp5_s4_glossary",
+              "id": "cp5b_s1_glossary",
               "instruction": "Type each definition in your own words. No copying and pasting.",
               "terms": [
                 {
@@ -4757,10 +4736,6 @@
                   "term": "Global Citizenship"
                 },
                 {
-                  "id": "g_ngo",
-                  "term": "NGO (Non-Governmental Organization)"
-                },
-                {
                   "id": "g_igo",
                   "term": "IGO (Intergovernmental Organization)"
                 }
@@ -4768,20 +4743,20 @@
             },
             {
               "type": "video",
-              "id": "cp5_s4_video1",
-              "title": "Global News: Canada's World Happiness Report Ranking Slides to 25th",
-              "youtube_id": "search_global_news_canada_world_happiness_report_2026",
-              "source_url": "https://globalnews.ca/video/11738470/canadas-world-happiness-report-ranking-slides-to-25th-among-countries-surveyed/",
-              "note": "Global News March 2026 — approximately 2 minutes. Search 'Global News Canada World Happiness Report 2026' on YouTube.",
+              "id": "cp5b_s1_video1",
+              "title": "World Happiness Report",
+              "youtube_id": "l8TjfTSw90o",
+              "source_url": "https://youtu.be/l8TjfTSw90o",
+              "note": "Global News March 2026 — approximately 2 minutes.",
               "chunks": [
                 {
-                  "id": "cp5_s4_v1_c1",
+                  "id": "cp5b_s1_v1_c1",
                   "title": "Canada falls to 25th — the youth angle",
                   "start_seconds": 0,
                   "end_seconds": 120,
                   "questions": [
                     {
-                      "id": "q_cp5_s4_1",
+                      "id": "q_cp5b_s1_1",
                       "question_type": "true_false",
                       "text": "Canada's happiness ranking has been improving over the past decade.",
                       "correct_answer": false,
@@ -4789,7 +4764,7 @@
                       "scored_by": "auto"
                     },
                     {
-                      "id": "q_cp5_s4_2",
+                      "id": "q_cp5b_s1_2",
                       "question_type": "fill_blank",
                       "text": "Canada fell to ___ place in the 2026 World Happiness Report, its worst ranking ever.",
                       "blanks": [
@@ -4806,7 +4781,7 @@
                       "scored_by": "auto"
                     },
                     {
-                      "id": "q_cp5_s4_3",
+                      "id": "q_cp5b_s1_3",
                       "question_type": "short_answer",
                       "text": "Ten years ago Canada ranked 6th. Now we rank 25th. For young Canadians specifically, we rank 71st. What does that tell you about the relationship between money and happiness?",
                       "points": 4,
@@ -4819,20 +4794,20 @@
             },
             {
               "type": "video",
-              "id": "cp5_s4_video2",
-              "title": "CBC News: World Happiness Report Shows Nordic Countries Lead, Canada Falls",
-              "youtube_id": "search_cbc_news_world_happiness_report_canada_2026",
-              "source_url": "https://www.cbc.ca/player/play/video/9.7135242",
-              "note": "CBC News March 2026 — approximately 3 minutes 44 seconds. Search 'CBC News World Happiness Report Canada 2026 Nordic' on YouTube.",
+              "id": "cp5b_s1_video2",
+              "title": "CBC News: Nordic Countries Happy",
+              "youtube_id": "vvHuZqJqZvA",
+              "source_url": "https://youtu.be/vvHuZqJqZvA",
+              "note": "CBC News March 2026 — approximately 3 minutes 44 seconds.",
               "chunks": [
                 {
-                  "id": "cp5_s4_v2_c1",
+                  "id": "cp5b_s1_v2_c1",
                   "title": "Why Nordic countries lead and what Canada can learn",
                   "start_seconds": 0,
                   "end_seconds": 224,
                   "questions": [
                     {
-                      "id": "q_cp5_s4_4",
+                      "id": "q_cp5b_s1_4",
                       "question_type": "true_false",
                       "text": "Finland has ranked #1 for happiness for the first time this year.",
                       "correct_answer": false,
@@ -4840,7 +4815,7 @@
                       "scored_by": "auto"
                     },
                     {
-                      "id": "q_cp5_s4_5",
+                      "id": "q_cp5b_s1_5",
                       "question_type": "fill_blank",
                       "text": "Researchers say Finnish happiness is linked to wealth, ___, healthy life expectancy, and a welfare state that protects people.",
                       "blanks": [
@@ -4859,7 +4834,7 @@
                       "scored_by": "auto"
                     },
                     {
-                      "id": "q_cp5_s4_6",
+                      "id": "q_cp5b_s1_6",
                       "question_type": "short_answer",
                       "text": "The video says happiness in Canada has declined driven mainly by those under 30. What reasons does it give? Do they match your own experience?",
                       "points": 4,
@@ -4867,7 +4842,7 @@
                       "notify_teacher": true
                     },
                     {
-                      "id": "q_cp5_s4_7",
+                      "id": "q_cp5b_s1_7",
                       "question_type": "short_answer",
                       "text": "Quebec, if it were a country, would rank 5th in the world for happiness — tied with Sweden. Alberta would pull Canada down further. Why do you think there might be a provincial difference? What might make Quebec different?",
                       "points": 4,
@@ -4875,7 +4850,7 @@
                       "notify_teacher": true
                     },
                     {
-                      "id": "q_cp5_s4_8",
+                      "id": "q_cp5b_s1_8",
                       "question_type": "short_answer",
                       "text": "Does globalization cause Canada's declining youth happiness, or is that a stretch? Make your case in 3-4 sentences using evidence from across this course.",
                       "points": 4,
@@ -4887,45 +4862,11 @@
               ]
             },
             {
-              "type": "activity",
-              "id": "cp5_s4_activity",
-              "title": "My Quality of Life Map — Nine Areas of Life",
-              "instruction": "Ask Mr. McRae for the Nine Areas of Life diagram (Figure 16-1 from Chapter 16). For each area, rate your current quality of life from 1-10 and write one sentence about why.",
-              "physical_component": true,
-              "teacher_note": "Reproduce Figure 16-1 from Chapter 16 — the Nine Areas of Life wheel: Physical (body), Psychological (mind), Spiritual (beliefs), Social (people around you), Community (access to resources), Physical (where you live), Leisure (fun), Practical (daily tasks), Becoming (growth).",
-              "questions": [
-                {
-                  "id": "q_cp5_s4_act_1",
-                  "question_type": "short_answer",
-                  "text": "Which area has globalization most improved for you?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "q_cp5_s4_act_2",
-                  "question_type": "short_answer",
-                  "text": "Which area has globalization most affected negatively?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "q_cp5_s4_act_3",
-                  "question_type": "short_answer",
-                  "text": "Is there an area where you think globalization has had NO effect on you? Are you sure? Explain.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
               "type": "tasks",
-              "id": "cp5_s4_task1",
+              "id": "cp5b_s1_task1",
               "title": "Quality of Life Around the World",
               "instruction": "Based on what you know from this course, rate each country's likely quality of life across five categories — 1 (very low) to 5 (very high). Then answer the question below.",
-              "task_type": "rating_table",
+              "task_type": "table",
               "columns": [
                 "Country",
                 "Access to Education",
@@ -4935,7 +4876,53 @@
                 "Personal Safety",
                 "Your Overall QoL Rating"
               ],
-              "rows": [
+              "rows": 5,
+              "dropdowns": [
+                null,
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ]
+              ],
+              "row_labels": [
                 "Canada",
                 "Sierra Leone",
                 "Bangladesh",
@@ -4951,39 +4938,61 @@
               }
             },
             {
+              "type": "context",
+              "id": "cp5b_s1_action_q",
+              "title": "Where Do You Stand?",
+              "content": "",
+              "questions": [
+                {
+                  "id": "ri4_opinion_action",
+                  "question_type": "multi_select",
+                  "text": "Globalization shapes what you buy, what jobs exist, and who gets hurt. Which of these feels true for you right now?",
+                  "options": [
+                    {
+                      "id": "a1",
+                      "text": "I try (or would try) to think about where my stuff comes from before I buy it"
+                    },
+                    {
+                      "id": "a2",
+                      "text": "I vote or plan to vote for people who care about these issues"
+                    },
+                    {
+                      "id": "a3",
+                      "text": "I talk to people I know about things that seem unfair"
+                    },
+                    {
+                      "id": "a4",
+                      "text": "I donate or would donate to organizations that help"
+                    },
+                    {
+                      "id": "a5",
+                      "text": "I honestly don't do any of these things and I'm not sure I would"
+                    },
+                    {
+                      "id": "a6",
+                      "text": "I don't think any of these would make a real difference anyway"
+                    }
+                  ],
+                  "follow_up": {
+                    "id": "ri4_opinion_action_followup",
+                    "question_type": "short_answer",
+                    "text": "Why did you pick what you picked? Be honest — there's no right answer here.",
+                    "points": 4,
+                    "scored_by": "teacher",
+                    "notify_teacher": true
+                  },
+                  "points": 0,
+                  "scored_by": "none"
+                }
+              ]
+            },
+            {
               "type": "tasks",
-              "id": "cp5_s4_task2",
+              "id": "cp5b_s1_task2",
               "title": "RI4 Opinion Tracker — Starting Position",
               "instruction": "You're starting a new related issue. Record your starting position before we go further.",
               "task_type": "opinion_tracker",
               "items": [
-                {
-                  "id": "ot_ri4_1",
-                  "question": "Should I, as a citizen, respond to globalization?",
-                  "type": "choice",
-                  "options": [
-                    "YES",
-                    "NO",
-                    "IT DEPENDS"
-                  ],
-                  "scored_by": "none"
-                },
-                {
-                  "id": "ot_ri4_2",
-                  "question": "What's the strongest reason someone would say YES?",
-                  "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "ot_ri4_3",
-                  "question": "What's the strongest reason someone would say NO?",
-                  "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
                 {
                   "id": "ot_ri4_4",
                   "question": "Do you think individuals can actually make a difference?",
@@ -5031,14 +5040,6 @@
               "id": "cp6_s1_glossary",
               "instruction": "Type each definition in your own words. No copying and pasting.",
               "terms": [
-                {
-                  "id": "g_qol_cp6",
-                  "term": "Quality of Life"
-                },
-                {
-                  "id": "g_std_living_cp6",
-                  "term": "Standard of Living"
-                },
                 {
                   "id": "g_hdi",
                   "term": "Human Development Index (HDI)"
@@ -5238,14 +5239,14 @@
                 }
               ],
               "iframe_path": "/html/c6s1_quality_of_life.html",
-              "iframe_height": 800
+              "iframe_height": 420
             },
             {
               "type": "tasks",
               "id": "cp6_s1_task1",
               "title": "Quality of Life Around the World",
               "instruction": "Rate each country's likely quality of life across five categories — 1 (very low) to 5 (very high). Then answer the question below.",
-              "task_type": "rating_table",
+              "task_type": "table",
               "columns": [
                 "Country",
                 "Access to Education",
@@ -5255,7 +5256,53 @@
                 "Personal Safety",
                 "Your QoL Rating"
               ],
-              "rows": [
+              "rows": 6,
+              "dropdowns": [
+                null,
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ]
+              ],
+              "row_labels": [
                 "Canada",
                 "Sierra Leone",
                 "Bangladesh",
@@ -5281,7 +5328,8 @@
                 "Area",
                 "How globalization affects it"
               ],
-              "rows": [
+              "rows": 9,
+              "row_labels": [
                 "Physical (body and health)",
                 "Psychological (thoughts and feelings)",
                 "Spiritual (beliefs and values)",
@@ -5352,24 +5400,12 @@
                   "term": "UNICEF"
                 },
                 {
-                  "id": "g_child_labour_cp6",
-                  "term": "Child Labour"
-                },
-                {
-                  "id": "g_digital_divide_cp6",
-                  "term": "Digital Divide"
-                },
-                {
                   "id": "g_refugee",
                   "term": "Refugee"
                 },
                 {
                   "id": "g_idp",
                   "term": "Internally Displaced Person (IDP)"
-                },
-                {
-                  "id": "g_global_citizenship",
-                  "term": "Global Citizenship"
                 }
               ]
             },
@@ -5790,8 +5826,9 @@
               "type": "source_analysis",
               "id": "cp6_s3_source",
               "title": "Source Analysis — Women and Globalization",
-              "instruction": "Your teacher will provide a source on women and globalization — could be a graph on the global gender wage gap, a written piece on women entrepreneurs, or a news article on garment worker conditions.",
-              "teacher_note": "Select one source: global gender wage gap graph, garment worker conditions article, or women entrepreneur profile. For Step 4, prompt students to connect to the garment industry (Checkpoint 4) AND resource extraction (Checkpoint 3).",
+              "instruction": "Study the data visualizations below, then answer the questions.",
+              "iframe_path": "/html/c6s3_women_globalization.html",
+              "iframe_height": 420,
               "questions": [
                 {
                   "id": "sa_cp6_s3_1",
@@ -5840,13 +5877,14 @@
               "id": "cp6_s3_task1",
               "title": "Women and Globalization: Both Sides",
               "instruction": "Fill in the chart with specific examples from this course and today's session.",
-              "task_type": "tchart_multi",
+              "task_type": "table",
               "columns": [
                 "Context",
                 "Globalization HELPS women by...",
                 "Globalization HURTS women by..."
               ],
-              "rows": [
+              "rows": 5,
+              "row_labels": [
                 "In Canada",
                 "In Bangladesh",
                 "In developing countries overall",
@@ -5880,49 +5918,6 @@
                   "id": "st_2",
                   "label": "The gender wage gap exists in Canada too — women earn about 80 cents for every dollar men earn. Does globalization cause that gap, worsen it, or is it unrelated? What do you think?",
                   "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "st_3",
-                  "label": "If you had $500 to donate to improve quality of life for women in a developing country, would you give it to a microfinance organization or a garment worker rights campaign? Explain your reasoning.",
-                  "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp6_s3_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp6_s3_1",
-                  "text": "Before today, when I thought about women and globalization I thought...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s3_2",
-                  "text": "The statistic that stayed with me most from today is... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s3_3",
-                  "text": "The connection between cheap clothes and women's poverty is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s3_4",
-                  "text": "Going into the rest of RI4, my position on whether globalization empowers or exploits groups in society is...",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -5977,10 +5972,6 @@
                 {
                   "id": "g_brain_drain",
                   "term": "Brain Drain"
-                },
-                {
-                  "id": "g_refugee_cp7",
-                  "term": "Refugee"
                 }
               ]
             },
@@ -6337,41 +6328,6 @@
                   "notify_teacher": true
                 }
               ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp7_s1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp7_s1_1",
-                  "text": "Before today, when I thought about immigration I thought...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s1_2",
-                  "text": "The hardest decision in the Immigration Minister activity was... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s1_3",
-                  "text": "Transnational communities show that globalization changes identity, not just economics. What does that mean to you personally?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s1_4",
-                  "text": "One connection between this session and something from Checkpoints 1-6 is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         },
@@ -6607,8 +6563,10 @@
               "type": "source_analysis",
               "id": "cp7_s2_source",
               "title": "Source Analysis — Global Food Security",
-              "instruction": "Your teacher will provide a source related to global food security or agricultural globalization.",
-              "teacher_note": "Select one source: global hunger trends graph, written piece on GMOs, or political cartoon on agribusiness.",
+              "instruction": "Study the data infographic below, then answer the questions.",
+              "teacher_note": "Embedded infographic: FAO/WFP State of Food Security Report 2025 data.",
+              "iframe_path": "/html/c7s2_food_security.html",
+              "iframe_height": 820,
               "questions": [
                 {
                   "id": "sa_cp7_s2_1",
@@ -6638,41 +6596,6 @@
                   "id": "sa_cp7_s2_4",
                   "question_type": "short_answer",
                   "text": "How does this connect to what you've learned in earlier checkpoints? Be specific.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp7_s2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp7_s2_1",
-                  "text": "The food security fact that surprised me most was...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s2_2",
-                  "text": "I never thought about food and globalization together before, but now I see...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s2_3",
-                  "text": "Looking at my food table from today — my meals showed me that globalization...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s2_4",
-                  "text": "One concrete thing I could do differently as a food consumer is...",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -6714,10 +6637,6 @@
                 {
                   "id": "g_tech_transfer",
                   "term": "Technology Transfer"
-                },
-                {
-                  "id": "g_digital_divide_cp7",
-                  "term": "Digital Divide"
                 }
               ]
             },
@@ -6930,78 +6849,6 @@
                   "notify_teacher": true
                 }
               ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp7_s3_task1",
-              "title": "Checkpoint 7 Connections",
-              "instruction": "Connect each idea from Checkpoint 7 to something from an earlier checkpoint.",
-              "task_type": "connection_chart",
-              "rows": [
-                {
-                  "id": "conn_1",
-                  "col_a": "Transnational communities and remittances",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                },
-                {
-                  "id": "conn_2",
-                  "col_a": "COVID spreading through global travel networks",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                },
-                {
-                  "id": "conn_3",
-                  "col_a": "Digital divide limiting access to technology",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                },
-                {
-                  "id": "conn_4",
-                  "col_a": "Agribusiness and control of food supply chains",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                },
-                {
-                  "id": "conn_5",
-                  "col_a": "Canada cutting immigration because of housing",
-                  "col_b_placeholder": "Connects to Checkpoint ___ because..."
-                }
-              ],
-              "points": 4,
-              "scored_by": "teacher",
-              "notify_teacher": true
-            },
-            {
-              "type": "reflection",
-              "id": "cp7_s3_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp7_s3_1",
-                  "text": "Across all three sessions of Checkpoint 7, the theme connecting migration, food, and pandemics is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s3_2",
-                  "text": "The global challenge that worries me most in my lifetime is... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s3_3",
-                  "text": "My community in Alberta is connected to global systems in ways I hadn't thought about before. For example...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp7_s3_4",
-                  "text": "To what extent does globalization affect people's lives? My answer now is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         }
@@ -7017,298 +6864,6 @@
       "related_issue": "RI4",
       "checkpoint_after": false,
       "sessions": [
-        {
-          "id": "cp8_s1",
-          "title": "Session 1 — What Do We Owe Each Other?",
-          "elements": [
-            {
-              "type": "hook",
-              "id": "cp8_s1_hook",
-              "content": "You live in at least six communities at once: your school, your neighbourhood, your city, your province, your country, and the world. Each one has expectations of you. Most people never consciously think about that. What do you actually owe to each of those communities?"
-            },
-            {
-              "type": "glossary",
-              "id": "cp8_s1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
-              "terms": [
-                {
-                  "id": "g_civic_resp",
-                  "term": "Civic Responsibility"
-                },
-                {
-                  "id": "g_allegiance",
-                  "term": "Allegiance"
-                },
-                {
-                  "id": "g_csr",
-                  "term": "Corporate Social Responsibility (CSR)"
-                },
-                {
-                  "id": "g_oecd",
-                  "term": "OECD"
-                },
-                {
-                  "id": "g_dissent",
-                  "term": "Dissent"
-                },
-                {
-                  "id": "g_mandate",
-                  "term": "Mandate"
-                }
-              ]
-            },
-            {
-              "type": "context",
-              "id": "cp8_s1_context",
-              "title": "Layers of Civic Responsibility",
-              "content": "Chapter 20 presents a diagram of a person at the centre of several concentric circles — from their immediate family outward to school, community, province, country, and the world. Each layer has different responsibilities.\n\nAs an individual: Recycle. Vote. Stay informed. Treat people fairly. Speak up.\n\nAs a member of an organization: Join a club, union, or advocacy group. Coordinate with others. Amplify your individual impact.\n\nAs a business: Corporate Social Responsibility (CSR) — businesses have responsibilities beyond making profit. Fair labour practices, environmental stewardship, ethical supply chains.\n\nAs a government: Create laws. Enforce rights. Participate in international agreements. Be accountable.\n\nGlobalization changes all of these. When your clothing is made in Bangladesh, you have some responsibility to conditions there — even if you've never been to Bangladesh.",
-              "questions": [
-                {
-                  "id": "q_cp8_s1_ctx_1",
-                  "question_type": "true_false",
-                  "text": "Corporate Social Responsibility (CSR) is a legally enforceable requirement in Canada.",
-                  "correct_answer": false,
-                  "points": 1,
-                  "scored_by": "auto"
-                },
-                {
-                  "id": "q_cp8_s1_ctx_2",
-                  "question_type": "short_answer",
-                  "text": "In your own words — what is CSR and why does globalization make it more important?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "q_cp8_s1_ctx_3",
-                  "question_type": "short_answer",
-                  "text": "The reading says 'when your clothing is made in Bangladesh, you have some responsibility to conditions there.' Do you agree? What is the limit of that responsibility?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "activity",
-              "id": "cp8_s1_activity",
-              "title": "Responsibility Mapping",
-              "instruction": "This is NOT a list. For each community you belong to, write one specific responsibility you have, one specific right you have, and one way globalization affects that community. No two layers can have the same responsibility.",
-              "task_type": "layered_table",
-              "columns": [
-                "Community",
-                "One responsibility I have RIGHT NOW",
-                "One right I have",
-                "How globalization affects this community"
-              ],
-              "rows": [
-                "My school",
-                "My neighbourhood / community",
-                "Alberta",
-                "Canada",
-                "The world"
-              ],
-              "follow_up": {
-                "id": "resp_map_follow",
-                "text": "Which layer was hardest to fill in? Why? Write 2-3 sentences.",
-                "points": 4,
-                "scored_by": "teacher",
-                "notify_teacher": true
-              }
-            },
-            {
-              "type": "activity",
-              "id": "cp8_s1_debate",
-              "title": "Debate Prep — Corporate Social Responsibility",
-              "instruction": "You will be assigned a position to argue. Spend 10 minutes preparing your 3 strongest arguments. Then discuss with a partner or small group.",
-              "task_type": "debate_prep",
-              "position_a": "Companies should be legally required to follow the same labour and environmental standards abroad as they do at home.",
-              "position_b": "Companies should follow the laws of whatever country they are operating in. It is the government's job to set standards, not companies.",
-              "prep_columns": [
-                "My 3 strongest arguments",
-                "Evidence or example I would use"
-              ],
-              "prep_rows": 3,
-              "follow_up_questions": [
-                {
-                  "id": "debate_follow_1",
-                  "question_type": "short_answer",
-                  "text": "After the debate — write the ONE argument from the other side that you found hardest to counter.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "debate_follow_2",
-                  "question_type": "short_answer",
-                  "text": "Has your actual view changed at all after arguing and listening? Explain.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "video",
-              "id": "cp8_s1_video",
-              "title": "CBC: Answering Questions on Canada-U.S. Trade",
-              "youtube_id": "tbg8dz_SeyA",
-              "note": "YouTube confirmed: https://www.youtube.com/watch?v=tbg8dz_SeyA",
-              "chunks": [
-                {
-                  "id": "cp8_s1_v1_c1",
-                  "title": "What Elbows Up achieved — and what it didn't",
-                  "start_seconds": 0,
-                  "end_seconds": 300,
-                  "questions": [
-                    {
-                      "id": "q_cp8_s1_1",
-                      "question_type": "true_false",
-                      "text": "The Buy Canadian movement was organized by a single national organization.",
-                      "correct_answer": false,
-                      "points": 1,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp8_s1_2",
-                      "question_type": "true_false",
-                      "text": "U.S. tourism took a measurable economic hit from Canadian boycotts in 2025.",
-                      "correct_answer": true,
-                      "points": 1,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp8_s1_3",
-                      "question_type": "fill_blank",
-                      "text": "Canadians rallied behind the phrase ___ — a hockey term — as a symbol of resistance to Trump's tariffs and annexation threats.",
-                      "blanks": [
-                        {
-                          "position": 1,
-                          "accepted_answers": [
-                            "elbows up",
-                            "Elbows Up",
-                            "Elbows up"
-                          ]
-                        }
-                      ],
-                      "points": 1,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp8_s1_4",
-                      "question_type": "fill_blank",
-                      "text": "A U.S. Travel Association report forecast a $___ billion loss in international tourism due partly to Canadian boycotts.",
-                      "blanks": [
-                        {
-                          "position": 1,
-                          "accepted_answers": [
-                            "5.7",
-                            "5.7 billion",
-                            "$5.7",
-                            "almost 6"
-                          ]
-                        }
-                      ],
-                      "points": 1,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp8_s1_5",
-                      "question_type": "short_answer",
-                      "text": "The video covers both the impact AND the limits of the boycott. What did it actually achieve? What didn't it change?",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "q_cp8_s1_6",
-                      "question_type": "short_answer",
-                      "text": "Is the Buy Canadian movement an example of civic responsibility, or just economics and nationalism? What is the difference? Write 3-4 sentences.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp8_s1_task1",
-              "title": "Civic Responsibility Rating",
-              "instruction": "Rate each statement from 1 (strongly disagree) to 5 (strongly agree). Then explain your most controversial rating in 3-4 sentences.",
-              "task_type": "rating_scale",
-              "items": [
-                {
-                  "id": "cr_1",
-                  "text": "Companies should be legally required to follow ethical labour standards globally."
-                },
-                {
-                  "id": "cr_2",
-                  "text": "It is enough for companies to follow the laws of whatever country they operate in."
-                },
-                {
-                  "id": "cr_3",
-                  "text": "Consumers have a responsibility to research where their products come from."
-                },
-                {
-                  "id": "cr_4",
-                  "text": "Governments should be able to block imports from countries with poor labour standards."
-                },
-                {
-                  "id": "cr_5",
-                  "text": "Companies that violate human rights abroad should face consequences at home."
-                },
-                {
-                  "id": "cr_6",
-                  "text": "Individual consumer choices can meaningfully change corporate behaviour."
-                }
-              ],
-              "follow_up": {
-                "id": "cr_follow",
-                "text": "Pick your most interesting rating and write 3-4 sentences explaining your reasoning.",
-                "points": 4,
-                "scored_by": "teacher",
-                "notify_teacher": true
-              }
-            },
-            {
-              "type": "reflection",
-              "id": "cp8_s1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp8_s1_1",
-                  "text": "Before today, civic responsibility meant... Now it means...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s1_2",
-                  "text": "The layer of civic responsibility I've been least aware of in my own life is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s1_3",
-                  "text": "Globalization makes civic responsibility more complicated because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s1_4",
-                  "text": "One civic responsibility I am willing to actually take on starting now is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            }
-          ]
-        },
         {
           "id": "cp8_s2",
           "title": "Session 2 — Responding to Globalization: From Buying to Governing",
@@ -7472,133 +7027,6 @@
                   "notify_teacher": true
                 }
               ]
-            },
-            {
-              "type": "activity",
-              "id": "cp8_s2_activity",
-              "title": "Design Your Own Campaign",
-              "instruction": "Pick ONE globalization-related issue you actually care about. Design a brief grassroots campaign that works at all THREE levels simultaneously. Be specific — not 'raise awareness' but actual concrete actions.",
-              "task_type": "campaign_design",
-              "fields": [
-                {
-                  "id": "camp_issue",
-                  "label": "The issue I am addressing:",
-                  "type": "text_input"
-                },
-                {
-                  "id": "camp_individual",
-                  "label": "Individual level — what can one person do this week?",
-                  "type": "text_area"
-                },
-                {
-                  "id": "camp_org",
-                  "label": "Organizational level — what group could coordinate this and what would they actually do?",
-                  "type": "text_area"
-                },
-                {
-                  "id": "camp_gov",
-                  "label": "Government level — what specific policy change would you advocate for?",
-                  "type": "text_area"
-                },
-                {
-                  "id": "camp_name",
-                  "label": "Campaign name:",
-                  "type": "text_input"
-                },
-                {
-                  "id": "camp_slogan",
-                  "label": "Slogan (one sentence):",
-                  "type": "text_input"
-                },
-                {
-                  "id": "camp_honest",
-                  "label": "One thing from this campaign you would actually personally do:",
-                  "type": "text_input"
-                }
-              ],
-              "follow_up": {
-                "id": "camp_follow",
-                "text": "Why is working at all three levels more effective than just focusing on one? Write 3-4 sentences.",
-                "points": 4,
-                "scored_by": "teacher",
-                "notify_teacher": true
-              }
-            },
-            {
-              "type": "source_analysis",
-              "id": "cp8_s2_source",
-              "title": "Source Analysis — Civic Action and Globalization",
-              "instruction": "Your teacher will provide a source on civic action and globalization.",
-              "teacher_note": "Select one source: news article on a boycott campaign, fair trade growth graph, or NGO effectiveness written piece.",
-              "questions": [
-                {
-                  "id": "sa_cp8_s2_1",
-                  "question_type": "short_answer",
-                  "text": "What do you see or read? Describe the source in your own words.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_cp8_s2_2",
-                  "question_type": "short_answer",
-                  "text": "What type of source is this and what does that tell you about how to read it?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_cp8_s2_3",
-                  "question_type": "short_answer",
-                  "text": "What is this source saying about civic action and globalization?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_cp8_s2_4",
-                  "question_type": "short_answer",
-                  "text": "How does this connect to something from an earlier checkpoint? Be specific.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp8_s2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp8_s2_1",
-                  "text": "The most effective form of civic response to globalization that I would actually do is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s2_2",
-                  "text": "The least effective form that people often think works is... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s2_3",
-                  "text": "The Buy Canadian movement shows that civic responsibility can be personal AND political at the same time. What does that mean to you?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s2_4",
-                  "text": "One way my own life already reflects a civic response to globalization — whether I intended it or not — is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         },
@@ -7675,73 +7103,12 @@
               ]
             },
             {
-              "type": "activity",
-              "id": "cp8_s3_activity",
-              "title": "Canada in the Dock — Mock Hearing",
-              "instruction": "This is a mock hearing. Canada is being evaluated by a fictional Global Citizenship Tribunal. Mr. McRae will assign roles. Each person has 5 minutes to prepare their main argument before the hearing begins.",
-              "task_type": "role_play",
-              "roles": [
-                {
-                  "id": "role_1",
-                  "name": "The Prosecutor",
-                  "description": "Argue Canada's failures — mining companies abroad, Indigenous rights violations at home, arms exports to problematic regimes."
-                },
-                {
-                  "id": "role_2",
-                  "name": "The Defence",
-                  "description": "Argue Canada's contributions — peacekeeping, foreign aid, refugee resettlement, multiculturalism, multilateralism."
-                },
-                {
-                  "id": "role_3",
-                  "name": "The Judge",
-                  "description": "Ask clarifying questions of both sides. Keep arguments fair and on topic. Summarize the key tensions at the end."
-                },
-                {
-                  "id": "role_4",
-                  "name": "The Jury",
-                  "description": "Listen carefully. Ask one question each. Vote at the end — is Canada a responsible global citizen?"
-                }
-              ],
-              "teacher_note": "Assign roles to students. Allow 5 min prep, then run the mock hearing for 10-15 min. Everyone writes individually after.",
-              "follow_up_questions": [
-                {
-                  "id": "hearing_1",
-                  "question_type": "short_answer",
-                  "text": "What was the strongest argument you heard — for OR against Canada being a responsible global citizen?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "hearing_2",
-                  "question_type": "short_answer",
-                  "text": "How did playing a role change — or not change — your actual personal opinion?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "hearing_3",
-                  "question_type": "short_answer",
-                  "text": "Final verdict — is Canada a responsible global citizen? Rate 1-10 and write 3 sentences justifying your rating.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
               "type": "tasks",
               "id": "cp8_s3_task1",
               "title": "Is Canada Living Up to Its Responsibilities?",
-              "instruction": "Rate Canada's performance in each area from 1 (failing badly) to 5 (doing very well). Write one sentence of reasoning for each. Then write a 4-5 sentence paragraph answering: Overall, is Canada a responsible global citizen?",
+              "instruction": "Rate Canada's performance in each area from 1 (failing badly) to 5 (doing very well). Then write a 4-5 sentence paragraph answering: Overall, is Canada a responsible global citizen?",
               "task_type": "rating_table",
-              "columns": [
-                "Area",
-                "Your rating (1-5)",
-                "One sentence of reasoning"
-              ],
-              "rows": [
+              "items": [
                 "Foreign aid and development",
                 "Human rights at home including Indigenous rights",
                 "Environmental commitments",
@@ -7750,6 +7117,12 @@
                 "Trade that benefits developing countries",
                 "Refugee and immigration commitments"
               ],
+              "scale": {
+                "min": 1,
+                "max": 5,
+                "min_label": "Failing badly",
+                "max_label": "Doing very well"
+              },
               "follow_up": {
                 "id": "canada_verdict",
                 "text": "Overall, is Canada a responsible global citizen? Write 4-5 sentences.",
@@ -7774,82 +7147,6 @@
                   "notify_teacher": true
                 }
               ]
-            },
-            {
-              "type": "source_analysis",
-              "id": "cp8_s3_source",
-              "title": "Source Analysis — Canada's International Role",
-              "instruction": "Your teacher will provide a source on Canada's international role.",
-              "teacher_note": "Select one source: Canadian foreign aid graph, written piece on a Canadian mining company's operations abroad, or political cartoon on Canada's global reputation.",
-              "questions": [
-                {
-                  "id": "sa_cp8_s3_1",
-                  "question_type": "short_answer",
-                  "text": "What do you see or read? Describe the source in your own words.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_cp8_s3_2",
-                  "question_type": "short_answer",
-                  "text": "What type of source is this and what does that tell you?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_cp8_s3_3",
-                  "question_type": "short_answer",
-                  "text": "What is this source saying about Canada's global responsibilities?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_cp8_s3_4",
-                  "question_type": "short_answer",
-                  "text": "How does this connect to what you learned about who benefits and who is harmed by globalization across this course?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp8_s3_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp8_s3_1",
-                  "text": "Before this course, when I thought about Canada's role in the world I thought...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s3_2",
-                  "text": "After everything I've learned, I think Canada's most important unfulfilled responsibility is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s3_3",
-                  "text": "Civic responsibility at the global level feels ___ to me because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp8_s3_4",
-                  "text": "One thing I would change about how Canada engages with globalization is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         }
@@ -7867,7 +7164,7 @@
       "sessions": [
         {
           "id": "cp9_s1",
-          "title": "Session 1 — How Can You Actually Make a Difference?",
+          "title": "Session 1 — Course Conclusion",
           "elements": [
             {
               "type": "hook",
@@ -7876,7 +7173,7 @@
             },
             {
               "type": "glossary",
-              "id": "cp9_s1_glossary",
+              "id": "cp9_merged_glossary",
               "instruction": "Type each definition in your own words. No copying and pasting.",
               "terms": [
                 {
@@ -7884,56 +7181,20 @@
                   "term": "Responsible Citizen"
                 },
                 {
-                  "id": "g_global_citizenship_cp9",
-                  "term": "Global Citizenship"
-                },
-                {
-                  "id": "g_boycott_cp9",
-                  "term": "Boycott"
-                },
-                {
-                  "id": "g_buycott_cp9",
-                  "term": "Buycott"
-                },
-                {
-                  "id": "g_petition_cp9",
-                  "term": "Petition"
-                },
-                {
                   "id": "g_ethical_cp9",
                   "term": "Ethical"
-                }
-              ]
-            },
-            {
-              "type": "context",
-              "id": "cp9_s1_context",
-              "title": "Four Ways to Act",
-              "content": "Chapter 21 shows that a global citizen can act at four levels:\n\n1. As an individual — personal choices: what you buy, how you spend your time, how you treat others, whether you stay informed.\n\n2. Through an organization — joining a group multiplies your individual impact. NGOs, student organizations, volunteer groups, faith communities.\n\n3. Through a business — if you own or work for a business, how it operates is a form of global citizenship. Choosing suppliers ethically, treating workers fairly.\n\n4. Through government — advocacy for policy change, voting, petitioning, running for office.\n\nEvery major social change in history has involved all four levels working together. The anti-apartheid movement needed individual boycotters, organized NGOs, corporate divestment, and government sanctions simultaneously. No single level was enough alone.",
-              "questions": [
-                {
-                  "id": "q_cp9_s1_ctx_1",
-                  "question_type": "true_false",
-                  "text": "Individual consumer choices alone are sufficient to create major global change.",
-                  "correct_answer": false,
-                  "points": 1,
-                  "scored_by": "auto"
                 },
                 {
-                  "id": "q_cp9_s1_ctx_2",
-                  "question_type": "short_answer",
-                  "text": "At which of the four levels do you feel you currently have the most power? Explain specifically.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
+                  "id": "g_transparency",
+                  "term": "Transparency"
                 },
                 {
-                  "id": "q_cp9_s1_ctx_3",
-                  "question_type": "short_answer",
-                  "text": "Think of a global issue you care about. How could you act at each of the four levels? Write one specific action per level — not vague, actually concrete.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
+                  "id": "g_accountability",
+                  "term": "Accountability"
+                },
+                {
+                  "id": "g_impact",
+                  "term": "Impact"
                 }
               ]
             },
@@ -7984,172 +7245,6 @@
                 "scored_by": "teacher",
                 "notify_teacher": true
               }
-            },
-            {
-              "type": "tasks",
-              "id": "cp9_s1_task2",
-              "title": "Case Study — A Movement That Worked",
-              "instruction": "Choose ONE of the following historical examples. Research it briefly using your phone and answer the questions below. You must use a real example — not a hypothetical.",
-              "task_type": "case_study_choice",
-              "options": [
-                "The anti-apartheid movement",
-                "The Nestlé infant formula boycott",
-                "Fair trade certification movement",
-                "The Kimberley Process (conflict diamonds)",
-                "The Paris Climate Agreement negotiations",
-                "The MeToo movement"
-              ],
-              "questions": [
-                {
-                  "id": "cs_1",
-                  "question_type": "short_answer",
-                  "text": "What was the issue?",
-                  "points": 1,
-                  "scored_by": "none"
-                },
-                {
-                  "id": "cs_2",
-                  "question_type": "short_answer",
-                  "text": "Who was involved — individuals, organizations, businesses, governments? Give specifics.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "cs_3",
-                  "question_type": "short_answer",
-                  "text": "What specific strategies were used?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "cs_4",
-                  "question_type": "short_answer",
-                  "text": "What did it actually achieve?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "cs_5",
-                  "question_type": "short_answer",
-                  "text": "What were its limitations?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "cs_6",
-                  "question_type": "short_answer",
-                  "text": "What does this example tell you about how change actually happens? Write 3-4 sentences.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "tasks",
-              "id": "cp9_s1_task3",
-              "title": "My Action Plan — Personal and Realistic",
-              "instruction": "For a global issue you actually care about, map out a realistic personal action plan at each level. Be specific and honest — not aspirational.",
-              "task_type": "table",
-              "columns": [
-                "Level",
-                "What I could realistically do",
-                "Why this would matter"
-              ],
-              "rows": [
-                "Individual",
-                "Organization",
-                "Business (now or in future)",
-                "Government (now or in future)"
-              ],
-              "follow_up": {
-                "id": "action_follow",
-                "text": "Honest question — which of these will you actually do? Be realistic, not aspirational. Write 2-3 sentences.",
-                "points": 4,
-                "scored_by": "teacher",
-                "notify_teacher": true
-              }
-            },
-            {
-              "type": "reflection",
-              "id": "cp9_s1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp9_s1_1",
-                  "text": "The thing that has most changed my thinking about whether I can make a difference is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp9_s1_2",
-                  "text": "'Think globally, act locally' — what does this mean and do you think it's actually good advice?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp9_s1_3",
-                  "text": "The global issue I care most about after this course is... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp9_s1_4",
-                  "text": "One thing I could do this week — not eventually, this week — that connects to a global issue is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "cp9_s2",
-          "title": "Session 2 — NGO Research",
-          "elements": [
-            {
-              "type": "hook",
-              "id": "cp9_s2_hook",
-              "content": "NGOs exist because governments don't solve everything and markets don't fix everything. There are over 10 million of them worldwide. Some are genuinely changing things. Some are feel-good organizations that mostly raise money to raise awareness. How do you tell the difference?"
-            },
-            {
-              "type": "glossary",
-              "id": "cp9_s2_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
-              "terms": [
-                {
-                  "id": "g_ngo",
-                  "term": "NGO (Non-Governmental Organization)"
-                },
-                {
-                  "id": "g_grassroots_cp9",
-                  "term": "Grassroots Organization"
-                },
-                {
-                  "id": "g_advocacy_cp9",
-                  "term": "Advocacy"
-                },
-                {
-                  "id": "g_transparency",
-                  "term": "Transparency"
-                },
-                {
-                  "id": "g_accountability",
-                  "term": "Accountability"
-                },
-                {
-                  "id": "g_impact",
-                  "term": "Impact"
-                }
-              ]
             },
             {
               "type": "context",
@@ -8265,52 +7360,6 @@
               }
             },
             {
-              "type": "reflection",
-              "id": "cp9_s2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_cp9_s2_1",
-                  "text": "I chose this NGO because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp9_s2_2",
-                  "text": "The most surprising thing I learned about it was...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp9_s2_3",
-                  "text": "One thing this NGO does that I could imagine being part of someday is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp9_s2_4",
-                  "text": "After researching this organization, my belief in whether ordinary people can change global systems has increased / decreased / stayed the same because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "cp9_s3",
-          "title": "Session 3 — Final Reflection + Big Checkpoint 4",
-          "elements": [
-            {
-              "type": "hook",
-              "id": "cp9_s3_hook",
-              "content": "You started this course asking what globalization is. You're ending it asking what you should do about it. That's not a coincidence — that's exactly what social studies is for."
-            },
-            {
               "type": "tasks",
               "id": "cp9_s3_task1",
               "title": "Course Journey Tracker",
@@ -8391,95 +7440,6 @@
               ]
             },
             {
-              "type": "activity",
-              "id": "cp9_s3_presentation",
-              "title": "NGO Presentations",
-              "instruction": "Present your NGO in 3-5 minutes. No slides required. Use your research notes. Be ready for one follow-up question from Mr. McRae.",
-              "task_type": "oral_presentation",
-              "presentation_points": [
-                "Name of NGO and the issue it addresses",
-                "What it does — 3 specific actions",
-                "What it has actually achieved",
-                "Your honest evaluation — effective or not?",
-                "Connection to one thing you learned in this course",
-                "Whether you would support it and why"
-              ],
-              "teacher_note": "Ask one genuine follow-up question per student based on what they said. Assess quality of response."
-            },
-            {
-              "type": "tasks",
-              "id": "cp9_s3_task3",
-              "title": "Peer Response",
-              "instruction": "After hearing another student's NGO presentation, write your honest response.",
-              "task_type": "free_response",
-              "fields": [
-                {
-                  "id": "peer_1",
-                  "label": "One thing about their NGO that you didn't know before:",
-                  "type": "text_area",
-                  "points": 1,
-                  "scored_by": "none"
-                },
-                {
-                  "id": "peer_2",
-                  "label": "One question you would ask the NGO if you could:",
-                  "type": "text_area",
-                  "points": 1,
-                  "scored_by": "none"
-                },
-                {
-                  "id": "peer_3",
-                  "label": "Would you support this NGO? Why or why not — be honest and specific:",
-                  "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp9_s3_final_reflection",
-              "instruction": "These are the last questions of the course. Take them seriously. Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "final_1",
-                  "text": "Before this course, I thought globalization was... After this course, I think it is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "final_2",
-                  "text": "The single moment or idea from this course that will stick with me longest is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "final_3",
-                  "text": "One thing I wish we had spent more time on is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "final_4",
-                  "text": "Something about globalization that still confuses or bothers me is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "final_5",
-                  "text": "I am a global citizen. What does that mean for my life going forward?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
               "type": "checkpoint_prep",
               "id": "cp9_s3_big_checkpoint",
               "checkpoint_id": "conv_big_4",
@@ -8537,7 +7497,7 @@
       "id": "conv_quick_3",
       "title": "Quick Checkpoint 3",
       "type": "quick",
-      "after_checkpoint": "checkpoint_5",
+      "after_checkpoint": "checkpoint_5b",
       "artifact_required": true,
       "artifact_description": "Completed written assignment (all three source analyses + opinion paragraphs)",
       "talking_points": [

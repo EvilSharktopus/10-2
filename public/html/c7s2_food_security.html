@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Food Security — Source Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: #f7f3ee;
+    color: #1a1a1a;
+    padding: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    border-bottom: 4px solid #1a1a1a;
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+
+  .header-left .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+
+  .header-left h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    line-height: 1;
+    color: #1a1a1a;
+    letter-spacing: 0.04em;
+  }
+
+  .header-left h1 span { color: #c0392b; }
+
+  .header-right {
+    text-align: right;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  /* ── Stat strip ── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .stat {
+    background: #1a1a1a;
+    color: white;
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+
+  .stat.red   { background: #c0392b; }
+  .stat.amber { background: #d35400; }
+  .stat.green { background: #1e8449; }
+  .stat.blue  { background: #1a5276; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 5px;
+    letter-spacing: 0.04em;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Main grid ── */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  }
+
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    color: #1a1a1a;
+    margin-bottom: 3px;
+  }
+
+  .card-sub {
+    font-size: 11px;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+  }
+
+  /* ── Region bars ── */
+  .region-row {
+    margin-bottom: 14px;
+  }
+
+  .region-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+  }
+
+  .region-name {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .region-stats {
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+  }
+
+  .region-bar-bg {
+    background: #f0ede8;
+    border-radius: 4px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .region-bar {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+  }
+
+  .region-bar span {
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .bar-africa  { background: #c0392b; }
+  .bar-asia    { background: #1a5276; }
+  .bar-w-asia  { background: #d35400; }
+  .bar-latam   { background: #1e8449; }
+  .bar-world   { background: #555; }
+
+  .trend-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+  }
+
+  .up   { background: #fdecea; color: #c0392b; }
+  .down { background: #e9f7ef; color: #1e8449; }
+  .flat { background: #f0f0f0; color: #666; }
+
+  /* ── Timeline ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tl-row {
+    display: flex;
+    gap: 14px;
+    padding-bottom: 14px;
+    position: relative;
+  }
+
+  .tl-row:last-child { padding-bottom: 0; }
+
+  .tl-row::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 28px;
+    bottom: 0;
+    width: 2px;
+    background: #f0ede8;
+  }
+
+  .tl-row:last-child::before { display: none; }
+
+  .tl-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    z-index: 1;
+  }
+
+  .tl-content {}
+
+  .tl-year {
+    font-size: 11px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+  }
+
+  .tl-text {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .tl-num {
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  /* ── Bottom context strip ── */
+  .context-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .context-card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px;
+    border-top: 4px solid #1a1a1a;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+
+  .context-card.red   { border-top-color: #c0392b; }
+  .context-card.amber { border-top-color: #d35400; }
+  .context-card.green { border-top-color: #1e8449; }
+
+  .context-heading {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 8px;
+    color: #555;
+  }
+
+  .context-text {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .source-note {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #bbb;
+    margin-top: 20px;
+    font-style: italic;
+  }
+
+  @media print {
+    body { background: white; padding: 20px; }
+    .card { box-shadow: none; border: 1px solid #ddd; }
+    .context-card { box-shadow: none; border: 1px solid #ddd; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-left">
+    <div class="label">Social Studies 10-2 · Checkpoint 7, Session 2 · Source Analysis</div>
+    <h1>WHO GOES <span>HUNGRY?</span></h1>
+    <div style="font-size:13px;color:#555;margin-top:6px;">Global food security data · FAO/WFP State of Food Security Report 2025</div>
+  </div>
+  <div class="header-right">
+    Mr. McRae<br>Source Analysis<br>Global Food Security</div>
+</div>
+
+<!-- Stat strip -->
+<div class="stat-strip">
+  <div class="stat red">
+    <div class="stat-num">673M</div>
+    <div class="stat-label">People hungry worldwide (2024)</div>
+  </div>
+  <div class="stat amber">
+    <div class="stat-num">8.2%</div>
+    <div class="stat-label">Share of global population facing hunger</div>
+  </div>
+  <div class="stat blue">
+    <div class="stat-num">2.3B</div>
+    <div class="stat-label">People with moderate or severe food insecurity</div>
+  </div>
+  <div class="stat green">
+    <div class="stat-num">512M</div>
+    <div class="stat-label">Projected still hungry by 2030 at current pace</div>
+  </div>
+</div>
+
+<!-- Main grid -->
+<div class="main-grid">
+
+  <!-- Left: Regional bar chart -->
+  <div class="card">
+    <div class="card-title">Hunger by World Region</div>
+    <div class="card-sub">Prevalence of undernourishment · 2024 · FAO SOFI Report</div>
+
+    <div class="region-row">
+      <div class="region-top">
+        <span class="region-name">Africa <span class="trend-badge up">↑ Rising</span></span>
+        <span class="region-stats">307 million people · 20%+ of population</span>
+      </div>
+      <div class="region-bar-bg">
+        <div class="region-bar bar-africa" style="width:78%"><span>20%+ of population</span></div>
+      </div>
+    </div>
+
+    <div class="region-row">
+      <div class="region-top">
+        <span class="region-name">Western Asia <span class="trend-badge up">↑ Rising</span></span>
+        <span class="region-stats">39 million people · 12.7% of population</span>
+      </div>
+      <div class="region-bar-bg">
+        <div class="region-bar bar-w-asia" style="width:48%"><span>12.7%</span></div>
+      </div>
+    </div>
+
+    <div class="region-row">
+      <div class="region-top">
+        <span class="region-name">Asia (overall) <span class="trend-badge down">↓ Improving</span></span>
+        <span class="region-stats">323 million people · 6.7% of population</span>
+      </div>
+      <div class="region-bar-bg">
+        <div class="region-bar bar-asia" style="width:27%"><span>6.7%</span></div>
+      </div>
+    </div>
+
+    <div class="region-row">
+      <div class="region-top">
+        <span class="region-name">Latin America & Caribbean <span class="trend-badge down">↓ Improving</span></span>
+        <span class="region-stats">34 million people · 5.1% of population</span>
+      </div>
+      <div class="region-bar-bg">
+        <div class="region-bar bar-latam" style="width:20%"><span>5.1%</span></div>
+      </div>
+    </div>
+
+    <div class="region-row">
+      <div class="region-top">
+        <span class="region-name">World average <span class="trend-badge flat">→ Slight decline</span></span>
+        <span class="region-stats">673 million people · 8.2% of population</span>
+      </div>
+      <div class="region-bar-bg">
+        <div class="region-bar bar-world" style="width:33%"><span>8.2%</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding:12px;background:#fdecea;border-radius:8px;font-size:12px;color:#c0392b;font-weight:600;line-height:1.5;">
+      ⚠ By 2030, projected 512 million still chronically hungry — nearly 60% will be in Africa. SDG Goal 2 (Zero Hunger) will not be met at current pace.
+    </div>
+
+    <p class="source-note">Source: FAO/IFAD/UNICEF/WFP/WHO. The State of Food Security and Nutrition in the World 2025. Rome: FAO.</p>
+  </div>
+
+  <!-- Right: Timeline of hunger -->
+  <div class="card">
+    <div class="card-title">The Hunger Timeline</div>
+    <div class="card-sub">How we got here · Key turning points</div>
+
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-dot" style="background:#1e8449;color:white;">📉</div>
+        <div class="tl-content">
+          <div class="tl-year">Pre-2020</div>
+          <div class="tl-text">Global hunger had been <span class="tl-num">slowly declining</span> for decades. The world was cautiously optimistic about hitting Zero Hunger by 2030.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot" style="background:#c0392b;color:white;">🦠</div>
+        <div class="tl-content">
+          <div class="tl-year">2020–2022</div>
+          <div class="tl-text">COVID-19 and supply chain collapse push hunger <span class="tl-num">up by 150 million people</span> in two years — the largest increase in recorded history.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot" style="background:#d35400;color:white;">⚡</div>
+        <div class="tl-content">
+          <div class="tl-year">2022–2023</div>
+          <div class="tl-text">Russia's invasion of Ukraine disrupts global grain supply. Ukraine and Russia together supply <span class="tl-num">30% of the world's wheat</span>. Food prices spike globally.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot" style="background:#1a5276;color:white;">📊</div>
+        <div class="tl-content">
+          <div class="tl-year">2024</div>
+          <div class="tl-text">Hunger falls by <span class="tl-num">15 million</span> — but remains <span class="tl-num">above pre-pandemic levels</span>. Africa and Western Asia still rising. Asia and Latin America improving.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot" style="background:#555;color:white;">🔮</div>
+        <div class="tl-content">
+          <div class="tl-year">2030</div>
+          <div class="tl-text">At current pace: <span class="tl-num">512 million still hungry</span>. UN Zero Hunger goal will be missed. Climate change, conflict, and inequality are the main drivers going forward.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="source-note">Sources: FAO SOFI 2025; WFP 2025; UN SDG Progress Report.</p>
+  </div>
+</div>
+
+<!-- Context strip -->
+<div class="context-strip">
+  <div class="context-card red">
+    <div class="context-heading">🌍 Why Africa?</div>
+    <div class="context-text">Hunger in Africa is driven by a combination of conflict, climate shocks (drought and flooding), colonial-era land distribution, and debt that prevents governments from investing in food systems. Over 20% of the continent's population now faces hunger — the highest rate of any region.</div>
+  </div>
+  <div class="context-card amber">
+    <div class="context-heading">🔗 The Globalization Connection</div>
+    <div class="context-text">Global food systems mean a drought in one country, a war in another, or a shipping disruption anywhere can spike food prices everywhere. Countries that export cash crops for global markets may have hungry people at home. The same system that feeds the wealthy world efficiently can leave the poorest exposed.</div>
+  </div>
+  <div class="context-card green">
+    <div class="context-heading">💡 What Actually Works</div>
+    <div class="context-text">Brazil, Mexico and South American countries reduced hunger using conditional cash transfers and school feeding programs. Southern Asia (led by India) made major gains through investment in domestic food production. Social programs, not just economic growth, drove the improvements.</div>
+  </div>
+</div>
+
+<div class="footer">Social Studies 10-2 · Mr. McRae · Source Analysis — Global Food Security · Data: FAO/WFP SOFI 2025</div>
+
+</body>
+</html>

@@ -18,6 +18,7 @@ export function StudentPage({ studentId }: Props) {
   const unlocks = useAppStore((s) => s.unlocks);
   const logout = useAppStore((s) => s.logout);
   const advanceSession = useAppStore((s) => s.advanceSession);
+  const unlockStop = useAppStore((s) => s.unlockStop);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [glossaryOpen, setGlossaryOpen] = useState(false);
@@ -59,6 +60,7 @@ export function StudentPage({ studentId }: Props) {
   const activeStop = STOPS.find((s) => s.id === activeStopId) ?? STOPS[0];
   const activeSession = activeStop.sessions[activeSessionIndex] ?? activeStop.sessions[0];
   const isLastSessionOfStop = activeSessionIndex === activeStop.sessions.length - 1;
+  const isLastStop = activeStop.id === STOPS[STOPS.length - 1].id;
 
   // Navigate to a specific session
   const handleSelectSession = (stopId: number, sessionIdx: number) => {
@@ -82,9 +84,18 @@ export function StudentPage({ studentId }: Props) {
       const nextIdx = activeSessionIndex + 1;
       setActiveSessionIndex(nextIdx);
       await advanceSession(student.id, activeStopId, nextIdx + 1);
+    } else if (!activeStop.checkpointRequired) {
+      // Last session AND no checkpoint needed — auto-advance to next stop
+      const nextStopId = activeStopId + 1;
+      const nextStop = STOPS.find((s) => s.id === nextStopId);
+      if (nextStop) {
+        await advanceSession(student.id, nextStopId, 1);
+        await unlockStop(student.id, nextStopId);
+        setActiveStopId(nextStopId);
+        setActiveSessionIndex(0);
+      }
     } else {
       // Last session of this stop — student needs teacher checkpoint to advance
-      // Just mark current position; teacher will unlock next stop
       await advanceSession(student.id, activeStopId, activeStop.sessions.length);
     }
   };
@@ -126,6 +137,7 @@ export function StudentPage({ studentId }: Props) {
               existingResponses={student.responses ?? {}}
               onComplete={handleSessionComplete}
               isLastSessionOfStop={isLastSessionOfStop}
+              isLastStop={isLastStop}
             />
           ) : (
             <div className="card fade-in" style={{ textAlign: 'center', padding: '48px 24px' }}>
