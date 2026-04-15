@@ -135,7 +135,7 @@ export function StudentPage({ studentId }: Props) {
             </div>
           ) : activeSession ? (
             <StopSession
-              key={`${activeStopId}-${activeSessionIndex}`}
+              key={`${activeStopId}-${activeSessionIndex}-${student.completedSessions.length}`}
               stop={activeStop}
               session={activeSession}
               studentId={studentId}
