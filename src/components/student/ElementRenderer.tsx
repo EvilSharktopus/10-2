@@ -153,6 +153,9 @@ function Video({ el, responses, onSave, disabled, chunkIndex = 0 }: { el: VideoE
   return (
     <div className="card mb-3">
       <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>🎬 {el.title}</div>
+      {el.instruction && (
+        <div style={{ fontSize: '0.9rem', color: 'var(--amber)', padding: '10px 14px', background: 'var(--amber-dim)', border: '1px solid var(--amber)', borderRadius: 'var(--radius)', marginBottom: 16 }} dangerouslySetInnerHTML={{ __html: el.instruction }} />
+      )}
 
       {/* Section label when multi-chunk */}
       {el.chunks.length > 1 && (

@@ -31,7 +31,7 @@
             {
               "type": "glossary",
               "id": "s1_1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_globalization",
@@ -124,7 +124,7 @@
                     {
                       "id": "q_s1_1_4",
                       "question_type": "short_answer",
-                      "text": "In your own words — what does globalization actually mean? Write 1-2 sentences like you're texting a friend.",
+                      "text": "what does globalization actually mean? Write 1-2 sentences like you're texting a friend.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -378,7 +378,7 @@
             {
               "type": "reflection",
               "id": "s1_1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_s1_1_1",
@@ -424,7 +424,7 @@
             {
               "type": "glossary",
               "id": "s1_2_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_tariff",
@@ -448,6 +448,7 @@
               "type": "video",
               "id": "s1_2_video",
               "title": "Crash Course #42: Globalization II — Good or Bad?",
+              "instruction": "This video has an age gate so you will have to click the link to view it: <a href=\"https://youtu.be/s_iwrt7D5OA\" target=\"_blank\">CLICK HERE FOR VIDEO</a>",
               "youtube_id": "s_iwrt7D5OA",
               "chunks": [
                 {
@@ -613,54 +614,6 @@
               ]
             },
             {
-              "type": "source_analysis",
-              "id": "s1_2_source",
-              "title": "First Source Analysis — Describe Only",
-              "instruction": "Look at the supply chain image your teacher provides.",
-              "questions": [
-                {
-                  "id": "sa_s1_2_1",
-                  "question_type": "short_answer",
-                  "text": "List at least 6 things you can see in this image.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_s1_2_2",
-                  "question_type": "short_answer",
-                  "text": "What countries or places are shown or labeled?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_s1_2_3",
-                  "question_type": "short_answer",
-                  "text": "What product is being tracked? How do you know?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_s1_2_4",
-                  "question_type": "short_answer",
-                  "text": "Is there any text in the image? What does it say?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "sa_s1_2_5",
-                  "question_type": "short_answer",
-                  "text": "What is the first question that comes to your mind when you look at this?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
               "type": "tasks",
               "id": "s1_2_task1",
               "title": "Pros and Cons T-Chart",
@@ -684,7 +637,7 @@
             {
               "type": "reflection",
               "id": "s1_2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_s1_2_1",
@@ -730,7 +683,7 @@
             {
               "type": "glossary",
               "id": "s1_3_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_supply_chain",
@@ -754,7 +707,7 @@
               "type": "activity",
               "id": "s1_3_activity",
               "title": "Where Is Your Stuff From?",
-              "instruction": "Pick 4 items you own or use every day — shoes, phone, jacket, backpack, headphones, hat, game controller, anything. For each one, find the label or look it up to find where it was made. Then ask Mr. McRae for a world map and mark each country with a dot and the product name.",
+              "instruction": "Pick 4 items you own or use every day — shoes, phone, jacket, backpack, headphones, hat, game controller, anything. For each one, find the label or look it up to find where it was made. Find 4 different countries of origin. You will have to find these on a map during your checkpoint conversation with Mr.McRae",
               "physical_component": true,
               "teacher_note": "Provide one physical world map per student.",
               "fields": [
@@ -788,25 +741,9 @@
                   "notify_teacher": true
                 },
                 {
-                  "id": "q_s1_3_act_3",
-                  "question_type": "short_answer",
-                  "text": "Look at your lines on the map — roughly how far did your stuff travel to get to you?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
                   "id": "q_s1_3_act_4",
                   "question_type": "short_answer",
                   "text": "If you found out the person who made one of your items earned $2 a day, would you still buy that product? Be honest. Why or why not?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "q_s1_3_act_5",
-                  "question_type": "short_answer",
-                  "text": "Based on your map — is YOUR life globalized? Explain using at least 2 specific examples from your map.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -898,7 +835,6 @@
               "title": "Globalization in the News",
               "instruction": "Find ONE current news headline from today or this week that connects to globalization. You can use your phone.",
               "task_type": "free_response",
-              "ai_proof_note": "This one is AI-proof — the headline has to be real and current. Be ready to show Mr. McRae the article.",
               "fields": [
                 {
                   "id": "news_headline",
@@ -921,55 +857,20 @@
               ]
             },
             {
-              "type": "reflection",
-              "id": "s1_3_reflection",
-              "instruction": "Type your answers. No copy-paste.",
-              "prompts": [
-                {
-                  "id": "r_s1_3_1",
-                  "text": "Looking at my map, I was most surprised that...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s1_3_2",
-                  "text": "Globalization affects my daily life because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s1_3_3",
-                  "text": "One thing I still do not fully understand is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s1_3_4",
-                  "text": "Going back to the Nike question from Day 1 — my answer now is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
               "type": "checkpoint_prep",
               "id": "s1_3_checkpoint",
               "checkpoint_id": "cp_1",
               "title": "Get Ready to Talk to Mr. McRae",
-              "instruction": "Before Stop 2 unlocks, you will have a quick conversation. Be ready to talk about:",
+              "instruction": "Before Checkpoint 2 unlocks, you will have a quick conversation. Be ready to talk about:",
               "talking_points": [
                 "What globalization actually is — in your own words, no notes",
                 "One way it has helped people somewhere in the world",
                 "One way it has hurt people somewhere in the world",
-                "Something from your personal map that surprised you",
+                "Map locations of where your 4 products were made",
                 "Your current opinion — are you for or against globalization, and why?"
               ],
               "locks_next_stop": true,
-              "lock_message": "Stop 2 is locked until your checkpoint conversation is complete. Flag Mr. McRae when you are ready."
+              "lock_message": "Checkpoint 2 is locked until your checkpoint conversation is complete. Flag Mr. McRae when you are ready."
             }
           ]
         }
@@ -997,7 +898,7 @@
             {
               "type": "glossary",
               "id": "s2_1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_trade_agreement",
@@ -1093,7 +994,7 @@
                     {
                       "id": "q_s2_1_5",
                       "question_type": "short_answer",
-                      "text": "In your own words — why would a government put a tariff on something coming from another country?",
+                      "text": "why would a government put a tariff on something coming from another country?",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -1221,7 +1122,7 @@
                     {
                       "id": "q_s2_1_16",
                       "question_type": "short_answer",
-                      "text": "The video says tariffs were important in the 1800s but the world has changed a lot since then. What has changed that makes tariffs more complicated today? Use what you learned in Stop 1 to help answer this.",
+                      "text": "The video says tariffs were important in the 1800s but the world has changed a lot since then. What has changed that makes tariffs more complicated today? Use what you learned in Checkpoint 1 to help answer this.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -1359,11 +1260,11 @@
             {
               "type": "reflection",
               "id": "s2_1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_s2_1_1",
-                  "text": "At the start of class the hook asked how a tweet could raise your car price by $5,000. Can you answer that now? Explain it in your own words.",
+                  "text": "At the start of class the hook asked how a tweet could raise your car price by $5,000. Can you answer that now? Explain it .",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -1405,7 +1306,7 @@
             {
               "type": "glossary",
               "id": "s2_2_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_containerization",
@@ -1505,7 +1406,7 @@
                     {
                       "id": "q_s2_2_5",
                       "question_type": "short_answer",
-                      "text": "In your own words — what was the main problem with shipping before containers existed?",
+                      "text": "what was the main problem with shipping before containers existed?",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -1585,7 +1486,7 @@
                     {
                       "id": "q_s2_2_13",
                       "question_type": "short_answer",
-                      "text": "How did containerization help companies like Nike and Apple build global supply chains? Connect it to what you learned in Stop 1.",
+                      "text": "How did containerization help companies like Nike and Apple build global supply chains? Connect it to what you learned in Checkpoint 1.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -1757,7 +1658,7 @@
             {
               "type": "reflection",
               "id": "s2_2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_s2_2_1",
@@ -1803,7 +1704,7 @@
             {
               "type": "glossary",
               "id": "s2_3_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_reshoring",
@@ -1885,7 +1786,7 @@
                     {
                       "id": "q_s2_3_4",
                       "question_type": "short_answer",
-                      "text": "In your own words — what is the strongest argument this video makes FOR tariffs?",
+                      "text": "what is the strongest argument this video makes FOR tariffs?",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -2041,7 +1942,7 @@
               "type": "tasks",
               "id": "s2_3_task1",
               "title": "Globalization Crossword",
-              "instruction": "Ask Mr. McRae for the crossword sheet using key terms from Stops 1 and 2.",
+              "instruction": "Ask Mr. McRae for the crossword sheet using key terms from Checkpoints 1 and 2.",
               "physical_component": true,
               "teacher_note": "Distribute the Globalization Crossword handout."
             },
@@ -2089,7 +1990,7 @@
                 },
                 {
                   "id": "ot_5",
-                  "question": "My opinion has changed since Stop 1:",
+                  "question": "My opinion has changed since Checkpoint 1:",
                   "type": "choice",
                   "options": [
                     "YES",
@@ -2111,7 +2012,7 @@
             {
               "type": "reflection",
               "id": "s2_3_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_s2_3_1",
@@ -2151,7 +2052,7 @@
                 "Your personal opinion on whether tariffs are good or bad — and WHY"
               ],
               "locks_next_stop": true,
-              "lock_message": "Stop 3 is locked until your checkpoint conversation is complete. Flag Mr. McRae when you are ready."
+              "lock_message": "Checkpoint 3 is locked until your checkpoint conversation is complete. Flag Mr. McRae when you are ready."
             }
           ]
         }
@@ -2189,7 +2090,7 @@
             {
               "type": "glossary",
               "id": "s3_1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_stewardship",
@@ -2267,7 +2168,7 @@
                     {
                       "id": "q_s3_1_4",
                       "question_type": "short_answer",
-                      "text": "In your own words — what does Melina mean when she talks about her relationship to the land? How is it different from how most Canadians think about land?",
+                      "text": "what does Melina mean when she talks about her relationship to the land? How is it different from how most Canadians think about land?",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -2548,7 +2449,7 @@
             {
               "type": "reflection",
               "id": "s3_1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_s3_1_1",
@@ -2596,7 +2497,7 @@
             {
               "type": "glossary",
               "id": "s3_2_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_conflict_resource",
@@ -2695,7 +2596,6 @@
               "title": "Conflict Minerals Then and Now",
               "instruction": "Use your phone or the app to find ONE current news story about conflict minerals — could be diamonds, cobalt (used in phone batteries), coltan, or gold.",
               "task_type": "news_research",
-              "ai_proof_note": "Must be a real current story — be ready to show Mr. McRae.",
               "fields": [
                 {
                   "id": "cm_headline",
@@ -2730,7 +2630,7 @@
             {
               "type": "reflection",
               "id": "s3_2_reflection",
-              "instruction": "Type your answer. No copy-paste.",
+              "instruction": "Type your answer.",
               "choose_one": true,
               "prompts": [
                 {
@@ -2779,7 +2679,7 @@
             {
               "type": "reflection",
               "id": "s3_3_reflection",
-              "instruction": "Answer all four. Type your answers. No copy-paste.",
+              "instruction": "Answer all four. Type your answers.",
               "prompts": [
                 {
                   "id": "r_s3_3_1",
@@ -2825,7 +2725,7 @@
             {
               "type": "glossary",
               "id": "s3_4_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_greenhouse_gas",
@@ -3082,7 +2982,7 @@
             {
               "type": "reflection",
               "id": "s3_4_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_s3_4_1",
@@ -3128,7 +3028,7 @@
             {
               "type": "glossary",
               "id": "s3_5_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_sustainable_prosperity",
@@ -3311,7 +3211,7 @@
               "type": "tasks",
               "id": "s3_5_task1",
               "title": "Checkpoint 3 Vocabulary Review",
-              "instruction": "Pick up to 3 terms from Checkpoint 3 that you are still fuzzy on. For each one, write your best definition in your own words — no copying from your earlier answer.",
+              "instruction": "Pick up to 3 terms from Checkpoint 3 that you are still fuzzy on. For each one, write your best definition no copying from your earlier answer.",
               "task_type": "vocab_review",
               "source": "glossary",
               "source_filter": "checkpoint_3",
@@ -3367,7 +3267,7 @@
             {
               "type": "reflection",
               "id": "s3_5_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_s3_5_1",
@@ -3415,7 +3315,7 @@
               "artifact_required": true,
               "artifact_description": "Written assignment planning sheet",
               "locks_next_stop": true,
-              "lock_message": "Stop 4 is locked until Big Checkpoint 2 is complete. Flag Mr. McRae when you are ready."
+              "lock_message": "Checkpoint 4 is locked until Big Checkpoint 2 is complete. Flag Mr. McRae when you are ready."
             }
           ]
         }
@@ -3442,7 +3342,7 @@
             {
               "type": "glossary",
               "id": "cp4_s1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_trade_lib",
@@ -3561,7 +3461,7 @@
                     {
                       "id": "q_cp4_s1_5",
                       "question_type": "short_answer",
-                      "text": "In your own words — what does 'leapfrogging' mean? Give an example.",
+                      "text": "what does 'leapfrogging' mean? Give an example.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -3735,7 +3635,7 @@
                 {
                   "id": "sa_cp4_s1_2",
                   "question_type": "short_answer",
-                  "text": "The wall is made of bricks labelled Tariffs, Discriminatory Subsidies, and Export Controls. What are each of these? Define them in your own words.",
+                  "text": "The wall is made of bricks labelled Tariffs, Discriminatory Subsidies, and Export Controls. What are each of these? Define them .",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -3817,7 +3717,7 @@
             {
               "type": "reflection",
               "id": "cp4_s1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_cp4_s1_1",
@@ -3863,7 +3763,7 @@
             {
               "type": "glossary",
               "id": "cp4_s2_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_automation",
@@ -3896,7 +3796,7 @@
                 {
                   "id": "q_cp4_s2_ctx_1",
                   "question_type": "short_answer",
-                  "text": "In your own words, describe what changed between Wave 1 and Wave 2.",
+                  "text": "describe what changed between Wave 1 and Wave 2.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -3977,7 +3877,7 @@
                     {
                       "id": "q_cp4_s2_4",
                       "question_type": "short_answer",
-                      "text": "In your own words — what does it mean that entry-level jobs are the training wheels for a career?",
+                      "text": "what does it mean that entry-level jobs are the training wheels for a career?",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -4048,7 +3948,7 @@
               "type": "tasks",
               "id": "cp4_s2_activity",
               "title": "The Three Waves of Outsourcing",
-              "instruction": "Fill in each row using what you learned from the context and videos. Use your own words.",
+              "instruction": "Fill in each row using what you learned from the context and videos.",
               "task_type": "table",
               "columns": [
                 "Wave",
@@ -4104,7 +4004,7 @@
               "type": "tasks",
               "id": "cp4_s2_task2",
               "title": "My Future Work",
-              "instruction": "These questions are AI-proof — they're about YOU specifically.",
+              "instruction": "",
               "task_type": "free_response",
               "fields": [
                 {
@@ -4163,7 +4063,7 @@
             {
               "type": "glossary",
               "id": "cp4_s3_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_sweatshop_s3",
@@ -4357,7 +4257,7 @@
                 {
                   "id": "sa_cp5_s1_1",
                   "question_type": "short_answer",
-                  "text": "What is this quote saying? Write it in your own words — no copying.",
+                  "text": "What is this quote saying? Write it no copying.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -4425,7 +4325,7 @@
               "type": "tasks",
               "id": "cp5_s1_vocab",
               "title": "Source 1 Vocabulary",
-              "instruction": "Find any terms in Source 1 you don't fully understand. Define them here in your own words.",
+              "instruction": "Find any terms in Source 1 you don't fully understand. Define them here .",
               "task_type": "table",
               "columns": [
                 "Term from Source 1",
@@ -4451,7 +4351,7 @@
                 {
                   "id": "sa_cp5_s2_1",
                   "question_type": "short_answer",
-                  "text": "What is this quote saying? Write it in your own words — no copying.",
+                  "text": "What is this quote saying? Write it no copying.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -4717,7 +4617,7 @@
             {
               "type": "glossary",
               "id": "cp5b_s1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_qol_s4",
@@ -5038,7 +4938,7 @@
             {
               "type": "glossary",
               "id": "cp6_s1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_hdi",
@@ -5108,7 +5008,7 @@
                 {
                   "id": "q_cp6_s1_ctx_4",
                   "question_type": "short_answer",
-                  "text": "In your own words — what is the difference between standard of living and quality of life?",
+                  "text": "what is the difference between standard of living and quality of life?",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -5208,7 +5108,7 @@
                 {
                   "id": "sa_cp6_s1_1",
                   "question_type": "short_answer",
-                  "text": "What do you see or read? Describe the source in your own words.",
+                  "text": "What do you see or read? Describe the source .",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -5347,7 +5247,7 @@
             {
               "type": "reflection",
               "id": "cp6_s1_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_cp6_s1_1",
@@ -5393,7 +5293,7 @@
             {
               "type": "glossary",
               "id": "cp6_s2_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_unicef",
@@ -5554,7 +5454,7 @@
               "type": "tasks",
               "id": "cp6_s2_task2",
               "title": "You as a Global Citizen",
-              "instruction": "These are AI-proof — they're about YOUR specific life.",
+              "instruction": "",
               "task_type": "free_response",
               "fields": [
                 {
@@ -5602,7 +5502,7 @@
             {
               "type": "reflection",
               "id": "cp6_s2_reflection",
-              "instruction": "Type your answers. No copy-paste.",
+              "instruction": "Type your answers.",
               "prompts": [
                 {
                   "id": "r_cp6_s2_1",
@@ -5648,7 +5548,7 @@
             {
               "type": "glossary",
               "id": "cp6_s3_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_gender_gap",
@@ -5799,7 +5699,7 @@
                 {
                   "id": "q_cp6_s3_ctx_1",
                   "question_type": "short_answer",
-                  "text": "In your own words — what is the connection between the garment industry and the Grameen Bank? They seem opposite — how are they part of the same system?",
+                  "text": "what is the connection between the garment industry and the Grameen Bank? They seem opposite — how are they part of the same system?",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -5833,7 +5733,7 @@
                 {
                   "id": "sa_cp6_s3_1",
                   "question_type": "short_answer",
-                  "text": "What do you see or read? Describe the source in your own words.",
+                  "text": "What do you see or read? Describe the source .",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -5902,7 +5802,7 @@
             {
               "type": "tasks",
               "id": "cp6_s3_task2",
-              "title": "Stop and Think",
+              "title": "Checkpoint and Think",
               "instruction": "These questions are personal. No right answers — only honest ones.",
               "task_type": "free_response",
               "fields": [
@@ -5951,7 +5851,7 @@
             {
               "type": "glossary",
               "id": "cp7_s1_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_migration",
@@ -6112,7 +6012,7 @@
                 {
                   "id": "q_cp7_s1_ctx_3",
                   "question_type": "short_answer",
-                  "text": "In your own words — what is a transnational community? Give one specific example from your own knowledge or experience.",
+                  "text": "what is a transnational community? Give one specific example from your own knowledge or experience.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -6292,7 +6192,7 @@
               "type": "tasks",
               "id": "cp7_s1_task2",
               "title": "Immigration and Me",
-              "instruction": "These are AI-proof — they're about YOUR specific life.",
+              "instruction": "",
               "task_type": "free_response",
               "fields": [
                 {
@@ -6343,7 +6243,7 @@
             {
               "type": "glossary",
               "id": "cp7_s2_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_food_security",
@@ -6490,7 +6390,7 @@
                 {
                   "id": "q_cp7_s2_ctx_2",
                   "question_type": "short_answer",
-                  "text": "In your own words — what is agribusiness and what are the two main arguments about it?",
+                  "text": "what is agribusiness and what are the two main arguments about it?",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -6571,7 +6471,7 @@
                 {
                   "id": "sa_cp7_s2_1",
                   "question_type": "short_answer",
-                  "text": "What do you see or read? Describe the source in your own words.",
+                  "text": "What do you see or read? Describe the source .",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -6616,7 +6516,7 @@
             {
               "type": "glossary",
               "id": "cp7_s3_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_pandemic",
@@ -6783,7 +6683,7 @@
                 {
                   "id": "q_cp7_s3_ctx_2",
                   "question_type": "short_answer",
-                  "text": "In your own words — what is the digital divide and why does it matter for globalization?",
+                  "text": "what is the digital divide and why does it matter for globalization?",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -6876,7 +6776,7 @@
             {
               "type": "glossary",
               "id": "cp8_s2_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_boycott",
@@ -7042,7 +6942,7 @@
             {
               "type": "glossary",
               "id": "cp8_s3_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_foreign_aid",
@@ -7135,7 +7035,7 @@
               "type": "tasks",
               "id": "cp8_s3_task2",
               "title": "Letter to Canada",
-              "instruction": "Write a short letter (5-7 sentences) to the Government of Canada about ONE specific thing you think Canada should do differently in its global civic responsibilities. Be specific — not just 'be better.' Name a concrete policy or action. This is AI-proof — it needs to be grounded in YOUR opinion from YOUR learning in this course.",
+              "instruction": "Write a short letter (5-7 sentences) to the Government of Canada about ONE specific thing you think Canada should do differently in its global civic responsibilities. Be specific — not just 'be better.' Name a concrete policy or action.",
               "task_type": "free_response",
               "fields": [
                 {
@@ -7174,7 +7074,7 @@
             {
               "type": "glossary",
               "id": "cp9_merged_glossary",
-              "instruction": "Type each definition in your own words. No copying and pasting.",
+              "instruction": "Type each definition.",
               "terms": [
                 {
                   "id": "g_responsible_citizen",

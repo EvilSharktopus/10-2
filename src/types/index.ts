@@ -91,6 +91,7 @@ export interface VideoElement {
   title: string;
   youtube_id: string;
   chunks: VideoChunk[];
+  instruction?: string;
 }
 
 // Tasks

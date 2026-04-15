@@ -10,13 +10,16 @@ interface Props {
   onClose: () => void;
 }
 
-type Tab = 'summary' | 'responses' | 'outcomes';
+type Tab = 'summary' | 'responses' | 'outcomes' | 'override';
 
 export function StudentDetailModal({ student, onClose }: Props) {
   const unlockStop = useAppStore((s) => s.unlockStop);
   const clearFlag = useAppStore((s) => s.clearFlag);
   const saveResponse = useAppStore((s) => s.saveResponse);
+  const eraseSessionProgress = useAppStore((s) => s.eraseSessionProgress);
+  const eraseAllProgress = useAppStore((s) => s.eraseAllProgress);
   const [activeTab, setActiveTab] = useState<Tab>('summary');
+  const [expandedOverride, setExpandedOverride] = useState<number | null>(null);
 
   const grade = gradeStudent(student.responses ?? {});
   const nextLockedStop = STOPS.find((s) => !student.unlockedStops.includes(s.id));
@@ -73,6 +76,7 @@ export function StudentDetailModal({ student, onClose }: Props) {
               ['summary', 'Summary'],
               ['responses', `Responses${grade.teacherPending > 0 ? ` (${grade.teacherPending})` : ''}`],
               ['outcomes', 'Outcomes'],
+              ['override', 'Override'],
             ] as [Tab, string][]).map(([id, label]) => (
               <button key={id} className={`teacher-tab${activeTab === id ? ' active' : ''}`} onClick={() => setActiveTab(id)}>
                 {label}
@@ -186,6 +190,86 @@ export function StudentDetailModal({ student, onClose }: Props) {
                     </div>
                   );
                 })}
+              </div>
+            </div>
+          )}
+
+          {/* ── OVERRIDE ── */}
+          {activeTab === 'override' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <div className="text-xs text-muted mb-2">
+                Erasing progress permanently deletes a student's responses for a specific session and resets their completion status. They will be pushed back to this session. This cannot be undone.
+              </div>
+              {STOPS.map((s) => {
+                const isExpanded = expandedOverride === s.id;
+                return (
+                  <div key={s.id} className="card" style={{ padding: '14px 18px' }}>
+                    <div 
+                      style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}
+                      onClick={() => setExpandedOverride(isExpanded ? null : s.id)}
+                    >
+                      <div style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--accent-light)' }}>
+                        Checkpoint {s.id}
+                      </div>
+                      <div style={{ fontSize: '1.2rem', color: 'var(--text-muted)' }}>
+                        {isExpanded ? '▼' : '►'}
+                      </div>
+                    </div>
+                    {isExpanded && (
+                      <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 8, borderTop: '1px solid var(--border)', paddingTop: 12 }}>
+                        {s.sessions.map((session, idx) => {
+                          const isCompleted = student.completedSessions.includes(`${s.id}-${idx}`);
+                          const isActive = student.currentStop === s.id && student.currentSession === idx;
+                          return (
+                            <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: 'var(--bg)', borderRadius: 6, border: '1px solid var(--border)' }}>
+                              <div>
+                                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>{session.title || `Session ${idx + 1}`}</div>
+                                <div className="text-xs text-muted">
+                                  {isActive ? 'Currently Active' : isCompleted ? 'Completed' : 'Not Reached'}
+                                </div>
+                              </div>
+                              <button 
+                                className="btn btn-sm" 
+                                style={{ background: 'var(--danger-dim)', color: 'var(--danger)', border: '1px solid var(--danger)', fontSize: '0.75rem', padding: '4px 8px' }}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  if (window.confirm(`Are you SURE you want to erase progress for Checkpoint ${s.id} - ${session.title || `Session ${idx + 1}`}?\n\nThis will permanently delete all typed answers and tracking for this session.`)) {
+                                    eraseSessionProgress(student.id, s.id, idx);
+                                    window.alert('Progress erased successfully.');
+                                  }
+                                }}
+                              >
+                                Erase Progress
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+
+              <div style={{ marginTop: 24, paddingTop: 20, borderTop: '2px dashed var(--danger)' }}>
+                <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--danger)', marginBottom: 8 }}>Nuclear Option</div>
+                <div className="text-xs text-muted mb-3">
+                  This will completely reset the student's account to a brand new state.
+                </div>
+                <button 
+                  className="btn" 
+                  style={{ background: 'var(--danger)', color: '#fff', width: '100%', fontWeight: 700 }}
+                  onClick={() => {
+                    const prompt = window.prompt("Type CONFIRM to securely erase this student's ENTIRE workbook history:");
+                    if (prompt === "CONFIRM") {
+                      eraseAllProgress(student.id);
+                      window.alert("All progress has been permanently wiped.");
+                    } else if (prompt !== null) {
+                      window.alert("Confirmation failed. Progress was not erased.");
+                    }
+                  }}
+                >
+                  Erase ALL Progress
+                </button>
               </div>
             </div>
           )}

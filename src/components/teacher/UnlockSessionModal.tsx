@@ -12,6 +12,7 @@ interface Props {
 export function UnlockSessionModal({ checkpoints, students, onClose }: Props) {
   const unlocks = useAppStore((s) => s.unlocks);
   const unlockSessionsAction = useAppStore((s) => s.unlockSessions);
+  const lockSessionsAction = useAppStore((s) => s.lockSessions);
 
   const [step, setStep] = useState<1 | 2>(1);
   const [selectedSessions, setSelectedSessions] = useState<Set<string>>(new Set());
@@ -200,6 +201,38 @@ export function UnlockSessionModal({ checkpoints, students, onClose }: Props) {
                   </div>
                 );
               })}
+
+              <div style={{ marginTop: 24, padding: '12px 16px', background: 'var(--danger-dim)', borderRadius: 8, border: '1px dashed var(--danger)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
+                <div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--danger)', marginBottom: 2 }}>Reset Class Access</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Lock all sessions immediately.</div>
+                </div>
+                <button 
+                  className="btn" 
+                  style={{ background: 'var(--danger)', color: '#fff', fontSize: '0.8rem', padding: '6px 12px', whiteSpace: 'nowrap' }}
+                  onClick={async () => {
+                    const prompt = window.prompt("Type CONFIRM to lock all sessions for the entire class:");
+                    if (prompt === "CONFIRM") {
+                      try {
+                        setSubmitting(true);
+                        // Gather literally every session ID in the workbook to strip locks
+                        const allSessionIds: string[] = [];
+                        checkpoints.forEach(cp => cp.sessions.forEach(s => allSessionIds.push(s.id)));
+                        
+                        await lockSessionsAction(allSessionIds);
+                        window.alert("All sessions have been successfully locked!");
+                        onClose();
+                      } catch (err) {
+                        alert("Failed to lock sessions.");
+                      } finally {
+                        setSubmitting(false);
+                      }
+                    }
+                  }}
+                >
+                  🔒 Lock Sessions For All Students
+                </button>
+              </div>
             </div>
 
             <div className="usm-footer">

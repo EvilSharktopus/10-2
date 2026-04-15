@@ -62,6 +62,10 @@ export function StudentPage({ studentId }: Props) {
   const isLastSessionOfStop = activeSessionIndex === activeStop.sessions.length - 1;
   const isLastStop = activeStop.id === STOPS[STOPS.length - 1].id;
 
+  const showCheckpointFlag =
+    student.flaggedForCheckpoint ||
+    (isLastSessionOfStop && activeStop.checkpointRequired && !student.unlockedStops.includes(activeStopId + 1));
+
   // Navigate to a specific session
   const handleSelectSession = (stopId: number, sessionIdx: number) => {
     const stop = STOPS.find((s) => s.id === stopId);
@@ -118,6 +122,7 @@ export function StudentPage({ studentId }: Props) {
           onMenuToggle={() => setSidebarOpen((o) => !o)}
           onLogout={logout}
           progressPercent={progressPercent}
+          showCheckpointFlag={showCheckpointFlag}
         />
 
         <div className="page-inner">

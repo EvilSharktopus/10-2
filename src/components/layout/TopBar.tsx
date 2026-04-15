@@ -4,6 +4,7 @@ import { CheckpointFlag } from '../student/CheckpointFlag';
 import { gradeStudent } from '../../utils/grading';
 import { ResponsesPanel } from '../shared/ResponsesPanel';
 import { useAppStore } from '../../store/useAppStore';
+import { UserMenu } from './UserMenu';
 
 interface Props {
   student: Student;
@@ -11,16 +12,15 @@ interface Props {
   onMenuToggle: () => void;
   onLogout: () => void;
   progressPercent: number;
+  showCheckpointFlag: boolean;
 }
 
-export function TopBar({ student, onGlossaryOpen, onMenuToggle, onLogout, progressPercent }: Props) {
+export function TopBar({ student, onGlossaryOpen, onMenuToggle, onLogout, progressPercent, showCheckpointFlag }: Props) {
   const [showGradeModal, setShowGradeModal] = useState(false);
   const saveResponse = useAppStore(s => s.saveResponse);
 
   const grade = gradeStudent(student.responses ?? {});
   const hasAttempted = grade.autoAttemptedPossible > 0;
-  const pct = grade.autoPercent;
-  const pctColor = pct >= 75 ? 'var(--success)' : pct >= 50 ? 'var(--amber)' : 'var(--danger)';
 
   return (
     <>
@@ -34,26 +34,17 @@ export function TopBar({ student, onGlossaryOpen, onMenuToggle, onLogout, progre
       </div>
 
       <div className="topbar-right">
-        {/* Auto-score chip */}
-        {hasAttempted && (
-          <button style={{
-            display: 'flex', alignItems: 'center', gap: 6,
-            background: 'var(--surface)', border: `1.5px solid ${pctColor}`,
-            borderRadius: 20, padding: '4px 12px',
-            fontSize: '0.78rem', fontWeight: 700, color: pctColor,
-            cursor: 'pointer', transition: 'background 0.15s'
-          }} onClick={() => setShowGradeModal(true)}>
-            ⭐ {grade.autoEarned}/{grade.autoAttemptedPossible} pts
-            <span style={{ opacity: 0.7, fontWeight: 400 }}>({pct}%)</span>
-          </button>
-        )}
-        <CheckpointFlag studentId={student.id} />
+        {showCheckpointFlag && <CheckpointFlag studentId={student.id} />}
         <button className="glossary-btn" onClick={onGlossaryOpen}>
           📖 Glossary
         </button>
-        <button className="btn btn-ghost btn-sm" onClick={onLogout}>
-          Sign out
-        </button>
+        <UserMenu
+          student={student}
+          grade={grade}
+          hasAttempted={hasAttempted}
+          onLogout={onLogout}
+          onShowGradeModal={() => setShowGradeModal(true)}
+        />
       </div>
 
       <div className="progress-bar-wrap">

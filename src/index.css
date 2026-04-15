@@ -37,6 +37,32 @@
   --shadow:       0 4px 24px rgba(0,0,0,0.45);
   --shadow-card:  0 2px 12px rgba(0,0,0,0.35);
   --transition:   0.2s ease;
+  
+  --topbar-bg:       rgba(13,13,21,0.85);
+  --glass-overlay:   rgba(26,26,40,0.6);
+  --scrollbar-thumb: #333350;
+  --scrollbar-hover: var(--accent);
+}
+
+[data-theme='light'] {
+  --bg:           #f7f8fa;
+  --surface:      #ffffff;
+  --card:         #ffffff;
+  --card-hover:   #f8fafd;
+  --border:       rgba(0,0,0,0.06);
+  --border-glow:  rgba(108,99,255,0.06);
+
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #94a3b8;
+
+  --topbar-bg:       rgba(255,255,255,0.75);
+  --glass-overlay:   rgba(255,255,255,0.6);
+  --scrollbar-thumb: rgba(0,0,0,0.15);
+  --scrollbar-hover: rgba(0,0,0,0.3);
+  
+  --shadow:       0 16px 40px rgba(0,0,0,0.04);
+  --shadow-card:  0 4px 16px rgba(0,0,0,0.03);
 }
 
 /* ── Reset ────────────────────────────────────────────────────────────────── */
@@ -58,8 +84,8 @@ input, textarea, select { font-family: var(--font-body); }
 /* ── Scrollbar ────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--surface); }
-::-webkit-scrollbar-thumb { background: #333350; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
 
 /* ── Typography ──────────────────────────────────────────────────────────── */
 h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
@@ -160,7 +186,7 @@ p  { line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem; }
   left: var(--sidebar-w);
   right: 0;
   height: var(--topbar-h);
-  background: rgba(13,13,21,0.85);
+  background: var(--topbar-bg);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -214,7 +240,7 @@ p  { line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem; }
 }
 .card + .card { margin-top: 16px; }
 .card-glass {
-  background: rgba(26,26,40,0.6);
+  background: var(--glass-overlay);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-glow);
 }
@@ -505,7 +531,7 @@ p  { line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem; }
 .teacher-topbar {
   position: sticky;
   top: 0;
-  background: rgba(13,13,21,0.9);
+  background: var(--topbar-bg);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   padding: 14px 28px;
