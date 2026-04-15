@@ -13,81 +13,90 @@ import type { Unsubscribe } from 'firebase/firestore';
 import { db } from './config';
 import type { Student, ClassConfig, UnlockRecord } from '../types';
 
-// ─── Students ────────────────────────────────────────────────────────────────
-// ... (unchanged)
-export async function getStudent(studentId: string): Promise<Student | null> {
-  const ref = doc(db, 'students', studentId);
-  const snap = await getDoc(ref);
+// ─── Path helpers ─────────────────────────────────────────────────────────────
+const studentsCol  = (courseId: string) => collection(db, 'courses', courseId, 'students');
+const studentDoc   = (courseId: string, studentId: string) => doc(db, 'courses', courseId, 'students', studentId);
+const unlocksCol   = (courseId: string) => collection(db, 'courses', courseId, 'session_unlocks');
+const unlockDoc    = (courseId: string, sessionId: string) => doc(db, 'courses', courseId, 'session_unlocks', sessionId);
+const configDoc    = (courseId: string) => doc(db, 'courses', courseId, 'config', 'class');
+
+// ─── Students ─────────────────────────────────────────────────────────────────
+
+export async function getStudent(courseId: string, studentId: string): Promise<Student | null> {
+  const snap = await getDoc(studentDoc(courseId, studentId));
   return snap.exists() ? (snap.data() as Student) : null;
 }
 
-export async function setStudent(student: Student): Promise<void> {
-  const ref = doc(db, 'students', student.id);
-  await setDoc(ref, student, { merge: true });
+export async function setStudent(courseId: string, student: Student): Promise<void> {
+  await setDoc(studentDoc(courseId, student.id), student, { merge: true });
 }
 
 export async function updateStudent(
+  courseId: string,
   studentId: string,
   data: Partial<Student>
 ): Promise<void> {
-  const ref = doc(db, 'students', studentId);
-  await updateDoc(ref, data as Record<string, unknown>);
+  await updateDoc(studentDoc(courseId, studentId), data as Record<string, unknown>);
 }
 
-// Atomically appends termIds to glossaryUnlocked — no read needed, no race condition
+/** Atomically appends termIds to glossaryUnlocked — no read, no race condition. */
 export async function addToGlossaryUnlocked(
+  courseId: string,
   studentId: string,
   termIds: string[]
 ): Promise<void> {
   if (termIds.length === 0) return;
-  const ref = doc(db, 'students', studentId);
-  await updateDoc(ref, { glossaryUnlocked: arrayUnion(...termIds) });
+  await updateDoc(studentDoc(courseId, studentId), { glossaryUnlocked: arrayUnion(...termIds) });
 }
 
-export async function getAllStudents(): Promise<Student[]> {
-  const snap = await getDocs(collection(db, 'students'));
+export async function getAllStudents(courseId: string): Promise<Student[]> {
+  const snap = await getDocs(studentsCol(courseId));
   return snap.docs.map((d) => d.data() as Student);
 }
 
 export function subscribeToAllStudents(
+  courseId: string,
   callback: (students: Student[]) => void
 ): Unsubscribe {
-  return onSnapshot(collection(db, 'students'), (snap) => {
+  return onSnapshot(studentsCol(courseId), (snap) => {
     callback(snap.docs.map((d) => d.data() as Student));
   });
 }
 
 export function subscribeToStudent(
+  courseId: string,
   studentId: string,
   callback: (student: Student | null) => void
 ): Unsubscribe {
-  return onSnapshot(doc(db, 'students', studentId), (snap) => {
+  return onSnapshot(studentDoc(courseId, studentId), (snap) => {
     callback(snap.exists() ? (snap.data() as Student) : null);
   });
 }
 
-// ─── Class Config ────────────────────────────────────────────────────────────
+// ─── Class Config ─────────────────────────────────────────────────────────────
 
-export async function getClassConfig(): Promise<ClassConfig | null> {
-  const snap = await getDoc(doc(db, 'config', 'class'));
+export async function getClassConfig(courseId: string): Promise<ClassConfig | null> {
+  const snap = await getDoc(configDoc(courseId));
   return snap.exists() ? (snap.data() as ClassConfig) : null;
 }
 
-export async function setClassConfig(config: ClassConfig): Promise<void> {
-  await setDoc(doc(db, 'config', 'class'), config, { merge: true });
+export async function setClassConfig(courseId: string, config: ClassConfig): Promise<void> {
+  await setDoc(configDoc(courseId), config, { merge: true });
 }
 
 // ─── Session Unlocks ──────────────────────────────────────────────────────────
 
 export function subscribeToSessionUnlocks(
+  courseId: string,
   callback: (unlocks: UnlockRecord[]) => void
 ): Unsubscribe {
-  return onSnapshot(collection(db, 'session_unlocks'), (snap) => {
+  return onSnapshot(unlocksCol(courseId), (snap) => {
     callback(snap.docs.map((d) => d.data() as UnlockRecord));
   });
 }
 
 export async function setSessionUnlocksBatch(
+  courseId: string,
   sessionIds: string[],
   teacherUid: string,
   scope: 'all' | 'students',
@@ -97,8 +106,7 @@ export async function setSessionUnlocksBatch(
   const batch = writeBatch(db);
   const now = Date.now();
   for (const sessionId of sessionIds) {
-    const ref = doc(db, 'session_unlocks', sessionId);
-    batch.set(ref, {
+    batch.set(unlockDoc(courseId, sessionId), {
       sessionId,
       unlockedAt: now,
       unlockedBy: teacherUid,
@@ -109,11 +117,14 @@ export async function setSessionUnlocksBatch(
   await batch.commit();
 }
 
-export async function deleteSessionUnlocksBatch(sessionIds: string[]): Promise<void> {
+export async function deleteSessionUnlocksBatch(
+  courseId: string,
+  sessionIds: string[]
+): Promise<void> {
   if (sessionIds.length === 0) return;
   const batch = writeBatch(db);
   for (const sessionId of sessionIds) {
-    batch.delete(doc(db, 'session_unlocks', sessionId));
+    batch.delete(unlockDoc(courseId, sessionId));
   }
   await batch.commit();
 }

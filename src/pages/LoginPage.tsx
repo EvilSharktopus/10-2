@@ -7,6 +7,7 @@ type Step = 'code' | 'select' | 'password' | 'teacher-password';
 
 export function LoginPage() {
   const setAuth = useAppStore((s) => s.setAuth);
+  const courseId = useAppStore((s) => s.courseId);
   const [step, setStep] = useState<Step>('code');
   const [classCode, setClassCode] = useState('');
   const [selectedId, setSelectedId] = useState('');
@@ -42,7 +43,7 @@ export function LoginPage() {
     setError('');
     setLoading(true);
     try {
-      const student = await getStudent(selectedId);
+      const student = await getStudent(courseId, selectedId);
       if (!student) {
         setError('Student record not found. Please contact your teacher.');
         setLoading(false);
@@ -65,7 +66,7 @@ export function LoginPage() {
     setError('');
     setLoading(true);
     try {
-      const config = await getClassConfig();
+      const config = await getClassConfig(courseId);
       const envTeacher = import.meta.env.VITE_TEACHER_CODE ?? 'teacher102';
       const valid =
         teacherPw === (config?.teacherPassword ?? envTeacher) ||

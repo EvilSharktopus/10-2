@@ -2,33 +2,33 @@ import { getClassConfig, setClassConfig, getStudent, setStudent } from '../fireb
 import { STUDENT_ROSTER, buildDefaultStudent } from '../data/students';
 
 /**
- * Runs once on first app load.
- * Writes all 11 students and class config to Firestore if not already done.
+ * Runs once per course on first app load.
+ * Writes all students and class config to Firestore under courses/{courseId}/
+ * if not already seeded for this course.
  */
 export async function seedIfNeeded(
+  courseId: string,
   classCode: string,
-  teacherPassword: string
+  teacherPassword: string,
 ): Promise<void> {
-  const config = await getClassConfig();
+  const config = await getClassConfig(courseId);
 
-  if (config?.initialized) return; // already seeded
+  if (config?.initialized) return; // already seeded for this course
 
-  console.log('[Seed] First run detected — seeding Firestore...');
+  console.log(`[Seed] First run for course "${courseId}" — seeding Firestore...`);
 
-  // Write class config
-  await setClassConfig({
+  await setClassConfig(courseId, {
     classCode,
     teacherPassword,
     initialized: true,
   });
 
-  // Write all students
   for (const roster of STUDENT_ROSTER) {
-    const existing = await getStudent(roster.id);
+    const existing = await getStudent(courseId, roster.id);
     if (!existing) {
-      await setStudent(buildDefaultStudent(roster));
+      await setStudent(courseId, buildDefaultStudent(roster));
     }
   }
 
-  console.log('[Seed] Done.');
+  console.log(`[Seed] Done for course "${courseId}".`);
 }

@@ -17,6 +17,10 @@ import { applyTheme } from '../utils/theme';
 import { STOPS } from '../data/stops';
 
 interface AppState {
+  // ── Course ────────────────────────────────────────────────────────────
+  courseId: string;
+  setCourseId: (id: string) => void;
+
   // ── Auth ─────────────────────────────────────────────────────────────
   auth: AuthSession;
   setAuth: (auth: AuthSession) => void;
@@ -39,11 +43,7 @@ interface AppState {
   lockSessions: (sessionIds: string[]) => Promise<void>;
 
   // ── Student actions ───────────────────────────────────────────────────
-  saveResponse: (
-    studentId: string,
-    key: string,
-    value: string | string[]
-  ) => Promise<void>;
+  saveResponse: (studentId: string, key: string, value: string | string[]) => Promise<void>;
   flagCheckpoint: (studentId: string, flag: boolean) => Promise<void>;
   raiseHand: (studentId: string, raised: boolean) => Promise<void>;
   markSessionComplete: (studentId: string, sessionId: string) => Promise<void>;
@@ -65,6 +65,11 @@ interface AppState {
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
+  // ── Course ────────────────────────────────────────────────────────────
+  courseId: '10-2',
+
+  setCourseId: (id) => set({ courseId: id }),
+
   // ── Auth ─────────────────────────────────────────────────────────────
   auth: { studentId: null, isTeacher: false },
 
@@ -82,27 +87,24 @@ export const useAppStore = create<AppState>((set, get) => ({
   currentStudent: null,
 
   loadStudent: async (id) => {
-    const student = await getStudent(id);
+    const student = await getStudent(get().courseId, id);
     set({ currentStudent: student });
   },
 
   subscribeStudent: (id) =>
-    subscribeToStudent(id, (student) => set({ currentStudent: student })),
+    subscribeToStudent(get().courseId, id, (student) => set({ currentStudent: student })),
 
   // ── All students ──────────────────────────────────────────────────────
   allStudents: [],
 
   loadAllStudents: async () => {
-    const students = await getAllStudents();
+    const students = await getAllStudents(get().courseId);
     set({ allStudents: students });
   },
 
   subscribeAllStudents: () =>
-    subscribeToAllStudents((students) => {
-      // Sort by displayName
-      const sorted = [...students].sort((a, b) =>
-        a.displayName.localeCompare(b.displayName)
-      );
+    subscribeToAllStudents(get().courseId, (students) => {
+      const sorted = [...students].sort((a, b) => a.displayName.localeCompare(b.displayName));
       set({ allStudents: sorted });
     }),
 
@@ -110,32 +112,31 @@ export const useAppStore = create<AppState>((set, get) => ({
   unlocks: {},
 
   subscribeSessionUnlocks: () =>
-    subscribeToSessionUnlocks((records) => {
+    subscribeToSessionUnlocks(get().courseId, (records) => {
       const map: UnlockMap = {};
       records.forEach((r) => { map[r.sessionId] = r; });
       set({ unlocks: map });
     }),
 
   unlockSessions: async (sessionIds, scope, studentIds) => {
-    const teacherUid = 'teacher'; // Since we use shared generic teacher auth locally
-    await setSessionUnlocksBatch(sessionIds, teacherUid, scope, studentIds);
+    await setSessionUnlocksBatch(get().courseId, sessionIds, 'teacher', scope, studentIds);
   },
 
   lockSessions: async (sessionIds) => {
-    await deleteSessionUnlocksBatch(sessionIds);
+    await deleteSessionUnlocksBatch(get().courseId, sessionIds);
   },
 
   // ── Student actions ───────────────────────────────────────────────────
   saveResponse: async (studentId, key, value) => {
-    await updateStudent(studentId, { [`responses.${key}`]: value });
+    await updateStudent(get().courseId, studentId, { [`responses.${key}`]: value });
   },
 
   flagCheckpoint: async (studentId, flag) => {
-    await updateStudent(studentId, { flaggedForCheckpoint: flag });
+    await updateStudent(get().courseId, studentId, { flaggedForCheckpoint: flag });
   },
 
   raiseHand: async (studentId, raised) => {
-    await updateStudent(studentId, { raisedHand: raised });
+    await updateStudent(get().courseId, studentId, { raisedHand: raised });
   },
 
   markSessionComplete: async (studentId, sessionId) => {
@@ -144,23 +145,21 @@ export const useAppStore = create<AppState>((set, get) => ({
     const already = student.completedSessions.includes(sessionId);
     if (already) return;
     const updated = [...student.completedSessions, sessionId];
-    await updateStudent(studentId, { completedSessions: updated });
+    await updateStudent(get().courseId, studentId, { completedSessions: updated });
   },
 
   advanceSession: async (studentId, nextStop, nextSession) => {
-    await updateStudent(studentId, {
+    await updateStudent(get().courseId, studentId, {
       currentStop: nextStop,
       currentSession: nextSession,
     });
   },
 
   eraseSessionProgress: async (studentId, stopId, sessionIndex) => {
-    // Student could be in allStudents (teacher view) or currentStudent (student view)
     const student = get().allStudents.find((s) => s.id === studentId)
       ?? get().currentStudent;
     if (!student) return;
 
-    // 1. Find all element IDs inside the erased session
     const stopObj = STOPS.find(s => s.id === stopId);
     if (!stopObj) return;
     const sessionObj = stopObj.sessions[sessionIndex];
@@ -177,31 +176,27 @@ export const useAppStore = create<AppState>((set, get) => ({
     };
     collectIds(sessionObj.elements);
 
-    // 2. Filter responses
     const newResponses = { ...student.responses };
     Object.keys(newResponses).forEach((key) => {
-      const matches = Array.from(idsToDelete).some(id => key === id || key.startsWith(id + '_') || key.startsWith(id + '-'));
-      if (matches) {
-        delete newResponses[key];
-      }
+      const matches = Array.from(idsToDelete).some(
+        id => key === id || key.startsWith(id + '_') || key.startsWith(id + '-')
+      );
+      if (matches) delete newResponses[key];
     });
 
-    // 3. Remove from completedSessions using the REAL session.id (e.g. "s1_1")
     const realSessionId = sessionObj.id;
     const newCompleted = student.completedSessions.filter(s => s !== realSessionId);
 
-    // 4. Roll back current position if they are ahead of this session
     const erasedVal = stopId * 1000 + sessionIndex;
     const currentVal = student.currentStop * 1000 + student.currentSession;
-
     let newStop = student.currentStop;
     let newSession = student.currentSession;
     if (erasedVal <= currentVal) {
       newStop = stopId;
-      newSession = sessionIndex; // snap back to start of this session
+      newSession = sessionIndex;
     }
 
-    await updateStudent(studentId, {
+    await updateStudent(get().courseId, studentId, {
       responses: newResponses,
       completedSessions: newCompleted,
       currentStop: newStop,
@@ -212,8 +207,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   eraseAllProgress: async (studentId) => {
     const student = get().allStudents.find((s) => s.id === studentId);
     if (!student) return;
-    
-    await updateStudent(studentId, {
+    await updateStudent(get().courseId, studentId, {
       responses: {},
       completedSessions: [],
       unlockedStops: [1],
@@ -229,26 +223,24 @@ export const useAppStore = create<AppState>((set, get) => ({
   unlockStop: async (studentId, stopNumber) => {
     const student = get().allStudents.find((s) => s.id === studentId);
     if (!student) return;
-    const alreadyUnlocked = student.unlockedStops.includes(stopNumber);
-    if (alreadyUnlocked) return;
+    if (student.unlockedStops.includes(stopNumber)) return;
     const updated = [...student.unlockedStops, stopNumber];
-    await updateStudent(studentId, {
+    await updateStudent(get().courseId, studentId, {
       unlockedStops: updated,
       flaggedForCheckpoint: false,
     });
   },
 
   clearFlag: async (studentId) => {
-    await updateStudent(studentId, { flaggedForCheckpoint: false });
+    await updateStudent(get().courseId, studentId, { flaggedForCheckpoint: false });
   },
 
   updatePassword: async (studentId, password) => {
-    await updateStudent(studentId, { password });
+    await updateStudent(get().courseId, studentId, { password });
   },
 
   unlockGlossaryTerms: async (studentId, termIds) => {
-    // Uses Firestore arrayUnion — atomic, no race condition on rapid session transitions
-    await addToGlossaryUnlocked(studentId, termIds);
+    await addToGlossaryUnlocked(get().courseId, studentId, termIds);
   },
 
   // ── UI Preferences ──────────────────────────────────────────────────────
