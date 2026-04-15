@@ -79,6 +79,18 @@ export function StopSession({ stop, session, studentId, existingResponses, onCom
 
   // Single "Next" — advance chunk first, then element
   const goNext = () => {
+    // If leaving a glossary element, immediately flush any filled term unlocks
+    // (don't rely on the 800ms debounce which may not have fired yet)
+    if (currentElement?.type === 'glossary') {
+      const glossaryEl = currentElement as unknown as GlossaryElement;
+      const filledTermIds = glossaryEl.terms
+        .filter(t => typeof responses[t.id] === 'string' && (responses[t.id] as string).trim().length > 0)
+        .map(t => t.id);
+      if (filledTermIds.length > 0) {
+        unlockGlossaryTerms(studentId, filledTermIds);
+      }
+    }
+
     if (isVideo && !isLastChunk) {
       setChunkIndex((i) => i + 1);
     } else {
