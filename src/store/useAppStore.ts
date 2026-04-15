@@ -9,6 +9,7 @@ import {
   subscribeToSessionUnlocks,
   setSessionUnlocksBatch,
   deleteSessionUnlocksBatch,
+  addToGlossaryUnlocked,
 } from '../firebase/db';
 import type { Unsubscribe } from 'firebase/firestore';
 import type { ThemeColorName } from '../utils/theme';
@@ -240,13 +241,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
 
   unlockGlossaryTerms: async (studentId, termIds) => {
-    const student = get().allStudents.find((s) => s.id === studentId)
-      ?? get().currentStudent;
-    if (!student) return;
-    const current = student.glossaryUnlocked ?? [];
-    const toAdd = termIds.filter(id => !current.includes(id));
-    if (toAdd.length === 0) return;
-    await updateStudent(studentId, { glossaryUnlocked: [...current, ...toAdd] });
+    // Uses Firestore arrayUnion — atomic, no race condition on rapid session transitions
+    await addToGlossaryUnlocked(studentId, termIds);
   },
 
   // ── UI Preferences ──────────────────────────────────────────────────────

@@ -7,6 +7,7 @@ import {
   getDocs,
   onSnapshot,
   writeBatch,
+  arrayUnion,
 } from 'firebase/firestore';
 import type { Unsubscribe } from 'firebase/firestore';
 import { db } from './config';
@@ -31,6 +32,16 @@ export async function updateStudent(
 ): Promise<void> {
   const ref = doc(db, 'students', studentId);
   await updateDoc(ref, data as Record<string, unknown>);
+}
+
+// Atomically appends termIds to glossaryUnlocked — no read needed, no race condition
+export async function addToGlossaryUnlocked(
+  studentId: string,
+  termIds: string[]
+): Promise<void> {
+  if (termIds.length === 0) return;
+  const ref = doc(db, 'students', studentId);
+  await updateDoc(ref, { glossaryUnlocked: arrayUnion(...termIds) });
 }
 
 export async function getAllStudents(): Promise<Student[]> {
