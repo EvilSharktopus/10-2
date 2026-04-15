@@ -14,9 +14,15 @@ export function TeacherPage() {
   const logout = useAppStore((s) => s.logout);
 
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+  const [selectedTab, setSelectedTab] = useState<'summary' | 'responses' | 'outcomes' | 'override'>('summary');
   const [activeTab, setActiveTab] = useState<'overview' | 'passwords'>('overview');
   const [search, setSearch] = useState('');
   const [showUnlockModal, setShowUnlockModal] = useState(false);
+
+  const openStudent = (student: Student, tab: 'summary' | 'responses' | 'outcomes' | 'override' = 'summary') => {
+    setSelectedStudent(student);
+    setSelectedTab(tab);
+  };
 
   useEffect(() => {
     const unsubStudents = subscribeAllStudents();
@@ -132,7 +138,12 @@ export function TeacherPage() {
                     {flaggedCount} student{flaggedCount > 1 ? 's' : ''} requesting a checkpoint
                   </strong>
                   <div className="text-xs text-muted mt-1">
-                    {students.filter((s) => s.flaggedForCheckpoint).map((s) => s.shortName).join(', ')}
+                    {students.filter((s) => s.flaggedForCheckpoint).map((s) => (
+                      <button key={s.id} onClick={() => openStudent(s, 'summary')}
+                        style={{ background: 'none', border: 'none', color: 'var(--amber)', cursor: 'pointer', fontWeight: 600, padding: '0 4px 0 0', textDecoration: 'underline' }}>
+                        {s.shortName}
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -161,7 +172,12 @@ export function TeacherPage() {
                     {disputedStudents.length} student{disputedStudents.length > 1 ? 's' : ''} disputing an auto-graded answer
                   </strong>
                   <div className="text-xs text-muted mt-1">
-                    {disputedStudents.map((s) => s.shortName).join(', ')} — open their Responses tab to review and override.
+                    {disputedStudents.map((s) => (
+                      <button key={s.id} onClick={() => openStudent(s, 'responses')}
+                        style={{ background: 'none', border: 'none', color: 'var(--accent-light)', cursor: 'pointer', fontWeight: 600, padding: '0 4px 0 0', textDecoration: 'underline' }}>
+                        {s.shortName}
+                      </button>
+                    ))} — click a name to review their dispute.
                   </div>
                 </div>
               </div>
@@ -191,10 +207,11 @@ export function TeacherPage() {
                   .sort((a, b) => (b.flaggedForCheckpoint ? 1 : 0) - (a.flaggedForCheckpoint ? 1 : 0))
                   .map((student) => (
                     <StudentCard
-                      key={student.id}
-                      student={student}
-                      onClick={() => setSelectedStudent(student)}
-                    />
+                       key={student.id}
+                       student={student}
+                       onClick={() => openStudent(student, 'summary')}
+                       onOpenResponses={() => openStudent(student, 'responses')}
+                     />
                   ))}
               </div>
             )}
@@ -224,6 +241,7 @@ export function TeacherPage() {
       {selectedStudent && (
         <StudentDetailModal
           student={selectedStudent}
+          initialTab={selectedTab}
           onClose={() => setSelectedStudent(null)}
         />
       )}

@@ -7,9 +7,10 @@ const TOTAL_SESSIONS = STOPS.flatMap((s) => s.sessions).length;
 interface Props {
   student: Student;
   onClick: () => void;
+  onOpenResponses?: () => void;
 }
 
-export function StudentCard({ student, onClick }: Props) {
+export function StudentCard({ student, onClick, onOpenResponses }: Props) {
   const progress = TOTAL_SESSIONS > 0
     ? Math.round((student.completedSessions.length / TOTAL_SESSIONS) * 100)
     : 0;
@@ -21,6 +22,7 @@ export function StudentCard({ student, onClick }: Props) {
   const pct = grade.autoPossible > 0 ? Math.round((grade.autoEarned / grade.autoPossible) * 100) : null;
   const pctColor = pct == null ? 'var(--text-muted)' : pct >= 75 ? 'var(--success)' : pct >= 50 ? 'var(--amber)' : 'var(--danger)';
   const hasPending = grade.teacherPending > 0;
+  const hasDisputes = grade.disputeCount > 0;
 
   return (
     <div
@@ -40,7 +42,24 @@ export function StudentCard({ student, onClick }: Props) {
             <span className="badge badge-amber">🚩 Ready</span>
           )}
           {hasPending && (
-            <span className="badge badge-amber" style={{ fontSize: '0.68rem' }}>📝 {grade.teacherPending}</span>
+            <span
+              className="badge badge-amber"
+              style={{ fontSize: '0.68rem', cursor: onOpenResponses ? 'pointer' : 'default' }}
+              onClick={(e) => { if (onOpenResponses) { e.stopPropagation(); onOpenResponses(); } }}
+              title="Click to review responses"
+            >
+              📝 {grade.teacherPending} to review
+            </span>
+          )}
+          {hasDisputes && (
+            <span
+              className="badge"
+              style={{ fontSize: '0.68rem', background: 'var(--accent-dim)', color: 'var(--accent-light)', border: '1px solid var(--accent)', cursor: onOpenResponses ? 'pointer' : 'default' }}
+              onClick={(e) => { if (onOpenResponses) { e.stopPropagation(); onOpenResponses(); } }}
+              title="Click to review disputes"
+            >
+              ✋ {grade.disputeCount} dispute{grade.disputeCount > 1 ? 's' : ''}
+            </span>
           )}
         </div>
       </div>

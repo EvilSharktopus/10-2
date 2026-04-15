@@ -312,7 +312,11 @@ function ResponseCard({ item, responses, onScore, isStudentView }: ResponseCardP
           {isDisputed && (
             <div style={{ marginBottom: 10, background: 'var(--surface-raised)', padding: '8px 12px', borderRadius: 'var(--radius-sm)' }}>
               <div style={{ fontSize: '0.7rem', color: 'var(--accent-light)', fontWeight: 700, marginBottom: 4 }}>Student's Dispute Note:</div>
-              <div style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontStyle: 'italic', marginBottom: 8 }}>"{item.disputeNote}"</div>
+              {item.disputeNote ? (
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontStyle: 'italic', marginBottom: 8 }}>"{item.disputeNote}"</div>
+              ) : (
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontStyle: 'italic', marginBottom: 8 }}>No note provided.</div>
+              )}
               <div style={{ display: 'flex', gap: 8 }}>
                 <button className="btn btn-success btn-sm" style={{ fontSize: '0.72rem' }} onClick={() => {
                    onScore(overrideKey, String(item.possible));

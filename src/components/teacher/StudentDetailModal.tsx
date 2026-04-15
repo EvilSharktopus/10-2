@@ -8,17 +8,18 @@ import { ResponsesPanel } from '../shared/ResponsesPanel';
 interface Props {
   student: Student;
   onClose: () => void;
+  initialTab?: Tab;
 }
 
 type Tab = 'summary' | 'responses' | 'outcomes' | 'override';
 
-export function StudentDetailModal({ student, onClose }: Props) {
+export function StudentDetailModal({ student, onClose, initialTab = 'summary' }: Props) {
   const unlockStop = useAppStore((s) => s.unlockStop);
   const clearFlag = useAppStore((s) => s.clearFlag);
   const saveResponse = useAppStore((s) => s.saveResponse);
   const eraseSessionProgress = useAppStore((s) => s.eraseSessionProgress);
   const eraseAllProgress = useAppStore((s) => s.eraseAllProgress);
-  const [activeTab, setActiveTab] = useState<Tab>('summary');
+  const [activeTab, setActiveTab] = useState<Tab>(initialTab);
   const [expandedOverride, setExpandedOverride] = useState<number | null>(null);
 
   const grade = gradeStudent(student.responses ?? {});
