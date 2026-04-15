@@ -18,6 +18,9 @@ interface Props {
 export function TopBar({ student, onGlossaryOpen, onMenuToggle, onLogout, progressPercent, showCheckpointFlag }: Props) {
   const [showGradeModal, setShowGradeModal] = useState(false);
   const saveResponse = useAppStore(s => s.saveResponse);
+  const raiseHand = useAppStore(s => s.raiseHand);
+
+  const handRaised = student.raisedHand ?? false;
 
   const grade = gradeStudent(student.responses ?? {});
   const hasAttempted = grade.autoAttemptedPossible > 0;
@@ -35,6 +38,24 @@ export function TopBar({ student, onGlossaryOpen, onMenuToggle, onLogout, progre
 
       <div className="topbar-right">
         {showCheckpointFlag && <CheckpointFlag studentId={student.id} />}
+        <button
+          onClick={() => raiseHand(student.id, !handRaised)}
+          title={handRaised ? 'Cancel your request' : 'Ask Mr. McRae for help'}
+          style={{
+            background: handRaised ? 'var(--amber)' : 'var(--surface-raised)',
+            color: handRaised ? '#fff' : 'var(--text-muted)',
+            border: `1.5px solid ${handRaised ? 'var(--amber)' : 'var(--border)'}`,
+            borderRadius: 'var(--radius-sm)',
+            padding: '5px 12px',
+            fontSize: '0.8rem',
+            fontWeight: 700,
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {handRaised ? '🚩 Waiting…' : '✋ Ask Mr. McRae'}
+        </button>
         <button className="glossary-btn" onClick={onGlossaryOpen}>
           📖 Glossary
         </button>

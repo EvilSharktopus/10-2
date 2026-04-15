@@ -708,8 +708,6 @@
               "id": "s1_3_activity",
               "title": "Where Is Your Stuff From?",
               "instruction": "Pick 4 items you own or use every day — shoes, phone, jacket, backpack, headphones, hat, game controller, anything. For each one, find the label or look it up to find where it was made. Find 4 different countries of origin. You will have to find these on a map during your checkpoint conversation with Mr.McRae",
-              "physical_component": true,
-              "teacher_note": "Provide one physical world map per student.",
               "fields": [
                 {
                   "id": "stuff_table",

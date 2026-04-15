@@ -8,6 +8,7 @@ export interface Student {
   currentStop: number;
   currentSession: number;
   flaggedForCheckpoint: boolean;
+  raisedHand?: boolean;
   unlockedStops: number[];
   completedSessions: string[];
   glossaryUnlocked: string[];

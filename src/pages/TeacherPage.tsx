@@ -48,12 +48,14 @@ export function TeacherPage() {
     const resp = s.responses ?? {};
     return Object.keys(resp).some((k) => {
       if (!k.endsWith('_dispute') || resp[k] !== 'pending') return false;
-      // The override key is the same prefix with _override instead of _dispute
       const overrideKey = k.replace(/_dispute$/, '_override');
       const override = resp[overrideKey];
       return override === undefined || override === '';
     });
   });
+
+  const raisedHandStudents = students.filter((s) => s.raisedHand);
+  const clearHand = useAppStore((s) => s.raiseHand);
 
   const filtered = students.filter(
     (s) =>
@@ -79,6 +81,11 @@ export function TeacherPage() {
               {disputedStudents.length > 0 && (
                 <span className="badge" style={{ marginLeft: 8, background: 'var(--accent-dim)', color: 'var(--accent-light)', border: '1px solid var(--accent)' }}>
                   ✋ {disputedStudents.length} dispute{disputedStudents.length > 1 ? 's' : ''}
+                </span>
+              )}
+              {raisedHandStudents.length > 0 && (
+                <span className="badge" style={{ marginLeft: 8, background: 'rgba(244,168,67,0.2)', color: 'var(--amber)', border: '1px solid var(--amber)' }}>
+                  ✋ {raisedHandStudents.length} need{raisedHandStudents.length === 1 ? 's' : ''} help
                 </span>
               )}
             </div>
@@ -116,6 +123,40 @@ export function TeacherPage() {
       <div className="teacher-main">
         {activeTab === 'overview' && (
           <>
+            {/* Raised hands banner */}
+            {raisedHandStudents.length > 0 && (
+              <div
+                style={{
+                  background: 'rgba(244,168,67,0.12)',
+                  border: '1.5px solid var(--amber)',
+                  borderRadius: 'var(--radius)',
+                  padding: '12px 18px',
+                  marginBottom: 20,
+                  maxWidth: 1200,
+                  margin: '0 auto 20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                }}
+              >
+                <span style={{ fontSize: '1.3rem' }}>✋</span>
+                <div>
+                  <strong style={{ color: 'var(--amber)' }}>
+                    {raisedHandStudents.length} student{raisedHandStudents.length > 1 ? 's' : ''} asking for help
+                  </strong>
+                  <div className="text-xs text-muted mt-1">
+                    {raisedHandStudents.map((s) => (
+                      <button key={s.id}
+                        onClick={() => { clearHand(s.id, false); openStudent(s, 'summary'); }}
+                        style={{ background: 'none', border: 'none', color: 'var(--amber)', cursor: 'pointer', fontWeight: 600, padding: '0 4px 0 0', textDecoration: 'underline' }}>
+                        {s.shortName}
+                      </button>
+                    ))} — click a name to open their profile.
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Flagged students banner */}
             {flaggedCount > 0 && (
               <div

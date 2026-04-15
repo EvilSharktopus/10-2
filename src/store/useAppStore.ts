@@ -45,6 +45,7 @@ interface AppState {
     value: string | string[]
   ) => Promise<void>;
   flagCheckpoint: (studentId: string, flag: boolean) => Promise<void>;
+  raiseHand: (studentId: string, raised: boolean) => Promise<void>;
   markSessionComplete: (studentId: string, sessionId: string) => Promise<void>;
   advanceSession: (studentId: string, nextStop: number, nextSession: number) => Promise<void>;
   eraseSessionProgress: (studentId: string, stopId: number, sessionIndex: number) => Promise<void>;
@@ -133,6 +134,10 @@ export const useAppStore = create<AppState>((set, get) => ({
     await updateStudent(studentId, { flaggedForCheckpoint: flag });
   },
 
+  raiseHand: async (studentId, raised) => {
+    await updateStudent(studentId, { raisedHand: raised });
+  },
+
   markSessionComplete: async (studentId, sessionId) => {
     const student = get().currentStudent;
     if (!student) return;
@@ -215,6 +220,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       currentStop: 1,
       currentSession: 0,
       flaggedForCheckpoint: false,
+      raisedHand: false,
       glossaryUnlocked: [],
     });
   },
