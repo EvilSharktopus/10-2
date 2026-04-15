@@ -1,6 +1,10 @@
 import { getClassConfig, setClassConfig, getStudent, setStudent } from '../firebase/db';
 import { STUDENT_ROSTER, buildDefaultStudent } from '../data/students';
 
+// NOTE: First teacher login after any Firebase path change will trigger re-seed
+// under the new namespace. Old flat-path data (students/, session_unlocks/) is
+// no longer read and can be manually deleted from the Firestore console.
+
 /**
  * Runs once per course on first app load.
  * Writes all students and class config to Firestore under courses/{courseId}/
