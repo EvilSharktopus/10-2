@@ -352,6 +352,8 @@ export interface ActivityElement {
   // written assignment planning support
   assignment_intro?: { question: string; requirements?: string[] };
   planning_fields?: { id: string; label: string; type: string; options?: string[]; points?: number; scored_by?: string; notify_teacher?: boolean }[];
+  // ranking simulation support (Immigration Minister's Dilemma etc.)
+  profiles?: { id: string; label: string; description: string }[];
 }
 
 export interface CheckpointPrepElement {

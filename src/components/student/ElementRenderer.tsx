@@ -1053,6 +1053,63 @@ function Activity({ el, responses, onSave, disabled }: { el: ActivityElement; re
         </div>
       )}
 
+      {/* Ranking simulation profiles (Immigration Minister's Dilemma etc.) */}
+      {el.profiles && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16 }}>
+          {el.profiles.map((profile: { id: string; label: string; description: string }) => {
+            const key = `${el.id}_rank_${profile.id}`;
+            const val = (responses[key] ?? '') as string;
+            const totalProfiles = el.profiles!.length;
+            return (
+              <div key={profile.id} style={{
+                display: 'flex', alignItems: 'flex-start', gap: 12,
+                background: 'var(--surface)', border: '1px solid var(--border)',
+                borderRadius: 'var(--radius-sm)', padding: '12px 16px',
+              }}>
+                <select
+                  className="form-input"
+                  value={val}
+                  onChange={(e) => onSave(key, e.target.value)}
+                  disabled={disabled}
+                  style={{ width: 60, flexShrink: 0, fontSize: '0.9rem', fontWeight: 700, textAlign: 'center' }}
+                >
+                  <option value="">—</option>
+                  {Array.from({ length: totalProfiles }, (_, i) => (
+                    <option key={i + 1} value={String(i + 1)}>{i + 1}</option>
+                  ))}
+                </select>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 700, color: 'var(--accent-light)', fontSize: '0.88rem', marginBottom: 4 }}>
+                    Applicant {profile.label}
+                  </div>
+                  <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                    {profile.description}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Follow-up questions (used by ranking_simulation etc.) */}
+      {el.follow_up_questions && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          {el.follow_up_questions.map((q, qi) => (
+            <QuestionBlock
+              key={q.id}
+              question={q}
+              index={qi}
+              value={responses[q.id] ?? ''}
+              onChange={(v) => onSave(q.id, v)}
+              allResponses={responses}
+              onSaveFlag={saveFlag(onSave)}
+              disabled={disabled}
+            />
+          ))}
+        </div>
+      )}
+
       {/* Table fields */}
       {el.fields?.map((f) => {
         if (f.type === 'table') {
