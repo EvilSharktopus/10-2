@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useAppStore } from '../../store/useAppStore';
+import { DictateButton } from '../shared/SpeechToText';
+import { ListenButton } from '../shared/TextToSpeech';
 import type {
   StopElement,
   HookElement,
@@ -104,8 +106,11 @@ function Hook({ el }: { el: HookElement }) {
       padding: '20px 24px',
       marginBottom: 24,
     }}>
-      <div style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent-light)', marginBottom: 8 }}>
-        Think About This
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+        <div style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent-light)' }}>
+          Think About This
+        </div>
+        <ListenButton text={el.content || ''} inline />
       </div>
       <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', color: 'var(--text-primary)', lineHeight: 1.55, fontStyle: 'italic' }}>
         "{el.content}"
@@ -118,7 +123,10 @@ function Hook({ el }: { el: HookElement }) {
 function Glossary({ el, responses, onSave, disabled }: { el: GlossaryElement; responses: Record<string, string | string[]>; onSave: Props['onSave']; disabled?: boolean }) {
   return (
     <div className="card mb-3">
-      <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 6, color: 'var(--accent-light)' }}>📚 Vocabulary</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>📚 Vocabulary</span>
+        <ListenButton text={el.instruction || ''} inline label="Listen" />
+      </div>
       <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 16 }}>{el.instruction}</div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
         {el.terms.map((t) => {
@@ -126,17 +134,23 @@ function Glossary({ el, responses, onSave, disabled }: { el: GlossaryElement; re
           const val = (responses[key] ?? '') as string;
           return (
             <div key={t.id}>
-              <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: 6 }}>{t.term}</div>
-              <textarea
-                className="form-input form-textarea"
-                placeholder={`Define "${t.term}" in your own words…`}
-                value={val}
-                onChange={(e) => onSave(key, e.target.value)}
-                onPaste={noPaste}
-                disabled={disabled}
-                rows={2}
-                style={{ minHeight: 60 }}
-              />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{t.term}</span>
+                <ListenButton text={t.term} inline />
+              </div>
+              <div className="input-with-mic">
+                <textarea
+                  className="form-input form-textarea"
+                  placeholder={`Define "${t.term}" in your own words…`}
+                  value={val}
+                  onChange={(e) => onSave(key, e.target.value)}
+                  onPaste={noPaste}
+                  disabled={disabled}
+                  rows={2}
+                  style={{ minHeight: 60 }}
+                />
+                <DictateButton currentValue={val} onResult={(v) => onSave(key, v)} disabled={disabled} />
+              </div>
             </div>
           );
         })}
@@ -152,7 +166,10 @@ function Video({ el, responses, onSave, disabled, chunkIndex = 0 }: { el: VideoE
 
   return (
     <div className="card mb-3">
-      <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>🎬 {el.title}</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>🎬 {el.title}</span>
+        {el.instruction && <ListenButton text={el.instruction} inline label="Listen" />}
+      </div>
       {el.instruction && (
         <div style={{ fontSize: '0.9rem', color: 'var(--amber)', padding: '10px 14px', background: 'var(--amber-dim)', border: '1px solid var(--amber)', borderRadius: 'var(--radius)', marginBottom: 16 }} dangerouslySetInnerHTML={{ __html: el.instruction }} />
       )}
@@ -533,7 +550,10 @@ function TFList({ el, responses, onSave, disabled }: { el: TrueFalseListTask; re
 function FreeResponse({ el, responses, onSave, disabled }: { el: FreeResponseTask; responses: Record<string, string | string[]>; onSave: Props['onSave']; disabled?: boolean }) {
   return (
     <div className="card mb-3">
-      <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>📰 {el.title}</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>📰 {el.title}</span>
+        <ListenButton text={el.instruction || ''} inline label="Listen" />
+      </div>
       <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 10 }}>{el.instruction}</div>
       {el.ai_proof_note && (
         <div style={{ background: 'var(--amber-dim)', border: '1px solid var(--amber)', borderRadius: 'var(--radius-sm)', padding: '8px 12px', fontSize: '0.8rem', color: 'var(--amber)', marginBottom: 14 }}>
@@ -546,9 +566,15 @@ function FreeResponse({ el, responses, onSave, disabled }: { el: FreeResponseTas
           <div key={f.id} className="form-group">
             <label className="form-label">{f.label}</label>
             {f.type === 'text_area' ? (
-              <textarea className="form-input form-textarea" value={val} onChange={(e) => onSave(f.id, e.target.value)} onPaste={noPaste} disabled={disabled} rows={3} />
+              <div className="input-with-mic">
+                <textarea className="form-input form-textarea" value={val} onChange={(e) => onSave(f.id, e.target.value)} onPaste={noPaste} disabled={disabled} rows={3} />
+                <DictateButton currentValue={val} onResult={(v) => onSave(f.id, v)} disabled={disabled} />
+              </div>
             ) : (
-              <input type="text" className="form-input" value={val} onChange={(e) => onSave(f.id, e.target.value)} onPaste={noPaste} disabled={disabled} />
+              <div className="input-with-mic">
+                <input type="text" className="form-input" value={val} onChange={(e) => onSave(f.id, e.target.value)} onPaste={noPaste} disabled={disabled} />
+                <DictateButton currentValue={val} onResult={(v) => onSave(f.id, v)} disabled={disabled} />
+              </div>
             )}
           </div>
         );
@@ -565,7 +591,10 @@ function Reflection({ el, responses, onSave, disabled }: { el: ReflectionElement
   if (el.choose_one) {
     return (
       <div className="card mb-3">
-        <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>💭 Reflection</div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+          <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>💭 Reflection</span>
+          <ListenButton text={el.instruction || ''} inline label="Listen" />
+        </div>
         <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 14 }}>{el.instruction}</div>
         <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--accent-light)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
           Choose ONE to answer:
@@ -608,16 +637,19 @@ function Reflection({ el, responses, onSave, disabled }: { el: ReflectionElement
                 {/* Textarea — only visible when selected */}
                 {isSelected && (
                   <div style={{ padding: '10px 14px', background: 'var(--card)' }}>
-                    <textarea
-                      className="form-input form-textarea"
-                      placeholder="Your thoughts…"
-                      value={val}
-                      onChange={(e) => onSave(p.id, e.target.value)}
-                      onPaste={noPaste}
-                      disabled={disabled}
-                      rows={4}
-                      autoFocus
-                    />
+                    <div className="input-with-mic">
+                      <textarea
+                        className="form-input form-textarea"
+                        placeholder="Your thoughts…"
+                        value={val}
+                        onChange={(e) => onSave(p.id, e.target.value)}
+                        onPaste={noPaste}
+                        disabled={disabled}
+                        rows={4}
+                        autoFocus
+                      />
+                      <DictateButton currentValue={val} onResult={(v) => onSave(p.id, v)} disabled={disabled} />
+                    </div>
                   </div>
                 )}
               </div>
@@ -631,23 +663,32 @@ function Reflection({ el, responses, onSave, disabled }: { el: ReflectionElement
   // Default: answer all
   return (
     <div className="card mb-3">
-      <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>💭 Reflection</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>💭 Reflection</span>
+        <ListenButton text={el.instruction || ''} inline label="Listen" />
+      </div>
       <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 14 }}>{el.instruction}</div>
       {el.prompts.map((p, i) => {
         const val = (responses[p.id] ?? '') as string;
         return (
           <div key={p.id} className="question-block">
             <div className="question-number">Reflection {i + 1}</div>
-            <div className="question-prompt">{p.text}</div>
-            <textarea
-              className="form-input form-textarea"
-              placeholder="Your thoughts…"
-              value={val}
-              onChange={(e) => onSave(p.id, e.target.value)}
-              onPaste={noPaste}
-              disabled={disabled}
-              rows={3}
-            />
+            <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+              <span style={{ flex: 1 }}>{p.text}</span>
+              <ListenButton text={p.text} inline />
+            </div>
+            <div className="input-with-mic">
+              <textarea
+                className="form-input form-textarea"
+                placeholder="Your thoughts…"
+                value={val}
+                onChange={(e) => onSave(p.id, e.target.value)}
+                onPaste={noPaste}
+                disabled={disabled}
+                rows={3}
+              />
+              <DictateButton currentValue={val} onResult={(v) => onSave(p.id, v)} disabled={disabled} />
+            </div>
           </div>
         );
       })}
@@ -698,7 +739,10 @@ function SourceAnalysis({ el, responses, onSave, disabled }: { el: SourceAnalysi
             padding: !hasMedia ? '24px 24px 16px 24px' : 0,
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 4 }}>
-            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>🔍 {el.title}</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>🔍 {el.title}</span>
+              <ListenButton text={[el.context, el.instruction, el.source_text].filter(Boolean).join('. ')} inline label="Listen" />
+            </div>
             {hasMedia && (
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
@@ -882,7 +926,10 @@ function Activity({ el, responses, onSave, disabled }: { el: ActivityElement; re
 
   return (
     <div className="card mb-3">
-      <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>🗺 {el.title}</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>🗺 {el.title}</span>
+        <ListenButton text={el.instruction || ''} inline label="Listen" />
+      </div>
       {el.physical_component && (
         <div style={{
           background: flagged ? 'var(--amber-dim)' : 'var(--accent-dim)',
@@ -1130,7 +1177,10 @@ function CheckpointPrep({ el }: { el: CheckpointPrepElement }) {
       padding: '20px 24px',
       marginBottom: 24,
     }}>
-      <div style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--amber)', marginBottom: 6 }}>🚩 {el.title}</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+        <span style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--amber)' }}>🚩 {el.title}</span>
+        <ListenButton text={[el.instruction, ...el.talking_points].join('. ')} inline label="Listen" />
+      </div>
       <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', marginBottom: 14 }}>{el.instruction}</div>
       <ul style={{ paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 6 }}>
         {el.talking_points.map((pt, i) => (
@@ -1148,7 +1198,10 @@ function CheckpointPrep({ el }: { el: CheckpointPrepElement }) {
 function ContextBlock({ el, responses, onSave, disabled }: { el: ContextElement; responses: Record<string, string | string[]>; onSave: Props['onSave']; disabled?: boolean }) {
   return (
     <div className="card mb-3">
-      <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>ℹ️ {el.title}</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>ℹ️ {el.title}</span>
+        <ListenButton text={el.content || ''} inline label="Listen" />
+      </div>
       <div style={{ fontSize: '0.9rem', color: 'var(--text-primary)', lineHeight: 1.6, marginBottom: el.questions?.length ? 16 : 0, whiteSpace: 'pre-wrap' }}>
         {el.content}
       </div>
@@ -1276,15 +1329,21 @@ function RatingScale({ el, responses, onSave, disabled }: { el: RatingScaleTask;
 
       {el.follow_up && (
         <div className="question-block">
-          <div className="question-prompt">{el.follow_up.text}</div>
-          <textarea
-            className="form-input form-textarea"
-            value={(responses[el.follow_up.id] ?? '') as string}
-            onChange={(e) => onSave(el.follow_up!.id, e.target.value)}
-            onPaste={noPaste}
-            disabled={disabled}
-            rows={3}
-          />
+          <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+            <span style={{ flex: 1 }}>{el.follow_up.text}</span>
+            <ListenButton text={el.follow_up.text} inline />
+          </div>
+          <div className="input-with-mic">
+            <textarea
+              className="form-input form-textarea"
+              value={(responses[el.follow_up.id] ?? '') as string}
+              onChange={(e) => onSave(el.follow_up!.id, e.target.value)}
+              onPaste={noPaste}
+              disabled={disabled}
+              rows={3}
+            />
+            <DictateButton currentValue={(responses[el.follow_up.id] ?? '') as string} onResult={(v) => onSave(el.follow_up!.id, v)} disabled={disabled} />
+          </div>
         </div>
       )}
     </div>
@@ -1326,15 +1385,21 @@ function Ranking({ el, responses, onSave, disabled }: { el: RankingTask; respons
 
       {el.follow_up && (
         <div className="question-block" style={{ marginTop: 16 }}>
-          <div className="question-prompt">{el.follow_up.text}</div>
-          <textarea
-            className="form-input form-textarea"
-            value={(responses[el.follow_up.id] ?? '') as string}
-            onChange={(e) => onSave(el.follow_up!.id, e.target.value)}
-            onPaste={noPaste}
-            disabled={disabled}
-            rows={3}
-          />
+          <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+            <span style={{ flex: 1 }}>{el.follow_up.text}</span>
+            <ListenButton text={el.follow_up.text} inline />
+          </div>
+          <div className="input-with-mic">
+            <textarea
+              className="form-input form-textarea"
+              value={(responses[el.follow_up.id] ?? '') as string}
+              onChange={(e) => onSave(el.follow_up!.id, e.target.value)}
+              onPaste={noPaste}
+              disabled={disabled}
+              rows={3}
+            />
+            <DictateButton currentValue={(responses[el.follow_up.id] ?? '') as string} onResult={(v) => onSave(el.follow_up!.id, v)} disabled={disabled} />
+          </div>
         </div>
       )}
     </div>
@@ -1424,15 +1489,21 @@ function TableInput({ el, responses, onSave, disabled }: { el: TableTask; respon
 
       {el.follow_up && (
         <div className="question-block" style={{ marginTop: 16 }}>
-          <div className="question-prompt">{el.follow_up.text}</div>
-          <textarea
-            className="form-input form-textarea"
-            value={(responses[el.follow_up.id] ?? '') as string}
-            onChange={(e) => onSave(el.follow_up!.id, e.target.value)}
-            onPaste={noPaste}
-            disabled={disabled}
-            rows={3}
-          />
+          <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+            <span style={{ flex: 1 }}>{el.follow_up.text}</span>
+            <ListenButton text={el.follow_up.text} inline />
+          </div>
+          <div className="input-with-mic">
+            <textarea
+              className="form-input form-textarea"
+              value={(responses[el.follow_up.id] ?? '') as string}
+              onChange={(e) => onSave(el.follow_up!.id, e.target.value)}
+              onPaste={noPaste}
+              disabled={disabled}
+              rows={3}
+            />
+            <DictateButton currentValue={(responses[el.follow_up.id] ?? '') as string} onResult={(v) => onSave(el.follow_up!.id, v)} disabled={disabled} />
+          </div>
         </div>
       )}
     </div>
@@ -1479,16 +1550,19 @@ function OpinionTracker({ el, responses, onSave, disabled }: { el: OpinionTracke
                 </div>
               )}
               {item.type === 'text_area' && (
-                <textarea
-                  className="form-input form-textarea"
-                  placeholder="Your thoughts…"
-                  value={val}
-                  onChange={(e) => onSave(item.id, e.target.value)}
-                  onPaste={noPaste}
-                  disabled={disabled}
-                  rows={2}
-                  style={{ minHeight: 52 }}
-                />
+                <div className="input-with-mic">
+                  <textarea
+                    className="form-input form-textarea"
+                    placeholder="Your thoughts…"
+                    value={val}
+                    onChange={(e) => onSave(item.id, e.target.value)}
+                    onPaste={noPaste}
+                    disabled={disabled}
+                    rows={2}
+                    style={{ minHeight: 52 }}
+                  />
+                  <DictateButton currentValue={val} onResult={(v) => onSave(item.id, v)} disabled={disabled} />
+                </div>
               )}
             </div>
           );
@@ -1620,15 +1694,21 @@ function LabelAndSelect({ el, responses, onSave, disabled }: { el: LabelAndSelec
 
       {el.follow_up && (
         <div className="question-block" style={{ marginTop: 16 }}>
-          <div className="question-prompt">{el.follow_up.text}</div>
-          <textarea
-            className="form-input form-textarea"
-            value={(responses[el.follow_up.id] ?? '') as string}
-            onChange={(e) => onSave(el.follow_up!.id, e.target.value)}
-            onPaste={noPaste}
-            disabled={disabled}
-            rows={4}
-          />
+          <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+            <span style={{ flex: 1 }}>{el.follow_up.text}</span>
+            <ListenButton text={el.follow_up.text} inline />
+          </div>
+          <div className="input-with-mic">
+            <textarea
+              className="form-input form-textarea"
+              value={(responses[el.follow_up.id] ?? '') as string}
+              onChange={(e) => onSave(el.follow_up!.id, e.target.value)}
+              onPaste={noPaste}
+              disabled={disabled}
+              rows={4}
+            />
+            <DictateButton currentValue={(responses[el.follow_up.id] ?? '') as string} onResult={(v) => onSave(el.follow_up!.id, v)} disabled={disabled} />
+          </div>
         </div>
       )}
     </div>
@@ -1645,7 +1725,10 @@ function FieldsForm({ el, responses, onSave, disabled, icon }: {
 }) {
   return (
     <div className="card mb-3">
-      <div style={{ fontWeight: 700, fontSize: '0.95rem', marginBottom: 4, color: 'var(--accent-light)' }}>{icon} {el.title}</div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--accent-light)' }}>{icon} {el.title}</span>
+        <ListenButton text={el.instruction || ''} inline label="Listen" />
+      </div>
       <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 2 }}>{el.instruction}</div>
       {'ai_proof_note' in el && el.ai_proof_note && (
         <div style={{ fontSize: '0.75rem', color: 'var(--amber)', marginBottom: 12, fontStyle: 'italic' }}>⚠️ {el.ai_proof_note}</div>
@@ -1658,25 +1741,31 @@ function FieldsForm({ el, responses, onSave, disabled, icon }: {
             <div key={field.id}>
               <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: 4 }}>{field.label}</div>
               {field.type === 'text_area' ? (
-                <textarea
-                  className="form-input form-textarea"
-                  value={val}
-                  onChange={(e) => onSave(field.id, e.target.value)}
-                  onPaste={noPaste}
-                  disabled={disabled}
-                  rows={3}
-                />
+                <div className="input-with-mic">
+                  <textarea
+                    className="form-input form-textarea"
+                    value={val}
+                    onChange={(e) => onSave(field.id, e.target.value)}
+                    onPaste={noPaste}
+                    disabled={disabled}
+                    rows={3}
+                  />
+                  <DictateButton currentValue={val} onResult={(v) => onSave(field.id, v)} disabled={disabled} />
+                </div>
               ) : (
-                <input
-                  type="text"
-                  className="form-input"
-                  value={val}
-                  onChange={(e) => onSave(field.id, e.target.value)}
-                  onPaste={noPaste}
-                  disabled={disabled}
-                  placeholder="…"
-                  style={{ fontSize: '0.88rem' }}
-                />
+                <div className="input-with-mic">
+                  <input
+                    type="text"
+                    className="form-input"
+                    value={val}
+                    onChange={(e) => onSave(field.id, e.target.value)}
+                    onPaste={noPaste}
+                    disabled={disabled}
+                    placeholder="…"
+                    style={{ fontSize: '0.88rem' }}
+                  />
+                  <DictateButton currentValue={val} onResult={(v) => onSave(field.id, v)} disabled={disabled} />
+                </div>
               )}
             </div>
           );
@@ -1732,9 +1821,15 @@ function ComparisonChart({ el, responses, onSave, disabled }: { el: ComparisonCh
       </div>
       {el.follow_up && (
         <div className="question-block" style={{ marginTop: 14 }}>
-          <div className="question-prompt">{el.follow_up.text}</div>
-          <textarea className="form-input form-textarea" value={(responses[el.follow_up.id] ?? '') as string}
-            onChange={(e) => onSave(el.follow_up!.id, e.target.value)} onPaste={noPaste} disabled={disabled} rows={3} />
+          <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+            <span style={{ flex: 1 }}>{el.follow_up.text}</span>
+            <ListenButton text={el.follow_up.text} inline />
+          </div>
+          <div className="input-with-mic">
+            <textarea className="form-input form-textarea" value={(responses[el.follow_up.id] ?? '') as string}
+              onChange={(e) => onSave(el.follow_up!.id, e.target.value)} onPaste={noPaste} disabled={disabled} rows={3} />
+            <DictateButton currentValue={(responses[el.follow_up.id] ?? '') as string} onResult={(v) => onSave(el.follow_up!.id, v)} disabled={disabled} />
+          </div>
         </div>
       )}
     </div>
@@ -1966,9 +2061,15 @@ function RatingTable({ el, responses, onSave, disabled }: { el: RatingTableTask;
       </div>
       {el.follow_up && (
         <div className="question-block" style={{ marginTop: 14 }}>
-          <div className="question-prompt">{el.follow_up.text}</div>
-          <textarea className="form-input form-textarea" value={(responses[el.follow_up.id] ?? '') as string}
-            onChange={(e) => onSave(el.follow_up!.id, e.target.value)} onPaste={noPaste} disabled={disabled} rows={3} />
+          <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+            <span style={{ flex: 1 }}>{el.follow_up.text}</span>
+            <ListenButton text={el.follow_up.text} inline />
+          </div>
+          <div className="input-with-mic">
+            <textarea className="form-input form-textarea" value={(responses[el.follow_up.id] ?? '') as string}
+              onChange={(e) => onSave(el.follow_up!.id, e.target.value)} onPaste={noPaste} disabled={disabled} rows={3} />
+            <DictateButton currentValue={(responses[el.follow_up.id] ?? '') as string} onResult={(v) => onSave(el.follow_up!.id, v)} disabled={disabled} />
+          </div>
         </div>
       )}
     </div>

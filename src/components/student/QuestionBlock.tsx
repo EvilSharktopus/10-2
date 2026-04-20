@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import type { VideoQuestion } from '../../types';
+import { DictateButton } from '../shared/SpeechToText';
+import { ListenButton } from '../shared/TextToSpeech';
 
 interface Props {
   question: VideoQuestion;
@@ -63,7 +65,10 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
     return (
       <div className="question-block">
         <div className="question-number">Q{index + 1} · True or False · {q.points} pt{q.points !== 1 ? 's' : ''}</div>
-        <div className="question-prompt">{q.text}</div>
+        <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+          <span style={{ flex: 1 }}>{q.text}</span>
+          <ListenButton text={q.text} inline />
+        </div>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           {['True', 'False'].map((opt) => {
             const isSelected = selected === opt;
@@ -129,11 +134,14 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
                 </button>
               ) : (
                 <div style={{ flexBasis: '100%', marginTop: 8 }}>
-                  <textarea className="form-input form-textarea" rows={2} 
-                    placeholder="Why do you think your answer should be accepted?"
-                    value={draftDispute} onChange={e => setDraftDispute(e.target.value)} 
-                    style={{ fontSize: '0.8rem', minHeight: 60 }} 
-                  />
+                  <div className="input-with-mic">
+                    <textarea className="form-input form-textarea" rows={2} 
+                      placeholder="Why do you think your answer should be accepted?"
+                      value={draftDispute} onChange={e => setDraftDispute(e.target.value)} 
+                      style={{ fontSize: '0.8rem', minHeight: 60 }} 
+                    />
+                    <DictateButton currentValue={draftDispute} onResult={(v) => setDraftDispute(v)} />
+                  </div>
                   <div style={{ display: 'flex', gap: 8, marginTop: 6 }}>
                     <button className="btn btn-primary btn-sm" style={{ fontSize: '0.72rem' }} onClick={submitDispute} disabled={!draftDispute.trim()}>Submit Dispute</button>
                     <button className="btn btn-ghost btn-sm" style={{ fontSize: '0.72rem' }} onClick={() => setIsDisputing(false)}>Cancel</button>
@@ -181,33 +189,43 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
     return (
       <div className="question-block">
         <div className="question-number">Q{index + 1} · Fill in the Blank · {q.points} pt{q.points !== 1 ? 's' : ''}</div>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginBottom: 12 }}>
+          <ListenButton text={q.text.replace(/___/g, 'blank')} inline />
+        </div>
         <div className="question-prompt" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 4 }}>
           {parts.map((part, i) => (
             <span key={i} style={{ display: 'contents' }}>
               <span>{part}</span>
               {i < parts.length - 1 && (
-                <input
-                  type="text"
-                  onPaste={noPaste}
-                  disabled={disabled || isLocked}
-                  value={localBlanks[i] ?? ''}
-                  onChange={(e) => handleBlankChange(i, e.target.value)}
-                  style={{
-                    width: 110,
-                    padding: '3px 8px',
-                    background: checkResults
-                      ? (checkResults[i] ? 'var(--success-dim)' : 'var(--danger-dim)')
-                      : 'var(--surface)',
-                    border: `1.5px solid ${checkResults
-                      ? (checkResults[i] ? 'var(--success)' : 'var(--danger)')
-                      : 'var(--accent)'}`,
-                    borderRadius: 'var(--radius-sm)',
-                    color: 'var(--text-primary)',
-                    fontSize: '0.9rem',
-                    fontFamily: 'var(--font-body)',
-                    outline: 'none',
-                  }}
-                />
+                <span className="blank-with-mic">
+                  <input
+                    type="text"
+                    onPaste={noPaste}
+                    disabled={disabled || isLocked}
+                    value={localBlanks[i] ?? ''}
+                    onChange={(e) => handleBlankChange(i, e.target.value)}
+                    style={{
+                      width: 110,
+                      padding: '3px 8px',
+                      background: checkResults
+                        ? (checkResults[i] ? 'var(--success-dim)' : 'var(--danger-dim)')
+                        : 'var(--surface)',
+                      border: `1.5px solid ${checkResults
+                        ? (checkResults[i] ? 'var(--success)' : 'var(--danger)')
+                        : 'var(--accent)'}`,
+                      borderRadius: 'var(--radius-sm)',
+                      color: 'var(--text-primary)',
+                      fontSize: '0.9rem',
+                      fontFamily: 'var(--font-body)',
+                      outline: 'none',
+                    }}
+                  />
+                  <DictateButton
+                    currentValue={localBlanks[i] ?? ''}
+                    onResult={(v) => handleBlankChange(i, v)}
+                    disabled={disabled || isLocked}
+                  />
+                </span>
               )}
             </span>
           ))}
@@ -248,11 +266,14 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
                 </button>
               ) : (
                 <div style={{ flexBasis: '100%', marginTop: 8 }}>
-                  <textarea className="form-input form-textarea" rows={2} 
-                    placeholder="Why do you think your answer should be accepted?"
-                    value={draftDispute} onChange={e => setDraftDispute(e.target.value)} 
-                    style={{ fontSize: '0.8rem', minHeight: 60 }} 
-                  />
+                  <div className="input-with-mic">
+                    <textarea className="form-input form-textarea" rows={2} 
+                      placeholder="Why do you think your answer should be accepted?"
+                      value={draftDispute} onChange={e => setDraftDispute(e.target.value)} 
+                      style={{ fontSize: '0.8rem', minHeight: 60 }} 
+                    />
+                    <DictateButton currentValue={draftDispute} onResult={(v) => setDraftDispute(v)} />
+                  </div>
                   <div style={{ display: 'flex', gap: 8, marginTop: 6 }}>
                     <button className="btn btn-primary btn-sm" style={{ fontSize: '0.72rem' }} onClick={submitDispute} disabled={!draftDispute.trim()}>Submit Dispute</button>
                     <button className="btn btn-ghost btn-sm" style={{ fontSize: '0.72rem' }} onClick={() => setIsDisputing(false)}>Cancel</button>
@@ -284,7 +305,10 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
 
     return (
       <div className="question-block">
-        <div className="question-prompt" style={{ marginBottom: 12 }}>{q.text}</div>
+        <div className="question-prompt" style={{ marginBottom: 12, display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+          <span style={{ flex: 1 }}>{q.text}</span>
+          <ListenButton text={q.text} inline />
+        </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {q.options.map(opt => {
             const isSelected = selected.includes(opt.id);
@@ -319,16 +343,26 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
         </div>
         {q.follow_up && selected.length > 0 && (
           <div className="question-block" style={{ marginTop: 14 }}>
-            <div className="question-prompt">{q.follow_up.text}</div>
-            <textarea
-              className="form-input form-textarea"
-              placeholder="Write your response here…"
-              value={followUpVal}
-              onChange={e => onSaveFlag?.(q.follow_up!.id, e.target.value)}
-              onPaste={noPaste}
-              disabled={disabled}
-              rows={3}
-            />
+            <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+              <span style={{ flex: 1 }}>{q.follow_up.text}</span>
+              <ListenButton text={q.follow_up.text} inline />
+            </div>
+            <div className="input-with-mic">
+              <textarea
+                className="form-input form-textarea"
+                placeholder="Write your response here…"
+                value={followUpVal}
+                onChange={e => onSaveFlag?.(q.follow_up!.id, e.target.value)}
+                onPaste={noPaste}
+                disabled={disabled}
+                rows={3}
+              />
+              <DictateButton
+                currentValue={followUpVal}
+                onResult={(v) => onSaveFlag?.(q.follow_up!.id, v)}
+                disabled={disabled}
+              />
+            </div>
           </div>
         )}
       </div>
@@ -341,18 +375,28 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
       {!hidePrompt && (
         <>
           <div className="question-number">Q{index + 1} · {q.points} pt{q.points !== 1 ? 's' : ''}</div>
-          <div className="question-prompt">{q.text}</div>
+          <div className="question-prompt" style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+            <span style={{ flex: 1 }}>{q.text}</span>
+            <ListenButton text={q.text} inline />
+          </div>
         </>
       )}
-      <textarea
-        className="form-input form-textarea"
-        placeholder="Write your response here…"
-        value={strVal}
-        onChange={(e) => onChange(e.target.value)}
-        onPaste={noPaste}
-        disabled={disabled}
-        rows={3}
-      />
+      <div className="input-with-mic">
+        <textarea
+          className="form-input form-textarea"
+          placeholder="Write your response here…"
+          value={strVal}
+          onChange={(e) => onChange(e.target.value)}
+          onPaste={noPaste}
+          disabled={disabled}
+          rows={3}
+        />
+        <DictateButton
+          currentValue={strVal}
+          onResult={(v) => onChange(v)}
+          disabled={disabled}
+        />
+      </div>
     </div>
   );
 }

@@ -1005,3 +1005,105 @@ p  { line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem; }
   color: var(--text-muted);
   font-size: 0.9rem;
 }
+
+/* ── Speech-to-Text (Dictate Button) ─────────────────────────────────────── */
+.dictate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+}
+.dictate-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+  background: var(--accent-dim);
+}
+.dictate-btn.listening {
+  border-color: var(--danger);
+  background: var(--danger-dim);
+  color: var(--danger);
+  animation: pulse-mic 1.2s ease-in-out infinite;
+}
+@keyframes pulse-mic {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,92,92,0.45); }
+  50%      { box-shadow: 0 0 0 7px rgba(255,92,92,0); }
+}
+
+/* Wrapper for textarea + mic button side-by-side */
+.input-with-mic {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.input-with-mic .form-textarea,
+.input-with-mic .form-input {
+  flex: 1;
+  min-width: 0;
+}
+.input-with-mic .dictate-btn {
+  margin-top: 6px;
+}
+
+/* For inline fill-blank mic buttons */
+.blank-with-mic {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.blank-with-mic .dictate-btn {
+  width: 24px;
+  height: 24px;
+  font-size: 0.7rem;
+}
+
+/* ── Text-to-Speech (Listen Button) ──────────────────────────────────────── */
+.listen-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  line-height: 1;
+}
+.listen-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+  background: var(--accent-dim);
+}
+.listen-btn.speaking {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent-light);
+  animation: pulse-speak 1.5s ease-in-out infinite;
+}
+@keyframes pulse-speak {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.3); }
+  50%      { box-shadow: 0 0 0 5px rgba(108,99,255,0); }
+}
+.listen-btn-inline {
+  padding: 2px 8px;
+  font-size: 0.72rem;
+}
+.listen-btn-label {
+  font-size: inherit;
+}
