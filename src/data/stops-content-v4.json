@@ -1492,7 +1492,7 @@
                     {
                       "id": "q_s2_2_14",
                       "question_type": "short_answer",
-                      "text": "The opening statement said one invention changed everything — and it was not the internet. Do you agree that the shipping container was more important than the internet for globalization? Make your case in 3-4 sentences.",
+                      "text": "The opening statement said one invention changed everything — and it was not the internet. Do you agree that the shipping container was more important than the internet for globalization? Make your case in 2-4 sentences.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -2340,7 +2340,7 @@
               "type": "tasks",
               "id": "s3_1_task1",
               "title": "Perspectives Sorting",
-              "instruction": "Read each statement. Label each one PRO (supports oil development) or CON (opposes oil development). Then pick ONE from each side that you agree with most and explain why in 3-4 sentences.",
+              "instruction": "Read each statement. Label each one PRO (supports oil development) or CON (opposes oil development). Then pick ONE from each side that you agree with most and explain why in 2-4 sentences.",
               "task_type": "label_and_select",
               "items": [
                 {
@@ -2402,7 +2402,7 @@
               ],
               "follow_up": {
                 "id": "ps_followup",
-                "text": "Pick ONE statement from the PRO side and ONE from the CON side that you agree with most. Write 3-4 sentences explaining why you chose those two — and what it feels like to agree with both at the same time.",
+                "text": "Pick ONE statement from the PRO side and ONE from the CON side that you agree with most. Write 2-4 sentences explaining why you chose those two — and what it feels like to agree with both at the same time.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -2502,7 +2502,7 @@
                 {
                   "id": "q_s3_2_film_1",
                   "question_type": "short_answer",
-                  "text": "The film shows people in London and New York buying diamonds without knowing where they came from. Based on what you watched — are they responsible for what happened in Sierra Leone? Make your argument in 3-4 sentences. There is no right answer — your reasoning is what matters.",
+                  "text": "The film shows people in London and New York buying diamonds without knowing where they came from. Based on what you watched — are they responsible for what happened in Sierra Leone? Make your argument in 2-4 sentences. There is no right answer — your reasoning is what matters.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -2510,7 +2510,7 @@
                 {
                   "id": "q_s3_2_film_2",
                   "question_type": "short_answer",
-                  "text": "Pick ONE specific moment from Part 1 that you think best shows the connection between global markets and local suffering. Describe what happened and explain the connection in 3-4 sentences.",
+                  "text": "Pick ONE specific moment from Part 1 that you think best shows the connection between global markets and local suffering. Describe what happened and explain the connection in 2-4 sentences.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -3009,7 +3009,7 @@
                     {
                       "id": "q_s3_5_5",
                       "question_type": "short_answer",
-                      "text": "Do you think it is possible for globalization and sustainability to coexist? Write 3-4 sentences. Use evidence from this stop.",
+                      "text": "Do you think it is possible for globalization and sustainability to coexist? Write 2-4 sentences. Use evidence from this stop.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -3412,7 +3412,7 @@
                     {
                       "id": "q_cp4_s1_15",
                       "question_type": "short_answer",
-                      "text": "The video ends by saying the challenge of the future is lifting up the poor while keeping the planet livable. Do you think those two goals are compatible? Write 3-4 sentences.",
+                      "text": "The video ends by saying the challenge of the future is lifting up the poor while keeping the planet livable. Do you think those two goals are compatible? Write 2-4 sentences.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -3880,7 +3880,7 @@
               "type": "context",
               "id": "cp5_s1_assignment_intro",
               "title": "Written Assignment — How It Works",
-              "content": "Your teacher will give you three sources. For each one, you will complete a full source analysis using the four-step framework, then write 3-4 sentences of your own opinion connected to that source. Each session covers one source. By the end of Session 3 your assignment is complete.",
+              "content": "Your teacher will give you three sources. For each one, you will complete a full source analysis using the four-step framework, then write 2-4 sentences of your own opinion connected to that source. Each session covers one source. By the end of Session 3 your assignment is complete.",
               "teacher_note": "Distribute Source 1 now. Assignment question is at teacher's discretion — placeholder in app until confirmed."
             },
             {
@@ -4392,7 +4392,7 @@
                     {
                       "id": "q_cp5b_s1_8",
                       "question_type": "short_answer",
-                      "text": "Does globalization cause Canada's declining youth happiness, or is that a stretch? Make your case in 3-4 sentences using evidence from across this course.",
+                      "text": "Does globalization cause Canada's declining youth happiness, or is that a stretch? Make your case in 2-4 sentences using evidence from across this course.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -4471,7 +4471,7 @@
               ],
               "follow_up": {
                 "id": "qol_followup",
-                "text": "Is there a pattern? What does this table tell you about the relationship between globalization and quality of life? Write 3-4 sentences.",
+                "text": "Is there a pattern? What does this table tell you about the relationship between globalization and quality of life? Write 2-4 sentences.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -4721,7 +4721,7 @@
                     {
                       "id": "q_cp6_s1_5",
                       "question_type": "short_answer",
-                      "text": "How might globalization affect the things that make a good life? Write 3-4 sentences connecting this video to what you've learned about globalization.",
+                      "text": "How might globalization affect the things that make a good life? Write 2-4 sentences connecting this video to what you've learned about globalization.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -4852,7 +4852,7 @@
               ],
               "follow_up": {
                 "id": "qol_cp6_followup",
-                "text": "Is there a pattern? Which category seems most connected to globalization? Write 3-4 sentences.",
+                "text": "Is there a pattern? Which category seems most connected to globalization? Write 2-4 sentences.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -4987,7 +4987,7 @@
                     {
                       "id": "q_cp6_s2_7",
                       "question_type": "short_answer",
-                      "text": "The hook says globalization created both your heated classroom and the 300 million hungry children. Do you think those two things are connected — or is that a stretch? Argue your position in 3-4 sentences.",
+                      "text": "The hook says globalization created both your heated classroom and the 300 million hungry children. Do you think those two things are connected — or is that a stretch? Argue your position in 2-4 sentences.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -5251,7 +5251,7 @@
                     {
                       "id": "q_cp6_s3_7",
                       "question_type": "short_answer",
-                      "text": "The Grameen Bank started in Bangladesh — the same country we learned about when studying the garment industry. How does microfinance connect to what we learned in Checkpoint 4 about women in developing economies? Write 3-4 sentences.",
+                      "text": "The Grameen Bank started in Bangladesh — the same country we learned about when studying the garment industry. How does microfinance connect to what we learned in Checkpoint 4 about women in developing economies? Write 2-4 sentences.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -5538,7 +5538,7 @@
                     {
                       "id": "q_cp7_s1_7",
                       "question_type": "short_answer",
-                      "text": "97% of Canada's population growth comes from immigration, but we're cutting it to fix the housing crisis. Does that logic actually make sense to you? Write 3-4 sentences.",
+                      "text": "97% of Canada's population growth comes from immigration, but we're cutting it to fix the housing crisis. Does that logic actually make sense to you? Write 2-4 sentences.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -5665,7 +5665,7 @@
                 {
                   "id": "min_3",
                   "question_type": "short_answer",
-                  "text": "What does doing this activity tell you about what immigration policy actually involves? Write 3-4 sentences.",
+                  "text": "What does doing this activity tell you about what immigration policy actually involves? Write 2-4 sentences.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -5752,7 +5752,7 @@
               ],
               "follow_up": {
                 "id": "push_pull_follow",
-                "text": "Canada is cutting immigration. Based on push and pull factors — is it actually possible to significantly reduce migration globally? Why or why not? Write 3-4 sentences.",
+                "text": "Canada is cutting immigration. Based on push and pull factors — is it actually possible to significantly reduce migration globally? Why or why not? Write 2-4 sentences.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -5791,7 +5791,7 @@
                 },
                 {
                   "id": "im_4",
-                  "label": "Should Canada increase, decrease, or maintain current immigration levels? Argue your position in 3-4 sentences using evidence from this session.",
+                  "label": "Should Canada increase, decrease, or maintain current immigration levels? Argue your position in 2-4 sentences using evidence from this session.",
                   "type": "text_area",
                   "points": 4,
                   "scored_by": "teacher",
@@ -6441,7 +6441,7 @@
                     {
                       "id": "q_cp8_s2_5",
                       "question_type": "short_answer",
-                      "text": "Experts say boycotts often 'wane over time' as people return to old habits. What would it take to make the Buy Canadian movement stick long-term? Write 3-4 sentences.",
+                      "text": "Experts say boycotts often 'wane over time' as people return to old habits. What would it take to make the Buy Canadian movement stick long-term? Write 2-4 sentences.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
