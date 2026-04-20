@@ -1918,7 +1918,7 @@
                     {
                       "id": "q_s2_3_14",
                       "question_type": "short_answer",
-                      "text": "You have now heard both sides. Tariffs — good idea or bad idea? Write your actual opinion in 4-5 sentences. Use specific evidence from both videos to back it up. This is not a right or wrong question — your reasoning is what matters.",
+                      "text": "You have now heard both sides. Tariffs — good idea or bad idea? Write your actual opinion in 3-4 sentences. Use specific evidence from both videos to back it up. This is not a right or wrong question — your reasoning is what matters.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -5049,7 +5049,7 @@
               ],
               "follow_up": {
                 "id": "cases_followup",
-                "text": "What does this comparison tell you about whether globalization is fair? Write 4-5 sentences.",
+                "text": "What does this comparison tell you about whether globalization is fair? Write 3-4 sentences.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -5363,7 +5363,7 @@
               ],
               "follow_up": {
                 "id": "women_glob_followup",
-                "text": "Do you think globalization has been a net positive or net negative for women overall? Write 4-5 sentences arguing your position. Use specific evidence from this chart.",
+                "text": "Do you think globalization has been a net positive or net negative for women overall? Write 3-4 sentences arguing your position. Use specific evidence from this chart.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -6233,7 +6233,7 @@
                     {
                       "id": "q_cp7_s3_10",
                       "question_type": "short_answer",
-                      "text": "The video is now 5 years old. We know how it ended. Do you think the world was prepared for COVID? Was Canada? What would have made things better? Write 4-5 sentences using evidence from the video and what you know now.",
+                      "text": "The video is now 5 years old. We know how it ended. Do you think the world was prepared for COVID? Was Canada? What would have made things better? Write 3-4 sentences using evidence from the video and what you know now.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -6463,7 +6463,7 @@
                     {
                       "id": "q_cp8_s2_7",
                       "question_type": "short_answer",
-                      "text": "Some economists argue boycotting American goods actually hurts Canadians — less competition means higher prices. Does the civic value outweigh the economic cost? Make your argument in 4-5 sentences using specific evidence from the video.",
+                      "text": "Some economists argue boycotting American goods actually hurts Canadians — less competition means higher prices. Does the civic value outweigh the economic cost? Make your argument in 3-4 sentences using specific evidence from the video.",
                       "points": 4,
                       "scored_by": "teacher",
                       "notify_teacher": true
@@ -6601,7 +6601,7 @@
               },
               "follow_up": {
                 "id": "canada_verdict",
-                "text": "Overall, is Canada a responsible global citizen? Write 4-5 sentences.",
+                "text": "Overall, is Canada a responsible global citizen? Write 3-4 sentences.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -6678,7 +6678,7 @@
               "type": "tasks",
               "id": "cp9_s1_task1",
               "title": "Myth Busting — What Actually Works?",
-              "instruction": "Rate each belief about civic action from 1 (mostly a myth) to 5 (definitely true). Then explain your most controversial rating in 4-5 sentences with a real example.",
+              "instruction": "Rate each belief about civic action from 1 (mostly a myth) to 5 (definitely true). Then explain your most controversial rating in 3-4 sentences with a real example.",
               "task_type": "rating_scale",
               "items": [
                 {
@@ -6716,7 +6716,7 @@
               ],
               "follow_up": {
                 "id": "myth_follow",
-                "text": "Pick your most controversial rating and defend it in 4-5 sentences using a real example from this course or from your own knowledge.",
+                "text": "Pick your most controversial rating and defend it in 3-4 sentences using a real example from this course or from your own knowledge.",
                 "points": 4,
                 "scored_by": "teacher",
                 "notify_teacher": true
@@ -6804,7 +6804,7 @@
                 },
                 {
                   "id": "ngo_6",
-                  "label": "Overall — is this NGO part of the solution to globalization's problems, or is it more of a band-aid? Write 4-5 sentences making your case.",
+                  "label": "Overall — is this NGO part of the solution to globalization's problems, or is it more of a band-aid? Write 3-4 sentences making your case.",
                   "type": "text_area",
                   "points": 4,
                   "scored_by": "teacher",
@@ -6875,7 +6875,7 @@
                 },
                 {
                   "id": "fp_2",
-                  "label": "Is globalization more good or bad overall? Take a clear position and defend it in 4-5 sentences using at least THREE specific examples from this course.",
+                  "label": "Is globalization more good or bad overall? Take a clear position and defend it in 3-4 sentences using at least THREE specific examples from this course.",
                   "type": "text_area",
                   "points": 4,
                   "scored_by": "teacher",
@@ -6899,7 +6899,7 @@
                 },
                 {
                   "id": "fp_5",
-                  "label": "Should I, as a citizen, respond to globalization? Write 4-5 sentences giving your honest final position.",
+                  "label": "Should I, as a citizen, respond to globalization? Write 3-4 sentences giving your honest final position.",
                   "type": "text_area",
                   "points": 4,
                   "scored_by": "teacher",

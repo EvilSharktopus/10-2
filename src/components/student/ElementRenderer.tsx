@@ -1092,23 +1092,7 @@ function Activity({ el, responses, onSave, disabled }: { el: ActivityElement; re
         </div>
       )}
 
-      {/* Follow-up questions (used by ranking_simulation etc.) */}
-      {el.follow_up_questions && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {el.follow_up_questions.map((q, qi) => (
-            <QuestionBlock
-              key={q.id}
-              question={q}
-              index={qi}
-              value={responses[q.id] ?? ''}
-              onChange={(v) => onSave(q.id, v)}
-              allResponses={responses}
-              onSaveFlag={saveFlag(onSave)}
-              disabled={disabled}
-            />
-          ))}
-        </div>
-      )}
+
 
       {/* Table fields */}
       {el.fields?.map((f) => {
