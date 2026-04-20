@@ -21,6 +21,8 @@ export function UserMenu({ student, grade, hasAttempted, onLogout, onShowGradeMo
   const setThemeColor = useAppStore(s => s.setThemeColor);
   const themeMode = useAppStore(s => s.themeMode);
   const setThemeMode = useAppStore(s => s.setThemeMode);
+  const accessibilityMode = useAppStore(s => s.accessibilityMode);
+  const setAccessibilityMode = useAppStore(s => s.setAccessibilityMode);
   
   const [isOpen, setIsOpen] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -154,7 +156,27 @@ export function UserMenu({ student, grade, hasAttempted, onLogout, onShowGradeMo
             </button>
           </div>
 
-          {/* Sign Out */}
+          {/* Accessibility Toggle */}
+          <div style={{ padding: '12px 20px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>♿ Accessibility</div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setAccessibilityMode(!accessibilityMode);
+              }}
+              style={{
+                width: 44, height: 24, borderRadius: 12, border: 'none',
+                background: accessibilityMode ? 'var(--accent)' : 'var(--border)',
+                position: 'relative', cursor: 'pointer', transition: 'background 0.2s'
+              }}
+            >
+              <div style={{
+                position: 'absolute', top: 2, left: accessibilityMode ? 22 : 2,
+                width: 20, height: 20, borderRadius: '50%', background: '#fff',
+                transition: 'left 0.2s', boxShadow: '0 1px 3px rgba(0,0,0,0.3)'
+              }} />
+            </button>
+          </div>
           <div style={{ padding: '8px' }}>
             <button
               onClick={onLogout}

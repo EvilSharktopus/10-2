@@ -62,6 +62,8 @@ interface AppState {
   setThemeColor: (color: ThemeColorName) => void;
   themeMode: 'dark' | 'light';
   setThemeMode: (mode: 'dark' | 'light') => void;
+  accessibilityMode: boolean;
+  setAccessibilityMode: (on: boolean) => void;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -259,6 +261,11 @@ export const useAppStore = create<AppState>((set, get) => ({
     } else {
       document.documentElement.removeAttribute('data-theme');
     }
+  },
+  accessibilityMode: localStorage.getItem('accessibilityMode') === 'true',
+  setAccessibilityMode: (on) => {
+    localStorage.setItem('accessibilityMode', String(on));
+    set({ accessibilityMode: on });
   },
 }));
 

@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { useAppStore } from '../../store/useAppStore';
 
 // ── Browser SpeechRecognition polyfill type ──────────────────────────────────
 interface SpeechRecognitionEvent {
@@ -37,6 +38,7 @@ interface Props {
 }
 
 export function DictateButton({ currentValue, onResult, disabled }: Props) {
+  const accessibilityMode = useAppStore(s => s.accessibilityMode);
   const SpeechRecognition = getSpeechRecognition();
   const [listening, setListening] = useState(false);
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
@@ -99,8 +101,8 @@ export function DictateButton({ currentValue, onResult, disabled }: Props) {
     };
   }, []);
 
-  // Don't render if unsupported or disabled
-  if (!SpeechRecognition || disabled) return null;
+  // Don't render if unsupported, disabled, or accessibility off
+  if (!SpeechRecognition || disabled || !accessibilityMode) return null;
 
   return (
     <button

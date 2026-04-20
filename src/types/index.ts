@@ -349,6 +349,9 @@ export interface ActivityElement {
   // budget_allocation support
   options?: { id: string; label: string }[];
   total?: number;
+  // written assignment planning support
+  assignment_intro?: { question: string; requirements?: string[] };
+  planning_fields?: { id: string; label: string; type: string; options?: string[]; points?: number; scored_by?: string; notify_teacher?: boolean }[];
 }
 
 export interface CheckpointPrepElement {

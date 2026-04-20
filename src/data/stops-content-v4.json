@@ -3103,58 +3103,14 @@
               "type": "tasks",
               "id": "s3_5_task1",
               "title": "Checkpoint 3 Vocabulary Review",
-              "instruction": "Pick up to 3 terms from Checkpoint 3 that you are still fuzzy on. For each one, write your best definition no copying from your earlier answer.",
+              "instruction": "Pick up to 3 terms from the glossary that you are still fuzzy on. For each one, write your best definition — no copying from your earlier answer.",
               "task_type": "vocab_review",
               "source": "glossary",
-              "source_filter": "checkpoint_3",
               "rows": 3,
               "columns": [
                 "Term I am still fuzzy on",
                 "My best attempt at defining it"
               ]
-            },
-            {
-              "type": "tasks",
-              "id": "s3_5_task2",
-              "title": "Connecting the Checkpoints",
-              "instruction": "For each idea below, pick a glossary term from Checkpoint 2 and one from Checkpoint 3 that connects to it. Then write one sentence explaining each connection.",
-              "task_type": "connection_chart",
-              "source": "glossary",
-              "rows": [
-                {
-                  "id": "cc_1",
-                  "col_a": "Nike supply chain",
-                  "col_b_type": "glossary_dropdown",
-                  "col_b_filter": "checkpoint_2",
-                  "col_b_explain": true,
-                  "col_c_type": "glossary_dropdown",
-                  "col_c_filter": "checkpoint_3",
-                  "col_c_explain": true
-                },
-                {
-                  "id": "cc_2",
-                  "col_a": "Crash Course t-shirt",
-                  "col_b_type": "glossary_dropdown",
-                  "col_b_filter": "checkpoint_2",
-                  "col_b_explain": true,
-                  "col_c_type": "glossary_dropdown",
-                  "col_c_filter": "checkpoint_3",
-                  "col_c_explain": true
-                },
-                {
-                  "id": "cc_3",
-                  "col_a": "Winners and losers",
-                  "col_b_type": "glossary_dropdown",
-                  "col_b_filter": "checkpoint_2",
-                  "col_b_explain": true,
-                  "col_c_type": "glossary_dropdown",
-                  "col_c_filter": "checkpoint_3",
-                  "col_c_explain": true
-                }
-              ],
-              "points": 4,
-              "scored_by": "teacher",
-              "notify_teacher": true
             },
             {
               "type": "checkpoint_prep",
@@ -3479,7 +3435,7 @@
               "title": "Source Analysis — Trade Liberalization",
               "instruction": "Look carefully at the cartoon below. Then choose 3 of the 7 questions below to answer.",
               "source_type": "cartoon",
-              "image_path": "/public/images/tradeliberalcartoon.jpeg",
+              "image_path": "/images/tradeliberalcartoon.jpeg",
               "questions": [
                 {
                   "id": "sa_cp4_s1_1",
@@ -4235,7 +4191,7 @@
               "title": "Source III",
               "assignment_question": "What does the source presented communicate about the role of the individual in society? Considering the source, what do you think should be the role of the individual in society?",
               "source_type": "cartoon",
-              "image_path": "/public/images/source3.jpg",
+              "image_path": "/images/source3.jpg",
               "questions": [
                 {
                   "id": "sa_cp5_s3_1",

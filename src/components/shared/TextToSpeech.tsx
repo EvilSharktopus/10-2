@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { useAppStore } from '../../store/useAppStore';
 
 interface Props {
   /** The text to read aloud */
@@ -14,6 +15,7 @@ const isSupported = typeof window !== 'undefined' && 'speechSynthesis' in window
 export function ListenButton({ text, inline, label }: Props) {
   const [speaking, setSpeaking] = useState(false);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const accessibilityMode = useAppStore(s => s.accessibilityMode);
 
   const stop = useCallback(() => {
     if (isSupported) {
@@ -70,7 +72,7 @@ export function ListenButton({ text, inline, label }: Props) {
     };
   }, []);
 
-  if (!isSupported || !text) return null;
+  if (!isSupported || !text || !accessibilityMode) return null;
 
   return (
     <button

@@ -67,6 +67,24 @@ function getSubmittedGlossaryTerms(sourceFilter: string | undefined, responses: 
   return termOptions;
 }
 
+// Returns ALL glossary terms (regardless of submission) — used for vocab review dropdowns
+function getAllGlossaryTerms(): { id: string; term: string }[] {
+  const terms: { id: string; term: string }[] = [];
+  STOPS.forEach(stop => {
+    stop.sessions.forEach(session => {
+      session.elements.forEach(element => {
+        if (element.type === 'glossary') {
+          const glossaryEl = element as GlossaryElement;
+          if (glossaryEl.terms) {
+            glossaryEl.terms.forEach(t => terms.push(t));
+          }
+        }
+      });
+    });
+  });
+  return terms;
+}
+
 // ─── ElementRenderer (router) ────────────────────────────────────────────────
 interface Props {
   element: StopElement;
@@ -970,6 +988,71 @@ function Activity({ el, responses, onSave, disabled }: { el: ActivityElement; re
       )}
       <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 14 }}>{el.instruction}</div>
 
+      {/* Assignment intro (Written Assignment Planning) */}
+      {el.assignment_intro && (
+        <div style={{
+          background: 'var(--accent-dim)', border: '1px solid var(--accent)',
+          borderRadius: 'var(--radius)', padding: '16px 20px', marginBottom: 16,
+        }}>
+          <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--accent-light)', marginBottom: 10, lineHeight: 1.5 }}>
+            {el.assignment_intro.question}
+          </div>
+          {el.assignment_intro.requirements && (
+            <ul style={{ paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {el.assignment_intro.requirements.map((r: string, i: number) => (
+                <li key={i} style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>{r}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+      {/* Planning fields (Written Assignment Planning) */}
+      {el.planning_fields && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {el.planning_fields.map((field: { id: string; label: string; type: string; options?: string[]; points?: number }) => {
+            const val = (responses[field.id] ?? '') as string;
+            return (
+              <div key={field.id}>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: 4 }}>{field.label}</div>
+                {field.type === 'choice' && field.options ? (
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                    {field.options.map((opt: string) => {
+                      const isSelected = val === opt;
+                      return (
+                        <button key={opt} onClick={() => onSave(field.id, opt)} disabled={disabled}
+                          style={{
+                            padding: '8px 16px', borderRadius: 'var(--radius-sm)', fontWeight: 700,
+                            fontSize: '0.82rem', cursor: disabled ? 'not-allowed' : 'pointer',
+                            background: isSelected ? 'var(--accent)' : 'var(--surface)',
+                            color: isSelected ? '#fff' : 'var(--text-muted)',
+                            border: `1.5px solid ${isSelected ? 'var(--accent)' : 'var(--border)'}`,
+                            transition: 'all 0.15s',
+                          }}>{opt}</button>
+                      );
+                    })}
+                  </div>
+                ) : field.type === 'text_area' ? (
+                  <div className="input-with-mic">
+                    <textarea className="form-input form-textarea" value={val}
+                      onChange={(e) => onSave(field.id, e.target.value)}
+                      onPaste={noPaste} disabled={disabled} rows={3} />
+                    <DictateButton currentValue={val} onResult={(v) => onSave(field.id, v)} disabled={disabled} />
+                  </div>
+                ) : (
+                  <div className="input-with-mic">
+                    <input type="text" className="form-input" value={val}
+                      onChange={(e) => onSave(field.id, e.target.value)}
+                      onPaste={noPaste} disabled={disabled} placeholder="…" style={{ fontSize: '0.88rem' }} />
+                    <DictateButton currentValue={val} onResult={(v) => onSave(field.id, v)} disabled={disabled} />
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
       {/* Table fields */}
       {el.fields?.map((f) => {
         if (f.type === 'table') {
@@ -1838,8 +1921,9 @@ function ComparisonChart({ el, responses, onSave, disabled }: { el: ComparisonCh
 
 // ─── Vocab Review ────────────────────────────────────────────────────────────
 function VocabReview({ el, responses, onSave, disabled }: { el: VocabReviewTask; responses: Record<string, string | string[]>; onSave: Props['onSave']; disabled?: boolean }) {
-  const termOptions = (el.source === 'glossary' && el.source_filter)
-    ? getSubmittedGlossaryTerms(el.source_filter, responses)
+  // Show ALL glossary terms from the course — not just submitted ones
+  const termOptions = el.source === 'glossary'
+    ? getAllGlossaryTerms()
     : [];
 
   return (
