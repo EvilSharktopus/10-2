@@ -6606,23 +6606,6 @@
                 "scored_by": "teacher",
                 "notify_teacher": true
               }
-            },
-            {
-              "type": "tasks",
-              "id": "cp8_s3_task2",
-              "title": "Letter to Canada",
-              "instruction": "Write a short letter (5-7 sentences) to the Government of Canada about ONE specific thing you think Canada should do differently in its global civic responsibilities. Be specific — not just 'be better.' Name a concrete policy or action.",
-              "task_type": "free_response",
-              "fields": [
-                {
-                  "id": "letter_canada",
-                  "label": "Write your letter here.",
-                  "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         }
