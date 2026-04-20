@@ -3834,133 +3834,28 @@
           "title": "Session 3",
           "elements": [
             {
-              "type": "hook",
-              "id": "cp4_s3_hook",
-              "content": "Right now, someone your age in Bangladesh is sewing a shirt that will end up on a rack at a mall near you. They woke up at 5am. They will work until 9pm. They will make about $3 today. You will spend $40 on the shirt. Neither of you chose this system. But both of you live inside it."
-            },
-            {
-              "type": "glossary",
-              "id": "cp4_s3_glossary",
-              "instruction": "Type each definition.",
-              "terms": [
+              "type": "reflection",
+              "id": "cp4_s3_reflection_new",
+              "title": "True Cost Reflection",
+              "instruction": "After watching The True Cost, answer all the prompts below.",
+              "prompts": [
                 {
-                  "id": "g_sweatshop_s3",
-                  "term": "Sweatshop"
+                  "id": "q_tc_1",
+                  "text": "What shocked you the most about the documentary? Why?",
+                  "points": 4,
+                  "scored_by": "teacher"
                 },
                 {
-                  "id": "g_child_labour_s3",
-                  "term": "Child Labour"
+                  "id": "q_tc_2",
+                  "text": "How does the film connect to trade liberalization, outsourcing, and the race to the bottom? Use at least TWO glossary terms from this checkpoint.",
+                  "points": 4,
+                  "scored_by": "teacher"
                 },
                 {
-                  "id": "g_living_wage",
-                  "term": "Living Wage"
-                },
-                {
-                  "id": "g_fast_fashion",
-                  "term": "Fast Fashion"
-                }
-              ]
-            },
-            {
-              "type": "video",
-              "id": "cp4_s3_video",
-              "title": "The True Cost — Official Trailer",
-              "youtube_id": "OaGp5_Sfbss",
-              "note": "Search YouTube: 'The True Cost official trailer 2015' — approximately 2.5 minutes. Preview before class for 14A appropriateness.",
-              "chunks": [
-                {
-                  "id": "cp4_s3_v1_c1",
-                  "title": "Fast fashion and garment worker conditions",
-                  "start_seconds": 0,
-                  "end_seconds": 150,
-                  "questions": [
-                    {
-                      "id": "q_cp4_s3_1",
-                      "question_type": "true_false",
-                      "text": "Most garment workers in developing countries are paid a living wage.",
-                      "correct_answer": false,
-                      "points": 1,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp4_s3_2",
-                      "question_type": "true_false",
-                      "text": "Fast fashion companies are legally required to ensure safe conditions in their supply chains.",
-                      "correct_answer": false,
-                      "points": 1,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp4_s3_3",
-                      "question_type": "fill_blank",
-                      "text": "The ___ disaster in Bangladesh in 2013 killed over 1,100 garment workers and exposed conditions in the global fashion supply chain.",
-                      "blanks": [
-                        {
-                          "position": 1,
-                          "accepted_answers": [
-                            "Rana Plaza",
-                            "rana plaza",
-                            "the Rana Plaza"
-                          ]
-                        }
-                      ],
-                      "points": 1,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp4_s3_4",
-                      "question_type": "fill_blank",
-                      "text": "Fast fashion relies on making clothes ___ and selling them ___ so consumers keep buying more.",
-                      "blanks": [
-                        {
-                          "position": 1,
-                          "accepted_answers": [
-                            "cheaply",
-                            "cheap",
-                            "quickly",
-                            "fast",
-                            "inexpensively"
-                          ]
-                        },
-                        {
-                          "position": 2,
-                          "accepted_answers": [
-                            "quickly",
-                            "fast",
-                            "cheaply",
-                            "frequently",
-                            "often"
-                          ]
-                        }
-                      ],
-                      "points": 2,
-                      "scored_by": "auto"
-                    },
-                    {
-                      "id": "q_cp4_s3_5",
-                      "question_type": "short_answer",
-                      "text": "Name TWO ways the fast fashion industry affects workers in developing countries.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "q_cp4_s3_6",
-                      "question_type": "short_answer",
-                      "text": "Name ONE way it affects the environment.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    },
-                    {
-                      "id": "q_cp4_s3_7",
-                      "question_type": "short_answer",
-                      "text": "You probably own fast fashion clothing right now. Does watching this change how you feel about that? Be completely honest.",
-                      "points": 4,
-                      "scored_by": "teacher",
-                      "notify_teacher": true
-                    }
-                  ]
+                  "id": "q_tc_3",
+                  "text": "The film argues that fast fashion is destroying both people and the planet. Do you agree? What is your personal responsibility as a consumer?",
+                  "points": 4,
+                  "scored_by": "teacher"
                 }
               ]
             }
@@ -3975,7 +3870,7 @@
         "written_assignment"
       ],
       "related_issue": "RI3",
-      "checkpoint_after": false,
+      "checkpoint_after": true,
       "sessions": [
         {
           "id": "cp5_s1",
@@ -4061,20 +3956,8 @@
                   "notify_teacher": true
                 }
               ],
-              "enable_tags": true
-            },
-            {
-              "type": "tasks",
-              "id": "cp5_s1_vocab",
-              "title": "Source 1 Vocabulary",
-              "instruction": "Find any terms in Source 1 you don't fully understand. Define them here .",
-              "task_type": "table",
-              "columns": [
-                "Term from Source 1",
-                "My definition"
-              ],
-              "rows": 3,
-              "scored_by": "none"
+              "enable_tags": true,
+              "instruction": "Read Source 1 carefully. Then answer the source analysis questions below."
             }
           ]
         },
@@ -4082,6 +3965,12 @@
           "id": "cp5_s2",
           "title": "Session 2 — Written Assignment: Source 2",
           "elements": [
+            {
+              "type": "context",
+              "id": "cp5_s2_source_reminder",
+              "title": "Your Source So Far",
+              "content": "Before you analyze Source 2, here is a quick reminder of your first source:\n\nSource 1: Source I — \"What does the source presented communicate about the role of the individual in society? Considering the source, what do you think should be the role of the individual in society?\"\n\nNow read Source 2 and think about how it compares."
+            },
             {
               "type": "source_analysis",
               "id": "cp5_s2_source",
@@ -4155,7 +4044,8 @@
                   "notify_teacher": true
                 }
               ],
-              "enable_tags": true
+              "enable_tags": true,
+              "instruction": "Read Source 2 carefully. Then answer the source analysis questions below."
             },
             {
               "type": "tasks",
@@ -4168,16 +4058,17 @@
                 "Source 1",
                 "Source 2"
               ],
-              "rows": [
+              "rows": 5,
+              "points": 4,
+              "scored_by": "teacher",
+              "notify_teacher": true,
+              "row_labels": [
                 "Type of source",
                 "Main argument about globalization",
                 "Who does it think benefits?",
                 "Role of government or individuals?",
                 "Do you find it convincing? Why?"
-              ],
-              "points": 4,
-              "scored_by": "teacher",
-              "notify_teacher": true
+              ]
             }
           ]
         },
@@ -4185,6 +4076,12 @@
           "id": "cp5_s3",
           "title": "Session 3 — Written Assignment: Source 3 + Complete",
           "elements": [
+            {
+              "type": "context",
+              "id": "cp5_s3_source_reminder",
+              "title": "Your Sources So Far",
+              "content": "Before you analyze Source 3, here is a quick reminder of the sources you have already analyzed:\n\nSource 1: Source I — \"What does the source presented communicate about the role of the individual in society? Considering the source, what do you think should be the role of the individual in society?\"\n\nSource 2: Source II — \"What does the source presented communicate about the role of the individual in society? Considering the source, what do you think should be the role of the individual in society?\"\n\nNow analyze Source 3 below and compare it to the first two."
+            },
             {
               "type": "source_analysis",
               "id": "cp5_s3_source",
@@ -4258,7 +4155,8 @@
                   "notify_teacher": true
                 }
               ],
-              "enable_tags": true
+              "enable_tags": true,
+              "instruction": "Look carefully at Source 3 (the cartoon below). Then answer the source analysis questions."
             },
             {
               "type": "tasks",
