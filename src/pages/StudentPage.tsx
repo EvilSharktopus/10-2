@@ -20,6 +20,7 @@ export function StudentPage({ studentId }: Props) {
   const logout = useAppStore((s) => s.logout);
   const advanceSession = useAppStore((s) => s.advanceSession);
   const unlockStop = useAppStore((s) => s.unlockStop);
+  const flagCheckpoint = useAppStore((s) => s.flagCheckpoint);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [glossaryOpen, setGlossaryOpen] = useState(false);
@@ -102,6 +103,18 @@ export function StudentPage({ studentId }: Props) {
     } else {
       // Last session of this stop — student needs teacher checkpoint to advance
       await advanceSession(student.id, activeStopId, activeStop.sessions.length);
+
+      // If teacher already unlocked the next stop, navigate there
+      const nextStopId = activeStopId + 1;
+      const nextStop = STOPS.find((s) => s.id === nextStopId);
+      if (nextStop && student.unlockedStops.includes(nextStopId)) {
+        await advanceSession(student.id, nextStopId, 1);
+        setActiveStopId(nextStopId);
+        setActiveSessionIndex(0);
+      } else {
+        // Flag for checkpoint so teacher sees the request
+        await flagCheckpoint(student.id, true);
+      }
     }
   };
 

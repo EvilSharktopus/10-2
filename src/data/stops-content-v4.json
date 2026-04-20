@@ -1938,14 +1938,6 @@
             },
             {
               "type": "tasks",
-              "id": "s2_3_task1",
-              "title": "Globalization Crossword",
-              "instruction": "Ask Mr. McRae for the crossword sheet using key terms from Checkpoints 1 and 2.",
-              "physical_component": true,
-              "teacher_note": "Distribute the Globalization Crossword handout."
-            },
-            {
-              "type": "tasks",
               "id": "s2_3_task2",
               "title": "My Globalization Opinion Tracker",
               "instruction": "You have now been learning about globalization for two stops. Fill this out honestly.",
@@ -2001,34 +1993,6 @@
                   "id": "ot_6",
                   "question": "If yes or a little — what changed?",
                   "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "s2_3_reflection",
-              "instruction": "Type your answers.",
-              "prompts": [
-                {
-                  "id": "r_s2_3_1",
-                  "text": "Before today, I thought trade wars were...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s2_3_2",
-                  "text": "The argument that surprised me most — for OR against tariffs — was...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s2_3_3",
-                  "text": "Thinking about the car price question from the hook — who do you think actually won from those tariffs? The US government? American workers? Car companies? Consumers? Explain.",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
@@ -2443,41 +2407,6 @@
                 "scored_by": "teacher",
                 "notify_teacher": true
               }
-            },
-            {
-              "type": "reflection",
-              "id": "s3_1_reflection",
-              "instruction": "Type your answers.",
-              "prompts": [
-                {
-                  "id": "r_s3_1_1",
-                  "text": "Before today, when I thought about the oil sands I thought...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_1_2",
-                  "text": "The Lubicon Cree story made me feel... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_1_3",
-                  "text": "Stewardship means treating land like ___. Globalization sometimes treats land like ___.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_1_4",
-                  "text": "One question I want to bring to my checkpoint conversation is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         },
@@ -2976,41 +2905,6 @@
                   "notify_teacher": true
                 }
               ]
-            },
-            {
-              "type": "reflection",
-              "id": "s3_4_reflection",
-              "instruction": "Type your answers.",
-              "prompts": [
-                {
-                  "id": "r_s3_4_1",
-                  "text": "The environmental impact that surprised me most today was...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_4_2",
-                  "text": "I think Canada's record on environmental protection is... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_4_3",
-                  "text": "As a consumer, I contribute to environmental damage through globalization when I...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_4_4",
-                  "text": "One thing I could actually do differently is... (be realistic)",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         },
@@ -3261,41 +3155,6 @@
               "points": 4,
               "scored_by": "teacher",
               "notify_teacher": true
-            },
-            {
-              "type": "reflection",
-              "id": "s3_5_reflection",
-              "instruction": "Type your answers.",
-              "prompts": [
-                {
-                  "id": "r_s3_5_1",
-                  "text": "The most important thing I learned across all of Checkpoint 3 was...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_5_2",
-                  "text": "My answer to does globalization contribute to sustainable prosperity for all people right now is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_5_3",
-                  "text": "The hardest part of writing my argument will be...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_s3_5_4",
-                  "text": "One thing I want to make sure I include in my written assignment is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             },
             {
               "type": "checkpoint_prep",
@@ -3711,41 +3570,6 @@
                   "Both"
                 ]
               }
-            },
-            {
-              "type": "reflection",
-              "id": "cp4_s1_reflection",
-              "instruction": "Type your answers.",
-              "prompts": [
-                {
-                  "id": "r_cp4_s1_1",
-                  "text": "Before today, I thought free trade meant...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp4_s1_2",
-                  "text": "The sweatshop argument in the video made me feel... because...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp4_s1_3",
-                  "text": "Trade liberalization is supposed to help everyone — but in reality it seems to help ___ the most.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp4_s1_4",
-                  "text": "One connection between this session and what we learned in Checkpoint 3 about the environment is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         },
@@ -4181,42 +4005,6 @@
                       "notify_teacher": true
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp4_s3_reflection_new",
-              "title": "True Cost Reflection",
-              "instruction": "Type your answers below based on the film.",
-              "prompts": [
-                {
-                  "id": "cp4_s3_ref_1",
-                  "text": "The film follows real garment workers, not just statistics. Which person's story stayed with you the most and why? What did their life tell you about who actually pays the cost of cheap clothing?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "cp4_s3_ref_2",
-                  "text": "The film argues that the fashion industry's problems aren't accidents — they're built into the system on purpose. Do you agree? Who would have to change for things to actually get better — consumers, companies, or governments?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "cp4_s3_ref_3",
-                  "text": "Before watching, you probably owned fast fashion. After watching, has anything actually changed about how you feel about buying it? Be completely honest — it's okay if the answer is no.",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "cp4_s3_ref_4",
-                  "text": "The True Cost was made in 2015. Based on everything you've learned in this course about globalization, trade, and corporate responsibility — do you think things have gotten better or worse for garment workers since then? What makes you think that?",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
                 }
               ]
             }
@@ -5241,41 +5029,6 @@
               "points": 4,
               "scored_by": "teacher",
               "notify_teacher": true
-            },
-            {
-              "type": "reflection",
-              "id": "cp6_s1_reflection",
-              "instruction": "Type your answers.",
-              "prompts": [
-                {
-                  "id": "r_cp6_s1_1",
-                  "text": "Before today, I thought quality of life and standard of living were basically the same. Now I think...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s1_2",
-                  "text": "The fact that young Canadians are getting less happy despite living in a wealthy country tells me...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s1_3",
-                  "text": "Globalization has improved my quality of life by... but it may have hurt it by...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s1_4",
-                  "text": "One question I want to keep thinking about is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
             }
           ]
         },
@@ -5491,41 +5244,6 @@
                   "id": "gc_5",
                   "label": "If you could talk directly to a young person your age in Bangladesh or Sierra Leone — what would you ask them?",
                   "type": "text_area",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                }
-              ]
-            },
-            {
-              "type": "reflection",
-              "id": "cp6_s2_reflection",
-              "instruction": "Type your answers.",
-              "prompts": [
-                {
-                  "id": "r_cp6_s2_1",
-                  "text": "The thing about globalization and youth that I didn't know before today is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s2_2",
-                  "text": "Thinking about my own experience as a young person in Canada — globalization has shaped my life by...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s2_3",
-                  "text": "The most uncomfortable thought from today's session is...",
-                  "points": 4,
-                  "scored_by": "teacher",
-                  "notify_teacher": true
-                },
-                {
-                  "id": "r_cp6_s2_4",
-                  "text": "I think young people have a responsibility to respond to globalization because... OR I don't think that responsibility is realistic because...",
                   "points": 4,
                   "scored_by": "teacher",
                   "notify_teacher": true
