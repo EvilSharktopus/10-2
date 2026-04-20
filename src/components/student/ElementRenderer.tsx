@@ -1255,19 +1255,37 @@ function Activity({ el, responses, onSave, disabled }: { el: ActivityElement; re
               <tbody>
                 {rows.map((row, ri) => (
                   <tr key={ri}>
-                    {row.map((cell, ci) => (
-                      <td key={ci} style={{ padding: 6, borderBottom: '1px solid var(--border)' }}>
-                        <input
-                          type="text"
-                          className="form-input"
-                          value={cell}
-                          onChange={(e) => updateCell(ri, ci, e.target.value)}
-                          onPaste={noPaste}
-                          disabled={disabled}
-                          style={{ fontSize: '0.85rem', padding: '6px 10px' }}
-                        />
-                      </td>
-                    ))}
+                    {row.map((cell, ci) => {
+                      const dropdownOpts = (el as any).dropdowns?.[ci] as string[] | undefined;
+                      return (
+                        <td key={ci} style={{ padding: 6, borderBottom: '1px solid var(--border)' }}>
+                          {dropdownOpts ? (
+                            <select
+                              className="form-input"
+                              value={cell}
+                              onChange={(e) => updateCell(ri, ci, e.target.value)}
+                              disabled={disabled}
+                              style={{ fontSize: '0.85rem', padding: '6px 10px' }}
+                            >
+                              <option value="">—</option>
+                              {dropdownOpts.map(opt => (
+                                <option key={opt} value={opt}>{opt}</option>
+                              ))}
+                            </select>
+                          ) : (
+                            <input
+                              type="text"
+                              className="form-input"
+                              value={cell}
+                              onChange={(e) => updateCell(ri, ci, e.target.value)}
+                              onPaste={noPaste}
+                              disabled={disabled}
+                              style={{ fontSize: '0.85rem', padding: '6px 10px' }}
+                            />
+                          )}
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>

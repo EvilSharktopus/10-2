@@ -6027,7 +6027,13 @@
                   "scored_by": "teacher",
                   "notify_teacher": true
                 }
-              ]
+              ],
+              "dropdowns": {
+                "2": [
+                  "Yes",
+                  "No"
+                ]
+              }
             },
             {
               "type": "source_analysis",
