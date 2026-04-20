@@ -6,6 +6,7 @@ import { TopBar } from '../components/layout/TopBar';
 import { GlossaryDrawer } from '../components/layout/GlossaryDrawer';
 import { StopSession } from '../components/student/StopSession';
 import { CheckpointFlag } from '../components/student/CheckpointFlag';
+import { CourseComplete } from '../components/student/CourseComplete';
 import { isSessionUnlocked } from '../utils/unlocks';
 
 interface Props {
@@ -26,6 +27,7 @@ export function StudentPage({ studentId }: Props) {
   const [glossaryOpen, setGlossaryOpen] = useState(false);
   const [activeStopId, setActiveStopId] = useState(1);
   const [activeSessionIndex, setActiveSessionIndex] = useState(0);
+  const [courseComplete, setCourseComplete] = useState(false);
 
   // Real-time Firestore subscription
   useEffect(() => {
@@ -99,6 +101,9 @@ export function StudentPage({ studentId }: Props) {
         await unlockStop(student.id, nextStopId);
         setActiveStopId(nextStopId);
         setActiveSessionIndex(0);
+      } else {
+        // No next stop — course is finished!
+        setCourseComplete(true);
       }
     } else {
       // Last session of this stop — student needs teacher checkpoint to advance
@@ -140,8 +145,9 @@ export function StudentPage({ studentId }: Props) {
         />
 
         <div className="page-inner">
-          {/* Locked stop warning */}
-          {(!student.unlockedStops.includes(activeStopId) && !isSessionUnlocked(unlocks, activeSession?.id, student.id)) ? (
+          {courseComplete ? (
+            <CourseComplete student={student} />
+          ) : (!student.unlockedStops.includes(activeStopId) && !isSessionUnlocked(unlocks, activeSession?.id, student.id)) ? (
             <div className="card fade-in" style={{ textAlign: 'center', padding: '48px 24px' }}>
               <div style={{ fontSize: '3rem', marginBottom: 12 }}>🔒</div>
               <h2>This Checkpoint is Locked</h2>
