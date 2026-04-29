@@ -215,9 +215,13 @@ function ResponseCard({ item, responses, onScore, isStudentView }: ResponseCardP
         <div style={{ display: 'flex', gap: 5, alignItems: 'center', flexShrink: 0 }}>
           {needsReview   && (isStudentView ? <span className="badge badge-amber" style={{ fontSize: '0.68rem' }}>Waiting for Mr. McRae</span> : <span className="badge badge-amber" style={{ fontSize: '0.68rem' }}>📝 Unscored</span>)}
           {isScored      && <span className="badge badge-success" style={{ fontSize: '0.68rem' }}>✓ {currentScore}/{item.possible} pts</span>}
-          {isOverridden  && <span className="badge badge-accent"  style={{ fontSize: '0.68rem' }}>✏️ Override: {overrideScore}/{item.possible} pts</span>}
+          {isOverridden  && (
+            isStudentView && item.disputeStatus === 'accepted'
+              ? <span className="badge badge-success" style={{ fontSize: '0.68rem' }}>✅ Dispute Accepted — Full marks!</span>
+              : <span className="badge badge-accent"  style={{ fontSize: '0.68rem' }}>✏️ Override: {overrideScore}/{item.possible} pts</span>
+          )}
           {isDisputed    && <span className="badge" style={{ fontSize: '0.68rem', background: 'var(--accent-dim)', color: 'var(--accent-light)', border: '1px solid var(--accent)' }}>{isStudentView ? '⏳ Under review' : '✋ Student disputes'}</span>}
-          {!isDisputed && item.disputeStatus === 'dismissed' && <span className="badge" style={{ fontSize: '0.68rem', background: 'var(--surface-raised)', color: 'var(--text-muted)' }}>❌ Dispute Dismissed</span>}
+          {!isDisputed && item.disputeStatus === 'dismissed' && <span className="badge" style={{ fontSize: '0.68rem', background: 'var(--danger-dim)', color: 'var(--danger)', border: '1px solid var(--danger)' }}>{isStudentView ? '❌ Dispute not accepted' : '❌ Dispute Dismissed'}</span>}
           {isCorrect     && <span className="badge badge-success" style={{ fontSize: '0.68rem' }}>✓ {item.earned}/{item.possible} pts</span>}
           {isWrong && !isDisputed && <span style={{ fontSize: '0.68rem', color: 'var(--danger)', fontWeight: 700 }}>✗ {item.earned}/{item.possible} pts</span>}
         </div>

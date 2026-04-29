@@ -4,6 +4,8 @@ import { StudentCard } from '../components/teacher/StudentCard';
 import { StudentDetailModal } from '../components/teacher/StudentDetailModal';
 import { PasswordTable } from '../components/teacher/PasswordTable';
 import { UnlockSessionModal } from '../components/teacher/UnlockSessionModal';
+import { ReviewPanel } from '../components/teacher/ReviewPanel';
+import { gradeStudent } from '../utils/grading';
 import { STOPS } from '../data/stops';
 import type { Student } from '../types';
 
@@ -15,7 +17,7 @@ export function TeacherPage() {
 
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [selectedTab, setSelectedTab] = useState<'summary' | 'responses' | 'outcomes' | 'override'>('summary');
-  const [activeTab, setActiveTab] = useState<'overview' | 'passwords'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'review' | 'passwords'>('overview');
   const [search, setSearch] = useState('');
   const [showUnlockModal, setShowUnlockModal] = useState(false);
 
@@ -42,6 +44,7 @@ export function TeacherPage() {
   }, [students]);
 
   const flaggedCount = students.filter((s) => s.flaggedForCheckpoint).length;
+  const totalPending = students.reduce((sum, s) => sum + gradeStudent(s.responses ?? {}).teacherPending, 0);
 
   // Count disputes across all students — only flag if the dispute hasn't been overridden yet
   const disputedStudents = students.filter((s) => {
@@ -99,6 +102,22 @@ export function TeacherPage() {
               onClick={() => setActiveTab('overview')}
             >
               📊 Overview
+            </button>
+            <button
+              className={`teacher-tab${activeTab === 'review' ? ' active' : ''}`}
+              onClick={() => setActiveTab('review')}
+              style={{ position: 'relative' }}
+            >
+              📝 To Review
+              {totalPending > 0 && (
+                <span style={{
+                  position: 'absolute', top: -6, right: -6,
+                  background: 'var(--amber)', color: '#000',
+                  borderRadius: '50%', width: 18, height: 18,
+                  fontSize: '0.65rem', fontWeight: 800,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>{totalPending}</span>
+              )}
             </button>
             <button
               className={`teacher-tab${activeTab === 'passwords' ? ' active' : ''}`}
@@ -257,6 +276,15 @@ export function TeacherPage() {
               </div>
             )}
           </>
+        )}
+
+        {activeTab === 'review' && (
+          <div style={{ maxWidth: 900, margin: '0 auto' }}>
+            <ReviewPanel
+              students={students}
+              onOpenStudent={(student, tab) => openStudent(student, tab)}
+            />
+          </div>
         )}
 
         {activeTab === 'passwords' && (
