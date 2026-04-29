@@ -10,6 +10,8 @@ interface Props {
     autoEarned: number;
     autoAttemptedPossible: number;
     autoPercent: number;
+    teacherEarned: number;
+    teacherScored: number;
   };
   hasAttempted: boolean;
   onLogout: () => void;
@@ -89,19 +91,23 @@ export function UserMenu({ student, grade, hasAttempted, onLogout, onShowGradeMo
           {/* Grades */}
           {hasAttempted && (
             <div style={{ padding: '12px 20px', borderBottom: '1px solid var(--border)' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8 }}>My Progress</div>
-              <button style={{
-                width: '100%',
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                background: 'var(--surface)', border: `1px solid ${pctColor}`,
-                borderRadius: 'var(--radius-sm)', padding: '8px 12px',
-                fontSize: '0.85rem', fontWeight: 600, color: pctColor,
-                cursor: 'pointer', transition: 'background 0.15s'
-              }} onClick={() => { setIsOpen(false); onShowGradeModal(); }}>
-                <span>⭐ {grade.autoEarned}/{grade.autoAttemptedPossible} pts</span>
-                <span style={{ opacity: 0.8 }}>{grade.autoPercent}%</span>
-              </button>
-            </div>
+            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8 }}>My Progress</div>
+            <button style={{
+              width: '100%',
+              display: 'flex', flexDirection: 'column', gap: 6,
+              background: 'var(--surface)', border: `1px solid ${pctColor}`,
+              borderRadius: 'var(--radius-sm)', padding: '8px 12px',
+              cursor: 'pointer', transition: 'background 0.15s', textAlign: 'left',
+            }} onClick={() => { setIsOpen(false); onShowGradeModal(); }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: pctColor }}>⭐ Auto: {grade.autoEarned}/{grade.autoAttemptedPossible} pts</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: pctColor, opacity: 0.85 }}>{grade.autoPercent}%</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-secondary)' }}>📝 Reviewed: {grade.teacherEarned}/{grade.teacherScored} pts</span>
+              </div>
+            </button>
+          </div>
           )}
 
           {/* Theme Picker */}

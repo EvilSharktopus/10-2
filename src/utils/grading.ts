@@ -41,6 +41,8 @@ export interface StudentGrade {
   autoAttemptedPossible: number;  // possible points on questions the student actually attempted
   autoPercent: number;
   teacherPending: number;
+  teacherEarned: number;          // sum of points on teacher-scored items
+  teacherScored: number;          // possible points on items that have been scored (not pending)
   disputeCount: number;
   totalResponses: number;
   byStop: StopGrade[];
@@ -258,6 +260,8 @@ export function gradeStudent(
   let autoPossible = 0;
   let autoAttemptedPossible = 0;
   let teacherPending = 0;
+  let teacherEarned = 0;
+  let teacherScored = 0;
   let disputeCount = 0;
   let totalResponses = 0;
 
@@ -289,6 +293,10 @@ export function gradeStudent(
           const existingScore = responses[scoreKey];
           if (existingScore === undefined || existingScore === '') {
             stopTeacherPending++;
+          } else {
+            // Accumulate teacher-scored totals for the student grade summary
+            teacherEarned += Number(existingScore);
+            teacherScored += item.possible;
           }
         }
       }
@@ -328,6 +336,8 @@ export function gradeStudent(
     autoAttemptedPossible,
     autoPercent: autoAttemptedPossible > 0 ? Math.round((autoEarned / autoAttemptedPossible) * 100) : 0,
     teacherPending,
+    teacherEarned,
+    teacherScored,
     disputeCount,
     totalResponses,
     byStop,
