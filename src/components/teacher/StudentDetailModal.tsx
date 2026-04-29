@@ -251,6 +251,32 @@ export function StudentDetailModal({ student, onClose, initialTab = 'summary' }:
                 );
               })}
 
+              {/* Clear stale disputes */}
+              {Object.keys(student.responses ?? {}).some((k) => k.endsWith('_dispute') && student.responses?.[k] === 'pending') && (
+                <div style={{ marginTop: 8, padding: '14px 18px', background: 'var(--accent-dim)', border: '1px solid var(--accent)', borderRadius: 'var(--radius)' }}>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--accent-light)', marginBottom: 6 }}>
+                    ✋ Stale Dispute Detected
+                  </div>
+                  <div className="text-xs text-muted mb-3">
+                    This student has a pending dispute that can't be addressed through the normal Responses tab (likely from a question that was removed or changed). Click below to dismiss all unresolved disputes.
+                  </div>
+                  <button
+                    className="btn btn-sm"
+                    style={{ background: 'var(--accent-dim)', color: 'var(--accent-light)', border: '1px solid var(--accent)' }}
+                    onClick={() => {
+                      const resp = student.responses ?? {};
+                      Object.keys(resp).forEach((k) => {
+                        if (k.endsWith('_dispute') && resp[k] === 'pending') {
+                          saveResponse(student.id, k, 'dismissed');
+                        }
+                      });
+                    }}
+                  >
+                    Dismiss All Pending Disputes
+                  </button>
+                </div>
+              )}
+
               <div style={{ marginTop: 24, paddingTop: 20, borderTop: '2px dashed var(--danger)' }}>
                 <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--danger)', marginBottom: 8 }}>Nuclear Option</div>
                 <div className="text-xs text-muted mb-3">
