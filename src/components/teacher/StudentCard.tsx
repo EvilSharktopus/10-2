@@ -4,6 +4,18 @@ import { gradeStudent } from '../../utils/grading';
 
 const TOTAL_SESSIONS = STOPS.flatMap((s) => s.sessions).length;
 
+function relativeTime(ts: number): string {
+  const diff = Date.now() - ts;
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  const days = Math.floor(hrs / 24);
+  if (days < 7) return `${days}d ago`;
+  return new Date(ts).toLocaleDateString();
+}
+
 interface Props {
   student: Student;
   onClick: () => void;
@@ -36,6 +48,11 @@ export function StudentCard({ student, onClick, onOpenResponses }: Props) {
             Checkpoint {student.currentStop}
             {currentSession ? ` · ${currentSession.title.split('—')[1]?.trim() ?? currentSession.title}` : ''}
           </div>
+          {student.lastSeen && (
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: 2 }}>
+              🕐 {relativeTime(student.lastSeen)}
+            </div>
+          )}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 5, alignItems: 'flex-end' }}>
           {student.flaggedForCheckpoint && (

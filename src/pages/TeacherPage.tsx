@@ -46,16 +46,8 @@ export function TeacherPage() {
   const flaggedCount = students.filter((s) => s.flaggedForCheckpoint).length;
   const totalPending = students.reduce((sum, s) => sum + gradeStudent(s.responses ?? {}).teacherPending, 0);
 
-  // Count disputes across all students — only flag if the dispute hasn't been overridden yet
-  const disputedStudents = students.filter((s) => {
-    const resp = s.responses ?? {};
-    return Object.keys(resp).some((k) => {
-      if (!k.endsWith('_dispute') || resp[k] !== 'pending') return false;
-      const overrideKey = k.replace(/_dispute$/, '_override');
-      const override = resp[overrideKey];
-      return override === undefined || override === '';
-    });
-  });
+  // Count disputes — uses gradeStudent so accepted/dismissed disputes are treated as resolved
+  const disputedStudents = students.filter((s) => gradeStudent(s.responses ?? {}).disputeCount > 0);
 
   const raisedHandStudents = students.filter((s) => s.raisedHand);
   const clearHand = useAppStore((s) => s.raiseHand);

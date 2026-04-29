@@ -130,7 +130,10 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   // ── Student actions ───────────────────────────────────────────────────
   saveResponse: async (studentId, key, value) => {
-    await updateStudent(get().courseId, studentId, { [`responses.${key}`]: value });
+    await updateStudent(get().courseId, studentId, {
+      [`responses.${key}`]: value,
+      lastSeen: Date.now(),
+    });
   },
 
   flagCheckpoint: async (studentId, flag) => {
