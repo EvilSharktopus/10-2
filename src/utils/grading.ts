@@ -284,7 +284,12 @@ export function gradeStudent(
           if (item.hasResponse) autoAttemptedPossible += item.possible;
           if (item.disputeStatus === 'pending' && !item.correct) disputeCount++;
         } else if (item.hasResponse) {
-          stopTeacherPending++;
+          // Only count as pending if the teacher hasn't scored it yet
+          const scoreKey = item.id + '_score';
+          const existingScore = responses[scoreKey];
+          if (existingScore === undefined || existingScore === '') {
+            stopTeacherPending++;
+          }
         }
       }
 
