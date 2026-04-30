@@ -17,6 +17,7 @@ export interface GradeItem {
   disputeStatus?: 'pending' | 'accepted' | 'dismissed';
   disputeNote?: string;
   feedback?: string;
+  tchartColumns?: { id: string; label: string }[]; // tchart only: column definitions
 }
 
 export interface SessionGrade {
@@ -244,6 +245,7 @@ function extractFromElement(
         id: el.id, gradedBy: 'teacher', prompt: el.title,
         response: 'T-Chart submitted', hasResponse: true, earned: 0,
         possible: el.points ?? 8, elementType: 'tchart',
+        tchartColumns: el.columns,
       });
     }
   }

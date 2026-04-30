@@ -175,8 +175,16 @@ function ResponseCard({ item, responses, onScore, isStudentView }: ResponseCardP
   const isOverridden = existingOverride !== undefined && existingOverride !== '';
   const overrideScore = isOverridden ? Number(existingOverride) : null;
 
-  const isLong = item.response.length > 120;
+  const isLong = item.elementType !== 'tchart' && item.response.length > 120;
   const displayText = (!expanded && isLong) ? item.response.slice(0, 120) + '…' : item.response;
+
+  // Build tchart column content for display
+  const tchartEntries = item.tchartColumns
+    ? item.tchartColumns.map((col) => ({
+        label: col.label,
+        value: responses[`${item.id}_${col.id}`],
+      }))
+    : null;
 
   const needsReview = item.gradedBy === 'teacher' && item.hasResponse && !scored;
   const isScored    = item.gradedBy === 'teacher' && scored;
@@ -228,7 +236,36 @@ function ResponseCard({ item, responses, onScore, isStudentView }: ResponseCardP
       </div>
 
       {/* Response text */}
-      {item.hasResponse ? (
+      {item.elementType === 'tchart' && tchartEntries ? (
+        <div style={{ display: 'flex', gap: 8, marginBottom: 8, flexWrap: 'wrap' }}>
+          {tchartEntries.map(({ label, value }) => {
+            const text = Array.isArray(value)
+              ? value.filter(Boolean).join('\n')
+              : (value ?? '').trim();
+            return (
+              <div key={label} style={{
+                flex: 1, minWidth: 140,
+                border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                overflow: 'hidden',
+              }}>
+                <div style={{
+                  background: 'var(--surface)', padding: '4px 10px',
+                  fontSize: '0.72rem', fontWeight: 800, color: 'var(--accent-light)',
+                  textTransform: 'uppercase', letterSpacing: '0.05em',
+                  borderBottom: '1px solid var(--border)',
+                }}>{label}</div>
+                <div style={{
+                  padding: '8px 10px', fontSize: '0.85rem', color: text ? 'var(--text-primary)' : 'var(--text-muted)',
+                  whiteSpace: 'pre-wrap', lineHeight: 1.5, minHeight: 40,
+                  fontStyle: text ? 'normal' : 'italic',
+                }}>
+                  {text || 'No entry'}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : item.hasResponse ? (
         <>
           <div style={{ fontSize: '0.88rem', color: 'var(--text-primary)', lineHeight: 1.55, whiteSpace: 'pre-wrap', marginBottom: 8 }}>
             {displayText}

@@ -5,6 +5,7 @@ import { StudentDetailModal } from '../components/teacher/StudentDetailModal';
 import { PasswordTable } from '../components/teacher/PasswordTable';
 import { UnlockSessionModal } from '../components/teacher/UnlockSessionModal';
 import { ReviewPanel } from '../components/teacher/ReviewPanel';
+import { GradesPanel } from '../components/teacher/GradesPanel';
 import { gradeStudent } from '../utils/grading';
 import { STOPS } from '../data/stops';
 import type { Student } from '../types';
@@ -17,7 +18,7 @@ export function TeacherPage() {
 
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [selectedTab, setSelectedTab] = useState<'summary' | 'responses' | 'outcomes' | 'override'>('summary');
-  const [activeTab, setActiveTab] = useState<'overview' | 'review' | 'passwords'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'review' | 'grades' | 'passwords'>('overview');
   const [search, setSearch] = useState('');
   const [showUnlockModal, setShowUnlockModal] = useState(false);
 
@@ -116,6 +117,12 @@ export function TeacherPage() {
               onClick={() => setActiveTab('passwords')}
             >
               🔑 Passwords
+            </button>
+            <button
+              className={`teacher-tab${activeTab === 'grades' ? ' active' : ''}`}
+              onClick={() => setActiveTab('grades')}
+            >
+              📋 Grades
             </button>
           </div>
           <button
@@ -277,6 +284,13 @@ export function TeacherPage() {
               onOpenStudent={(student, tab) => openStudent(student, tab)}
             />
           </div>
+        )}
+
+        {activeTab === 'grades' && (
+          <GradesPanel
+            students={students}
+            onOpenStudent={(student, tab) => openStudent(student, tab)}
+          />
         )}
 
         {activeTab === 'passwords' && (
