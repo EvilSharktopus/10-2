@@ -20,9 +20,17 @@ export function GradesPanel({ students, onOpenStudent }: Props) {
       const grade = gradeStudent(student.responses ?? {});
       const stopGrade = grade.byStop.find((sg) => sg.stopId === selectedStopId);
 
-      // Auto score for this checkpoint
-      const autoEarned = stopGrade?.autoEarned ?? 0;
-      const autoPossible = stopGrade?.autoPossible ?? 0;
+      // Auto score — attempted possible only (don't penalise for unattempted questions)
+      let autoEarned = 0;
+      let autoAttemptedPossible = 0;
+      for (const session of stopGrade?.sessions ?? []) {
+        for (const item of session.items) {
+          if (item.gradedBy === 'auto' && item.hasResponse) {
+            autoEarned += item.earned;
+            autoAttemptedPossible += item.possible;
+          }
+        }
+      }
 
       // Manual (teacher-scored) items for this checkpoint
       let manualEarned = 0;
@@ -46,16 +54,17 @@ export function GradesPanel({ students, onOpenStudent }: Props) {
       }
 
       // % of sessions in this checkpoint that are completed
+      // Sessions are stored by their string id (e.g. "c1s1"), not "stopId-index"
       const checkpointSessions = stop?.sessions ?? [];
-      const completedCount = checkpointSessions.filter((_, idx) =>
-        student.completedSessions.includes(`${selectedStopId}-${idx}`)
+      const completedCount = checkpointSessions.filter((session) =>
+        student.completedSessions.includes(session.id)
       ).length;
       const pctComplete = checkpointSessions.length > 0
         ? Math.round((completedCount / checkpointSessions.length) * 100)
         : 0;
 
       const totalEarned = autoEarned + manualEarned;
-      const totalPossible = autoPossible + manualPossible;
+      const totalPossible = autoAttemptedPossible + manualPossible;
       const combinedPct = totalPossible > 0 ? Math.round((totalEarned / totalPossible) * 100) : null;
 
       return {
@@ -64,7 +73,7 @@ export function GradesPanel({ students, onOpenStudent }: Props) {
         completedCount,
         totalSessions: checkpointSessions.length,
         autoEarned,
-        autoPossible,
+        autoAttemptedPossible,
         manualEarned,
         manualPossible,
         manualPending,
@@ -150,7 +159,7 @@ export function GradesPanel({ students, onOpenStudent }: Props) {
                   </td>
                 </tr>
               ) : (
-                rows.map(({ student, pctComplete, completedCount, totalSessions, autoEarned, autoPossible, manualEarned, manualPossible, manualPending, totalEarned, totalPossible, combinedPct }) => {
+                rows.map(({ student, pctComplete, completedCount, totalSessions, autoEarned, autoAttemptedPossible, manualEarned, manualPossible, manualPending, totalEarned, totalPossible, combinedPct }) => {
                   const completePctColor = pctComplete >= 100 ? 'var(--success)' : pctComplete > 0 ? 'var(--amber)' : 'var(--text-muted)';
                   return (
                     <tr
@@ -178,12 +187,12 @@ export function GradesPanel({ students, onOpenStudent }: Props) {
 
                       {/* Auto Score */}
                       <td style={col}>
-                        {autoPossible > 0 ? (
+                        {autoAttemptedPossible > 0 ? (
                           <>
-                            <div style={{ fontWeight: 700, color: scoreColor(autoPossible > 0 ? Math.round(autoEarned / autoPossible * 100) : null) }}>
-                              {autoEarned} / {autoPossible}
+                            <div style={{ fontWeight: 700, color: scoreColor(Math.round(autoEarned / autoAttemptedPossible * 100)) }}>
+                              {autoEarned} / {autoAttemptedPossible}
                             </div>
-                            <div className="text-xs text-muted">{Math.round(autoEarned / autoPossible * 100)}%</div>
+                            <div className="text-xs text-muted">{Math.round(autoEarned / autoAttemptedPossible * 100)}%</div>
                           </>
                         ) : (
                           <span className="text-xs text-muted">—</span>
