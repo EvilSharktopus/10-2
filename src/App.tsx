@@ -5,6 +5,7 @@ import { LoginPage } from './pages/LoginPage';
 import { StudentPage } from './pages/StudentPage';
 import { TeacherPage } from './pages/TeacherPage';
 import { LandingPage } from './pages/LandingPage';
+import { PrintSessionPage } from './pages/PrintSessionPage';
 import { seedIfNeeded } from './utils/seed';
 
 const CLASS_CODE = import.meta.env.VITE_CLASS_CODE ?? 'socials102';
@@ -66,6 +67,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/workbooks/:courseId/print/:sessionId" element={<PrintSessionPage />} />
       <Route path="/workbooks/:courseId" element={<CourseApp />} />
       {/* Catch-all: redirect unknown paths to landing */}
       <Route path="*" element={<Navigate to="/" replace />} />

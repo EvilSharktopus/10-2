@@ -77,11 +77,11 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   setAuth: (auth) => {
     set({ auth });
-    sessionStorage.setItem('auth', JSON.stringify(auth));
+    localStorage.setItem('auth', JSON.stringify(auth));
   },
 
   logout: () => {
-    sessionStorage.removeItem('auth');
+    localStorage.removeItem('auth');
     set({ auth: { studentId: null, isTeacher: false }, currentStudent: null });
   },
 
@@ -272,13 +272,13 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
 }));
 
-// ── Restore auth from sessionStorage on page load ─────────────────────────
-const stored = sessionStorage.getItem('auth');
+// ── Restore auth from localStorage on page load ────────────────────────────
+const stored = localStorage.getItem('auth');
 if (stored) {
   try {
     useAppStore.getState().setAuth(JSON.parse(stored));
   } catch {
-    sessionStorage.removeItem('auth');
+    localStorage.removeItem('auth');
   }
 }
 

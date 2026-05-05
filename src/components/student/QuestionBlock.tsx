@@ -50,8 +50,8 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
   if (q.question_type === 'true_false') {
     const selected = strVal;
     const correct = q.correct_answer;
-    // Locked as soon as they answer
-    const isLocked = isPersistedLocked || !!selected;
+    // Locked only once the Firestore flag is set (set when they first click an answer)
+    const isLocked = isPersistedLocked;
     const showFeedback = isLocked && selected !== '';
     const isAnswerCorrect = (selected === 'True') === correct;
 
@@ -59,6 +59,11 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
     const handleSelect = (v: string) => {
       if (disabled || isLocked) return;
       onChange(v);
+      // Don't lock yet — wait for Submit
+    };
+
+    const handleSubmit = () => {
+      if (!selected || isLocked) return;
       lock();
     };
 
@@ -108,6 +113,14 @@ export function QuestionBlock({ question: q, index, value, onChange, allResponse
             );
           })}
         </div>
+        {!isLocked && !disabled && selected !== '' && (
+          <button
+            className="btn btn-primary btn-sm mt-2"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        )}
         {showFeedback && (
           <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
             <span style={{ fontSize: '0.82rem', fontWeight: 600, color: isAnswerCorrect ? 'var(--success)' : 'var(--danger)' }}>

@@ -15,10 +15,11 @@ export function TeacherPage() {
   const subscribeSessionUnlocks = useAppStore((s) => s.subscribeSessionUnlocks);
   const students = useAppStore((s) => s.allStudents);
   const logout = useAppStore((s) => s.logout);
+  const courseId = useAppStore((s) => s.courseId);
 
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [selectedTab, setSelectedTab] = useState<'summary' | 'responses' | 'outcomes' | 'override'>('summary');
-  const [activeTab, setActiveTab] = useState<'overview' | 'review' | 'grades' | 'passwords'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'review' | 'grades' | 'passwords' | 'print'>('overview');
   const [search, setSearch] = useState('');
   const [showUnlockModal, setShowUnlockModal] = useState(false);
 
@@ -123,6 +124,12 @@ export function TeacherPage() {
               onClick={() => setActiveTab('grades')}
             >
               📋 Grades
+            </button>
+            <button
+              className={`teacher-tab${activeTab === 'print' ? ' active' : ''}`}
+              onClick={() => setActiveTab('print')}
+            >
+              🖨️ Print
             </button>
           </div>
           <button
@@ -308,6 +315,44 @@ export function TeacherPage() {
               ) : (
                 <PasswordTable students={students} />
               )}
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'print' && (
+          <div style={{ maxWidth: 900, margin: '0 auto' }}>
+            <div className="card">
+              <h3 style={{ marginBottom: 16, fontFamily: 'var(--font-display)' }}>
+                🖨️ Print Sessions
+              </h3>
+              <p className="text-muted text-sm mb-4">
+                Select a session to view its printable version.
+              </p>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                {STOPS.map((checkpoint) => (
+                  <div key={checkpoint.id} style={{ padding: 16, background: 'var(--bg-card-alt)', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                    <h4 style={{ margin: '0 0 12px 0' }}>Checkpoint {checkpoint.id}: {checkpoint.title.split('—')[1]?.trim() ?? checkpoint.title}</h4>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      {checkpoint.sessions.map((session) => (
+                        <div key={session.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px', background: 'var(--bg-card)', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                          <div>
+                            <strong style={{ display: 'block' }}>{session.title.split('—')[1]?.trim() ?? session.title}</strong>
+                            <span className="text-xs text-muted">ID: {session.id}</span>
+                          </div>
+                          <button 
+                            className="btn btn-sm" 
+                            style={{ background: 'var(--bg-app)', border: '1px solid var(--border)' }}
+                            onClick={() => window.open(`/workbooks/${courseId}/print/${session.id}`, '_blank')}
+                          >
+                            🖨️ Print View
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}
