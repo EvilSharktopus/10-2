@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women and Globalization — Source Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #fdf6f0;
+    color: #1c1c1c;
+    padding: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    overscroll-behavior: contain;
+  }
+
+  /* ── Header ── */
+  .page-header {
+    background: #1c1c1c;
+    color: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .header-icon {
+    font-size: 52px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .header-text .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 6px;
+  }
+
+  .header-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .header-text p {
+    font-size: 13px;
+    color: #ccc;
+    max-width: 560px;
+  }
+
+  /* ── Stat strip ── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    border-left: 5px solid #1c1c1c;
+  }
+
+  .stat-card.rose   { border-left-color: #c0392b; }
+  .stat-card.teal   { border-left-color: #16a085; }
+  .stat-card.gold   { border-left-color: #d4a017; }
+  .stat-card.slate  { border-left-color: #2c3e50; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #1c1c1c;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+  }
+
+  /* ── Two chart grid ── */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .chart-card {
+    background: white;
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+
+  .chart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: #1c1c1c;
+    margin-bottom: 3px;
+  }
+
+  .chart-subtitle {
+    font-size: 11px;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+  }
+
+  /* ── Wage gap bars ── */
+  .wage-row {
+    margin-bottom: 11px;
+  }
+
+  .wage-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+
+  .wage-country {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .wage-country.highlight { color: #c0392b; }
+
+  .wage-pct {
+    font-size: 12px;
+    font-weight: 700;
+    color: #555;
+  }
+
+  .wage-bar-bg {
+    background: #f0ede8;
+    border-radius: 4px;
+    height: 18px;
+    position: relative;
+  }
+
+  .wage-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: #2c3e50;
+  }
+
+  .wage-bar-fill.highlight { background: #c0392b; }
+  .wage-bar-fill.good { background: #16a085; }
+
+  .parity-line {
+    position: absolute;
+    right: 0;
+    top: -3px;
+    bottom: -3px;
+    width: 2px;
+    background: #1c1c1c;
+  }
+
+  .parity-label {
+    font-size: 9px;
+    color: #999;
+    text-align: right;
+    margin-top: 2px;
+  }
+
+  /* ── Microfinance visual ── */
+  .micro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .micro-fact {
+    background: #fdf6f0;
+    border-radius: 10px;
+    padding: 14px 12px;
+    text-align: center;
+    border: 1px solid #e8e0d8;
+  }
+
+  .micro-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #16a085;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  .micro-label {
+    font-size: 11px;
+    color: #555;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .micro-timeline {
+    margin-top: 8px;
+  }
+
+  .timeline-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0ede8;
+  }
+
+  .timeline-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .timeline-year {
+    font-size: 12px;
+    font-weight: 700;
+    color: #16a085;
+    width: 40px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .timeline-text {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  /* ── Tension box ── */
+  .tension-box {
+    background: #1c1c1c;
+    color: white;
+    border-radius: 12px;
+    padding: 22px 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .tension-col h3 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .tension-col.green h3 { color: #2ecc71; }
+  .tension-col.red h3   { color: #e74c3c; }
+
+  .tension-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #ddd;
+    line-height: 1.5;
+    align-items: flex-start;
+  }
+
+  .tension-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .green .tension-dot { background: #2ecc71; }
+  .red   .tension-dot { background: #e74c3c; }
+
+  .tension-divider {
+    width: 1px;
+    background: #333;
+    align-self: stretch;
+  }
+
+  .source-note {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  .footer-label {
+    text-align: center;
+    font-size: 11px;
+    color: #bbb;
+    margin-top: 20px;
+    font-style: italic;
+  }
+
+  @media print {
+    body { background: white; padding: 20px; }
+    .chart-card, .stat-card { box-shadow: none; border: 1px solid #ddd; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="page-header">
+  <div class="header-icon">♀</div>
+  <div class="header-text">
+    <div class="label">Social Studies 10-2 · Checkpoint 6, Session 3 · Source Analysis</div>
+    <h1>Women and Globalization</h1>
+    <p>Globalization has created new opportunities for women — and new forms of exploitation. These two charts tell both sides of that story.</p>
+  </div>
+</div>
+
+<!-- Stat strip -->
+<div class="stat-strip">
+  <div class="stat-card rose">
+    <div class="stat-num">83¢</div>
+    <div class="stat-label">Women earn per $1 earned by men globally (2024)</div>
+  </div>
+  <div class="stat-card teal">
+    <div class="stat-num">97%</div>
+    <div class="stat-label">Of Grameen Bank borrowers are women (2024)</div>
+  </div>
+  <div class="stat-card gold">
+    <div class="stat-num">134</div>
+    <div class="stat-label">Years to reach full gender pay parity at current rate</div>
+  </div>
+  <div class="stat-card slate">
+    <div class="stat-num">1B</div>
+    <div class="stat-label">Women worldwide still outside the financial system</div>
+  </div>
+</div>
+
+<!-- Two charts -->
+<div class="charts-grid">
+
+  <!-- Chart 1: Gender Wage Gap -->
+  <div class="chart-card">
+    <div class="chart-title">The Gender Wage Gap by Country</div>
+    <div class="chart-subtitle">Women's earnings as % of men's · 2024 data · 100% = full parity</div>
+
+    <div id="wage-chart"></div>
+    <div class="parity-label">← 100% = equal pay →</div>
+    <p class="source-note">Source: WEF Global Gender Gap Report 2024; OECD. Gap varies by country, industry, and whether adjusted for same-role comparisons.</p>
+  </div>
+
+  <!-- Chart 2: Microfinance -->
+  <div class="chart-card">
+    <div class="chart-title">Microfinance and Women Entrepreneurs</div>
+    <div class="chart-subtitle">The Grameen Bank story · Bangladesh · Founded 1983</div>
+
+    <div class="micro-grid">
+      <div class="micro-fact">
+        <div class="micro-num">10.56M</div>
+        <div class="micro-label">Active borrowers (April 2024)</div>
+      </div>
+      <div class="micro-fact">
+        <div class="micro-num">96%</div>
+        <div class="micro-label">Loan repayment rate</div>
+      </div>
+      <div class="micro-fact">
+        <div class="micro-num">$39.5B</div>
+        <div class="micro-label">Total loans disbursed (cumulative)</div>
+      </div>
+      <div class="micro-fact">
+        <div class="micro-num">64</div>
+        <div class="micro-label">Countries using the Grameen model</div>
+      </div>
+    </div>
+
+    <div class="micro-timeline">
+      <div class="timeline-row">
+        <span class="timeline-year">1983</span>
+        <span class="timeline-text">Muhammad Yunus founds Grameen Bank in Bangladesh — loans as small as $27 given to poor rural women with no collateral</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-year">2006</span>
+        <span class="timeline-text">Yunus wins Nobel Peace Prize — microfinance goes global, 211 million customers reached worldwide by 2013</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-year">Now</span>
+        <span class="timeline-text">Critics warn: many institutions now charge 20–100%+ interest, trapping women in debt cycles instead of lifting them out</span>
+      </div>
+    </div>
+
+    <p class="source-note">Source: Grameen Bank 2024; WEF 2024; NUS Economics Society 2025.</p>
+  </div>
+
+</div>
+
+<!-- Tension box -->
+<div class="tension-box">
+  <div class="tension-col green">
+    <h3>✓ Ways globalization has helped women</h3>
+    <div class="tension-item"><span class="tension-dot"></span><span>Export manufacturing created millions of paid jobs for women in Bangladesh, Vietnam, Cambodia who had few options before</span></div>
+    <div class="tension-item"><span class="tension-dot"></span><span>Microfinance gave women access to capital they were denied by traditional banks</span></div>
+    <div class="tension-item"><span class="tension-dot"></span><span>Global awareness campaigns (MeToo, gender pay reporting laws) spread across borders</span></div>
+    <div class="tension-item"><span class="tension-dot"></span><span>Women's labour force participation has risen in most developing regions</span></div>
+  </div>
+  <div class="tension-divider"></div>
+  <div class="tension-col red">
+    <h3>✗ Ways globalization has harmed women</h3>
+    <div class="tension-item"><span class="tension-dot"></span><span>Garment factories are 80% female — and pay the lowest wages in global supply chains</span></div>
+    <div class="tension-item"><span class="tension-dot"></span><span>The gender wage gap persists in every country — women earn 83¢ per $1 at current global pace, won't reach parity for 134 years</span></div>
+    <div class="tension-item"><span class="tension-dot"></span><span>Microfinance interest rates as high as 100%+ have trapped some women in debt</span></div>
+    <div class="tension-item"><span class="tension-dot"></span><span>1 billion women still excluded from the formal financial system entirely</span></div>
+  </div>
+</div>
+
+<!-- Wage gap chart JS -->
+<script>
+const wageData = [
+  { country: "Iceland",     pct: 91, highlight: false, good: true  },
+  { country: "Norway",      pct: 85, highlight: false, good: true  },
+  { country: "Finland",     pct: 84, highlight: false, good: true  },
+  { country: "Sweden",      pct: 82, highlight: false, good: true  },
+  { country: "Canada",      pct: 79, highlight: true,  good: false },
+  { country: "Germany",     pct: 77, highlight: false, good: false },
+  { country: "USA",         pct: 76, highlight: false, good: false },
+  { country: "UK",          pct: 74, highlight: false, good: false },
+  { country: "Bangladesh",  pct: 64, highlight: false, good: false },
+  { country: "Pakistan",    pct: 55, highlight: false, good: false },
+  { country: "World avg.",  pct: 83, highlight: false, good: false },
+];
+
+const container = document.getElementById('wage-chart');
+
+wageData.forEach(d => {
+  const row = document.createElement('div');
+  row.className = 'wage-row';
+  row.innerHTML = `
+    <div class="wage-top">
+      <span class="wage-country${d.highlight ? ' highlight' : ''}">${d.country}</span>
+      <span class="wage-pct">${d.pct}¢ per $1</span>
+    </div>
+    <div class="wage-bar-bg">
+      <div class="wage-bar-fill${d.highlight ? ' highlight' : d.good ? ' good' : ''}" style="width:${d.pct}%"></div>
+      <div class="parity-line"></div>
+    </div>
+  `;
+  container.appendChild(row);
+});
+</script>
+
+<div class="footer-label">Social Studies 10-2 · Mr. McRae · Source Analysis — Women and Globalization</div>
+
+</body>
+</html>
