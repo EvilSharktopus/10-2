@@ -23,7 +23,6 @@ export function StudentDetailModal({ student, onClose, initialTab = 'summary' }:
   const [expandedOverride, setExpandedOverride] = useState<number | null>(null);
 
   const grade = gradeStudent(student.responses ?? {});
-  const nextLockedStop = STOPS.find((s) => !student.unlockedStops.includes(s.id));
 
   const lastSeenStr = student.lastSeen
     ? new Date(student.lastSeen).toLocaleString()
@@ -122,28 +121,42 @@ export function StudentDetailModal({ student, onClose, initialTab = 'summary' }:
                   {STOPS.map((s) => {
                     const unlocked = student.unlockedStops.includes(s.id);
                     return (
-                      <div key={s.id} style={{
-                        padding: '5px 12px', borderRadius: 20, fontSize: '0.78rem', fontWeight: 700,
-                        background: unlocked ? 'var(--success-dim)' : 'var(--surface)',
-                        border: `1.5px solid ${unlocked ? 'var(--success)' : 'var(--border)'}`,
-                        color: unlocked ? 'var(--success)' : 'var(--text-muted)',
-                      }}>
+                      <button
+                        key={s.id}
+                        title={unlocked ? `Checkpoint ${s.id} unlocked` : `Click to unlock Checkpoint ${s.id}`}
+                        disabled={unlocked}
+                        onClick={() => unlockStop(student.id, s.id)}
+                        style={{
+                          padding: '5px 12px', borderRadius: 20, fontSize: '0.78rem', fontWeight: 700,
+                          background: unlocked ? 'var(--success-dim)' : 'var(--surface)',
+                          border: `1.5px solid ${unlocked ? 'var(--success)' : 'var(--border)'}`,
+                          color: unlocked ? 'var(--success)' : 'var(--text-muted)',
+                          cursor: unlocked ? 'default' : 'pointer',
+                          transition: 'all 0.15s',
+                        }}
+                        onMouseEnter={(e) => { if (!unlocked) { e.currentTarget.style.borderColor = 'var(--success)'; e.currentTarget.style.color = 'var(--success)'; e.currentTarget.style.background = 'var(--success-dim)'; }}}
+                        onMouseLeave={(e) => { if (!unlocked) { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.background = 'var(--surface)'; }}}
+                      >
                         {unlocked ? '✓' : '🔒'} CP {s.id}
-                      </div>
+                      </button>
                     );
                   })}
                 </div>
+                <div className="text-xs text-muted mt-2">Click any locked checkpoint to unlock it.</div>
               </div>
 
               <div className="card" style={{ padding: '14px 16px' }}>
                 <div className="text-xs text-muted mb-3" style={{ textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>Actions</div>
                 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                  {nextLockedStop && (
-                    <button className="btn btn-success btn-sm" onClick={() => unlockStop(student.id, nextLockedStop.id)}>
-                      🔓 Unlock Checkpoint {nextLockedStop.id}
-                    </button>
+                  {STOPS.filter((s) => !student.unlockedStops.includes(s.id)).length === 0 ? (
+                    <span className="badge badge-success">✓ All checkpoints unlocked</span>
+                  ) : (
+                    STOPS.filter((s) => !student.unlockedStops.includes(s.id)).map((s) => (
+                      <button key={s.id} className="btn btn-success btn-sm" onClick={() => unlockStop(student.id, s.id)}>
+                        🔓 Unlock CP {s.id}
+                      </button>
+                    ))
                   )}
-                  {!nextLockedStop && <span className="badge badge-success">✓ All checkpoints unlocked</span>}
                   {student.flaggedForCheckpoint && (
                     <button className="btn btn-amber btn-sm" onClick={() => clearFlag(student.id)}>Clear Checkpoint Flag</button>
                   )}
