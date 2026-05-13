@@ -1,33 +1,59 @@
 import React, { useState } from 'react';
-import { STUDENT_ROSTER } from '../data/students';
+import { COURSE_ROSTERS, CLASS_CODE_ROSTERS } from '../data/students';
+import { COURSE_CONFIGS } from '../utils/seed';
 import { getStudent, getClassConfig } from '../firebase/db';
 import { useAppStore } from '../store/useAppStore';
 
 type Step = 'code' | 'select' | 'password' | 'teacher-password';
 
 export function LoginPage() {
-  const setAuth = useAppStore((s) => s.setAuth);
+  const setAuth  = useAppStore((s) => s.setAuth);
   const courseId = useAppStore((s) => s.courseId);
-  const [step, setStep] = useState<Step>('code');
-  const [classCode, setClassCode] = useState('');
+  const [step, setStep]             = useState<Step>('code');
+  const [classCode, setClassCode]   = useState('');
+  const [enteredCode, setEnteredCode] = useState(''); // which code was validated
   const [selectedId, setSelectedId] = useState('');
-  const [password, setPassword] = useState('');
-  const [teacherPw, setTeacherPw] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [password, setPassword]     = useState('');
+  const [teacherPw, setTeacherPw]   = useState('');
+  const [error, setError]           = useState('');
+  const [loading, setLoading]       = useState(false);
 
   const noPaste = (e: React.ClipboardEvent) => e.preventDefault();
+
+  // All students seeded under this courseId
+  const fullRoster = COURSE_ROSTERS[courseId] ?? COURSE_ROSTERS['10-2'];
+
+  // Roster filtered to those associated with the entered class code
+  const visibleRoster = enteredCode && CLASS_CODE_ROSTERS[enteredCode]
+    ? fullRoster.filter((s) => CLASS_CODE_ROSTERS[enteredCode].includes(s.id))
+    : fullRoster;
 
   // Step 1: validate class code
   const handleCodeSubmit = async () => {
     setError('');
-    const code = classCode.trim().toLowerCase();
-    const envCode = (import.meta.env.VITE_CLASS_CODE ?? 'socials102').toLowerCase();
-    if (code !== envCode) {
-      setError('Incorrect class code. Check with your teacher.');
+    const entered = classCode.trim().toLowerCase();
+    const validCodes = (COURSE_CONFIGS[courseId]?.classCodes ?? ['socials102']).map((c) =>
+      c.toLowerCase()
+    );
+
+    if (validCodes.includes(entered)) {
+      setEnteredCode(entered);
+      setStep('select');
       return;
     }
-    setStep('select');
+
+    // Secondary check: validate against Firestore config (allows teacher-updated codes)
+    try {
+      const config = await getClassConfig(courseId);
+      if (config && entered === config.classCode.toLowerCase()) {
+        setEnteredCode(entered);
+        setStep('select');
+        return;
+      }
+    } catch {
+      // network error — fall through
+    }
+    setError('Incorrect class code. Check with your teacher.');
   };
 
   // Step 2: student selected name
@@ -67,7 +93,7 @@ export function LoginPage() {
     setLoading(true);
     try {
       const config = await getClassConfig(courseId);
-      const envTeacher = import.meta.env.VITE_TEACHER_CODE ?? 'teacher102';
+      const envTeacher = COURSE_CONFIGS[courseId]?.teacherCode ?? 'teacher102';
       const valid =
         teacherPw === (config?.teacherPassword ?? envTeacher) ||
         teacherPw === envTeacher;
@@ -83,7 +109,7 @@ export function LoginPage() {
     setLoading(false);
   };
 
-  const selectedName = STUDENT_ROSTER.find((s) => s.id === selectedId)?.shortName ?? '';
+  const selectedName = visibleRoster.find((s) => s.id === selectedId)?.shortName ?? '';
 
   return (
     <div className="login-page">
@@ -150,7 +176,7 @@ export function LoginPage() {
             </button>
             <p className="text-muted mb-3" style={{ fontSize: '0.88rem' }}>Select your name:</p>
             <div className="student-grid">
-              {STUDENT_ROSTER.map((s) => (
+              {visibleRoster.map((s) => (
                 <button
                   key={s.id}
                   className={`student-grid-btn${selectedId === s.id ? ' selected' : ''}`}

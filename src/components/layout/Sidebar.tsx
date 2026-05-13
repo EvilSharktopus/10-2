@@ -6,6 +6,7 @@ import { isSessionUnlocked } from '../../utils/unlocks';
 
 interface Props {
   student: Student;
+  stops?: Stop[];  // filtered by allowedStops; defaults to all STOPS
   sidebarOpen: boolean;
   onToggle: () => void;
   onSelectSession: (stopId: number, sessionIndex: number) => void;
@@ -15,6 +16,7 @@ interface Props {
 
 export function Sidebar({
   student,
+  stops: stopsProp,
   sidebarOpen,
   onToggle,
   onSelectSession,
@@ -22,6 +24,7 @@ export function Sidebar({
   activeSessionIndex,
 }: Props) {
   const unlocks = useAppStore((s) => s.unlocks);
+  const stops = stopsProp ?? STOPS;
 
   return (
     <>
@@ -38,7 +41,7 @@ export function Sidebar({
         </div>
 
         <div className="sidebar-stops">
-          {STOPS.map((stop: Stop) => {
+          {stops.map((stop: Stop) => {
             const hasProgressAccess = student.unlockedStops.includes(stop.id);
             const isCompleted = stop.sessions.every((s) =>
               student.completedSessions.includes(s.id)

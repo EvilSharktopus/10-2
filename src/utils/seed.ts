@@ -1,36 +1,51 @@
 import { getClassConfig, setClassConfig, getStudent, setStudent } from '../firebase/db';
-import { STUDENT_ROSTER, buildDefaultStudent } from '../data/students';
+import { COURSE_ROSTERS, buildDefaultStudent } from '../data/students';
 
-// NOTE: First teacher login after any Firebase path change will trigger re-seed
-// under the new namespace. Old flat-path data (students/, session_unlocks/) is
-// no longer read and can be manually deleted from the Firestore console.
+// ─── Per-course config ─────────────────────────────────────────────────────────
+// classCodes  — all valid codes students can enter for this course
+// teacherCode — teacher dashboard password
+//
+// Add new class codes here when adding new groups to an existing course.
+export const COURSE_CONFIGS: Record<string, { classCodes: string[]; teacherCode: string }> = {
+  '10-2': { classCodes: ['socials102', 'socials101'], teacherCode: 'teacher102' },
+};
 
 /**
  * Runs once per course on first app load.
- * Writes all students and class config to Firestore under courses/{courseId}/
- * if not already seeded for this course.
+ * Writes all students (across all class codes) and class config to Firestore
+ * under courses/{courseId}/ if not already seeded for this course.
  */
-export async function seedIfNeeded(
-  courseId: string,
-  classCode: string,
-  teacherPassword: string,
-): Promise<void> {
+export async function seedIfNeeded(courseId: string): Promise<void> {
   const config = await getClassConfig(courseId);
+  if (config?.initialized) {
+    // Course already seeded — but still check for any new students
+    // (e.g. Mason added after initial seed of 10-2).
+    const roster = COURSE_ROSTERS[courseId] ?? COURSE_ROSTERS['10-2'];
+    for (const entry of roster) {
+      const existing = await getStudent(courseId, entry.id);
+      if (!existing) {
+        console.log(`[Seed] New student "${entry.id}" — seeding into "${courseId}"...`);
+        await setStudent(courseId, buildDefaultStudent(entry));
+      }
+    }
+    return;
+  }
 
-  if (config?.initialized) return; // already seeded for this course
+  const courseConfig = COURSE_CONFIGS[courseId] ?? COURSE_CONFIGS['10-2'];
+  const roster = COURSE_ROSTERS[courseId] ?? COURSE_ROSTERS['10-2'];
 
   console.log(`[Seed] First run for course "${courseId}" — seeding Firestore...`);
 
   await setClassConfig(courseId, {
-    classCode,
-    teacherPassword,
+    classCode: courseConfig.classCodes[0], // primary code stored in config
+    teacherPassword: courseConfig.teacherCode,
     initialized: true,
   });
 
-  for (const roster of STUDENT_ROSTER) {
-    const existing = await getStudent(courseId, roster.id);
+  for (const entry of roster) {
+    const existing = await getStudent(courseId, entry.id);
     if (!existing) {
-      await setStudent(courseId, buildDefaultStudent(roster));
+      await setStudent(courseId, buildDefaultStudent(entry));
     }
   }
 

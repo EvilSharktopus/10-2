@@ -8,9 +8,6 @@ import { LandingPage } from './pages/LandingPage';
 import { PrintSessionPage } from './pages/PrintSessionPage';
 import { seedIfNeeded } from './utils/seed';
 
-const CLASS_CODE = import.meta.env.VITE_CLASS_CODE ?? 'socials102';
-const TEACHER_CODE = import.meta.env.VITE_TEACHER_CODE ?? 'teacher102';
-
 // ─── Per-course app shell ────────────────────────────────────────────────────
 function CourseApp() {
   const { courseId } = useParams<{ courseId: string }>();
@@ -28,7 +25,7 @@ function CourseApp() {
       setSeeded(true);
     }, 6000);
 
-    seedIfNeeded(courseId, CLASS_CODE, TEACHER_CODE)
+    seedIfNeeded(courseId)
       .then(() => {
         clearTimeout(timeout);
         setSeeded(true);

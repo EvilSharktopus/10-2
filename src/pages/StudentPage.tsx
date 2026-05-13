@@ -56,15 +56,20 @@ export function StudentPage({ studentId }: Props) {
     );
   }
 
-  const totalSessions = STOPS.flatMap((s) => s.sessions).length;
+  // If this student has restricted stops, only show those; otherwise show all.
+  const visibleStops = student.allowedStops
+    ? STOPS.filter((s) => student.allowedStops!.includes(s.id))
+    : STOPS;
+
+  const totalSessions = visibleStops.flatMap((s) => s.sessions).length;
   const progressPercent = totalSessions > 0
     ? (student.completedSessions.length / totalSessions) * 100
     : 0;
 
-  const activeStop = STOPS.find((s) => s.id === activeStopId) ?? STOPS[0];
+  const activeStop = visibleStops.find((s) => s.id === activeStopId) ?? visibleStops[0];
   const activeSession = activeStop.sessions[activeSessionIndex] ?? activeStop.sessions[0];
   const isLastSessionOfStop = activeSessionIndex === activeStop.sessions.length - 1;
-  const isLastStop = activeStop.id === STOPS[STOPS.length - 1].id;
+  const isLastStop = activeStop.id === visibleStops[visibleStops.length - 1].id;
 
   const showCheckpointFlag =
     student.flaggedForCheckpoint ||
@@ -72,7 +77,7 @@ export function StudentPage({ studentId }: Props) {
 
   // Navigate to a specific session
   const handleSelectSession = (stopId: number, sessionIdx: number) => {
-    const stop = STOPS.find((s) => s.id === stopId);
+    const stop = visibleStops.find((s) => s.id === stopId);
     if (!stop) return;
     const sessionToVerify = stop.sessions[sessionIdx];
     const hasProgressAccess = student.unlockedStops.includes(stopId);
@@ -93,28 +98,28 @@ export function StudentPage({ studentId }: Props) {
       setActiveSessionIndex(nextIdx);
       await advanceSession(student.id, activeStopId, nextIdx + 1);
     } else if (!activeStop.checkpointRequired) {
-      // Last session AND no checkpoint needed — auto-advance to next stop
-      const nextStopId = activeStopId + 1;
-      const nextStop = STOPS.find((s) => s.id === nextStopId);
+      // Last session AND no checkpoint needed — auto-advance to next visible stop
+      const currentIdx = visibleStops.findIndex((s) => s.id === activeStopId);
+      const nextStop = visibleStops[currentIdx + 1];
       if (nextStop) {
-        await advanceSession(student.id, nextStopId, 1);
-        await unlockStop(student.id, nextStopId);
-        setActiveStopId(nextStopId);
+        await advanceSession(student.id, nextStop.id, 1);
+        await unlockStop(student.id, nextStop.id);
+        setActiveStopId(nextStop.id);
         setActiveSessionIndex(0);
       } else {
-        // No next stop — course is finished!
+        // No next visible stop — course is finished!
         setCourseComplete(true);
       }
     } else {
       // Last session of this stop — student needs teacher checkpoint to advance
       await advanceSession(student.id, activeStopId, activeStop.sessions.length);
 
-      // If teacher already unlocked the next stop, navigate there
-      const nextStopId = activeStopId + 1;
-      const nextStop = STOPS.find((s) => s.id === nextStopId);
-      if (nextStop && student.unlockedStops.includes(nextStopId)) {
-        await advanceSession(student.id, nextStopId, 1);
-        setActiveStopId(nextStopId);
+      // If teacher already unlocked the next visible stop, navigate there
+      const currentIdx = visibleStops.findIndex((s) => s.id === activeStopId);
+      const nextStop = visibleStops[currentIdx + 1];
+      if (nextStop && student.unlockedStops.includes(nextStop.id)) {
+        await advanceSession(student.id, nextStop.id, 1);
+        setActiveStopId(nextStop.id);
         setActiveSessionIndex(0);
       } else {
         // Flag for checkpoint so teacher sees the request
@@ -127,6 +132,7 @@ export function StudentPage({ studentId }: Props) {
     <div className="app-shell">
       <Sidebar
         student={student}
+        stops={visibleStops}
         sidebarOpen={sidebarOpen}
         onToggle={() => setSidebarOpen((o) => !o)}
         onSelectSession={handleSelectSession}

@@ -10,6 +10,7 @@ export interface Student {
   flaggedForCheckpoint: boolean;
   raisedHand?: boolean;
   unlockedStops: number[];
+  allowedStops?: number[];  // If set, student can only see these stop numbers
   completedSessions: string[];
   glossaryUnlocked: string[];
   responses: Record<string, string | string[]>;
