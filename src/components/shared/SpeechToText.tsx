@@ -26,14 +26,31 @@ function getSpeechRecognition(): SpeechRecognitionConstructor | null {
   return (w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null) as SpeechRecognitionConstructor | null;
 }
 
+function friendlyError(code: string): string {
+  switch (code) {
+    case 'not-allowed':
+    case 'permission-denied':
+      return 'Microphone access was blocked. Click the 🔒 icon in your address bar and allow the microphone, then try again.';
+    case 'audio-capture':
+      return 'No microphone found. Make sure one is plugged in and not muted.';
+    case 'in-use':
+      return 'Your microphone is being used by another tab or app. Close the other one and try again.';
+    case 'no-speech':
+      return 'No speech was detected. Speak closer to your microphone and try again.';
+    case 'network':
+      return 'A network error stopped the microphone. Check your connection and try again.';
+    case 'aborted':
+      return ''; // user-initiated stop — no message needed
+    default:
+      return `Microphone stopped unexpectedly (${code}). Try again or reload the page.`;
+  }
+}
+
 // ── Component ────────────────────────────────────────────────────────────────
 
 interface Props {
-  /** Current value of the text field */
   currentValue: string;
-  /** Called with the updated text (existing + transcribed) */
   onResult: (newValue: string) => void;
-  /** If true, button is not rendered */
   disabled?: boolean;
 }
 
@@ -41,10 +58,18 @@ export function DictateButton({ currentValue, onResult, disabled }: Props) {
   const accessibilityMode = useAppStore(s => s.accessibilityMode);
   const SpeechRecognition = getSpeechRecognition();
   const [listening, setListening] = useState(false);
+  const [error, setError] = useState<string>('');
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
-  // Capture latest value reference so the onresult callback always appends to current text
+  const errorTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const valueRef = useRef(currentValue);
   useEffect(() => { valueRef.current = currentValue; }, [currentValue]);
+
+  const showError = (msg: string) => {
+    if (!msg) return;
+    setError(msg);
+    if (errorTimerRef.current) clearTimeout(errorTimerRef.current);
+    errorTimerRef.current = setTimeout(() => setError(''), 8000);
+  };
 
   const toggle = useCallback(() => {
     if (!SpeechRecognition) return;
@@ -53,6 +78,8 @@ export function DictateButton({ currentValue, onResult, disabled }: Props) {
       recognitionRef.current.stop();
       return;
     }
+
+    setError('');
 
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
@@ -76,9 +103,8 @@ export function DictateButton({ currentValue, onResult, disabled }: Props) {
     };
 
     recognition.onerror = (e) => {
-      if (e.error !== 'aborted') {
-        console.warn('[STT] Error:', e.error);
-      }
+      console.warn('[STT] Error:', e.error);
+      showError(friendlyError(e.error));
       setListening(false);
       recognitionRef.current = null;
     };
@@ -86,33 +112,57 @@ export function DictateButton({ currentValue, onResult, disabled }: Props) {
     try {
       recognition.start();
       setListening(true);
-    } catch {
-      console.warn('[STT] Could not start recognition.');
+    } catch (err) {
+      console.warn('[STT] Could not start recognition.', err);
+      showError('Could not start the microphone. Try reloading the page.');
     }
   }, [SpeechRecognition, listening, onResult]);
 
-  // clean up on unmount
+  // Clean up on unmount
   useEffect(() => {
     return () => {
       if (recognitionRef.current) {
         recognitionRef.current.abort();
         recognitionRef.current = null;
       }
+      if (errorTimerRef.current) clearTimeout(errorTimerRef.current);
     };
   }, []);
 
-  // Don't render if unsupported, disabled, or accessibility off
   if (!SpeechRecognition || disabled || !accessibilityMode) return null;
 
   return (
-    <button
-      type="button"
-      className={`dictate-btn${listening ? ' listening' : ''}`}
-      onClick={toggle}
-      title={listening ? 'Stop dictating' : 'Dictate your answer'}
-      aria-label={listening ? 'Stop dictating' : 'Start dictating'}
-    >
-      {listening ? '⏹' : '🎤'}
-    </button>
+    <div style={{ position: 'relative', display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+      <button
+        type="button"
+        className={`dictate-btn${listening ? ' listening' : ''}`}
+        onClick={toggle}
+        title={listening ? 'Stop dictating' : error ? error : 'Dictate your answer'}
+        aria-label={listening ? 'Stop dictating' : 'Start dictating'}
+        style={error ? { borderColor: 'var(--danger)', color: 'var(--danger)' } : undefined}
+      >
+        {listening ? '⏹' : error ? '⚠️' : '🎤'}
+      </button>
+      {error && (
+        <div style={{
+          position: 'absolute',
+          top: '100%',
+          right: 0,
+          marginTop: 6,
+          width: 260,
+          background: 'var(--danger-dim)',
+          border: '1px solid var(--danger)',
+          borderRadius: 'var(--radius-sm)',
+          padding: '8px 12px',
+          fontSize: '0.78rem',
+          color: 'var(--danger)',
+          lineHeight: 1.5,
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+          zIndex: 50,
+        }}>
+          {error}
+        </div>
+      )}
+    </div>
   );
 }
