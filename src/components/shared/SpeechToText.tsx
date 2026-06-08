@@ -38,7 +38,7 @@ function friendlyError(code: string): string {
     case 'no-speech':
       return 'No speech was detected. Speak closer to your microphone and try again.';
     case 'network':
-      return 'A network error stopped the microphone. Check your connection and try again.';
+      return 'Chrome\'s microphone uses Google\'s servers to process speech — your school network may be blocking it. Try using your phone\'s hotspot, or ask Mr. McRae for an alternative.';
     case 'aborted':
       return ''; // user-initiated stop — no message needed
     default:
